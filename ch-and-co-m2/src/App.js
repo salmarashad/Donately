@@ -33,7 +33,7 @@ function App() {
   };
   
   return (
-    <div>
+    <div className="min-h-screen">
       {/* grid splits child divs into a grid of size 3 */}
       <div className="grid grid-cols-3 mx-64 items-center h-16">
         {/* logo div */}
@@ -53,6 +53,10 @@ function App() {
           <Profile></Profile>
           <h1>Logout</h1>
         </div>
+      </div>
+      {/* rest of the body */}
+      <div className="bg-gray-200 min-h-screen">
+        
       </div>
     </div>
   );
