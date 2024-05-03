@@ -11,7 +11,7 @@ function App() {
 		<div className="min-h-screen">
 			<NavbarComponent setPage={setPage} />
 			{/* rest of the body */}
-			<div className="bg-gray-200 min-h-screen">
+			<div className="bg-farahgray-200 min-h-screen pt-12">
 				{page === "donations" && <DonationsView />}
 				{page === "volunteering" && <h1>Volunteering</h1>}
 				{page === "organizations" && <h1>Organizations</h1>}
