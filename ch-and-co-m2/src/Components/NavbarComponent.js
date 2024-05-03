@@ -43,6 +43,11 @@ function NavbarComponent( {setPage} ) {
 						>
 						<h1>Register</h1>
 						</button>
+						<button 
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("login")}>
+						<h1>Log in</h1>
+						</button>
 					</div>
 				</div>
 			</div>
