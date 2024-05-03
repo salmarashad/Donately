@@ -6,7 +6,7 @@ function NotificationComponent() {
     return(
         <div className='relative'>
             <div onClick={() => setIsClicked(!isClicked)}>
-                <NotifSVG className="h-6 w-7" />
+                <NotifSVG className="h-6 w-7 cursor-pointer" />
             </div>
             <div className={isClicked === false ? "hidden" : "block"}>
                 {/* little triangle above the notif container */}
