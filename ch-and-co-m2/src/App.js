@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from "react";
 import NotificationComponent from './Components/NotificationComponent';
+import DonationsView from './Views/DonationsView';
 import {ReactComponent as ProfileSVG} from './SVGs/profile.svg';
 
 function App() {
@@ -18,22 +19,22 @@ function App() {
 					</div>
 					{/* Donations, Volunteering, Organisations, also a flexbox */}
 					<button
-						className="hover:bg-slate-100 cursor-pointer"
+						className="hover:bg-slate-100 cursor-pointer rounded-md px-3 py-1"
 						onClick={() => setPage("donations")}
 					>
 						<h1>Donations</h1>
 					</button>
 
 					<button
-						className="hover:bg-slate-100 cursor-pointer"
+						className="hover:bg-slate-100 cursor-pointer rounded-md px-3 py-1"
 						onClick={() => setPage("volunteering")}
 					>
 						<h1>Volunteering</h1>
 					</button>
 
 					<button
-						className="hover:bg-slate-100 cursor-pointer"
-						onClick={() => setPage("Organizations")}
+						className="hover:bg-slate-100 cursor-pointer rounded-md px-3 py-1"
+						onClick={() => setPage("organizations")}
 					>
 						<h1>Organizations</h1>
 					</button>
@@ -45,8 +46,13 @@ function App() {
 					</div>
 				</div>
 			</div>
+
 			{/* rest of the body */}
-			<div className="bg-gray-200 min-h-screen"></div>
+			<div className="bg-gray-200 min-h-screen">
+				{page === "donations" && <DonationsView />}
+				{page === "volunteering" && <h1>Volunteering</h1>}
+				{page === "organizations" && <h1>Organizations</h1>}
+			</div>
 		</div>
 	);
 }
