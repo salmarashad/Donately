@@ -1,7 +1,10 @@
 import './App.css';
+import { useState } from "react";
 import NotificationComponent from './Components/NotificationComponent';
 
 function App() {
+
+  const [page, setPage] = useState("donations");
   
   const Profile = () => {
     return (
@@ -18,33 +21,50 @@ function App() {
   };
   
   return (
-    <div className="min-h-screen">
-      {/* grid splits child divs into a grid of size 3 */}
-      <div className="grid grid-cols-3 px-64 items-center h-16 shadow-md">
-        {/* logo div */}
-        <div>
-          {/* Temporary text, replace with real logo yara */}
-          <h1 className="font-bold text-2xl">donately</h1> 
-        </div>
-        {/* Donations, Volunteering, Organisations, also a grid of 3 */}
-        <div className="grid grid-cols-3 font-medium text-center">
-          <h1>Donations</h1>
-          <h1>Volunteering</h1>
-          <h1>Organisations</h1>
-        </div>
-        {/* Notifications, Profile, Logout, also a grid of three */}
-        <div className="grid grid-cols-3 font-medium text-right ml-64 items-center justify-center">
-          <NotificationComponent/>
-          <Profile></Profile>
-          <h1>Logout</h1>
-        </div>
-      </div>
-      {/* rest of the body */}
-      <div className="bg-gray-200 min-h-screen">
-        
-      </div>
-    </div>
-  );
+		<div className="min-h-screen">
+			{/* grid splits child divs into a grid of size 3 */}
+			<div className="grid grid-cols-3 px-64 items-center h-16 shadow-md">
+				{/* logo div */}
+				<div>
+					{/* Temporary text, replace with real logo yara */}
+					<h1 className="font-bold text-2xl">donately</h1>
+				</div>
+				{/* Donations, Volunteering, Organisations, also a grid of 3 */}
+				<div className="grid grid-cols-3 font-medium text-center">
+
+					<button
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("donations")}
+					>
+						<h1>Donations</h1>
+					</button>
+
+					<button
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("volunteering")}
+					>
+						<h1>Volunteering</h1>
+					</button>
+
+					<button
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("Organizations")}
+					>
+						<h1>Organizations</h1>
+					</button>
+          
+				</div>
+				{/* Notifications, Profile, Logout, also a grid of three */}
+				<div className="grid grid-cols-3 font-medium text-right ml-64 items-center justify-center">
+					<NotificationComponent />
+					<Profile></Profile>
+					<h1>Logout</h1>
+				</div>
+			</div>
+			{/* rest of the body */}
+			<div className="bg-gray-200 min-h-screen"></div>
+		</div>
+	);
 }
 
 export default App;
