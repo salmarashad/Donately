@@ -39,7 +39,12 @@ function NavbarComponent( {setPage} ) {
 					<div className="flex font-medium items-center justify-center gap-4">
 						<NotificationComponent />
 						<ProfileSVG className="h-7 w-7" />
-						<h1>Logout</h1>
+						<button
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("registration")}
+						>
+						<h1>Register</h1>
+						</button>
 					</div>
 				</div>
 			</div>    
