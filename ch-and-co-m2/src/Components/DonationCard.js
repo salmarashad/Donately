@@ -1,18 +1,18 @@
 function DonationCard() {
     return (
-			<div className="max-w-full min-w-full bg-white shadow-md rounded-md overflow-hidden">
-				<div className="flex">
+			<div className="w-full bg-white shadow-md rounded-md overflow-hidden p-6">
+				<div className="flex gap-5">
 					{/*Image*/}
-					<div className="flex items-center justify-center w-1/3">
+					<div className="flex items-start justify-center w-40">
 						<img
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggDQ7mmUtoTk1dCz8WaEAOMQOyah08T2JdAqwU0eJzg&s"
 							alt="Donation"
-							className="h-3/4 w-3/4 object-cover rounded-md"
+							className="w-full object-cover rounded-md aspect-square"
 						/>
 					</div>
 
 					{/*Text*/}
-					<div className="w-2/3 p-4">
+					<div className="w-2/3">
 						<div className="flex items-center">
 							<h2 className="text-xl font-semibold font-serif mb-2">Title</h2>
 							<h2 className="text-l font-semibold text-gray-500 font-serif mb-2">

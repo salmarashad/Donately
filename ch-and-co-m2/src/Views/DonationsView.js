@@ -53,51 +53,51 @@ function DonationsView() {
 	};
 
   return (
-		<div className="grid grid-cols-3">
-			<div className="col-span-1">
+		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
+			<div className="col-span-1 justify-self-start">
 				<div className="flex flex-col items-center justify-center gap-4">
 					<h1>Filters</h1>
 					<div className="flex flex-col gap-4">
-						<div className="flex">
-							<input type="checkbox" id="clothing" name="clothing" value="clothing" onChange={handleFilterChange} />
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="clothing" name="clothing" value="clothing" onChange={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								Clothing
 							</h1>
 						</div>
-						<div className="flex">
-							<input type="checkbox" id="toys" name="toys" value="toys" onClick={handleFilterChange}/>
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="toys" name="toys" value="toys" onClick={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								Toys
 							</h1>
 						</div>
-						<div className="flex">
-							<input type="checkbox" id="food" name="food" value="food" onClick={handleFilterChange}/>
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="food" name="food" value="food" onClick={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								Food
 							</h1>
 						</div>
-						<div className="flex">
-							<input type="checkbox" id="medical" name="medical" value="medical" onClick={handleFilterChange}/>
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="medical" name="medical" value="medical" onClick={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								Medical Supplies
 							</h1>
 						</div>
-						<div className="flex">
-							<input type="checkbox" id="school" name="school" value="school" onClick={handleFilterChange}/>
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="school" name="school" value="school" onClick={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								School Supplies
 							</h1>
 						</div>
-						<div className="flex">
-							<input type="checkbox" id="blood" name="blood" value="blood" onClick={handleFilterChange}/>
-							<h1 className=" text-gray-500 px-4 py-2 rounded-lg">
+						<div>
+							<input type="checkbox" id="blood" name="blood" value="blood" onClick={handleFilterChange} className="accent-gray-700"/>
+							<h1 className="text-gray-500 mx-4 rounded-lg inline">
 								Blood Donations
 							</h1>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div className="col-span-1">
+			<div className="col-span-2">
 				<div className="flex flex-col items-center justify-center gap-4">
 					{renderCards(currentCardSet)}
 				</div>
