@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import NotificationComponent from './NotificationComponent';
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
 
@@ -38,12 +38,20 @@ function NavbarComponent( {setPage} ) {
 					{/* Notifications, Profile, Logout, also a flexbox */}
 					<div className="flex font-medium items-center justify-center gap-4">
 						<NotificationComponent />
+						
 						<ProfileSVG className="h-7 w-7" />
+						
 						<button
 						className="hover:bg-slate-100 cursor-pointer"
 						onClick={() => setPage("registration")}
 						>
 						<h1>Register</h1>
+						</button>
+						
+						<button 
+						className="hover:bg-slate-100 cursor-pointer"
+						onClick={() => setPage("login")}>
+						<h1>Log in</h1>
 						</button>
 					</div>
 				</div>

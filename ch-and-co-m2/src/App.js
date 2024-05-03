@@ -5,6 +5,7 @@ import DonationsView from './Views/DonationsView';
 import {ReactComponent as ProfileSVG} from './SVGs/profile.svg';
 import NavbarComponent from './Components/NavbarComponent';
 import Registration from './Components/Registration';
+import Login from './Components/Login'
 import OrganizationRegistration from './Components/OrganizationRegistration';
 import UserRegistration from './Components/UserRegistration';
 
@@ -19,6 +20,7 @@ function App() {
 				{page === "volunteering" && <h1>Volunteering</h1>}
 				{page === "organizations" && <h1>Organizations</h1>}
 				{page === "registration" && <Registration />}
+				{page == "login" && <Login />}
 				
 			</div>
 		</div>
