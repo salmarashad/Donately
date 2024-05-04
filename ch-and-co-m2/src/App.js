@@ -10,9 +10,10 @@ import UserRegistration from './Components/UserRegistration';
 
 function App() {
   const [page, setPage] = useState("donations");
+  const [isLoggedin, setIsLoggedin] = useState(false);
   return (
 		<div className="h-screen">
-			<NavbarComponent setPage={setPage} />
+			<NavbarComponent setPage={setPage} isLoggedin = {isLoggedin} setIsLoggedin={setIsLoggedin} />
 			{/* rest of the body */}
 			<div className="bg-gray-200 min-h-[93%] py-8">
 				{page === "donations" && <DonationsView />}
@@ -20,7 +21,7 @@ function App() {
 				{page === "organizations" && <h1>Organizations</h1>}
 				{page === "registration" && <Registration setPage={setPage} />}
 				{page === "profile" && <Profile />}
-				{page == "login" && <Login />}
+				{page == "login" && <Login setIsLoggedin={setIsLoggedin}/>}
 			</div>
 		</div>
 	);

@@ -2,7 +2,7 @@
 import NotificationComponent from './NotificationComponent';
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
 
-function NavbarComponent( {setPage} ) {   
+function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {   
     return( 
 		<div className="flex justify-center items-center w-full h-[7%] bg-white sticky top-0">
 			{/* flexbox to split the navbar into 3 sections */}
@@ -38,11 +38,19 @@ function NavbarComponent( {setPage} ) {
 				<div className="flex font-medium items-center justify-center gap-4">
 						<NotificationComponent />
 						<ProfileSVG className="h-7 w-7" />
-						<button 
-						className="cursor-pointer nav-item"
-						onClick={() => setPage("registration")}>
-						<h1>Log in</h1>
-						</button>
+						{isLoggedin ? 
+							<button 
+							className="cursor-pointer nav-item"
+							onClick={() => setIsLoggedin(false)}>
+								<h1>Log Out</h1>
+							</button>
+						: 
+							<button 
+							className="cursor-pointer nav-item"
+							onClick={() => setPage("login")}>
+								<h1>Log in</h1>
+							</button>
+						}
 					</div>
 			</div>
 		</div>
