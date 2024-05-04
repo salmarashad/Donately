@@ -3,7 +3,7 @@ import DonationCard from "../Components/DonationCard";
 import CardRenderer from "../Components/CardRenderer";
 import Filter from "../Components/Filter";
 
-function DonationsView() {
+function OrganizationsView() {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
 	const [filteringOptions, setFilteringOptions] = useState([]);
 	
@@ -43,4 +43,4 @@ function DonationsView() {
 	);
 }
 
-export default DonationsView;
+export default OrganizationsView;

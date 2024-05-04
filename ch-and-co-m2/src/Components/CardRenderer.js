@@ -8,6 +8,7 @@ function CardRenderer({currentCardSet})  {
                 subtitle={card.subtitle}
                 description={card.description}
                 tags={card.tags}
+                imgURL={card.imgURL}
             />
         );
     });
