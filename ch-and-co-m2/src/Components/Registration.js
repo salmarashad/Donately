@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-function Registration({setPage}) { 
+function Registration(props) { 
     return(
         <div className='grid items-center justify-center'>
             {/*organization vs user registration */}
@@ -19,6 +19,7 @@ function Registration({setPage}) {
                             {/*organization*/}
                             <button 
                                 className=" bg-farahgray-200 hover:bg-farahgreen-200 text-slate-600 text-2xl rounded-2xl flex-shrink-0 p-4 min-w-44"
+                                onClick={() => props.setPage("organizationRegistration")}
                             >
                                 Organization
                             </button>
@@ -26,6 +27,7 @@ function Registration({setPage}) {
                             {/*User*/}
                             <button 
                                 className=" bg-farahgray-200 hover:bg-farahgreen-200 text-slate-600 text-2xl rounded-2xl flex-shrink-0 p-4 min-w-44"
+                                onClick={() => props.setPage("userRegistration")}
                             >
                                 User
                             </button>
@@ -33,7 +35,7 @@ function Registration({setPage}) {
 
                         {/*Redirect*/}
                         <p className='text-center text-green-600 text-lg underline pt-6 cursor-pointer' 
-                        onClick={() => setPage("login")}>
+                        onClick={() => props.setPage("login")}>
                             Returning user? log in here.
                         </p>
                     </div>
