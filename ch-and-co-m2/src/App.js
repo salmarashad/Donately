@@ -21,7 +21,7 @@ function App() {
 				{page === "organizations" && <h1>Organizations</h1>}
 				{page === "registration" && <Registration setPage={setPage} />}
 				{page === "profile" && <Profile />}
-				{page == "login" && <Login setIsLoggedin={setIsLoggedin}/>}
+				{page == "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage}/>}
 			</div>
 		</div>
 	);
