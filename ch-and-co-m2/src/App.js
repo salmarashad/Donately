@@ -18,7 +18,7 @@ function App() {
 				{page === "donations" && <DonationsView />}
 				{page === "volunteering" && <h1>Volunteering</h1>}
 				{page === "organizations" && <h1>Organizations</h1>}
-				{page === "registration" && <Registration />}
+				{page === "registration" && <Registration setPage={setPage} />}
 				{page === "profile" && <Profile />}
 				{page == "login" && <Login />}
 				
