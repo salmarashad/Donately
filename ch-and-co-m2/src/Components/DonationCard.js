@@ -29,8 +29,8 @@ function DonationCard(props) {
 							{/*Tags*/}
 							<div className="flex items-center gap-2 [&>*:first-child]:font-bold">
 								{
-								props.tags.map((tag) => (
-									<span className="inline-block text-sm bg-farahgreen-200 text-farahgreen-300 px-3 py-1 rounded-xl">
+								props.tags.map((tag, index) => (
+									<span className="inline-block text-sm bg-farahgreen-200 text-farahgreen-300 px-3 py-1 rounded-xl" key={index}>
 										{tag}
 									</span>
 								))
@@ -39,7 +39,7 @@ function DonationCard(props) {
 
 							{/*Button*/}
 							<button 
-							class="text-sm italic border-2 border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl font-semibold"
+							className="text-sm italic border-2 border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl font-semibold"
 							onClick={() => setIsDetailedView(true)}
 							>
 								View Details {">"}

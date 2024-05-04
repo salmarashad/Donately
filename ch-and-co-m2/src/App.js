@@ -1,5 +1,5 @@
 import './App.css';
-import { useContext, useState, createContext } from "react";
+import { useState, createContext } from "react";
 import DonationsView from './Views/DonationsView';
 import NavbarComponent from './Components/NavbarComponent';
 import Registration from './Components/Registration';
@@ -16,14 +16,14 @@ const DetailedContext = createContext();
 function App() {
 	const [page, setPage] = useState("donations");
 	const [isLoggedin, setIsLoggedin] = useState(false);
-	const [isDetailedView, setIsDetailedView] = useState(true);
-	const [userType, setUserType] = useState("donor");
+	const [isDetailedView, setIsDetailedView] = useState(false);
+	const [userType, setUserType] = useState("");
   	return (
 		<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView }}>
 			<div className="h-screen font-karla text-farahblack">
 				<NavbarComponent setPage={setPage} isLoggedin = {isLoggedin} setIsLoggedin={setIsLoggedin} />
 				{/* rest of the body */}
-				<div className="bg-gray-200 h-max pb-8 pt-24">
+				<div className="bg-gray-200 h-max pb-8 pt-24 min-h-full">
 					{page === "donations" && <DonationsView />}
 					{page === "volunteering" && <VolunteeringView />}
 					{page === "organizations" && <OrganizationsView />}
@@ -31,7 +31,7 @@ function App() {
 					{page === "organizationRegistration" && <OrganizationRegistration setPage={setPage} />}
 					{page === "userRegistration" && <UserRegistration setPage={setPage} />}
 					{page === "profile" && <Profile userType={userType} />}
-					{page == "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage}/>}
+					{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} setUserType={setUserType}/>}
 				</div>
 				{isDetailedView && <DetailsView />}
 			</div>

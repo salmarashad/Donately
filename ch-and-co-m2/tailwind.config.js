@@ -6,6 +6,7 @@ module.exports = {
 			colors: {
 				farahgreen: {
 					200: "#B0BCBC",
+					250: "#A2ADAD",
 					300: "#3B4747",
 				},
 				farahgray: "#707070",
