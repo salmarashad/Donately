@@ -20,6 +20,8 @@ function App() {
 				{page === "volunteering" && <h1>Volunteering</h1>}
 				{page === "organizations" && <h1>Organizations</h1>}
 				{page === "registration" && <Registration setPage={setPage} />}
+				{page === "organizationRegistration" && <OrganizationRegistration setPage={setPage} />}
+				{page === "userRegistration" && <UserRegistration setPage={setPage} />}
 				{page === "profile" && <Profile />}
 				{page == "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage}/>}
 			</div>
