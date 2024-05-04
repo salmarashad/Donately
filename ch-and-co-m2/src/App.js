@@ -17,6 +17,7 @@ function App() {
 	const [page, setPage] = useState("donations");
 	const [isLoggedin, setIsLoggedin] = useState(false);
 	const [isDetailedView, setIsDetailedView] = useState(true);
+	const [userType, setUserType] = useState("donor");
   	return (
 		<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView }}>
 			<div className="h-screen font-karla text-farahblack">
@@ -29,7 +30,7 @@ function App() {
 					{page === "registration" && <Registration setPage={setPage} />}
 					{page === "organizationRegistration" && <OrganizationRegistration setPage={setPage} />}
 					{page === "userRegistration" && <UserRegistration setPage={setPage} />}
-					{page === "profile" && <Profile />}
+					{page === "profile" && <Profile userType={userType} />}
 					{page == "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage}/>}
 				</div>
 				{isDetailedView && <DetailsView />}
