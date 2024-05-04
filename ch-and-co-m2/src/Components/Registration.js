@@ -18,14 +18,14 @@ function Registration({setPage}) {
                         <div className='flex flex-row justify-center space-x-10 pt-16'>
                             {/*organization*/}
                             <button 
-                                className=" bg-farahgray-200 hover:bg-farahgreen-200 text-slate-600 text-2xl rounded-2xl flex-shrink-0 p-4 min-w-44"
+                                className=" bg-farahgray-200 hover:bg-farahgreen-200 hover:border-solid text-slate-600 text-2xl border-2 border-dotted border-farahgreen-200 rounded-2xl flex-shrink-0 p-4 min-w-44"
                             >
                                 Organization
                             </button>
 
                             {/*User*/}
                             <button 
-                                className=" bg-farahgray-200 hover:bg-farahgreen-200 text-slate-600 text-2xl rounded-2xl flex-shrink-0 p-4 min-w-44"
+                                className=" bg-farahgray-200 hover:bg-farahgreen-200 hover:border-solid text-slate-600 text-2xl border-2 border-dotted border-farahgreen-200 rounded-2xl flex-shrink-0 p-4 min-w-44"
                             >
                                 User
                             </button>
