@@ -15,7 +15,7 @@ function App() {
 		<div className="h-screen font-karla text-farahblack">
 			<NavbarComponent setPage={setPage} isLoggedin = {isLoggedin} setIsLoggedin={setIsLoggedin} />
 			{/* rest of the body */}
-			<div className="bg-gray-200 min-h-full pb-8 pt-24">
+			<div className="bg-gray-200 h-full pb-8 pt-24">
 				{page === "donations" && <DonationsView />}
 				{page === "volunteering" && <h1>Volunteering</h1>}
 				{page === "organizations" && <h1>Organizations</h1>}
