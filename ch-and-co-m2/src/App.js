@@ -7,6 +7,9 @@ import Profile from './Components/Profile.js';
 import Login from './Components/Login'
 import OrganizationRegistration from './Components/OrganizationRegistration';
 import UserRegistration from './Components/UserRegistration';
+import OrganizationsView from './Views/OrganizationsView';
+import VolunteeringView from './Views/VolunteeringView';
+
 
 function App() {
   const [page, setPage] = useState("donations");
@@ -17,8 +20,8 @@ function App() {
 			{/* rest of the body */}
 			<div className="bg-gray-200 h-full pb-8 pt-24">
 				{page === "donations" && <DonationsView />}
-				{page === "volunteering" && <h1>Volunteering</h1>}
-				{page === "organizations" && <h1>Organizations</h1>}
+				{page === "volunteering" && <VolunteeringView />}
+				{page === "organizations" && <OrganizationsView />}
 				{page === "registration" && <Registration setPage={setPage} />}
 				{page === "organizationRegistration" && <OrganizationRegistration setPage={setPage} />}
 				{page === "userRegistration" && <UserRegistration setPage={setPage} />}
