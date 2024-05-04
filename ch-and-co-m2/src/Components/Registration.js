@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 function Registration({setPage}) { 
     return(
-        <div>
+        <div className='grid items-center justify-center'>
             {/*organization vs user registration */}
-            <div>
-
                 <div className='flex justify-center'>
                     <div>
                         <img src= {process.env.PUBLIC_URL + 'login.png'} className=' max-w-lg'/>
@@ -38,11 +36,8 @@ function Registration({setPage}) {
                         onClick={() => setPage("login")}>
                             Returning user? log in here.
                         </p>
-
                     </div>
                 </div>
-
-            </div>
         </div>
     );
 }
