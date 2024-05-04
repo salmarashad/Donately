@@ -1,4 +1,4 @@
-function DonationCard() {
+function DonationCard(props) {
     return (
 			<div className="w-full bg-white shadow-md rounded-md overflow-hidden p-6">
 				<div className="flex gap-5">
@@ -13,11 +13,10 @@ function DonationCard() {
 
 					{/*Text*/}
 					<div className="w-2/3">
-						<div className="flex items-center">
-							<h2 className="text-xl font-semibold font-serif mb-2">Title</h2>
-							<h2 className="text-l font-semibold text-gray-500 font-serif mb-2">
-								| Subtitle
-							</h2>
+						<div className="flex items-center gap-2">
+							<h2 className="text-xl font-semibold mb-2">Title</h2>
+							<h2 className="text-l font-semibold text-farahgray mb-2">|</h2>
+							<h2 className="text-l font-semibold text-farahgray mb-2">Org name</h2>
 						</div>
 						<p className="text-sm text-gray-800">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -25,13 +24,12 @@ function DonationCard() {
 							enim ad minim veniam, quis nostrud exercitation ullamco laboris
 							nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
 							reprehenderit in voluptate velit esse cillum dolore eu fugiat
-							nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-							sunt in culpa qui officia deserunt mollit anim id est laborum.
+							nulla pariatur.
 						</p>
 
 						<div className="flex justify-between items-center mt-4 h-auto">
 							{/*Tags*/}
-							<div className="flex items-center gap-2">
+							<div className="flex items-center gap-2 [&>*:first-child]:font-bold">
 								<span className="inline-block text-sm bg-farahgreen-200 text-farahgreen-300 px-3 py-1 rounded-xl">
 									Tamer
 								</span>
@@ -41,7 +39,7 @@ function DonationCard() {
 							</div>
 
 							{/*Button*/}
-							<button class="text-sm italic border  border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl cursor-pointer">
+							<button class="text-sm italic border-2 border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl font-semibold">
 								View Details {">"}
 							</button>
 						</div>

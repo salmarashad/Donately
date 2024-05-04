@@ -12,7 +12,7 @@ function App() {
   const [page, setPage] = useState("donations");
   const [isLoggedin, setIsLoggedin] = useState(false);
   return (
-		<div className="h-screen">
+		<div className="h-screen font-karla text-farahblack">
 			<NavbarComponent setPage={setPage} isLoggedin = {isLoggedin} setIsLoggedin={setIsLoggedin} />
 			{/* rest of the body */}
 			<div className="bg-gray-200 min-h-full pb-8 pt-24">

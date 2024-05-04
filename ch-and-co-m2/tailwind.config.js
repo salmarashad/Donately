@@ -8,9 +8,11 @@ module.exports = {
 					200: "#B0BCBC",
 					300: "#3B4747",
 				},
-				farahgray: {
-					200: "#E5E6E1"
-				}
+				farahgray: "#707070",
+				farahblack: "#333333"
+			},
+			fontFamily: {
+				'karla': ['Karla', 'sans-serif'],
 			},
 		},
 	},
