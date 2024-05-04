@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 function Login( props) { 
     return(
-        <div className=' h-full grid items-center justify-center'>
+        <div className='h-screen -mt-24 -mb-8 grid items-center justify-center'>
             <form className=' flex flex-col space-y-5 items-center justify-center h-96  content-center bg-farahgreen-200 p-8 rounded-xl mb-16'> 
                     <label className='flex flex-col text-lg font-semibold text-farahgreen-300'>
                         Userame:
