@@ -29,7 +29,7 @@ function DonationCard(props) {
 							{/*Tags*/}
 							<div className="flex items-center gap-2 [&>*:first-child]:font-bold">
 								{
-								props.tags.map((tag, index) => (
+								Object.values(props.tags).map((tag, index) => (
 									<span className="inline-block text-sm bg-farahgreen-300 text-farahgreen-700 px-3 py-1 rounded-xl" key={index}>
 										{tag}
 									</span>
