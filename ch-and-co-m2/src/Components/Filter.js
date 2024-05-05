@@ -67,26 +67,26 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     function renderCategories(categories, checkedCategories) {
         return (
-            <div className="bg-gray-100 p-4 rounded-md">
+            <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md">
                 {categories.map((category, index) => (
-                    <div className="bg-white p-4 rounded-md mb-4" key={index}>
+                    <div className="bg-white py-2 px-4 rounded-md" key={index}>
                         <div className="flex items-center">
                             <input
                                 type="checkbox"
                                 id={`category-${index}`}
                                 checked={checkedCategories.includes(category.category)}
                                 onChange={(e) => handleCategoryCheckboxChange(category.category, e.target.checked)}
-                                className="mr-2"
+                                className="mr-2 accent-farahgray-700"
                             />
-                            <label htmlFor={`category-${index}`} className="text-lg font-semibold">{category.category}</label>
+                            <label htmlFor={`category-${index}`} className="font-medium">{category.category}</label>
                         </div>
                         {checkedCategories.includes(category.category) && (
-                            <div className="mt-4">
+                            <div className="flex flex-col gap-4 mt-4 pb-4">
                                 {Object.entries(category.parameters).map(([param, values]) => (
-                                    <div className="mt-2" key={param}>
+                                    <div key={param}>
                                         <label className="block font-medium" htmlFor={param}>{param}</label>
                                         <select
-                                            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                            className="mt-1 block w-full rounded-md border-2 border-farahgray-100 focus:ring focus:ring-farahgreen-300 outline-none"
                                             id={param}
                                             name={param}
                                             onChange={(e) => handleFilterChange(e, category.category, param)}

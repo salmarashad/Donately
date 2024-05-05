@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import {ReactComponent as GraphicSVG} from '../SVGs/sign-up-graphic.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tigero-filled.svg';
+import { useContext } from 'react';
+import { DetailedContext } from "../App";
 
 function Login(props) {
+    const { setUserType } = useContext(DetailedContext);
     const [email, setEmail] = useState("");
     const [error, setError] = useState(false);
-
     const [password, setPassword] = useState("");
 
     const handleMailChange = (e) => {
@@ -20,31 +22,31 @@ function Login(props) {
 		e.preventDefault();
         if(email === "donor@gmail.com" && password === "donor") {
             props.setIsLoggedin(true);
-            props.setUserType("donor");
+            setUserType("donor");
             setError(false);
             props.setPage("donations");
         }
         else if(email === "teacher@gmail.com" && password === "teacher") {
             props.setIsLoggedin(true);
-            props.setUserType("teacher");
+            setUserType("teacher");
             setError(false);
             props.setPage("donations");
         }
         else if(email === "doctor@gmail.com" && password === "doctor") {
             props.setIsLoggedin(true);
-            props.setUserType("doctor");
+            setUserType("doctor");
             setError(false);
             props.setPage("donations");
         }
         else if(email === "admin@gmail.com" && password === "admin") {
             props.setIsLoggedin(true);
-            props.setUserType("admin");
+            setUserType("admin");
             setError(false);
             props.setPage("organizations")
         }
         else if(email === "organization@gmail.com" && password === "organization") {
             props.setIsLoggedin(true);
-            props.setUserType("organization");
+            setUserType("organization");
             setError(false);
         }
         else {

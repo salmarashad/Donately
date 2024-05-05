@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { DetailedContext } from "../App";
+
 function DonationCard(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
     return (

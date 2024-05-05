@@ -1,8 +1,13 @@
  import NotificationComponent from './NotificationComponent';
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
+import { useContext } from 'react';
+import { DetailedContext } from "../App";
 
-function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {   
+function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {   
+	const { userType, setUserType } = useContext(DetailedContext);
+	const users = ["", "donor", "teacher", "doctor"];
+
 	function goToProfile() {
 		if(isLoggedin) {
 			setPage("profile");
@@ -11,6 +16,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 			setPage("login");
 		}
 	}
+
     return( 
 		<div className="flex justify-center items-center w-full h-16 bg-white fixed top-0">
 			{/* flexbox to split the navbar into 3 sections */}
@@ -20,7 +26,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 					<LogoSVG className="w-24"/>
 				</div>
 				{/* Donations, Volunteering, Organisations, also a flexbox */}
-				{userType == "donor"?
+				{users.includes(userType) ?
 					<div className="flex font-medium text-center gap-24">
 						<button
 							className="cursor-pointer nav-item"
@@ -77,7 +83,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 						{isLoggedin ? 
 							<button 
 							className="cursor-pointer nav-item"
-							onClick={() => {setIsLoggedin(false); setPage("donations")}}>
+							onClick={() => {setIsLoggedin(false); setPage("donations"); setUserType("");}}>
 								<h1>Log Out</h1>
 							</button>
 						: 

@@ -1016,18 +1016,18 @@ function DonationsView() {
 			  },
 			"imgURL": "https://example.com/emergency_blood_donation_beni_suef_hospital.jpg"
 		  }
-	  ]
-  return (
+	  ];
+
+	return (
 		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
 			<div className="col-span-1 justify-self-start">
 				<div className="flex flex-col items-center justify-center gap-4">
-					<h1>Filters</h1>
 					<Filter filteringOptions={filteringOptions} setFilteringOptions={setFilteringOptions} data={currentData} setCurrentCardSet={setCurrentCardSet} />
 				</div>
 			</div>
 			<div className="col-span-2">
 				<div className="flex flex-col items-center justify-center gap-4">
-					<CardRenderer currentCardSet = {currentCardSet} />
+					<CardRenderer currentCardSet={currentCardSet} />
 				</div>
 			</div>
 			<div className="col-span-1"></div>
