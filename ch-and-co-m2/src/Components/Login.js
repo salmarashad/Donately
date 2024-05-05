@@ -40,6 +40,7 @@ function Login(props) {
             props.setIsLoggedin(true);
             props.setUserType("admin");
             setError(false);
+            props.setPage("organizations")
         }
         else if(email === "organization@gmail.com" && password === "organization") {
             props.setIsLoggedin(true);
