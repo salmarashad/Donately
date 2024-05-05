@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .label {
+    @apply text-base font-medium;
+  }
+  .text-input {
+    @apply rounded-md px-2 py-1 inline bg-gray-100 w-full mt-1 mb-3;
+  }
+  .submit-btn {
+    @apply py-1 px-3 rounded-md bg-farahgreen-300 text-farahgreen-700 font-medium enabled:hover:bg-farahgreen-400 disabled:opacity-30;
+  }
+}

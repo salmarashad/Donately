@@ -5,8 +5,6 @@ import NavbarComponent from './Components/NavbarComponent';
 import Registration from './Components/Registration';
 import Profile from './Components/Profile.js';
 import Login from './Components/Login'
-import OrganizationRegistration from './Components/OrganizationRegistration';
-import UserRegistration from './Components/UserRegistration';
 import OrganizationsView from './Views/OrganizationsView';
 import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
@@ -28,8 +26,6 @@ function App() {
 					{page === "volunteering" && <VolunteeringView />}
 					{page === "organizations" && <OrganizationsView />}
 					{page === "registration" && <Registration setPage={setPage} />}
-					{page === "organizationRegistration" && <OrganizationRegistration setPage={setPage} />}
-					{page === "userRegistration" && <UserRegistration setPage={setPage} />}
 					{page === "profile" && <Profile userType={userType} />}
 					{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} setUserType={setUserType}/>}
 				</div>
