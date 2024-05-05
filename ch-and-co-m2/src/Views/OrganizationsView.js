@@ -29,12 +29,12 @@ function OrganizationsView() {
 			<div className="col-span-1 justify-self-start">
 				<div className="flex flex-col items-center justify-center gap-4">
 					<h1>Filters</h1>
-					<Filter filteringOptions={filteringOptions} setFilteringOptions={setFilteringOptions} currentData={currentData} setCurrentCardSet={setCurrentCardSet} />
+					{/* <Filter filteringOptions={filteringOptions} setFilteringOptions={setFilteringOptions} currentData={currentData} setCurrentCardSet={setCurrentCardSet} /> */}
 				</div>
 			</div>
 			<div className="col-span-2">
 				<div className="flex flex-col items-center justify-center gap-4">
-					<CardRenderer currentCardSet = {currentCardSet} />
+					{/* <CardRenderer currentCardSet = {currentCardSet} /> */}
 				</div>
 			</div>
 			<div className="col-span-1"></div>
