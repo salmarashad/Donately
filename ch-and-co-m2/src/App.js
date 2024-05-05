@@ -10,6 +10,7 @@ import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
 
 const DetailedContext = createContext();
+const userContext = createContext();
 
 function App() {
 	const [page, setPage] = useState("donations");

@@ -26,7 +26,34 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 					<LogoSVG className="w-24"/>
 				</div>
 				{/* Donations, Volunteering, Organisations, also a flexbox */}
-				{users.includes(userType) ?
+				{ !users.includes(userType) ?
+					<div className="flex font-medium text-center gap-24">
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Organisations</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Donors</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Submissions</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Requests</h1>
+						</button>
+					</div>
+				:
 					<div className="flex font-medium text-center gap-24">
 						<button
 							className="cursor-pointer nav-item"
@@ -48,33 +75,6 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 							<h1>Organizations</h1>
 						</button>
 					</div>
-					:
-						<div className="flex font-medium text-center gap-24">
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Organisations</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Donors</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Submissions</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Requests</h1>
-							</button>
-						</div>
 				}
 					{/* Notifications, Profile, Logout, also a flexbox */}
 				<div className="flex font-medium items-center justify-end gap-4 w-[150px]">

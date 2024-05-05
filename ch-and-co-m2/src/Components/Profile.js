@@ -33,7 +33,9 @@ function Profile() {
                 <div className="flex flex-col gap-4 items-center">
                     <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
                         <h3>You are registered as a {userType === "teacher" ? "teacher" :
-                                                     userType === "doctor" ? "doctor" : "donor"}</h3>
+                                                     userType === "doctor" ? "doctor" : 
+                                                     userType === "admin" ? "admin" : 
+                                                     userType === "organization" ? "organization" : "donor"}</h3>
                     </div>
                     {userType === "teacher" && <div>
                         <h3 className="text-center">You teach <span className="font-semibold italic">Computer Science</span>.
