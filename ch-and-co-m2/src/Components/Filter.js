@@ -16,6 +16,8 @@ function Filter({filteringOptions, setFilteringOptions, currentData, setCurrentC
     const [bloodGovernorate, setBloodGovernorate] = React.useState(new Set());
     const [bloodArea, setBloodArea] = React.useState(new Set());
 
+    
+
 
     useEffect(() => {
         const categories = new Set(currentData.map(item => item.tags.type));
@@ -50,7 +52,7 @@ function Filter({filteringOptions, setFilteringOptions, currentData, setCurrentC
                 foodTypeSet.add(data.tags.type);
             }
             if (data.tags.type.includes("Medical Supplies")) {
-                medicalDevicesSet.add(data.tags.medicaldevices);
+                medicalDevicesSet.add(data.tags.medicaldevice);
                 medicalEquipmentSet.add(data.tags.medicalequipment);
                 medicalMedicationSet.add(data.tags.medication);
             }
@@ -58,9 +60,9 @@ function Filter({filteringOptions, setFilteringOptions, currentData, setCurrentC
                 schoolTypeSet.add(data.tags.type);
             }
             if (data.tags.type.includes("Blood donations")) {
-                bloodHospitalSet.add(data.tags.hospital);
-                bloodGovernorateSet.add(data.tags.governorate);
-                bloodAreaSet.add(data.tags.area);
+                bloodHospitalSet.add(data.tags.Hospital);
+                bloodGovernorateSet.add(data.tags.Governorate);
+                bloodAreaSet.add(data.tags.Area);
             }
         }
         setClothesAge(new Set(Array.from(clothesAgeSet).sort()));
@@ -77,10 +79,21 @@ function Filter({filteringOptions, setFilteringOptions, currentData, setCurrentC
         setBloodHospital(new Set(Array.from(bloodHospitalSet).sort()));
         setBloodGovernorate(new Set(Array.from(bloodGovernorateSet).sort()));
         setBloodArea(new Set(Array.from(bloodAreaSet).sort()));
+
     }, [currentData]);
+
+    useEffect(() => {
+        if (filteringOptions.length === 0) {
+            setCurrentCardSet(currentData);
+        }
+        else {
+
+        }
+    }, [filteringOptions]);
 
 	const handleFilterChange = (e) => {
 		const { value, checked } = e.target;
+
 		setFilteringOptions(prevOptions => {
 			if (checked) {
 				return [...prevOptions, value];
