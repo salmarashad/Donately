@@ -1027,7 +1027,7 @@ function DonationsView() {
 			</div>
 			<div className="col-span-2">
 				<div className="flex flex-col items-center justify-center gap-4">
-					<CardRenderer currentCardSet = {currentCardSet} />
+					<CardRenderer currentCardSet = {currentData} />
 				</div>
 			</div>
 			<div className="col-span-1"></div>

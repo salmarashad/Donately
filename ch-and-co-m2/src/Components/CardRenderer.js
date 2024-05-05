@@ -7,7 +7,7 @@ function CardRenderer({currentCardSet})  {
                 title={card.title}
                 subtitle={card.subtitle}
                 description={card.description}
-                tags={card.tags.type}
+                tags={card.tags}
                 imgURL={card.imgURL}
                 key={index}
             />
