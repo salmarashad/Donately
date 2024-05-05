@@ -2,7 +2,7 @@
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
 
-function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {   
+function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType, setUserType} ) {   
 	function goToProfile() {
 		if(isLoggedin) {
 			setPage("profile");
@@ -20,7 +20,34 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 					<LogoSVG className="w-24"/>
 				</div>
 				{/* Donations, Volunteering, Organisations, also a flexbox */}
-				{userType == "donor"?
+				{ userType === "admin"?
+					<div className="flex font-medium text-center gap-24">
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Organisations</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Donors</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Submissions</h1>
+						</button>
+						<button
+							className='cursor-pointer nav-item'
+							onClick={() => setPage("organizations")}
+						>
+							<h1>Requests</h1>
+						</button>
+					</div>
+				:
 					<div className="flex font-medium text-center gap-24">
 						<button
 							className="cursor-pointer nav-item"
@@ -42,33 +69,6 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 							<h1>Organizations</h1>
 						</button>
 					</div>
-					:
-						<div className="flex font-medium text-center gap-24">
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Organisations</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Donors</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Submissions</h1>
-							</button>
-							<button
-								className='cursor-pointer nav-item'
-								onClick={() => setPage("organizations")}
-							>
-								<h1>Requests</h1>
-							</button>
-						</div>
 				}
 					{/* Notifications, Profile, Logout, also a flexbox */}
 				<div className="flex font-medium items-center justify-end gap-4 w-[150px]">
@@ -77,7 +77,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin, userType} ) {
 						{isLoggedin ? 
 							<button 
 							className="cursor-pointer nav-item"
-							onClick={() => {setIsLoggedin(false); setPage("donations")}}>
+							onClick={() => {setIsLoggedin(false); setPage("donations"); setUserType("donor") }}>
 								<h1>Log Out</h1>
 							</button>
 						: 

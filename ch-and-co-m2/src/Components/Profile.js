@@ -29,7 +29,9 @@ function Profile(props) {
                 <div className="flex flex-col gap-4 items-center">
                     <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
                         <h3>You are registered as a {props.userType === "teacher" ? "teacher" :
-                                                     props.userType === "doctor" ? "doctor" : "donor"}</h3>
+                                                     props.userType === "doctor" ? "doctor" : 
+                                                     props.userType === "admin" ? "admin" : 
+                                                     props.userType === "organization" ? "organization" : "donor"}</h3>
                     </div>
                     {props.userType === "teacher" && <div>
                         <h3 className="text-center">You teach <span className="font-semibold italic">Computer Science</span>.
