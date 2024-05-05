@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {ReactComponent as GraphicSVG} from '../SVGs/sign-up-graphic.svg';
+import {ReactComponent as LogoSVG} from '../SVGs/tigero-filled.svg';
 
 function Login(props) {
     const [email, setEmail] = useState("");
@@ -57,9 +58,12 @@ function Login(props) {
                 <GraphicSVG className="w-full" />
             </div>
             <div className='flex flex-col w-[500px] bg-white shadow-md rounded-lg gap-4 p-8'>
-                <h2 className='text-center text-2xl font-medium mb-4'>
-                    Welcome to donate<span className='font-sans'>لي</span>
-                </h2>
+                <div className='flex gap-2 justify-center items-end'>
+                    <h2 className='text-center text-2xl font-medium mb-4'>
+                        Welcome to 
+                    </h2>
+                    <LogoSVG className="w-24 mb-1 cursor-pointer" onClick={() => props.setPage("donations")} />
+                </div>
                 <form>
                     <label className='label'>E-mail
                         <input type="email" value={email} name="name" placeholder="Type here..." onChange={handleMailChange} className="text-input"/>

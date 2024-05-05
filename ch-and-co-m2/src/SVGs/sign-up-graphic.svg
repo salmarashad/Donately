@@ -105,7 +105,7 @@
 						<polygon id="XMLID_225_" style="fill:#F7F2ED;" points="656.56,359.927 586.41,368.05 586.254,343.821 656.56,338.386 						
 							"/>
 						
-							<text id="XMLID_224_" transform="matrix(0.6741 -0.0622 0 1 591.0729 362.0204)" style="fill:#42284C; font-family:'Montserrat-Medium'; font-size:18.5451px;">CLOTHES</text>
+							<text id="XMLID_224_" transform="matrix(0.6741 -0.0622 0 1 591.0729 362.0204)" style="fill:#42284C; font-family:'Karla'; font-size:18.5451px;">CLOTHES</text>
 					</g>
 				</g>
 			</g>
@@ -210,7 +210,7 @@
 															"/>
 						</g>
 						
-							<text id="XMLID_250_" transform="matrix(0.9303 0.0822 0 1 116.6496 381.6813)" style="fill:#422748; font-family:'Montserrat-Medium'; font-size:12px;">DONATION</text>
+							<text id="XMLID_250_" transform="matrix(0.9303 0.0822 0 1 116.6496 381.6813)" style="fill:#422748; font-family:'Karla'; font-size:12px;">DONATION</text>
 					</g>
 					<g id="XMLID_231_">
 						<g id="XMLID_255_">
@@ -226,7 +226,7 @@
 															"/>
 						</g>
 						
-							<text id="XMLID_221_" transform="matrix(0.8161 0.0141 0 1 132.074 283.6853)" style="fill:#422748; font-family:'Montserrat-Medium'; font-size:12px;">CLOTHES</text>
+							<text id="XMLID_221_" transform="matrix(0.8161 0.0141 0 1 132.074 283.6853)" style="fill:#422748; font-family:'Karla'; font-size:12px;">CLOTHES</text>
 					</g>
 				</g>
 			</g>
@@ -761,7 +761,7 @@
 							<path id="XMLID_108_" style="fill:#F7F2ED;" d="M367.767,366.206c0,2.686,0,37.472,0,37.472l129.569-9.661l-0.888-33.893
 								L367.767,366.206z"/>
 							
-								<text id="XMLID_107_" transform="matrix(0.9903 -0.0533 0 1 374.9056 391.4959)" style="fill:#42284C; font-family:'Montserrat-Medium'; font-size:20.7067px;">DONATION</text>
+								<text id="XMLID_107_" transform="matrix(0.9903 -0.0533 0 1 374.9056 391.4959)" style="fill:#42284C; font-family:'Karla'; font-size:20.7067px;">DONATION</text>
 						</g>
 					</g>
 				</g>

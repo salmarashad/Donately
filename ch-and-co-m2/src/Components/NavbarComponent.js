@@ -1,5 +1,6 @@
  import NotificationComponent from './NotificationComponent';
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
+import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
 
 function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {   
 	function goToProfile() {
@@ -15,9 +16,8 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 			{/* flexbox to split the navbar into 3 sections */}
 			<div className="flex max-w-7xl w-full items-center justify-between">
 				{/* logo div */}
-				<div className="w-[150px]">
-					{/* Temporary text, replace with real logo yara */}
-					<h1 className="font-bold text-2xl">donately</h1>
+				<div className='w-[150px]'>
+					<LogoSVG className="w-24"/>
 				</div>
 				{/* Donations, Volunteering, Organisations, also a flexbox */}
 				<div className="flex font-medium text-center gap-24">
