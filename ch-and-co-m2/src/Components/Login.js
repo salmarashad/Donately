@@ -61,17 +61,17 @@ function Login(props) {
                     Welcome to donate<span className='font-sans'>لي</span>
                 </h2>
                 <form>
-                    <label className='text-base font-medium'>E-mail</label>
-                    <input type="email" value={email} name="name" placeholder="Type here..." onChange={handleMailChange}
-                        className="rounded-md px-2 py-1 inline bg-gray-100 w-full mt-1 mb-3"/>
-                    <label className='text-base font-medium'>Password</label>
-                    <input type="password" value={password} name="name" placeholder="Type here..." onChange={handlePassChange}
-                        className="rounded-md px-2 py-1 inline bg-gray-100 w-full mt-1 mb-3" />
-                    {error && <p className='text-center text-sm mb-3 text-red-600 italic'>Incorrect email or password, please try again</p>}
+                    <label className='label'>E-mail
+                        <input type="email" value={email} name="name" placeholder="Type here..." onChange={handleMailChange} className="text-input"/>
+                    </label>
+                    <label className='label'>Password
+                        <input type="password" value={password} name="name" placeholder="Type here..." onChange={handlePassChange} className="text-input" />
+                    </label>
+                    {error && <p className='error text-center'>Incorrect email or password, please try again</p>}
                     <div className='flex justify-center'>
                         <button
                             type="submit"
-                            className='py-1 px-3 rounded-md bg-farahgreen-300 text-farahgreen-700 font-medium enabled:hover:bg-farahgreen-400 disabled:opacity-30'
+                            className='submit-btn'
                             disabled={email === "" || password === ""}
                             onClick={handleLogin}>
                             Log in
