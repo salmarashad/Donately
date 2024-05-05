@@ -27,14 +27,13 @@ function DonationCard(props) {
 
 						<div className="flex justify-between items-center mt-4 h-auto">
 							{/*Tags*/}
-							<div className="flex items-center gap-2 [&>*:first-child]:font-bold">
-								{
-								Object.values(props.tags).map((tag, index) => (
-									<span className="inline-block text-sm bg-farahgreen-300 text-farahgreen-700 px-3 py-1 rounded-xl" key={index}>
+							<div className="flex items-center gap-2">
+								{Object.values(props.tags).map((tag, index) => (
+									tag !== "" && 
+									<span className="inline-block text-sm bg-farahgreen-300 text-farahgreen-700 px-3 py-1 rounded-xl font-bold" key={index}>
 										{tag}
 									</span>
-								))
-								}
+								))}
 							</div>
 
 							{/*Button*/}
