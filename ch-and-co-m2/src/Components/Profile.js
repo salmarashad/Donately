@@ -13,7 +13,7 @@ function Profile(props) {
                         <h1 className="font-bold text-2xl">Farah Ahmad <span className="text-farahgray font-normal text-lg">(F)</span></h1>
                         <div className="flex gap-2">
                             <MailSVG className="h-5 w-5" />
-                            <p>farahahmad065@gmail.com</p>
+                            <p>{props.userType}@gmail.com</p>
                         </div>
                         <div className="flex gap-2">
                             <PhoneSVG className="h-5 w-5" />
@@ -27,7 +27,7 @@ function Profile(props) {
                 </div>
                 <hr className="border-t-2 w-11/12 mx-auto" />
                 <div className="flex flex-col gap-4 items-center">
-                    <div className="bg-slate-200 rounded-md text-center py-2 w-full">
+                    <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
                         <h3>You are registered as a {props.userType === "teacher" ? "teacher" :
                                                      props.userType === "doctor" ? "doctor" : "donor"}</h3>
                     </div>

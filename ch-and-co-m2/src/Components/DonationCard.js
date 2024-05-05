@@ -18,10 +18,10 @@ function DonationCard(props) {
 					<div className="w-2/3">
 						<div className="flex items-center gap-2">
 							<h2 className="text-xl font-semibold mb-2">{props.title}</h2>
-							<h2 className="text-l font-semibold text-farahgray mb-2">|</h2>
-							<h2 className="text-l font-semibold text-farahgray mb-2">{props.subtitle}</h2>
+							<h2 className="text-l font-semibold text-farahgray-400 mb-2">|</h2>
+							<h2 className="text-l font-semibold text-farahgray-400 mb-2">{props.subtitle}</h2>
 						</div>
-						<p className="text-sm text-gray-800">
+						<p className="text-sm text-farahgray-700">
 							{props.description}
 						</p>
 
@@ -30,7 +30,7 @@ function DonationCard(props) {
 							<div className="flex items-center gap-2 [&>*:first-child]:font-bold">
 								{
 								props.tags.map((tag, index) => (
-									<span className="inline-block text-sm bg-farahgreen-200 text-farahgreen-300 px-3 py-1 rounded-xl" key={index}>
+									<span className="inline-block text-sm bg-farahgreen-300 text-farahgreen-700 px-3 py-1 rounded-xl" key={index}>
 										{tag}
 									</span>
 								))
@@ -39,7 +39,7 @@ function DonationCard(props) {
 
 							{/*Button*/}
 							<button 
-							className="text-sm italic border-2 border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl font-semibold"
+							className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
 							onClick={() => setIsDetailedView(true)}
 							>
 								View Details {">"}

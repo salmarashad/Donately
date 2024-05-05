@@ -71,7 +71,7 @@ function Login(props) {
                     <div className='flex justify-center'>
                         <button
                             type="submit"
-                            className='py-1 px-3 rounded-md bg-farahgreen-200 enabled:hover:bg-farahgreen-250 disabled:bg-opacity-30'
+                            className='py-1 px-3 rounded-md bg-farahgreen-300 text-farahgreen-700 font-medium enabled:hover:bg-farahgreen-400 disabled:opacity-30'
                             disabled={email === "" || password === ""}
                             onClick={handleLogin}>
                             Log in

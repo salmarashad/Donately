@@ -32,7 +32,7 @@ function Filter({filteringOptions, setFilteringOptions, currentData, setCurrentC
                             return (
                                 <div key={tag}>
                                     <input type="checkbox" id={tag} name={tag} value={tag} onClick={handleFilterChange} className="accent-gray-700"/>
-                                    <h1 className="text-gray-500 mx-4 rounded-lg inline">
+                                    <h1 className="text-farahgray-500 mx-4 rounded-lg inline">
                                         {tag}
                                     </h1>
                                 </div>

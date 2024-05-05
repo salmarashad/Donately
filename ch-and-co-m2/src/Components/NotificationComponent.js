@@ -15,7 +15,7 @@ function NotificationComponent(props) {
                 <div className="absolute top-12 h-72 w-72 -right-32 shadow-lg bg-white rounded-md p-4">
                     <h1 className='text-center'>Notifications</h1>
                     <hr className='border-t-2' />
-                    {!props.isLoggedin && <div className='h-full flex text-center items-center justify-center text-farahgray'>
+                    {!props.isLoggedin && <div className='h-full flex text-center items-center justify-center'>
                         <p>Log in or sign up to receive notifications</p>
                     </div>}
                 </div>
