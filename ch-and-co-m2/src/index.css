@@ -26,4 +26,7 @@ code {
   .submit-btn {
     @apply py-1 px-3 rounded-md bg-farahgreen-300 text-farahgreen-700 font-medium enabled:hover:bg-farahgreen-400 disabled:opacity-30;
   }
+  .error {
+    @apply text-sm mb-3 text-red-600 italic;
+  }
 }

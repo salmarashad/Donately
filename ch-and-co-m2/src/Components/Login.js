@@ -67,7 +67,7 @@ function Login(props) {
                     <label className='label'>Password
                         <input type="password" value={password} name="name" placeholder="Type here..." onChange={handlePassChange} className="text-input" />
                     </label>
-                    {error && <p className='text-center text-sm mb-3 text-red-600 italic'>Incorrect email or password, please try again</p>}
+                    {error && <p className='error text-center'>Incorrect email or password, please try again</p>}
                     <div className='flex justify-center'>
                         <button
                             type="submit"
