@@ -1,11 +1,13 @@
 import { useState } from "react";
 import RegistrationForm from "./RegistrationForm";
+import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
 
 function Registration(props) { 
     const [form, setForm] = useState("donor");
 
     return(
-        <div className='h-max flex flex-col items-center'>
+        <div className='h-max flex flex-col items-center -mt-12 pb-8'>
+            <LogoSVG className="w-48 mb-6 cursor-pointer" onClick={() => props.setPage("donations")} />
             <div className='flex flex-col items-start w-[500px] gap-2'>
                 <div className="w-full flex gap-2 text-farahgreen-700">
                     <button 
