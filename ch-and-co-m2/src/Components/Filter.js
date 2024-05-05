@@ -93,7 +93,7 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                                         >
                                             <option value="">All</option>
                                             {values.map((value, index) => (
-                                                <option key={index} value={value}>{value}</option>
+                                                value !== "" && <option key={index} value={value}>{value}</option>
                                             ))}
                                         </select>
                                     </div>
