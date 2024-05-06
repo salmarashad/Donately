@@ -4,7 +4,6 @@ import Filter from "../Components/Filter";
 
 function DonationsView() {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
-	const [filteringOptions, setFilteringOptions] = useState([]);
 	
 	let currentData = 
 	[
@@ -1022,7 +1021,7 @@ function DonationsView() {
 		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
 			<div className="col-span-1 justify-self-start">
 				<div className="flex flex-col items-center justify-center gap-4">
-					<Filter filteringOptions={filteringOptions} setFilteringOptions={setFilteringOptions} data={currentData} setCurrentCardSet={setCurrentCardSet} />
+					<Filter data={currentData} setCurrentCardSet={setCurrentCardSet} />
 				</div>
 			</div>
 			<div className="col-span-2">
