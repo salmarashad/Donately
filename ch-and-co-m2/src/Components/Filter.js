@@ -5,17 +5,16 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
     const [categoriesArray, setCategoriesArray] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [appliedFilters, setAppliedFilters] = useState({});
+    const [searchQuery, setSearchQuery] = useState("");
 
     const handleCategoryCheckboxChange = (category, isChecked) => {
         if (isChecked) {
-            // Include the category directly in the applied filters
             setAppliedFilters(prevFilters => ({
                 ...prevFilters,
                 [category]: {}
             }));
             setCheckedCategories([...checkedCategories, category]);
         } else {
-            // Remove the category from applied filters
             setAppliedFilters(prevFilters => {
                 const updatedFilters = { ...prevFilters };
                 delete updatedFilters[category];
@@ -31,7 +30,7 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     useEffect(() => {
         applyFilters();
-    }, [appliedFilters]);
+    }, [appliedFilters, searchQuery]);
 
     function parseData(data) {
         const categoriesObj = {};
@@ -71,7 +70,7 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
     function applyFilters() {
         let filteredData;
         if (checkedCategories.length === 0) {
-            filteredData = data; // If no categories are selected, render the entire data
+            filteredData = data;
         } else {
             filteredData = data.filter(item => {
                 return checkedCategories.includes(item.tags.type) &&
@@ -80,6 +79,16 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                     });
             });
         }
+
+        if (searchQuery.trim() !== "") {
+            filteredData = filteredData.filter(item =>
+                Object.entries(item).some(([key, value]) =>
+                    key !== 'imgURL' && typeof value === 'string' && value.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            );
+        }
+    
+
         setCurrentCardSet(filteredData);
     }
     
@@ -109,18 +118,6 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                                             options={values.map((value) => ({ value, "label": value }))}
                                             onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
                                         />
-
-                                        {/* <select
-                                            className="mt-1 block w-full rounded-md border-2 border-farahgray-100 focus:ring focus:ring-farahgreen-300 outline-none"
-                                            id={param}
-                                            name={param}
-                                            onChange={(e) => handleFilterChange(e, category.category, param)}
-                                        >
-                                            <option value="">All</option>
-                                            {values.map((value, index) => (
-                                                value !== "" && <option key={index} value={value}>{value}</option>
-                                            ))}
-                                        </select> */}
                                     </div>
                                 ))}
                             </div>
@@ -133,6 +130,13 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="mt-4 mb-2 px-3 py-2 w-64 rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
             {renderCategories(categoriesArray, checkedCategories)}
         </div>
     );
