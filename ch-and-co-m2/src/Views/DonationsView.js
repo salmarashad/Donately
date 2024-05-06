@@ -1036,7 +1036,6 @@ function DonationsView(props) {
 				</div>
 				<div className="col-span-1"></div>
 			</div>
-			{isDetailedView && <DetailsView setPage={props.setPage}/>}
 		</div>
 	);
 }

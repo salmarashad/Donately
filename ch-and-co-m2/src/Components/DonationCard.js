@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
-import { useState, useEffect } from "react";
-import { DetailedContext } from "../App";
+import React, { useContext, useState, useEffect } from "react";
+import { DetailedContext, DataContext } from "../App";
 
 function renderTags(tags, viewportWidth) {
 	const TAG_WIDTH = 70;
@@ -40,7 +39,21 @@ function renderTags(tags, viewportWidth) {
 
 function DonationCard(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
-	const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+	const {data, setData} = useContext(DataContext);
+	const [imageUrl, setImageUrl] = useState('');
+
+	useEffect(() => {
+		const fetchImage = async () => {
+		  try {
+			const response = await fetch('https://source.unsplash.com/random');
+			setImageUrl(response.url);
+		  } catch (error) {
+			console.error('Error fetching image:', error);
+		  }
+		};
+	
+		fetchImage();
+	}, []);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -54,13 +67,20 @@ function DonationCard(props) {
 		};
 	}, []);
 
+	const handleClick = () => {
+		
+		setData({ ...props, imgURL: imageUrl }); 
+		setIsDetailedView(true); 
+	}
+	const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
     return (
 			<div className="w-full min-w-72 bg-white shadow-md rounded-md overflow-hidden p-6">
 				<div className="flex gap-5">
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
 						<img
-							src={props.imgURL}
+							src={imageUrl}
 							alt="Donation"
 							className="w-full object-cover rounded-md aspect-square"
 						/>
@@ -84,9 +104,9 @@ function DonationCard(props) {
 							</div>
 
 							{/*Button*/}
-							<button
-								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap"
-								onClick={() => setIsDetailedView(true)}
+							<button 
+							className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+							onClick={() => handleClick()}
 							>
 								View Details {">"}
 							</button>
