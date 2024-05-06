@@ -2,10 +2,10 @@ import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
 import {ReactComponent as MailSVG} from '../SVGs/mail.svg';
 import {ReactComponent as PhoneSVG} from '../SVGs/phone.svg';
 import {ReactComponent as LocationSVG} from '../SVGs/location.svg';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserTypeContext } from "../App";
 
-function Profile() {
+function Profile(props) {
     const { userType } = useContext(UserTypeContext);
 
     return (
@@ -37,6 +37,12 @@ function Profile() {
                                                      userType === "admin" ? "admin" : 
                                                      userType === "organization" ? "organization" : "donor"}</h3>
                     </div>
+                    {userType === "donor" && <div>
+                        <p className='underline cursor-pointer w-max mx-auto italic ml-1'
+                            onClick={() => props.setPage("teachdocform")}>
+                            Get verified as a teacher/doctor
+                        </p>
+                    </div>}
                     {userType === "teacher" && <div>
                         <h3 className="text-center">You teach <span className="font-semibold italic">Computer Science</span>.
                         You can privately tutor <span className="font-semibold italic">10</span> students.</h3>
