@@ -2,10 +2,10 @@
 import { ReactComponent as ProfileSVG } from '../SVGs/profile.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
 import { useContext } from 'react';
-import { DetailedContext } from "../App";
+import { UserTypeContext } from "../App";
 
 function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {   
-	const { userType, setUserType } = useContext(DetailedContext);
+	const { userType, setUserType } = useContext(UserTypeContext);
 	const users = ["", "donor", "teacher", "doctor"];
 
 	function goToProfile() {

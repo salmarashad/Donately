@@ -2,10 +2,10 @@ import { useState } from 'react';
 import {ReactComponent as GraphicSVG} from '../SVGs/sign-up-graphic.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tigero-filled.svg';
 import { useContext } from 'react';
-import { DetailedContext } from "../App";
+import { UserTypeContext } from "../App";
 
 function Login(props) {
-    const { setUserType } = useContext(DetailedContext);
+    const { setUserType } = useContext(UserTypeContext);
     const [email, setEmail] = useState("");
     const [error, setError] = useState(false);
     const [password, setPassword] = useState("");

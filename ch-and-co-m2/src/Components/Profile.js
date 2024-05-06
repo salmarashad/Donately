@@ -3,10 +3,10 @@ import {ReactComponent as MailSVG} from '../SVGs/mail.svg';
 import {ReactComponent as PhoneSVG} from '../SVGs/phone.svg';
 import {ReactComponent as LocationSVG} from '../SVGs/location.svg';
 import { useContext } from 'react';
-import { DetailedContext } from "../App";
+import { UserTypeContext } from "../App";
 
 function Profile() {
-    const { userType } = useContext(DetailedContext);
+    const { userType } = useContext(UserTypeContext);
 
     return (
         <div className="w-full h-screen flex justify-center items-center -mb-8 -mt-24">

@@ -10,7 +10,7 @@ import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
 
 const DetailedContext = createContext();
-const userContext = createContext();
+const UserTypeContext = createContext();
 
 function App() {
 	const [page, setPage] = useState("donations");
@@ -19,23 +19,25 @@ function App() {
 	const [userType, setUserType] = useState("");
 
   	return (
-		<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView, userType, setUserType }}>
-			<div className="h-screen font-karla text-farahgray-900">
-				{page !== "login" && page !== "registration" &&
-					<NavbarComponent setPage={setPage} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />}
-				{/* rest of the body */}
-				<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
-					{page === "donations" && <DonationsView />}
-					{page === "volunteering" && <VolunteeringView />}
-					{page === "organizations" && <OrganizationsView />}
-					{page === "registration" && <Registration setPage={setPage} />}
-					{page === "profile" && <Profile />}
-					{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
+		<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView }}>
+			<UserTypeContext.Provider value={{ userType, setUserType }}>
+				<div className="h-screen font-karla text-farahgray-900">
+					{page !== "login" && page !== "registration" &&
+						<NavbarComponent setPage={setPage} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />}
+					{/* rest of the body */}
+					<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
+						{page === "donations" && <DonationsView />}
+						{page === "volunteering" && <VolunteeringView />}
+						{page === "organizations" && <OrganizationsView />}
+						{page === "registration" && <Registration setPage={setPage} />}
+						{page === "profile" && <Profile />}
+						{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
+					</div>
+					{isDetailedView && <DetailsView />}
 				</div>
-				{isDetailedView && <DetailsView />}
-			</div>
+			</UserTypeContext.Provider>
 		</DetailedContext.Provider>
 	);
 }
 
-export {App, DetailedContext};
+export {App, DetailedContext, UserTypeContext};
