@@ -45,13 +45,14 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
         return categoriesArray;
     }
 
-    const handleFilterChange = (e, category, param) => {
-        const value = e.target.value;
+    const handleFilterChange = (selectedOptions, category, param) => {
+        console.log(selectedOptions, category, param);
+        const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
         setAppliedFilters(prevFilters => ({
             ...prevFilters,
             [category]: {
                 ...prevFilters[category],
-                [param]: value
+                [param]: values 
             }
         }));
     };
@@ -59,12 +60,14 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
     function applyFilters() {
         const filteredData = data.filter(item => {
             return checkedCategories.includes(item.tags.type) &&
-                Object.entries(appliedFilters[item.tags.type] || {}).every(([param, value]) => {
-                    return value === "" || item.tags[param] === value;
+                Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
+                    // Check if any of the selected values match the item's tag value
+                    return values.length === 0 || values.includes(item.tags[param]);
                 });
         });
         setCurrentCardSet(filteredData);
     }
+    
 
     function renderCategories(categories, checkedCategories) {
         return (
@@ -86,7 +89,13 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                                 {Object.entries(category.parameters).map(([param, values]) => (
                                     <div key={param}>
                                         <label className="block font-medium" htmlFor={param}>{param}</label>
-                                        <select
+
+                                        <Dropdown
+                                            options={values.map((value) => ({ value, "label": value }))}
+                                            onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
+                                        />
+
+                                        {/* <select
                                             className="mt-1 block w-full rounded-md border-2 border-farahgray-100 focus:ring focus:ring-farahgreen-300 outline-none"
                                             id={param}
                                             name={param}
@@ -96,7 +105,7 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                                             {values.map((value, index) => (
                                                 value !== "" && <option key={index} value={value}>{value}</option>
                                             ))}
-                                        </select>
+                                        </select> */}
                                     </div>
                                 ))}
                             </div>
