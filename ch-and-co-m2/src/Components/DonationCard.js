@@ -1,12 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { DetailedContext, DataContext } from "../App";
 
 function DonationCard(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 	const {data, setData} = useContext(DataContext);
+	const [imageUrl, setImageUrl] = useState('');
+
+	useEffect(() => {
+		const fetchImage = async () => {
+		  try {
+			const response = await fetch('https://source.unsplash.com/random');
+			setImageUrl(response.url);
+		  } catch (error) {
+			console.error('Error fetching image:', error);
+		  }
+		};
+	
+		fetchImage();
+	}, []);
+
 	const handleClick = () => {
-		setData(props);
-		setIsDetailedView(true)
+		
+		setData({ ...props, imgURL: imageUrl }); 
+		setIsDetailedView(true); 
 	}
     return (
 			<div className="w-full bg-white shadow-md rounded-md overflow-hidden p-6">
@@ -14,7 +30,7 @@ function DonationCard(props) {
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
 						<img
-							src={props.imgURL}
+							src={imageUrl}
 							alt="Donation"
 							className="w-full object-cover rounded-md aspect-square"
 						/>

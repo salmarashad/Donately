@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { DetailedContext, DataContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 
 function DetailsView(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 	const { data, setData } = useContext(DataContext);
+	
+
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
 			<div className="flex flex-col bg-farahgray-100 w-[600px] h-max rounded-md p-6 relative">
@@ -12,11 +14,7 @@ function DetailsView(props) {
 				<div className="flex">
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
-						<img
-							src={data.imgURL}
-							alt="Donation"
-							className="w-full object-cover rounded-md aspect-square"
-						/>
+						{data.imgURL && <img src={data.imgURL} alt="Donation" className="w-full object-cover rounded-md aspect-square"/>}
 					</div>
 
 					{/*Text*/}
