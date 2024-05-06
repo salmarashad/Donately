@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { DetailedContext, DataContext } from "../App";
 
 function renderTags(tags, viewportWidth) {
-	const TAG_WIDTH = 70;
+	const TAG_WIDTH = 90;
 	let maxCharacters = Math.round(viewportWidth / TAG_WIDTH);
 	tags = Object.values(tags);
 	tags = tags.filter((tag) => tag !== "");
@@ -104,9 +104,9 @@ function DonationCard(props) {
 							</div>
 
 							{/*Button*/}
-							<button 
-							className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-							onClick={() => handleClick()}
+							<button
+								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap"
+								onClick={() => handleClick()}
 							>
 								View Details {">"}
 							</button>
