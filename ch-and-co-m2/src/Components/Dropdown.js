@@ -1,14 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-function Dropdown(){
-    const colourOptions = [
-        { value: 'red', label: 'Red' },
-        { value: 'blue', label: 'Blue' },
-        { value: 'green', label: 'Green' },
-        { value: 'purple', label: 'Purple' }
-    ]
-
+function Dropdown({options, onChange}){
     const colourStyles = {
         control: (styles, state) => ({
             ...styles,
@@ -55,10 +48,11 @@ function Dropdown(){
         <Select
             isMulti
             name="colors"
-            options={colourOptions}
+            options={options}
             className="basic-multi-select w-[200px]"
             classNamePrefix="select"
             styles={colourStyles}
+            onChange={onChange}
         />
     )
 }

@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "./Dropdown";
 
-function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet }) {
+function Filter({data, setCurrentCardSet }) {
     const [categoriesArray, setCategoriesArray] = useState([]);
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [appliedFilters, setAppliedFilters] = useState({});
+    const [searchQuery, setSearchQuery] = useState("");
 
     const handleCategoryCheckboxChange = (category, isChecked) => {
         if (isChecked) {
+            setAppliedFilters(prevFilters => ({
+                ...prevFilters,
+                [category]: {}
+            }));
             setCheckedCategories([...checkedCategories, category]);
         } else {
+            setAppliedFilters(prevFilters => {
+                const updatedFilters = { ...prevFilters };
+                delete updatedFilters[category];
+                return updatedFilters;
+            });
             setCheckedCategories(checkedCategories.filter((item) => item !== category));
         }
     };
@@ -20,7 +30,7 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     useEffect(() => {
         applyFilters();
-    }, [appliedFilters]);
+    }, [appliedFilters, searchQuery]);
 
     function parseData(data) {
         const categoriesObj = {};
@@ -45,26 +55,43 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
         return categoriesArray;
     }
 
-    const handleFilterChange = (e, category, param) => {
-        const value = e.target.value;
+    const handleFilterChange = (selectedOptions, category, param) => {
+        console.log(selectedOptions, category, param);
+        const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
         setAppliedFilters(prevFilters => ({
             ...prevFilters,
             [category]: {
                 ...prevFilters[category],
-                [param]: value
+                [param]: values 
             }
         }));
     };
 
     function applyFilters() {
-        const filteredData = data.filter(item => {
-            return checkedCategories.includes(item.tags.type) &&
-                Object.entries(appliedFilters[item.tags.type] || {}).every(([param, value]) => {
-                    return value === "" || item.tags[param] === value;
-                });
-        });
+        let filteredData;
+        if (checkedCategories.length === 0) {
+            filteredData = data;
+        } else {
+            filteredData = data.filter(item => {
+                return checkedCategories.includes(item.tags.type) &&
+                    Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
+                        return values.length === 0 || values.includes(item.tags[param]);
+                    });
+            });
+        }
+
+        if (searchQuery.trim() !== "") {
+            filteredData = filteredData.filter(item =>
+                Object.entries(item).some(([key, value]) =>
+                    key !== 'imgURL' && typeof value === 'string' && value.toLowerCase().includes(searchQuery.toLowerCase())
+                )
+            );
+        }
+    
+
         setCurrentCardSet(filteredData);
     }
+    
 
     function renderCategories(categories, checkedCategories) {
         return (
@@ -86,17 +113,11 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
                                 {Object.entries(category.parameters).map(([param, values]) => (
                                     <div key={param}>
                                         <label className="block font-medium" htmlFor={param}>{param}</label>
-                                        <select
-                                            className="mt-1 block w-full rounded-md border-2 border-farahgray-100 focus:ring focus:ring-farahgreen-300 outline-none"
-                                            id={param}
-                                            name={param}
-                                            onChange={(e) => handleFilterChange(e, category.category, param)}
-                                        >
-                                            <option value="">All</option>
-                                            {values.map((value, index) => (
-                                                value !== "" && <option key={index} value={value}>{value}</option>
-                                            ))}
-                                        </select>
+
+                                        <Dropdown
+                                            options={values.map((value) => ({ value, "label": value }))}
+                                            onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
+                                        />
                                     </div>
                                 ))}
                             </div>
@@ -109,6 +130,13 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="mt-4 mb-2 px-3 py-2 w-64 rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
             {renderCategories(categoriesArray, checkedCategories)}
         </div>
     );

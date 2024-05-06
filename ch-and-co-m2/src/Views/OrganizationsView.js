@@ -1,45 +1,84 @@
-import { useState } from "react";
-import CardRenderer from "../Components/CardRenderer";
-import Filter from "../Components/Filter";
+import React, { useState, useEffect } from "react";
+import OrganizationCard from "../Components/OrganizationCard";
 
-function OrganizationsView() {
-	const [currentCardSet, setCurrentCardSet] = useState([]);
-	const [filteringOptions, setFilteringOptions] = useState([]);
-	
-	let currentData = 
-			[{title: "Clothing", 
-			  subtitle: "Tamer", 
-			  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-			  tags: ["clothing", "Hosny"],
-			  imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggDQ7mmUtoTk1dCz8WaEAOMQOyah08T2JdAqwU0eJzg&s"}, 
+const OrganizationsView = () => {
+  const [organizations, setOrganizations] = useState([
+    {
+      id: 1,
+      name: "Dar Al Fouad Hospital",
+      type: "Hospital",
+      image: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
+    },
+    {
+      id: 2,
+      name: "Cleopatra Hospital",
+      type: "Hospital",
+      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+    },
+    {
+      id: 3,
+      name: "Elite International School",
+      type: "School",
+      image: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
+    },
+    {
+      id: 4,
+      name: "Saudi German Hospital",
+      type: "Hospital",
+      image: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
+    },
+    {
+      id: 5,
+      name: "Resala",
+      type: "Charity",
+      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+    },
+    {
+      id: 6,
+      name: "Resala",
+      type: "Charity",
+      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+    },
+    {
+      id: 7,
+      name: "Cleopatra Hospital",
+      type: "Hospital",
+      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+    },
+    {
+      id: 8,
+      name: "Resala",
+      type: "Charity",
+      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+    },
+    {
+      id: 9,
+      name: "Cleopatra Hospital",
+      type: "Hospital",
+      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+    },
+  ]);
 
-			  {title: "Toys", 
-			  subtitle: "Tamer", 
-			  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-			  tags: ["toys", "Hosny"],
-			  imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggDQ7mmUtoTk1dCz8WaEAOMQOyah08T2JdAqwU0eJzg&s"}, 
-			  
-			  {title: "Food", 
-			  subtitle: "Tamer", 
-			  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-			  tags: ["blood", "Hosny"],
-			  imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggDQ7mmUtoTk1dCz8WaEAOMQOyah08T2JdAqwU0eJzg&s"}];
   return (
-		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
-			<div className="col-span-1 justify-self-start">
-				<div className="flex flex-col items-center justify-center gap-4">
-					<h1>Filters</h1>
-					{/* <Filter filteringOptions={filteringOptions} setFilteringOptions={setFilteringOptions} currentData={currentData} setCurrentCardSet={setCurrentCardSet} /> */}
-				</div>
-			</div>
-			<div className="col-span-2">
-				<div className="flex flex-col items-center justify-center gap-4">
-					{/* <CardRenderer currentCardSet = {currentCardSet} /> */}
-				</div>
-			</div>
-			<div className="col-span-1"></div>
-		</div>
-	);
-}
+    <div className="grid grid-cols-5 max-w-7xl w-full mx-auto">
+      <div className="col-span-1">
+        {/* Add any content you want to display in the first column here */}
+      </div>
+      <div className="col-span-3">
+        <div className="grid grid-cols-3 gap-4">
+          {organizations.map((organization) => (
+            <OrganizationCard
+              key={organization.id}
+              organization={organization}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="col-span-1">
+        {/* Add any content you want to display in the third column here */}
+      </div>
+    </div>
+  );
+};
 
 export default OrganizationsView;
