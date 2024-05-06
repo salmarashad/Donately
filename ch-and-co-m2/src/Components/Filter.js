@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Dropdown from "./Dropdown";
 
 function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet }) {
     const [categoriesArray, setCategoriesArray] = useState([]);
