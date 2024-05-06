@@ -8,8 +8,19 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
 
     const handleCategoryCheckboxChange = (category, isChecked) => {
         if (isChecked) {
+            // Include the category directly in the applied filters
+            setAppliedFilters(prevFilters => ({
+                ...prevFilters,
+                [category]: {}
+            }));
             setCheckedCategories([...checkedCategories, category]);
         } else {
+            // Remove the category from applied filters
+            setAppliedFilters(prevFilters => {
+                const updatedFilters = { ...prevFilters };
+                delete updatedFilters[category];
+                return updatedFilters;
+            });
             setCheckedCategories(checkedCategories.filter((item) => item !== category));
         }
     };
@@ -58,13 +69,17 @@ function Filter({ filteringOptions, setFilteringOptions, data, setCurrentCardSet
     };
 
     function applyFilters() {
-        const filteredData = data.filter(item => {
-            return checkedCategories.includes(item.tags.type) &&
-                Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
-                    // Check if any of the selected values match the item's tag value
-                    return values.length === 0 || values.includes(item.tags[param]);
-                });
-        });
+        let filteredData;
+        if (checkedCategories.length === 0) {
+            filteredData = data; // If no categories are selected, render the entire data
+        } else {
+            filteredData = data.filter(item => {
+                return checkedCategories.includes(item.tags.type) &&
+                    Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
+                        return values.length === 0 || values.includes(item.tags[param]);
+                    });
+            });
+        }
         setCurrentCardSet(filteredData);
     }
     
