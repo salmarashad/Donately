@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { DetailedContext } from "../App";
+import { DetailedContext, DataContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 
 function DetailsView(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
+	const { data, setData } = useContext(DataContext);
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
 			<div className="flex flex-col bg-farahgray-100 w-[600px] h-max rounded-md p-6 relative">
@@ -12,7 +13,7 @@ function DetailsView(props) {
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
 						<img
-							src="https://cdns-images.dzcdn.net/images/artist/cecaa111b7a338c3004817cd09ae1339/500x500.jpg"
+							src={data.imgURL}
 							alt="Donation"
 							className="w-full object-cover rounded-md aspect-square"
 						/>
@@ -21,16 +22,13 @@ function DetailsView(props) {
 					{/*Text*/}
 					<div className="w-2/3">
 						<div className="flex flex-col items-left w-full mx-6 gap-1">
-							<h2 className="text-xl font-semibold">Title</h2>
+							<h2 className="text-xl font-semibold">{data.title}</h2>
 							<h2 className="text-l font-semibold text-farahgray-400">
-								Subtitle
+								{data.subtitle}
 							</h2>
 							<p className="text-sm text-farahgray-700">25/04/2024, 6:30pm</p>
 							<p className="text-sm">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation ullamco laboris
-								nisi ut aliquip ex ea commodo consequat.
+								{data.description}
 							</p>
 						</div>
 					</div>
@@ -53,35 +51,19 @@ function DetailsView(props) {
 					{/*Information segment*/}
 					<div className="grid grid-cols-3 w-full">
 						{/*Tags column 1*/}
-						<div className="grid grid-rows-3 gap-2">
-							<div>
-								<h2 className="text-m font-semibold">Tag 1</h2>
-								<h2 className="text-sm font-semibold text-farahgray-400">
-									Tag 1 description
-								</h2>
-							</div>
-							<div>
-								<h2 className="text-m font-semibold">Tag 1</h2>
-								<h2 className="text-sm font-semibold text-farahgray-400">
-									Tag 1 description
-								</h2>
-							</div>
-							<div>
-								<h2 className="text-m font-semibold">Tag 1</h2>
-								<h2 className="text-sm font-semibold text-farahgray-400">
-									Tag 1 description
-								</h2>
-							</div>
-						</div>
-
-						{/*Tags column 2*/}
-						<div className="grid grid-rows-3 gap-2">
-							<div>
-								<h2 className="text-m font-semibold">Tag 1</h2>
-								<h2 className="text-sm font-semibold text-farahgray-400">
-									Tag 1 description
-								</h2>
-							</div>
+						
+						
+						<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-col">
+							{Object.entries(data.tags).map(([tag, value], index) => (
+								tag !== "" && value !== "" && (
+								<div key={index}>
+									<h2 className="text-m font-semibold">{tag}</h2>
+									<h2 className="text-sm font-semibold text-farahgray-400">
+									{value}
+									</h2>
+								</div>
+								)
+							))}
 						</div>
 
 						{/*Progress bar*/}

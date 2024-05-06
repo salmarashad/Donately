@@ -1,8 +1,13 @@
 import React, { useContext } from "react";
-import { DetailedContext } from "../App";
+import { DetailedContext, DataContext } from "../App";
 
 function DonationCard(props) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
+	const {data, setData} = useContext(DataContext);
+	const handleClick = () => {
+		setData(props);
+		setIsDetailedView(true)
+	}
     return (
 			<div className="w-full bg-white shadow-md rounded-md overflow-hidden p-6">
 				<div className="flex gap-5">
@@ -40,7 +45,7 @@ function DonationCard(props) {
 							{/*Button*/}
 							<button 
 							className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-							onClick={() => setIsDetailedView(true)}
+							onClick={() => handleClick()}
 							>
 								View Details {">"}
 							</button>
