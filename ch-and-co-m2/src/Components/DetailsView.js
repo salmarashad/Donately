@@ -127,7 +127,8 @@ function DetailsView(props) {
 					</div>
 
 					<div className="flex flex-col align-middle items-center gap-2">
-						<button className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold">
+						<button className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+						onClick={() => {props.setPage("donationForm"); setIsDetailedView(false)}}>
 							Donate {">"}
 						</button>
 					</div>

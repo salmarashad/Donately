@@ -8,6 +8,7 @@ import Login from './Components/Login'
 import OrganizationsView from './Views/OrganizationsView';
 import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
+import DonationForm from './Components/DonationForm.js';
 
 const DetailedContext = createContext();
 const UserTypeContext = createContext();
@@ -26,14 +27,14 @@ function App() {
 						<NavbarComponent setPage={setPage} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />}
 					{/* rest of the body */}
 					<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
-						{page === "donations" && <DonationsView />}
+						{page === "donations" && <DonationsView setPage={setPage}/>}
 						{page === "volunteering" && <VolunteeringView />}
 						{page === "organizations" && <OrganizationsView />}
 						{page === "registration" && <Registration setPage={setPage} />}
 						{page === "profile" && <Profile />}
 						{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
+						{page === "donationForm" && <DonationForm />}
 					</div>
-					{isDetailedView && <DetailsView />}
 				</div>
 			</UserTypeContext.Provider>
 		</DetailedContext.Provider>

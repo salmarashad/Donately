@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { useState } from "react";
+import { DetailedContext } from "../App";
 import CardRenderer from "../Components/CardRenderer";
 import Filter from "../Components/Filter";
+import DetailsView from "../Components/DetailsView";
 
-function DonationsView() {
+function DonationsView(props) {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
+	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 	
 	let currentData = 
 	[
@@ -1018,18 +1022,21 @@ function DonationsView() {
 	  ];
 
 	return (
-		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
-			<div className="col-span-1 justify-self-start">
-				<div className="flex flex-col items-center justify-center gap-4">
-					<Filter data={currentData} setCurrentCardSet={setCurrentCardSet} />
+		<div>
+			<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
+				<div className="col-span-1 justify-self-start">
+					<div className="flex flex-col items-center justify-center gap-4">
+						<Filter data={currentData} setCurrentCardSet={setCurrentCardSet} />
+					</div>
 				</div>
-			</div>
-			<div className="col-span-2">
-				<div className="flex flex-col items-center justify-center gap-4">
-					<CardRenderer currentCardSet={currentCardSet} />
+				<div className="col-span-2">
+					<div className="flex flex-col items-center justify-center gap-4">
+						<CardRenderer currentCardSet={currentCardSet} />
+					</div>
 				</div>
+				<div className="col-span-1"></div>
 			</div>
-			<div className="col-span-1"></div>
+			{isDetailedView && <DetailsView setPage={props.setPage}/>}
 		</div>
 	);
 }
