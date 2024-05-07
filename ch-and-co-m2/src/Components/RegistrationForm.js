@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 
 function RegistrationForm(props) {
     const [formData, setFormData] = useState({
@@ -76,13 +77,24 @@ function RegistrationForm(props) {
         }
     }
 
-    function handleSubmit(e) {
+    const [loading, setLoading] = useState(false);
+
+    function timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        checkPass();
-        checkMail();
-        checkContact();
-        if(!(formData.password.length < 8 || !formData.email.match(isValidEmail) || !formData.contact.match(isValidPhone))){
-            props.setPage("login");
+        if(!loading) {
+            setLoading(true);
+            await timeout(2000);
+            setLoading(false);
+            checkPass();
+            checkMail();
+            checkContact();
+            if(!(formData.password.length < 8 || !formData.email.match(isValidEmail) || !formData.contact.match(isValidPhone))){
+                props.setPage("login");
+            }
         }
     }
 
@@ -103,14 +115,16 @@ function RegistrationForm(props) {
                 <label className='label'>Gender
                     <div className="flex gap-8 mb-2">
                         <div className="flex gap-1">
-                            <input type="radio" value="male" checked={formData.gender === "male"} name="gender"
+                            <input type="radio" value="male" checked={formData.gender === "male"} name="gender" id="male"
                             className="accent-farahgreen-500"
-                            onChange={(e) => handleInputChange("gender", e.target.value)} /> Male
+                            onChange={(e) => handleInputChange("gender", "male")} />
+                            <label htmlFor="male">Male</label>
                         </div>
                         <div className="flex gap-1">
-                            <input type="radio" value="female" checked={formData.gender === "female"} name="gender"
+                            <input type="radio" value="female" checked={formData.gender === "female"} name="gender" id="female"
                             className="accent-farahgreen-500"
-                            onChange={(e) => handleInputChange("gender", e.target.value)} /> Female
+                            onChange={(e) => handleInputChange("gender", "female")} />
+                            <label htmlFor="female">Female</label>
                         </div>
                     </div>
                 </label>
@@ -171,11 +185,11 @@ function RegistrationForm(props) {
             {/*submit and Redirect to login*/}
             <button
                 type="submit"
-                className='submit-btn self-center'
+                className='submit-btn self-center w-[82px] h-[32px]'
                 disabled={(props.type === "organization" && Object.values(formData).includes(""))
                             || props.type === "donor" && Object.keys(formData).filter(key => !excludedKeys.includes(key)).map(key => formData[key]).includes("")}
                 onClick={handleSubmit}>
-                Sign up
+                {loading ? <SpinnerSVG className="w-full"/> : "Sign up"}
             </button>
         </form>
     );

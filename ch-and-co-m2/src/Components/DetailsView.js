@@ -1,11 +1,21 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { DetailedContext, DataContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 
 function DetailsView(props) {
-	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
-	const { data, setData } = useContext(DataContext);
+	const { setIsDetailedView } = useContext(DetailedContext);
+	const { data } = useContext(DataContext);
 	
+	function handleDonate(e) {
+		e.preventDefault();
+		setIsDetailedView(false);
+		if(props.isLoggedin === true) {
+        	props.setPage("donationForm");
+		}
+		else {
+			props.setPage("login");
+		}
+    }
 
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
@@ -20,7 +30,7 @@ function DetailsView(props) {
 					{/*Text*/}
 					<div className="w-2/3">
 						<div className="flex flex-col items-left w-full mx-6 gap-1">
-							<h2 className="text-xl font-semibold">{data.title}</h2>
+							<h2 className="text-xl font-semibold max-w-[330px] w-full">{data.title}</h2>
 							<h2 className="text-l font-semibold text-farahgray-400">
 								{data.subtitle}
 							</h2>
@@ -51,7 +61,7 @@ function DetailsView(props) {
 						{/*Tags column 1*/}
 						
 						
-						<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-col">
+						<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-row">
 							{Object.entries(data.tags).map(([tag, value], index) => (
 								tag !== "" && value !== "" && (
 								<div key={index}>
@@ -108,7 +118,7 @@ function DetailsView(props) {
 
 					<div className="flex flex-col align-middle items-center gap-2">
 						<button className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-						onClick={() => {props.setPage("donationForm"); setIsDetailedView(false)}}>
+						onClick={handleDonate}>
 							Donate {">"}
 						</button>
 					</div>

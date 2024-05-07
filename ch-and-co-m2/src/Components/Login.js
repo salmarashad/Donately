@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {ReactComponent as GraphicSVG} from '../SVGs/sign-up-graphic.svg';
 import {ReactComponent as LogoSVG} from '../SVGs/tigero-filled.svg';
+import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import { useContext } from 'react';
 import { UserTypeContext } from "../App";
 
@@ -18,40 +19,51 @@ function Login(props) {
 		setPassword(e.target.value);
 	};
 
-    const handleLogin = (e) => {
-		e.preventDefault();
-        if(email === "donor@gmail.com" && password === "donor") {
-            props.setIsLoggedin(true);
-            setUserType("donor");
-            setError(false);
-            props.setPage("donations");
-        }
-        else if(email === "teacher@gmail.com" && password === "teacher") {
-            props.setIsLoggedin(true);
-            setUserType("teacher");
-            setError(false);
-            props.setPage("donations");
-        }
-        else if(email === "doctor@gmail.com" && password === "doctor") {
-            props.setIsLoggedin(true);
-            setUserType("doctor");
-            setError(false);
-            props.setPage("donations");
-        }
-        else if(email === "admin@gmail.com" && password === "admin") {
-            props.setIsLoggedin(true);
-            setUserType("admin");
-            setError(false);
-            props.setPage("organizations")
-        }
-        else if(email === "organization@gmail.com" && password === "organization") {
-            props.setIsLoggedin(true);
-            setUserType("organization");
-            setError(false);
-        }
-        else {
-            props.setIsLoggedin(false);
-            setError(true);
+    const [loading, setLoading] = useState(false);
+
+    function timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        if(!loading) {
+            setLoading(true);
+            await timeout(2000);
+            setLoading(false);
+            if(email === "donor@gmail.com" && password === "donor") {
+                props.setIsLoggedin(true);
+                setUserType("donor");
+                setError(false);
+                props.setPage("donations");
+            }
+            else if(email === "teacher@gmail.com" && password === "teacher") {
+                props.setIsLoggedin(true);
+                setUserType("teacher");
+                setError(false);
+                props.setPage("donations");
+            }
+            else if(email === "doctor@gmail.com" && password === "doctor") {
+                props.setIsLoggedin(true);
+                setUserType("doctor");
+                setError(false);
+                props.setPage("donations");
+            }
+            else if(email === "admin@gmail.com" && password === "admin") {
+                props.setIsLoggedin(true);
+                setUserType("admin");
+                setError(false);
+                props.setPage("organizations")
+            }
+            else if(email === "organization@gmail.com" && password === "organization") {
+                props.setIsLoggedin(true);
+                setUserType("organization");
+                setError(false);
+            }
+            else {
+                props.setIsLoggedin(false);
+                setError(true);
+            }
         }
 	};
     
@@ -78,10 +90,10 @@ function Login(props) {
                     <div className='flex justify-center'>
                         <button
                             type="submit"
-                            className='submit-btn'
+                            className='submit-btn w-[69px] h-[32px]'
                             disabled={email === "" || password === ""}
                             onClick={handleLogin}>
-                            Log in
+                            {loading ? <SpinnerSVG className="w-full"/> : "Log in"}
                         </button>
                     </div>
                 </form>

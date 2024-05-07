@@ -76,10 +76,10 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 						</button>
 					</div>
 				}
-					{/* Notifications, Profile, Logout, also a flexbox */}
+				{/* Notifications, Profile, Logout, also a flexbox */}
 				<div className="flex font-medium items-center justify-end gap-4 w-[150px]">
-						<NotificationComponent isLoggedin={isLoggedin} />
-						<ProfileSVG className="h-7 w-7 cursor-pointer" onClick={goToProfile}/>
+						{isLoggedin && <NotificationComponent isLoggedin={isLoggedin} />}
+						{isLoggedin && <ProfileSVG className="h-7 w-7 cursor-pointer" onClick={goToProfile}/>}
 						{isLoggedin ? 
 							<button 
 							className="cursor-pointer nav-item"
