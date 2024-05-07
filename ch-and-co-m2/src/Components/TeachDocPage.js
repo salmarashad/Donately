@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Counter from "./Counter";
 import TeachDocForm from "./TeachDocForm";
 
 function TeachDocPage(props) {
@@ -41,22 +40,6 @@ function TeachDocPage(props) {
         form === "teacher" ? setForm("doctor") : setForm("teacher");
     };
 
-    const [loading, setLoading] = useState(false);
-
-    function timeout(delay) {
-        return new Promise( res => setTimeout(res, delay) );
-    }
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if(!loading) {
-            setLoading(true);
-            await timeout(2000);
-            setLoading(false);
-            props.setPage("donations");
-        }
-    }
-
     return(
         <div className='h-max flex flex-col items-center'>
             <div className='flex flex-col items-start w-[500px] gap-2'>
@@ -77,7 +60,7 @@ function TeachDocPage(props) {
                 <div className="flex flex-col justify-center bg-white rounded-md w-full p-6 shadow-md gap-4">
                     <form className='flex flex-col w-full'>
                         <TeachDocForm doctorData={doctorData} handleDoctorChange={handleDoctorChange} teacherData={teacherData} handleTeacherChange={handleTeacherChange} form={form}
-                        handleFileChange={handleFileChange} handleSubmit={handleSubmit} file={file} profile={true} loading={loading} />
+                        handleFileChange={handleFileChange} file={file} profile={true} setPage={props.setPage} />
                     </form>
                 </div>
             </div>

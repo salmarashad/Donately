@@ -1,7 +1,29 @@
+import { useState } from "react";
 import Counter from "./Counter";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 
 function TeachDocForm(props) {
+    const [loading, setLoading] = useState(false);
+
+    function timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if(!loading) {
+            setLoading(true);
+            await timeout(2000);
+            setLoading(false);
+            if(props.profile === true) {
+                props.setPage("donations");
+            }
+            else {
+                props.setStep(2);
+            }
+        }
+    }
+
     return(
         <div>
         {props.form === "teacher" &&
@@ -58,11 +80,11 @@ function TeachDocForm(props) {
             <button
                 type="submit"
                 className='submit-btn w-[80px] h-[32px]'
-                onClick={props.handleSubmit}
+                onClick={handleSubmit}
                 disabled={(props.form === "teacher" && (Object.values(props.teacherData).includes("") || props.teacherData.numCases === 0))
                             || (props.form === "doctor" && (Object.values(props.doctorData).includes("") || props.doctorData.numCases === 0))
                             || props.file === undefined}>
-                {props.loading ? <SpinnerSVG className="w-full"/> : "Submit"}
+                {loading ? <SpinnerSVG className="w-full"/> : "Submit"}
             </button>
         </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
+import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
 import TeachDocForm from "./TeachDocForm";
 
 function RegistrationForm(props) {
@@ -92,7 +93,10 @@ function RegistrationForm(props) {
             setLoading(true);
             await timeout(2000);
             setLoading(false);
-            props.setConfirm(true)
+            if(props.type !== "donor"){
+                handleInputChange("accountType", "");
+            }
+            props.setStep(1);
         }
     }
 
@@ -125,20 +129,10 @@ function RegistrationForm(props) {
     function handleFileChange(event) {
         setFile(event.target.files[0]);
     }
-    
-    const handleSubmitTeachDoc = async (e) => {
-        e.preventDefault();
-        if(!loading) {
-            setLoading(true);
-            await timeout(2000);
-            setLoading(false);
-            props.setPage("login");
-        }
-    }
 
     return(
         <div>
-            {props.confirm === false ? <form className='flex flex-col w-full'>
+            {props.step === 0 ? <form className='flex flex-col w-full'>
                 <h2 className="text-lg font-semibold mb-2">Personal Information</h2>
                 <div className="grid grid-cols-2 gap-x-4">
                     <label className='label'>First name
@@ -242,8 +236,6 @@ function RegistrationForm(props) {
                         </label>
                     </div>
                 </div>
-
-                {/*submit and Redirect to login*/}
                 <button
                     type="submit"
                     className='submit-btn self-center w-[82px] h-[32px]'
@@ -254,16 +246,28 @@ function RegistrationForm(props) {
                     {loading ? <SpinnerSVG className="w-full"/> : "Sign up"}
                 </button>
             </form>
-            : props.confirm && (formData.accountType === "teacher" || formData.accountType === "doctor") &&
+
+            : props.step === 1 && (formData.accountType === "teacher" || formData.accountType === "doctor") ?
+
             <div>
                 <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700 mb-4">
-                    <h3>Your account has successfully been created!<br />
-                        <span className="font-semibold italic">Please fill the below form to get verified as a {formData.accountType}.</span>
-                    </h3>
+                    <h3 className="font-semibold italic">Please fill the below form to get verified as a {formData.accountType}.</h3>
                 </div>
                 <TeachDocForm doctorData={doctorData} handleDoctorChange={handleDoctorChange} teacherData={teacherData}
                     handleTeacherChange={handleTeacherChange} form={formData.accountType} handleFileChange={handleFileChange}
-                    handleSubmit={handleSubmitTeachDoc} file={file} profile={false} loading={loading} />
+                    file={file} profile={false} setStep={props.setStep} />
+            </div>
+
+            :
+            <div className="flex flex-col items-center gap-4 text-center">
+                <h2 className="text-2xl font-bold">Your account has successfully<br/>been created!</h2>
+                <HeartSVG className="w-60" />
+                {(formData.accountType === "teacher" || formData.accountType === "doctor") &&
+                    <p className="font-medium">You may use the website as a regular donor until your request is verified. We'll get back to you in 1-2 weeks.</p>}
+                <p className="font-medium">Thank you for signing up to donate<span className="font-sans">لي</span></p>
+                <p className="underline cursor-pointer -mt-4 italic ml-1" onClick={() => props.setPage("login")}>
+                    Log in & continue browsing
+                </p>
             </div>
             }
         </div>
