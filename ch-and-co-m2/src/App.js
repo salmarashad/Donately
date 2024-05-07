@@ -9,7 +9,7 @@ import OrganizationsView from './Views/OrganizationsView';
 import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
 import DonationForm from './Components/DonationForm.js';
-import TeachDocForm from './Components/TeachDocForm.js';
+import TeachDocPage from './Components/TeachDocPage.js';
 import Maps from './Components/Maps.js';
 
 const DetailedContext = createContext();
@@ -37,7 +37,7 @@ function App() {
 							{page === "organizations" && <OrganizationsView />}
 							{page === "registration" && <Registration setPage={setPage} />}
 							{page === "profile" && <Profile setPage={setPage} />}
-							{page === "teachdocform" && <TeachDocForm setPage={setPage} />}
+							{page === "teachdocform" && <TeachDocPage setPage={setPage} />}
 							{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
 							{page === "donationForm" && <DonationForm setPage={setPage} />}
 						</div>
