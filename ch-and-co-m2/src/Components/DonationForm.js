@@ -3,6 +3,7 @@ import { DataContext } from "../App";
 import Counter from "./Counter";
 import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
+import Maps from "./Maps";
 
 function DonationForm(props){
     const { data } = useContext(DataContext);
@@ -74,8 +75,9 @@ function DonationForm(props){
                         <hr className="border-t-2" />
                         <div className="flex flex-col gap-2 items-center">
                             <p>we need to add an address to the data</p>
-                            {/*Google marker here pls @reeka*/}
-                            <div className="bg-farahgreen-300 w-64 h-40 rounded-md"></div>
+                            <div className="bg-farahgreen-300 w-96 h-96 rounded-md">
+                                <Maps/>
+                            </div>
                         </div>
                         <button
                             className='submit-btn self-center w-[84px] h-[32px]'

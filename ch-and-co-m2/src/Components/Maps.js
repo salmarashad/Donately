@@ -40,12 +40,19 @@ export default function Maps(){
           text="My Location"
         />}
       </GoogleMapReact>
-      <div className="h-full w-full absolute top-44 left-44">
+      <div className="absolute top-44 left-44">
         <Pin/>
-      </div>
-      <button
+        <button
         onClick={onClick}
-        >Test</button>
+        className=" bg-slate-700 text-white"
+        >
+        Set Location
+        </button>
+      </div>
+      <div className="absolute top-12 left-12">
+        
+      </div>
+      
     </div>
   );
 }
