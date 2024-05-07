@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
+import Maps from "./Maps";
 
 function RegistrationForm(props) {
     const [formData, setFormData] = useState({
@@ -179,6 +180,13 @@ function RegistrationForm(props) {
                         <input type="text" value={formData.area} placeholder="Type here..." className="text-input"
                         onChange={(e) => handleInputChange("area", e.target.value)} />
                     </label>
+                </div>
+
+                <div className="flex flex-col">
+                    <p className='label'>Choose exact location on the map </p>
+                    <div className="bg-farahgreen-300 w-96 h-96 rounded-md self-center m-4">
+                       <Maps isStaticMap={false} />
+                    </div>
                 </div>
             </div>
 
