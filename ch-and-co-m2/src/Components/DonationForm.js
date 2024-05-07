@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../App";
 import Counter from "./Counter";
 import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
+import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 
 function DonationForm(props){
     const { data } = useContext(DataContext);
@@ -19,9 +20,20 @@ function DonationForm(props){
         }));
     };
 
-    function handleConfirm(e) {
+    const [loading, setLoading] = useState(false);
+
+    function timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
+    const handleConfirm = async (e) => {
         e.preventDefault();
-        props.setPage("donations");
+        if (!loading) {
+            setLoading(true);
+            await timeout(2000);
+            setLoading(false);
+            props.setPage("donations");
+        }
     }
 
     return(
@@ -66,9 +78,9 @@ function DonationForm(props){
                             <div className="bg-farahgreen-300 w-64 h-40 rounded-md"></div>
                         </div>
                         <button
-                            className='submit-btn self-center'
+                            className='submit-btn self-center w-[84px] h-[32px]'
                             onClick={handleConfirm}>
-                            Confirm
+                            {loading ? <SpinnerSVG className="w-full"/> : "Confirm"}
                         </button>
                     </div>
                 </div>
@@ -81,7 +93,7 @@ function DonationForm(props){
                     <div className="flex flex-col justify-center bg-white rounded-md w-full p-6 shadow-md gap-4">
                         <form className="flex flex-col w-full gap-6">
                             <div className="flex flex-col gap-3">
-                                <label className="labe">Available item count
+                                <label className="label">Available item count
                                     <div className="w-full flex justify-center">
                                         <Counter val={details.count} setter={handleDetailsChange} valName="count" />
                                     </div>
@@ -92,22 +104,25 @@ function DonationForm(props){
                                 <label className="label">Needed transportation type</label>
                                 <div className="flex mb-2 justify-center gap-10">
                                     <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="truck"
+                                        <input type="radio" name="transportation" value="truck" id="truck"
                                         className="accent-farahgreen-500"
                                         checked={details.transportation === "truck"}
-                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Truck
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/>
+                                        <label htmlFor="truck">Truck</label>
                                     </div>
                                     <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="car"
+                                        <input type="radio" name="transportation" value="car" id="car"
                                         className="accent-farahgreen-500"
                                         checked={details.transportation === "car"}
-                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Car
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/>
+                                        <label htmlFor="car">Car</label>
                                     </div>
                                     <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="motorcycle"
+                                        <input type="radio" name="transportation" value="motorcycle" id="motorcycle"
                                         className="accent-farahgreen-500"
                                         checked={details.transportation === "motorcycle"}
-                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Motorcycle
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/>
+                                        <label htmlFor="motorcycle">Motorcycle</label>
                                     </div>
                                 </div>
                             </div>
@@ -134,10 +149,10 @@ function DonationForm(props){
 
                             <button
                                 type="submit"
-                                className='submit-btn self-center'
+                                className='submit-btn self-center w-[84px] h-[32px]'
                                 disabled={(Object.values(details).includes("") || details.count === 0)}
                                 onClick={handleConfirm}>
-                                Confirm
+                                {loading ? <SpinnerSVG className="w-full"/> : "Confirm"}
                             </button>
                         </form>
                     </div>
