@@ -28,7 +28,6 @@ function App() {
 			<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView }}>
 				<UserTypeContext.Provider value={{ userType, setUserType }}>
 					<div className="h-screen font-karla text-farahgray-900">
-						<Maps />
 						{page !== "login" && page !== "registration" &&
 							<NavbarComponent setPage={setPage} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />}
 						{/* rest of the body */}
