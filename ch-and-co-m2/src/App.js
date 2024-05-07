@@ -10,6 +10,7 @@ import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
 import DonationForm from './Components/DonationForm.js';
 import TeachDocForm from './Components/TeachDocForm.js';
+import Maps from './Components/Maps.js';
 
 const DetailedContext = createContext();
 const UserTypeContext = createContext();
@@ -27,6 +28,7 @@ function App() {
 			<DetailedContext.Provider value={{ isDetailedView, setIsDetailedView }}>
 				<UserTypeContext.Provider value={{ userType, setUserType }}>
 					<div className="h-screen font-karla text-farahgray-900">
+						<Maps />
 						{page !== "login" && page !== "registration" &&
 							<NavbarComponent setPage={setPage} isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} />}
 						{/* rest of the body */}
