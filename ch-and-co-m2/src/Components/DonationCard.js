@@ -88,10 +88,9 @@ function DonationCard(props) {
 
 					{/*Text*/}
 					<div className="w-2/3">
-						<div className="flex flex-col md:flex-row items-center gap-2">
-							<h2 className="text-xl font-semibold mb-2">{props.title}</h2>
-							<div className="hidden md:inline-block my-3 min-h-1 w-px self-stretch bg-farahgray-400"></div>
-							<h2 className="text-l font-semibold text-farahgray-400 mb-2">
+						<div>
+							<h2 className="text-xl font-semibold">{props.title}</h2>
+							<h2 className="text-l font-semibold text-farahgray-500 mb-2">
 								{props.subtitle}
 							</h2>
 						</div>

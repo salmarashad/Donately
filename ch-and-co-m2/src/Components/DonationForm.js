@@ -1,82 +1,144 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { DataContext } from "../App";
-import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg'
-import {ReactComponent as GraphicSVG} from '../SVGs/sign-up-graphic.svg';
+import Counter from "./Counter";
+import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
 
 function DonationForm(props){
-    const { data, setData } = useContext(DataContext);
+    const { data } = useContext(DataContext);
+    const [details, setDetails] = useState({
+        count: 0,
+        transportation: "",
+        date: "",
+        time: ""
+    });
+
+    const handleDetailsChange = (fieldName, value) => {
+        setDetails(prevDetails => ({
+            ...prevDetails,
+            [fieldName]: value
+        }));
+    };
+
+    function handleConfirm(e) {
+        e.preventDefault();
+        props.setPage("donations");
+    }
+
     return(
-        <div>
+        <div className="-mt-24 -mb-8 h-screen flex justify-center items-center">
             {data.tags.type === "Blood donations"?
-                <div className='flex flex-col justify-center items-center gap-4 h-screen -mb-8 -mt-24'>
+                <div className='flex flex-col justify-center items-center gap-4 h-screen'>
                     <div className="w-[500px]">
-                        <h1 className=" text-3xl font-semibold text-farahgreen-700 text-left mb-6">
-                            Thank you for your generosity!
+                        <h1 className="text-xl mb-2 text-center w-full font-semibold">
+                            Patient & Hospital Details
                         </h1>
-                        <p  className=" text-xl font-semibold text-farahgreen-500 text-left mb-2">
-                            Please find below more details about patient and the hospital where they are currently located
-                        </p>
                     </div>
-                    <div className="flex flex-col w-[500px] bg-white shadow-md rounded-lg gap-4 p-8">
-                        <div className="flex flex-row">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"
-                            className=" w-36 mr-10 rounded-full border-2 border-solid border-farahgreen-400"/>
-                            <div className="flex flex-col gap-2 mt-8">
-                            <p className="text-3xl text-center font-semibold">Farah Ahmad</p>
-                            <p className="text-2xl text-gray-500">Blood type: AB </p>
+                    <div className="flex flex-col w-[500px] bg-white shadow-md rounded-md gap-4 p-7">
+                        <div className="flex flex-row gap-4">
+                            <ProfileSVG className="h-32 w-32 -m-2 shrink-0" />
+                            <div className="flex gap-8">
+                                <div className="flex flex-col gap-3 shrink-0">
+                                    <div>
+                                        <h3 className="font-semibold">Patient name</h3>
+                                        <p>John Doe</p>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold">Blood type</h3>
+                                        <p>AB+</p>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-3">
+                                    <div>
+                                        <h3 className="font-semibold">Hospital name</h3>
+                                        <p>{data.subtitle}</p>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold">Governorate & area</h3>
+                                        <p>{data.tags.Governorate}, {data.tags.Area}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-row gap-8">
-                            <div className="flex flex-col gap-2">
-                                <p className="text-2xl text-left font-semibold">{data.subtitle}</p>
-                                <p className="text-2xl text-left text-gray-500">{data.tags.Governorate}, {data.tags.Area}</p>
-                                <hr className="h-px bg-farahgray-400 border-0 my-4" />
-                            </div>
+                        <hr className="border-t-2" />
+                        <div className="flex flex-col gap-2 items-center">
+                            <p>we need to add an address to the data</p>
                             {/*Google marker here pls @reeka*/}
-                            <div className=" bg-farahgreen-500 w-40 h-40 rounded-md"></div>
+                            <div className="bg-farahgreen-300 w-64 h-40 rounded-md"></div>
                         </div>
+                        <button
+                            className='submit-btn self-center'
+                            onClick={handleConfirm}>
+                            Confirm
+                        </button>
                     </div>
                 </div>
             :
             <div className='h-max flex flex-col items-center pb-8'>
                 <div className='flex flex-col items-start w-[500px] gap-2'>
-                    <div className="shrink-0 w-[550px] -ml-8">
-                        <GraphicSVG className="w-full" />
-                    </div>
-                    <h1 className=" text-3xl font-semibold text-farahgreen-700">
+                    <h1 className="text-xl mb-4 text-center w-full font-semibold">
                         Thank you for your generosity!
                     </h1>
                     <div className="flex flex-col justify-center bg-white rounded-md w-full p-6 shadow-md gap-4">
-                        <form className="flex flex-col w-full gap-5">
-                            <label className="label">Available item count:  
-                                <input type="number" className="pl-4"/>
-                            </label>
-
-                            <label className="label"> Needed transportation type</label>
-                            <div className="flex flex-row gap-8 mb-2 justify-around">
-                                    <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="truck" className="accent-farahgreen-500"/> Truck
+                        <form className="flex flex-col w-full gap-6">
+                            <div className="flex flex-col gap-3">
+                                <label className="labe">Available item count
+                                    <div className="w-full flex justify-center">
+                                        <Counter val={details.count} setter={handleDetailsChange} valName="count" />
                                     </div>
-                                    <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="car" className="accent-farahgreen-500"/> Car
-                                    </div>
-                                    <div className="flex gap-1">
-                                        <input type="radio" name="transportation" value="motorcycle" className="accent-farahgreen-500"/> Motorcycle
-                                    </div>
+                                </label>
                             </div>
 
-                            <div className="flex flex-row justify-between gap-12">
-                                <label className="label">On</label>
-                                <input type="date"/>
-                                <label className="label">At</label>
-                                <input type="time"/>
+                            <div className="flex flex-col gap-3">
+                                <label className="label">Needed transportation type</label>
+                                <div className="flex mb-2 justify-center gap-10">
+                                    <div className="flex gap-1">
+                                        <input type="radio" name="transportation" value="truck"
+                                        className="accent-farahgreen-500"
+                                        checked={details.transportation === "truck"}
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Truck
+                                    </div>
+                                    <div className="flex gap-1">
+                                        <input type="radio" name="transportation" value="car"
+                                        className="accent-farahgreen-500"
+                                        checked={details.transportation === "car"}
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Car
+                                    </div>
+                                    <div className="flex gap-1">
+                                        <input type="radio" name="transportation" value="motorcycle"
+                                        className="accent-farahgreen-500"
+                                        checked={details.transportation === "motorcycle"}
+                                        onChange={(e) => handleDetailsChange("transportation", e.target.value)}/> Motorcycle
+                                    </div>
+                                </div>
                             </div>
 
-                            <button type="submit"
-                            className='submit-btn'>
-                                Donate now !
+                            <div className="flex flex-col gap-3">
+                                <label className="label">Pickup details</label>
+                                <div className="flex flex-row justify-center gap-10">
+                                    <div>
+                                        <label className="label">Date
+                                            <input type="date" className="ml-3 cursor-pointer"
+                                                value={details.date} 
+                                                onChange={(e) => handleDetailsChange("date", e.target.value)}/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label className="label">Time
+                                            <input type="time" className="ml-3 cursor-pointer"
+                                                value={details.time} 
+                                                onChange={(e) => handleDetailsChange("time", e.target.value)}/>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className='submit-btn self-center'
+                                disabled={(Object.values(details).includes("") || details.count === 0)}
+                                onClick={handleConfirm}>
+                                Confirm
                             </button>
-
                         </form>
                     </div>
                 </div>

@@ -2,7 +2,7 @@ import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
 import {ReactComponent as MailSVG} from '../SVGs/mail.svg';
 import {ReactComponent as PhoneSVG} from '../SVGs/phone.svg';
 import {ReactComponent as LocationSVG} from '../SVGs/location.svg';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { UserTypeContext } from "../App";
 
 function Profile(props) {

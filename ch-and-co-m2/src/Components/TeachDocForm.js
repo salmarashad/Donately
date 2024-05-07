@@ -73,7 +73,7 @@ function TeachDocForm(props) {
                                         onChange={(e) => handleTeacherChange("subject", e.target.value)} />
                                 </label>
                                 <label className='label'>Number of pro-bono classes you can teach a month
-                                    <Counter val={teacherData.numCases} setter={handleTeacherChange} />
+                                    <Counter val={teacherData.numCases} setter={handleTeacherChange} valName="numCases" />
                                 </label>
                             </div>
                         }
@@ -87,7 +87,7 @@ function TeachDocForm(props) {
                                         onChange={(e) => handleDoctorChange("specialty", e.target.value)} />
                                 </label>
                                 <label className='label'>Number of pro-bono cases you can take a month
-                                    <Counter val={doctorData.numCases} setter={handleDoctorChange} />
+                                    <Counter val={doctorData.numCases} setter={handleDoctorChange} valName="numCases" />
                                 </label>
 
                                 <hr className='border-t-2 my-4' />

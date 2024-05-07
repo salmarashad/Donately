@@ -38,9 +38,9 @@ function App() {
 							{page === "profile" && <Profile setPage={setPage} />}
 							{page === "teachdocform" && <TeachDocForm setPage={setPage} />}
 							{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
-							{page === "donationForm" && <DonationForm />}
+							{page === "donationForm" && <DonationForm setPage={setPage} />}
 						</div>
-						{isDetailedView && <DetailsView setPage={setPage}/>}
+						{isDetailedView && <DetailsView setPage={setPage} isLoggedin={isLoggedin}/>}
 					</div>
 				</UserTypeContext.Provider>
 			</DetailedContext.Provider>
