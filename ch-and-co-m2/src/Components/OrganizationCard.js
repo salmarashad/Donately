@@ -31,26 +31,21 @@ const OrganizationCard = ({ organization }) => {
   const { title, subtitle, imgURL, tags } = organization;
 
   return (
-    <div className="organization-card bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between h-full p-4 ">
-      <div className="flex justify-center mt-6">
-        {imgURL && (
-          <img
-            src={imgURL}
-            alt={title}
-            className="w-40 h-40 object-cover rounded-md mb-4 "
-            style={{ borderRadius: "8px" }}
-          />
-        )}
-      </div>
-      <div className="flex justify-center my-1 mx-4">
-        <p className="text-lg text-center font-semibold">{title}</p>
-      </div>
-      <div className="flex justify-center mt-1 mb-4">
-        <p className="text-sm text-gray-500">{subtitle}</p>
-      </div>
-      {/* <div className="flex justify-center my-2">{renderTags(tags)}</div> */}
-      <div className="flex justify-center my-2">
-        <button className="text-sm italic border border-farahgreen-300 text-farahgreen-300 px-4 py-1 rounded-xl cursor-pointer mb-6">
+    <div className="organization-card bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between h-full p-5">
+      <div className="flex flex-col items-center w-36 h-full justify-between">
+        <div className="flex flex-col items-center gap-0.5">
+          {imgURL && (
+            <img
+              src={imgURL}
+              alt={title}
+              className="w-full aspect-square object-cover rounded-md border mb-1"
+            />
+          )}
+          <p className="text-center font-semibold leading-[18px]">{title}</p>
+          <p className="text-sm text-gray-500">{subtitle}</p>
+        </div>
+        {/* <div className="flex justify-center my-2">{renderTags(tags)}</div> */}
+        <button className="text-sm italic border border-farahgreen-300 text-farahgreen-300 px-3 py-1 mt-4 rounded-xl self-center">
           View Details {">"}
         </button>
       </div>
