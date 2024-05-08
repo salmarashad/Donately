@@ -2,6 +2,7 @@ import { useState } from "react";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
 import TeachDocForm from "./TeachDocForm";
+import Maps from "./Maps";
 
 function RegistrationForm(props) {
     const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ function RegistrationForm(props) {
     };
 
     function checkPass() {
-        if(formData.password.length < 8) {
+        if(formData.password.length < 5) {
             setValidity(prevValidity => ({
                 ...prevValidity,
                 password: false
@@ -175,7 +176,7 @@ function RegistrationForm(props) {
                         <input type="password" value={formData.password} placeholder="Type here..." className="text-input"
                         onChange={(e) => handleInputChange("password", e.target.value)} onBlur={checkPass} />
                     </label>
-                    {!validity.password && <p className='error text-left -mt-2'>Password length must be at least 8 characters</p>}
+                    {!validity.password && <p className='error text-left -mt-2'>Password length must be at least 5 characters</p>}
 
                     <label className='label'>Contact Number
                         <input type="text" value={formData.contact} placeholder="Type here..." className="text-input"
@@ -256,6 +257,13 @@ function RegistrationForm(props) {
                 <TeachDocForm doctorData={doctorData} handleDoctorChange={handleDoctorChange} teacherData={teacherData}
                     handleTeacherChange={handleTeacherChange} form={formData.accountType} handleFileChange={handleFileChange}
                     file={file} profile={false} setStep={props.setStep} />
+
+                <div className="flex flex-col">
+                    <p className='label'>Choose exact location on the map </p>
+                    <div className="bg-farahgreen-300 w-96 h-96 rounded-md self-center m-4">
+                       <Maps isStaticMap={false} />
+                    </div>
+                </div>
             </div>
 
             :

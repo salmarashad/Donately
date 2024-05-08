@@ -1,13 +1,9 @@
-import { useContext } from "react";
 import { useState } from "react";
-import { DetailedContext } from "../App";
 import CardRenderer from "../Components/CardRenderer";
 import Filter from "../Components/Filter";
-import DetailsView from "../Components/DetailsView";
 
-function DonationsView(props) {
+function DonationsView() {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
-	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 	
 	let currentData = 
 	[
@@ -161,7 +157,7 @@ function DonationsView(props) {
 		"description": "Community Support Network is hosting a spring clothing giveaway for adults in need of seasonal attire. As spring approaches, many adults lack the clothing they need for the changing weather. We are seeking donations of spring outfits, including dresses, shirts, and lightweight jackets, to help adults feel comfortable and confident as they embrace the new season.",
 		"tags": {
 			"type": "Clothes",
-			"age": "Adult",
+			"age": "Adults",
 			"gender": "",
 			"season": "Spring"
 		  },
