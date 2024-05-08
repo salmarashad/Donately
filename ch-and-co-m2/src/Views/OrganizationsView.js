@@ -1,72 +1,110 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OrganizationCard from "../Components/OrganizationCard";
+import Filter from "../Components/Filter";
 
 const OrganizationsView = () => {
   const [organizations, setOrganizations] = useState([
     {
-      id: 1,
-      name: "Dar Al Fouad Hospital",
-      type: "Hospital",
-      image: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
+      title: "Dar Al Fouad Hospital",
+      subtitle: "Hospital",
+      description:
+        "Dar Al Fouad Hospital is a leading hospital in Egypt, offering a wide range of medical services.",
+      tags: {
+        governorate: "Giza",
+        area: "6th of October",
+        type: "Hospital",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
     },
     {
-      id: 2,
-      name: "Cleopatra Hospital",
-      type: "Hospital",
-      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+      title: "Cleopatra Hospital",
+      subtitle: "Hospital",
+      description:
+        "Cleopatra Hospital is a renowned healthcare facility known for its quality medical care.",
+      tags: {
+        governorate: "Cairo",
+        area: "Nasr City",
+        type: "Hospital",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
     },
     {
-      id: 3,
-      name: "Elite International School",
-      type: "School",
-      image: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
+      title: "Elite International School",
+      subtitle: "School",
+      description:
+        "Elite International School offers quality education for students from diverse backgrounds.",
+      tags: {
+        governorate: "Cairo",
+        area: "New Cairo",
+        type: "School",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
     },
     {
-      id: 4,
-      name: "Saudi German Hospital",
-      type: "Hospital",
-      image: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
+      title: "Saudi German Hospital",
+      subtitle: "Hospital",
+      description:
+        "Saudi German Hospital provides comprehensive healthcare services with a focus on patient satisfaction.",
+      tags: {
+        governorate: "Giza",
+        area: "Mohandessin",
+        type: "Hospital",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
     },
     {
-      id: 5,
-      name: "Resala",
-      type: "Charity",
-      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+      title: "Resala",
+      subtitle: "Charity",
+      description:
+        "Resala is a charitable organization dedicated to helping those in need through various initiatives.",
+      tags: {
+        governorate: "Cairo",
+        area: "Maadi",
+        type: "Charity",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
     },
     {
-      id: 6,
-      name: "Resala",
-      type: "Charity",
-      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+      title: "Resala",
+      subtitle: "Charity",
+      description:
+        "Resala is a charitable organization dedicated to helping those in need through various initiatives.",
+      tags: {
+        governorate: "Cairo",
+        area: "Zamalek",
+        type: "Charity",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
     },
     {
-      id: 7,
-      name: "Cleopatra Hospital",
-      type: "Hospital",
-      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
-    },
-    {
-      id: 8,
-      name: "Resala",
-      type: "Charity",
-      image: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
-    },
-    {
-      id: 9,
-      name: "Cleopatra Hospital",
-      type: "Hospital",
-      image: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+      title: "Resala",
+      subtitle: "Charity",
+      description:
+        "Resala is a charitable organization dedicated to helping those in need through various initiatives.",
+      tags: {
+        governorate: "Cairo",
+        area: "Heliopolis",
+        type: "Charity",
+      },
+      imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
     },
   ]);
+  const [filteredOrganizations, setFilteredOrganizations] = useState([]);
+
+  const handleFilterChange = (filteredData) => {
+    setFilteredOrganizations(filteredData);
+  };
 
   return (
     <div className="grid grid-cols-5 max-w-7xl w-full mx-auto">
       <div className="col-span-1">
-        {/* Add any content you want to display in the first column here */}
+        {/* You can put the Filter component here */}
+        <Filter data={organizations} setCurrentCardSet={handleFilterChange} />
       </div>
       <div className="col-span-3">
         <div className="grid grid-cols-3 gap-4">
-          {organizations.map((organization) => (
+          {/* Render the filtered organizations */}
+          {filteredOrganizations.map((organization) => (
             <OrganizationCard
               key={organization.id}
               organization={organization}
