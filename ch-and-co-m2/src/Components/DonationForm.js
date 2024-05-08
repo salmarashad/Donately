@@ -3,6 +3,7 @@ import { DataContext } from "../App";
 import Counter from "./Counter";
 import {ReactComponent as ProfileSVG} from '../SVGs/profile.svg';
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
+import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
 import Maps from "./Maps";
 
 function DonationForm(props){
@@ -22,24 +23,34 @@ function DonationForm(props){
     };
 
     const [loading, setLoading] = useState(false);
+    const [confirm, setConfirm] = useState("");
 
     function timeout(delay) {
         return new Promise( res => setTimeout(res, delay) );
     }
 
-    const handleConfirm = async (e) => {
+    const handleConfirmNormal = async (e) => {
         e.preventDefault();
         if (!loading) {
             setLoading(true);
             await timeout(2000);
             setLoading(false);
-            props.setPage("donations");
+            setConfirm("normal");
+        }
+    }
+    const handleConfirmBlood = async (e) => {
+        e.preventDefault();
+        if (!loading) {
+            setLoading(true);
+            await timeout(2000);
+            setLoading(false);
+            setConfirm("blood");
         }
     }
 
     return(
         <div className="-mt-24 -mb-8 h-screen flex justify-center items-center">
-            {data.tags.type === "Blood donations"?
+            {data.tags.type === "Blood donations"  && confirm === "" ?
                 <div className='flex flex-col justify-center items-center gap-4 h-screen'>
                     <div className="w-[500px]">
                         <h1 className="text-xl mb-2 text-center w-full font-semibold">
@@ -81,17 +92,14 @@ function DonationForm(props){
                         </div>
                         <button
                             className='submit-btn self-center w-[84px] h-[32px]'
-                            onClick={handleConfirm}>
+                            onClick={handleConfirmBlood}>
                             {loading ? <SpinnerSVG className="w-full"/> : "Confirm"}
                         </button>
                     </div>
                 </div>
-            :
+            : confirm === "" ?
             <div className='h-max flex flex-col items-center pb-8'>
                 <div className='flex flex-col items-start w-[500px] gap-2'>
-                    <h1 className="text-xl mb-4 text-center w-full font-semibold">
-                        Thank you for your generosity!
-                    </h1>
                     <div className="flex flex-col justify-center bg-white rounded-md w-full p-6 shadow-md gap-4">
                         <form className="flex flex-col w-full gap-6">
                             <div className="flex flex-col gap-3">
@@ -153,14 +161,26 @@ function DonationForm(props){
                                 type="submit"
                                 className='submit-btn self-center w-[84px] h-[32px]'
                                 disabled={(Object.values(details).includes("") || details.count === 0)}
-                                onClick={handleConfirm}>
+                                onClick={handleConfirmNormal}>
                                 {loading ? <SpinnerSVG className="w-full"/> : "Confirm"}
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
-            }
+            :
+            <div className="flex flex-col w-[500px] bg-white shadow-md rounded-md gap-4 p-7">
+                <div className="flex flex-col items-center gap-4 text-center">
+                    <h2 className="text-2xl font-bold">Your request has successfully<br/>been submitted!</h2>
+                    <HeartSVG className="w-60" />
+                    {confirm === "normal" && <p className="font-medium">We'll let you know when your delivery driver is on the way</p>}
+                    {confirm === "blood" && <p className="font-medium">We'll notify the hospital that you'll be on your way</p>}
+                    <p className="font-medium">Thank you for using donate<span className="font-sans">لي</span></p>
+                    <p className="underline cursor-pointer -mt-4 italic ml-1" onClick={() => props.setPage("donations")}>
+                        Continue browsing
+                    </p>
+                </div>
+            </div>}
         </div>
     )
 }
