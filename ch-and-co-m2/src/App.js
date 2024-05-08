@@ -9,6 +9,7 @@ import OrganizationsView from './Views/OrganizationsView';
 import VolunteeringView from './Views/VolunteeringView';
 import DetailsView from './Components/DetailsView.js';
 import DonationForm from './Components/DonationForm.js';
+import VolunteeringForm from './Components/VolunteeringForm.js';
 import TeachDocPage from './Components/TeachDocPage.js';
 import Maps from './Components/Maps.js';
 
@@ -40,8 +41,9 @@ function App() {
 							{page === "teachdocform" && <TeachDocPage setPage={setPage} />}
 							{page === "login" && <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
 							{page === "donationForm" && <DonationForm setPage={setPage} />}
+							{page === "volunteeringForm" && <VolunteeringForm setPage={setPage} />}
 						</div>
-						{isDetailedView && <DetailsView setPage={setPage} isLoggedin={isLoggedin}/>}
+						{isDetailedView && <DetailsView page={page} setPage={setPage} isLoggedin={isLoggedin}/>}
 					</div>
 				</UserTypeContext.Provider>
 			</DetailedContext.Provider>

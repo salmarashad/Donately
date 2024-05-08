@@ -10,7 +10,12 @@ function DetailsView(props) {
 		e.preventDefault();
 		setIsDetailedView(false);
 		if(props.isLoggedin === true) {
+			if(props.page === "donations") {
         	props.setPage("donationForm");
+			}
+			else {
+				props.setPage("volunteeringForm");
+			}
 		}
 		else {
 			props.setPage("login");
