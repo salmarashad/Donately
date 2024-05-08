@@ -37,12 +37,12 @@ const OrganizationCard = ({ organization }) => {
           <img
             src={imgURL}
             alt={title}
-            className="w-32 h-32 object-cover rounded-md mb-4 "
+            className="w-40 h-40 object-cover rounded-md mb-4 "
             style={{ borderRadius: "8px" }}
           />
         )}
       </div>
-      <div className="flex justify-center my-1">
+      <div className="flex justify-center my-1 mx-4">
         <p className="text-lg text-center font-semibold">{title}</p>
       </div>
       <div className="flex justify-center mt-1 mb-4">

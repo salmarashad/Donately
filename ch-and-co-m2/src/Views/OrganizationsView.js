@@ -97,12 +97,11 @@ const OrganizationsView = () => {
 
   return (
     <div className="grid grid-cols-5 max-w-7xl w-full mx-auto">
-      <div className="col-span-1">
-        {/* You can put the Filter component here */}
+      <div className="col-span-1 ">
         <Filter data={organizations} setCurrentCardSet={handleFilterChange} />
       </div>
-      <div className="col-span-3">
-        <div className="grid grid-cols-3 gap-4">
+      <div className="col-span-3 mx-auto">
+        <div className="grid grid-cols-2 gap-4">
           {/* Render the filtered organizations */}
           {filteredOrganizations.map((organization) => (
             <OrganizationCard
