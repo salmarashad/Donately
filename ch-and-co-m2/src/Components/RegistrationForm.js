@@ -2,6 +2,7 @@ import { useState } from "react";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
 import TeachDocForm from "./TeachDocForm";
+import Maps from "./Maps";
 
 function RegistrationForm(props) {
     const [formData, setFormData] = useState({
@@ -256,6 +257,13 @@ function RegistrationForm(props) {
                 <TeachDocForm doctorData={doctorData} handleDoctorChange={handleDoctorChange} teacherData={teacherData}
                     handleTeacherChange={handleTeacherChange} form={formData.accountType} handleFileChange={handleFileChange}
                     file={file} profile={false} setStep={props.setStep} />
+
+                <div className="flex flex-col">
+                    <p className='label'>Choose exact location on the map </p>
+                    <div className="bg-farahgreen-300 w-96 h-96 rounded-md self-center m-4">
+                       <Maps isStaticMap={false} />
+                    </div>
+                </div>
             </div>
 
             :

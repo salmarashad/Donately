@@ -26,7 +26,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 					<LogoSVG className="w-24"/>
 				</div>
 				{/* Donations, Volunteering, Organisations, also a flexbox */}
-				{ !users.includes(userType) ?
+				{ userType==="admin" ?
 					<div className="flex font-medium text-center gap-24">
 						<button
 							className='cursor-pointer nav-item'
@@ -44,15 +44,21 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 							className='cursor-pointer nav-item'
 							onClick={() => setPage("organizations")}
 						>
-							<h1>Submissions</h1>
+							<h1>Verification</h1>
 						</button>
-						<button
-							className='cursor-pointer nav-item'
-							onClick={() => setPage("organizations")}
-						>
-							<h1>Requests</h1>
-						</button>
+						
 					</div>
+				:
+				userType==="organization" ?
+				<div className="flex font-medium text-center gap-24">
+					<button
+						className='cursor-pointer nav-item'
+						onClick={() => setPage("organizations")}
+					>
+						<h1>Dashboard</h1>
+					</button>
+					
+				</div>
 				:
 					<div className="flex font-medium text-center gap-24">
 						<button
@@ -78,7 +84,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 				}
 				{/* Notifications, Profile, Logout, also a flexbox */}
 				<div className="flex font-medium items-center justify-end gap-4 w-[150px]">
-						{isLoggedin && <NotificationComponent isLoggedin={isLoggedin} />}
+						{isLoggedin && userType!=="admin"&& <NotificationComponent isLoggedin={isLoggedin} />}
 						{isLoggedin && <ProfileSVG className="h-7 w-7 cursor-pointer" onClick={goToProfile}/>}
 						{isLoggedin ? 
 							<button 
