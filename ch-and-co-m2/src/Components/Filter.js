@@ -43,7 +43,7 @@ function Filter({data, setCurrentCardSet }) {
                 if (!categoriesObj[type][tag]) {
                     categoriesObj[type][tag] = [];
                 }
-                if (!categoriesObj[type][tag].includes(tags[tag])) {
+                if (!categoriesObj[type][tag].includes(tags[tag]) && tags[tag] !== "") {
                     categoriesObj[type][tag].push(tags[tag]);
                 }
             });
@@ -95,7 +95,7 @@ function Filter({data, setCurrentCardSet }) {
 
     function renderCategories(categories, checkedCategories) {
         return (
-            <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md">
+            <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
                 {categories.map((category, index) => (
                     <div className="bg-white py-2 px-4 rounded-md" key={index}>
                         <div className="flex items-center">
@@ -137,7 +137,9 @@ function Filter({data, setCurrentCardSet }) {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="mb-2 px-3 py-2 w-64 rounded-md border border-gray-400 focus:outline-none focus:ring-1 focus:ring-farahgreen-400"
             />
-            {renderCategories(categoriesArray, checkedCategories)}
+            <div className="sticky top-16 -mb-8 rounded-md filter-scrollbar overflow-y-auto" style={{ maxHeight: 'calc(100vh - 11.1rem)'}}>
+                {renderCategories(categoriesArray, checkedCategories)}
+            </div>
         </div>
     );
 }
