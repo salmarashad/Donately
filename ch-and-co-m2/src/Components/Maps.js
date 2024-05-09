@@ -47,11 +47,13 @@ export default function Maps(props){
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         onBoundsChange={onBoundsChange}
-
-        options={props.isStaticMap?
+        
+        options={
+          props.isStaticMap?
           {scrollwheel: false,
           disableDefaultUI: true,
-          draggable: false,}
+          draggable: false,
+          keyboardShortcuts: false}
         : 
           undefined
         }
@@ -68,22 +70,22 @@ export default function Maps(props){
         }
       </GoogleMapReact>
       {props.isStaticMap === false?
-       <div className="absolute top-44 left-44">
+       <div className="absolute top-44 left-44 ml-14 mt-10">
         <Pointer/>
         <p
         onClick={onClick}
         className=" bg-slate-700 bg-opacity-50 px-2 rounded-md text-white cursor-pointer"
         >
-        Set Location
+        {props.Location} Location
         </p>
       </div>
       :
       <div className="absolute top-44 left-44">
         <Pin/>
         <p
-        className=" bg-slate-700 bg-opacity-50 px-2 rounded-md text-white cursor-pointer"
+        className=" bg-slate-700 bg-opacity-50 px-2 rounded-md text-white"
         >
-          Hospital Location
+          {props.Location} Location
         </p>
       </div>
       }

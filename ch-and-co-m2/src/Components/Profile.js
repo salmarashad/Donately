@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { UserTypeContext } from "../App";
 import EditProfile from './EditProfile';
 import cv from '../PDFs/cv.pdf';
+import Maps from './Maps';
 
 function Profile(props) {
     const { userType } = useContext(UserTypeContext);
@@ -23,7 +24,10 @@ function Profile(props) {
     
     const [teacherData, setTeacherData] = useState({
         subject: "Computer Science",
-        numCases: 10
+        numCases: 10,
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo"
     });
     const [doctorData, setDoctorData] = useState({
         address: "Building 12, Street 35",
@@ -109,12 +113,12 @@ function Profile(props) {
                             <h3 className="text-center">You specialise in <span className="font-semibold italic">{doctorData.specialty}</span>.
                             You can take <span className="font-semibold italic">{doctorData.numCases}</span> pro-bono visits per week.</h3>
                         </div>}
-                        {userType === "doctor" && <div>
-                            <h3 className="text-center -mb-2">Clinic location: {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
-                        </div>}
-                        {userType === "doctor" && <div className='w-60 h-40 bg-farahgreen-400 rounded-md flex justify-center items-center'>
-                            <p>google map</p>
-                        </div>}
+                        <div>
+                            <h3 className="text-center -mb-2">{ userType=== "doctor"? "Clinic location:" : "Teaching post location:"} {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
+                        </div>
+                        <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
+                            <Maps isStaticMap={true} Location={userType=== "doctor"? "Clinic" : "Teaching"}/>
+                        </div>
                     </div>
                 </div>
             </div>

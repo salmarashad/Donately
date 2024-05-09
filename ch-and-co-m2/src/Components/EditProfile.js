@@ -3,6 +3,7 @@ import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import cv from '../PDFs/cv.pdf';
 import { UserTypeContext } from "../App";
 import Counter from './Counter';
+import Maps from './Maps';
 
 function EditProfile(props) {
     const { userType } = useContext(UserTypeContext);
@@ -164,6 +165,7 @@ function EditProfile(props) {
                             onChange={(e) => handleInputChange("area", e.target.value)} />
                         </label>
                     </div>
+
                 </div>
 
                 {userType === "teacher" &&
@@ -177,6 +179,29 @@ function EditProfile(props) {
                     <label className='label'>Number of pro-bono classes you can teach a month
                         <Counter val={props.teacherData.numCases} setter={handleTeacherChange} valName="numCases" />
                     </label>
+
+                    <hr className='border-t-2 my-4' />
+                    <h2 className="text-lg font-semibold mb-1">Teaching Post Location</h2>
+                    <label className='label'>Address
+                        <input type="text" value={props.teacherData.address} placeholder="Type here..." className="text-input"
+                        onChange={(e) => handleTeacherChange("address", e.target.value)} />
+                    </label>
+                    <div className="flex flex-col gap-y-4">
+                        <div className='flex flex-row gap-x-4'>
+                            <label className='label'>Area
+                                <input type="text" value={props.teacherData.area} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleTeacherChange("area", e.target.value)} />
+                            </label>
+                            <label className='label'>Governorate
+                                <input type="text" value={props.teacherData.governorate} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleTeacherChange("governorate", e.target.value)} />
+                            </label>
+                        </div>
+                        <div className=' w-full h-96'>
+                            <Maps isStaticMap={false} Location={"Change"}/>
+                        </div>
+                    </div>
+                    
                 </div>
                 }
 
@@ -198,15 +223,20 @@ function EditProfile(props) {
                         <input type="text" value={props.doctorData.address} placeholder="Type here..." className="text-input"
                         onChange={(e) => handleDoctorChange("address", e.target.value)} />
                     </label>
-                    <div className="grid grid-cols-2 gap-x-4">
-                        <label className='label'>Area
-                            <input type="text" value={props.doctorData.area} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleDoctorChange("area", e.target.value)} />
-                        </label>
-                        <label className='label'>Governorate
-                            <input type="text" value={props.doctorData.governorate} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleDoctorChange("governorate", e.target.value)} />
-                        </label>
+                    <div className="flex flex-col gap-y-4">
+                        <div className='flex flex-row gap-x-4'>
+                            <label className='label'>Area
+                                <input type="text" value={props.doctorData.area} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleDoctorChange("area", e.target.value)} />
+                            </label>
+                            <label className='label'>Governorate
+                                <input type="text" value={props.doctorData.governorate} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleDoctorChange("governorate", e.target.value)} />
+                            </label>
+                        </div>
+                        <div className=' w-full h-96'>
+                            <Maps isStaticMap={false} Location={"Change"}/>
+                        </div>
                     </div>
                 </div>
                 }

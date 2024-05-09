@@ -87,7 +87,7 @@ function DonationForm(props){
                         <div className="flex flex-col gap-2 items-center">
                             <p>we need to add an address to the data</p>
                             <div className="bg-farahgreen-300 w-96 h-96 rounded-md">
-                                <Maps isStaticMap={true} />
+                                <Maps isStaticMap={true} Location={"Hospital"}/>
                             </div>
                         </div>
                         <button
