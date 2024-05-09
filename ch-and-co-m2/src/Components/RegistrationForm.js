@@ -236,6 +236,12 @@ function RegistrationForm(props) {
                             onChange={(e) => handleInputChange("area", e.target.value)} />
                         </label>
                     </div>
+                    <div className="flex flex-col">
+                    <p className='label'>Choose exact location on the map </p>
+                    <div className="bg-farahgreen-300 w-full h-96 self-center m-4">
+                       <Maps isStaticMap={false} Location={"Set"} />
+                    </div>
+                </div>
                 </div>
                 <button
                     type="submit"
@@ -258,12 +264,6 @@ function RegistrationForm(props) {
                     handleTeacherChange={handleTeacherChange} form={formData.accountType} handleFileChange={handleFileChange}
                     file={file} profile={false} setStep={props.setStep} />
 
-                <div className="flex flex-col">
-                    <p className='label'>Choose exact location on the map </p>
-                    <div className="bg-farahgreen-300 w-96 h-96 rounded-md self-center m-4">
-                       <Maps isStaticMap={false} />
-                    </div>
-                </div>
             </div>
 
             :

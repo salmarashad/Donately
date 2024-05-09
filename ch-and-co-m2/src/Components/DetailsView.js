@@ -29,27 +29,31 @@ function DetailsView(props) {
 				<div className="flex">
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
-						{data.imgURL && <img src={data.imgURL} alt="Donation" className="w-full object-cover rounded-md aspect-square"/>}
+						{data.imgURL && (
+							<img
+								src={data.imgURL}
+								alt="Donation"
+								className="w-full object-cover rounded-md aspect-square"
+							/>
+						)}
 					</div>
 
 					{/*Text*/}
 					<div className="w-2/3">
 						<div className="flex flex-col items-left w-full mx-6 gap-1">
-							<h2 className="text-xl font-semibold max-w-[330px] w-full">{data.title}</h2>
+							<h2 className="text-xl font-semibold max-w-[330px] w-full">
+								{data.title}
+							</h2>
 							<h2 className="text-l font-semibold text-farahgray-400">
 								{data.subtitle}
 							</h2>
 							<p className="text-sm text-farahgray-700">25/04/2024, 6:30pm</p>
-							<p className="text-sm">
-								{data.description}
-							</p>
+							<p className="text-sm">{data.description}</p>
 						</div>
 					</div>
 
 					{/*Close Button*/}
-					<button
-						className="absolute top-0 right-0 m-6"
-					>
+					<button className="absolute top-0 right-0 m-6">
 						<CloseSVG
 							className="h-5 w-5 cursor-pointer text-farahgray-600"
 							onClick={() => setIsDetailedView(false)}
@@ -64,19 +68,20 @@ function DetailsView(props) {
 					{/*Information segment*/}
 					<div className="grid grid-cols-3 w-full">
 						{/*Tags column 1*/}
-						
-						
+
 						<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-row">
-							{Object.entries(data.tags).map(([tag, value], index) => (
-								tag !== "" && value !== "" && (
-								<div key={index}>
-									<h2 className="text-m font-semibold">{tag}</h2>
-									<h2 className="text-sm font-semibold text-farahgray-400">
-									{value}
-									</h2>
-								</div>
-								)
-							))}
+							{Object.entries(data.tags).map(
+								([tag, value], index) =>
+									tag !== "" &&
+									value !== "" && (
+										<div key={index}>
+											<h2 className="text-m font-semibold">{tag}</h2>
+											<h2 className="text-sm font-semibold text-farahgray-400">
+												{value}
+											</h2>
+										</div>
+									)
+							)}
 						</div>
 
 						{/*Progress bar*/}
@@ -122,10 +127,30 @@ function DetailsView(props) {
 					</div>
 
 					<div className="flex flex-col align-middle items-center gap-2">
-						<button className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-						onClick={handleDonate}>
-							Donate {">"}
-						</button>
+						{props.page === "donations" ? (
+							<button
+								className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold"
+								onClick={handleDonate}
+							>
+								Donate {">"}
+							</button>
+						) : (
+							<div className="flex gap-8">
+								<button
+									className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+									onClick={handleDonate}
+								>
+									Edit 
+								</button>
+
+								<button
+									className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
+									onClick={handleDonate}
+								>
+									Delete
+								</button>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

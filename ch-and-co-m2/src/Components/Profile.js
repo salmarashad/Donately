@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { UserTypeContext } from "../App";
 import EditProfile from './EditProfile';
 import cv from '../PDFs/cv.pdf';
+import Maps from './Maps';
 
 function Profile(props) {
     const { userType } = useContext(UserTypeContext);
@@ -23,7 +24,10 @@ function Profile(props) {
     
     const [teacherData, setTeacherData] = useState({
         subject: "Computer Science",
-        numCases: 10
+        numCases: 10,
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo"
     });
     const [doctorData, setDoctorData] = useState({
         address: "Building 12, Street 35",
@@ -124,7 +128,7 @@ function Profile(props) {
                         }
                         {(userType === "doctor" || userType === "organization") &&
                             <div className='w-60 h-40 bg-farahgreen-400 rounded-md flex justify-center items-center'>
-                                <p>google map</p>
+                                <Maps isStaticMap={true} Location={userType=== "doctor"? "Clinic" : "Teaching"}/>
                             </div>
                         }
                     </div>
