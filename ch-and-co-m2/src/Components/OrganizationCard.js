@@ -31,7 +31,7 @@ const OrganizationCard = ({ organization }) => {
   const { title, subtitle, imgURL, tags } = organization;
 
   return (
-    <div className="organization-card bg-white shadow-md rounded-lg overflow-hidden flex flex-col justify-between h-full p-5">
+    <div className="organization-card bg-white shadow-md rounded-md overflow-hidden flex flex-col justify-between h-full p-5">
       <div className="flex flex-col items-center w-36 h-full justify-between">
         <div className="flex flex-col items-center gap-0.5">
           {imgURL && (

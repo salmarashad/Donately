@@ -2,6 +2,7 @@ import { useState } from "react";
 import Counter from "./Counter";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
+import Maps from "./Maps";
 
 function TeachDocForm(props) {
     const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ function TeachDocForm(props) {
 
     return(
         <>
-            {props.confirm != true ?
+            {props.confirm !== true ?
             <div>
                 {props.form === "teacher" &&
                 <div>
@@ -40,6 +41,23 @@ function TeachDocForm(props) {
                     <label className='label'>Number of pro-bono classes you can teach a month
                         <Counter val={props.teacherData.numCases} setter={props.handleTeacherChange} valName="numCases" />
                     </label>
+                    
+                    <hr className='border-t-2 my-4' />
+                    <h2 className="text-lg font-semibold mb-1">Teaching Post Location</h2>
+                    <label className='label'>Address
+                        <input type="text" value={props.teacherData.address} placeholder="Type here..." className="text-input"
+                        onChange={(e) => props.handleTeacherChange("address", e.target.value)} />
+                    </label>
+                    <div className="grid grid-cols-2 gap-x-4">
+                        <label className='label'>Area
+                            <input type="text" value={props.teacherData.area} placeholder="Type here..." className="text-input"
+                            onChange={(e) => props.handleTeacherChange("area", e.target.value)} />
+                        </label>
+                        <label className='label'>Governorate
+                            <input type="text" value={props.teacherData.governorate} placeholder="Type here..." className="text-input"
+                            onChange={(e) => props.handleTeacherChange("governorate", e.target.value)} />
+                        </label>
+                    </div>
                 </div>
                 }
                 {props.form === "doctor" &&
@@ -70,6 +88,11 @@ function TeachDocForm(props) {
                             onChange={(e) => props.handleDoctorChange("governorate", e.target.value)} />
                         </label>
                     </div>
+                    <label className="label"> Exact Location
+                        <div className= "w-full h-96 rounded-md m-2 pr-4">
+                                <Maps isStaticMap={false} Location={"Set"}/>
+                        </div>
+                    </label>
                 </div>
                 }
                 <hr className='border-t-2 my-4' />

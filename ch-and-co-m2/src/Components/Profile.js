@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { UserTypeContext } from "../App";
 import EditProfile from './EditProfile';
 import cv from '../PDFs/cv.pdf';
+import Maps from './Maps';
 
 function Profile(props) {
     const { userType } = useContext(UserTypeContext);
@@ -23,7 +24,10 @@ function Profile(props) {
     
     const [teacherData, setTeacherData] = useState({
         subject: "Computer Science",
-        numCases: 10
+        numCases: 10,
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo"
     });
     const [doctorData, setDoctorData] = useState({
         address: "Building 12, Street 35",
@@ -32,6 +36,11 @@ function Profile(props) {
         specialty: "dermatology",
         numCases: 5
     });
+    const [orgData, setOrgData] = useState({
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo",
+    })
 
     const [file, setFile] = useState(undefined);
 
@@ -48,21 +57,26 @@ function Profile(props) {
 
     return (
         <div>
-            {(edit === true && (userType === "donor" || userType === "teacher" || userType === "doctor" )) ?
+            {(edit === true && (userType !== "admin")) ?
                 <div className='w-full flex justify-center'>
                     <EditProfile formData={formData} setFormData={setFormData}
                         teacherData={teacherData} setTeacherData={setTeacherData}
                         doctorData={doctorData} setDoctorData={setDoctorData}
+                        orgData={orgData} setOrgData={setOrgData}
                         file={file} setFile={setFile} setEdit={setEdit} />
                 </div>
             :
             <div className="w-full h-screen flex justify-center items-center -mb-8 -mt-24">
                 <div className="h-max-content w-[600px] bg-white rounded-md shadow-lg flex flex-col p-7 gap-4">
                     <div className="flex gap-6">
-                        <ProfileSVG className="h-32 w-32 -m-2" />
+                        <ProfileSVG className="h-32 w-32 -m-2 shrink-0" />
                         <div className="flex flex-col w-full">
                             <div className='flex justify-between'>
-                                <h1 className="font-bold text-2xl">Farah Ahmad <span className="text-farahgray font-normal text-lg">(F)</span></h1>
+                                {userType === "organization" ?
+                                    <h1 className="font-bold text-2xl">Resala <span className="text-farahgray font-normal text-lg">(non-profit)</span></h1>
+                                    :
+                                    <h1 className="font-bold text-2xl">Farah Ahmad <span className="text-farahgray font-normal text-lg">(F)</span></h1>
+                                }
                                 <button onClick={() => setEdit(true)}>
                                     <EditSVG className="h-6 w-6" />
                                 </button>
@@ -81,40 +95,53 @@ function Profile(props) {
                             </div>
                         </div>
                     </div>
-                    <hr className="border-t-2 w-11/12 mx-auto" />
+                    <hr className="border-t-2 w-full mx-auto" />
                     <div className="flex flex-col gap-4 items-center">
                         <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
-                            <h3>You are registered as a {userType === "teacher" ? "teacher" :
-                                                        userType === "doctor" ? "doctor" : 
-                                                        userType === "admin" ? "admin" : 
-                                                        userType === "organization" ? "organization" : "donor"}
+                            <h3>You are registered as {userType === "teacher" ? "a teacher - " :
+                                                       userType === "doctor" ? "a doctor - " : 
+                                                       userType === "organization" ? "an organization - " : "a donor"}
+                                {(userType === "doctor" || userType === "teacher" || userType === "organization") &&
+                                <button className="underline cursor-pointer mx-auto italic" onClick={downloadCv}>
+                                    {(userType === "doctor" || userType === "teacher") ? "view your CV" : "view your proof of identity"}
+                                </button>}
                             </h3>
-                            {(userType === "doctor" || userType === "teacher") &&
-                                <button className="underline cursor-pointer w-max mx-auto italic" onClick={downloadCv}>
-                                    View your CV
-                                </button>
-                            }
                         </div>
-                        {userType === "donor" && <div>
-                            <p className='underline cursor-pointer w-max mx-auto italic'
-                                onClick={() => props.setPage("teachdocform")}>
-                                Get verified as a teacher/doctor
-                            </p>
-                        </div>}
-                        {userType === "teacher" && <div>
-                            <h3 className="text-center">You teach <span className="font-semibold italic">{teacherData.subject}</span>.
-                            You can teach <span className="font-semibold italic">{teacherData.numCases}</span> pro-bono classes per week.</h3>
-                        </div>}
-                        {userType === "doctor" && <div>
-                            <h3 className="text-center">You specialise in <span className="font-semibold italic">{doctorData.specialty}</span>.
-                            You can take <span className="font-semibold italic">{doctorData.numCases}</span> pro-bono visits per week.</h3>
-                        </div>}
-                        {userType === "doctor" && <div>
-                            <h3 className="text-center -mb-2">Clinic location: {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
-                        </div>}
-                        {userType === "doctor" && <div className='w-60 h-40 bg-farahgreen-400 rounded-md flex justify-center items-center'>
-                            <p>google map</p>
-                        </div>}
+                        {userType === "donor" &&
+                            <div>
+                                <p className='underline cursor-pointer w-max mx-auto italic'
+                                    onClick={() => props.setPage("teachdocform")}>
+                                    Get verified as a teacher/doctor
+                                </p>
+                            </div>
+                        }
+                        {userType === "teacher" &&
+                            <div>
+                                <h3 className="text-center">You teach <span className="font-semibold italic">{teacherData.subject}</span>.
+                                You can teach <span className="font-semibold italic">{teacherData.numCases}</span> pro-bono classes per week.</h3>
+                            </div>
+                        }
+                        {userType === "doctor" &&
+                            <div>
+                                <h3 className="text-center">You specialise in <span className="font-semibold italic">{doctorData.specialty}</span>.
+                                You can take <span className="font-semibold italic">{doctorData.numCases}</span> pro-bono visits per week.</h3>
+                            </div>
+                        }
+                        {userType === "doctor" &&
+                            <div>
+                                <h3 className="text-center -mb-2">Clinic location: {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
+                            </div>
+                        }
+                        {userType === "organization" &&
+                            <div>
+                                <h3 className="text-center -mb-2">Organization location:</h3>
+                            </div>
+                        }
+                        {(userType === "doctor" || userType === "organization") &&
+                            <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
+                                <Maps isStaticMap={true} Location={userType === "doctor"? "Clinic" : "Organization"}/>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

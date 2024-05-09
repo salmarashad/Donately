@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
-import cv from '../PDFs/cv.pdf';
 import { UserTypeContext } from "../App";
 import Counter from './Counter';
+import Maps from './Maps';
 
 function EditProfile(props) {
     const { userType } = useContext(UserTypeContext);
@@ -79,10 +79,12 @@ function EditProfile(props) {
             [fieldName]: value
         }));
     };
-
-    function handleFileChange(event) {
-        props.setFile(event.target.files[0]);
-    }
+    const handleOrgChange = (fieldName, value) => {
+        props.setOrgData(prevOrgData => ({
+            ...prevOrgData,
+            [fieldName]: value
+        }));
+    };
 
     const [loading, setLoading] = useState(false);
 
@@ -99,17 +101,6 @@ function EditProfile(props) {
             props.setEdit("false");
         }
     }
-
-    const downloadCv = (e) => {
-        e.preventDefault();
-        const pdfUrl = cv;
-        const link = document.createElement("a");
-        link.href = pdfUrl;
-        link.download = "Farah Ahmad - CV.pdf"; // specify the filename
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
 
     return (
         <div className='bg-white rounded-md p-6 shadow-md gap-4 w-[500px]'>
@@ -135,19 +126,8 @@ function EditProfile(props) {
                     {!validity.contact && <p className='error text-left -mt-2'>Please type a valid phone number</p>}
                 </div>
                 <hr className='border-t-2 my-4' />
-                <h2 className="text-lg font-semibold mb-2">{userType === "organization" ? "Organization details" : "Location"}</h2>
+                <h2 className="text-lg font-semibold mb-2">{userType === "organization" ? "Organization Details" : "Location"}</h2>
                 <div className="flex flex-col">
-                    {userType === "organization" && <label className='label'>Organization Name
-                        <input type="text" value={props.formData.orgName} placeholder="Type here..." className="text-input"
-                        onChange={(e) => handleInputChange("orgName", e.target.value)} />
-                    </label>}
-                    
-                    {userType === "organization" && <label className='label'>
-                        Organization Type
-                        <input type="text" value={props.formData.orgType} placeholder="Type here..." className="text-input"
-                        onChange={(e) => handleInputChange("orgType", e.target.value)} />
-                    </label>}
-
                     <label className='label'>{userType === "organization" ? "Organization Address" : "Address"}
                         <input type="text" value={props.formData.address} placeholder="Type here..." className="text-input"
                         onChange={(e) => handleInputChange("address", e.target.value)} />
@@ -164,7 +144,15 @@ function EditProfile(props) {
                             onChange={(e) => handleInputChange("area", e.target.value)} />
                         </label>
                     </div>
+
+                    {userType === "organization" && 
+                        <div className=' w-full h-96 my-4'>
+                            <Maps isStaticMap={false} Location={"Change"}/>
+                        </div>}
+
                 </div>
+
+
 
                 {userType === "teacher" &&
                 <div>
@@ -177,6 +165,26 @@ function EditProfile(props) {
                     <label className='label'>Number of pro-bono classes you can teach a month
                         <Counter val={props.teacherData.numCases} setter={handleTeacherChange} valName="numCases" />
                     </label>
+
+                    <hr className='border-t-2 my-4' />
+                    <h2 className="text-lg font-semibold mb-1">Teaching Post Location</h2>
+                    <label className='label'>Address
+                        <input type="text" value={props.teacherData.address} placeholder="Type here..." className="text-input"
+                        onChange={(e) => handleTeacherChange("address", e.target.value)} />
+                    </label>
+                    <div className="flex flex-col gap-y-4">
+                        <div className='flex flex-row gap-x-4'>
+                            <label className='label'>Area
+                                <input type="text" value={props.teacherData.area} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleTeacherChange("area", e.target.value)} />
+                            </label>
+                            <label className='label'>Governorate
+                                <input type="text" value={props.teacherData.governorate} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleTeacherChange("governorate", e.target.value)} />
+                            </label>
+                        </div>
+                    </div>
+                    
                 </div>
                 }
 
@@ -198,25 +206,31 @@ function EditProfile(props) {
                         <input type="text" value={props.doctorData.address} placeholder="Type here..." className="text-input"
                         onChange={(e) => handleDoctorChange("address", e.target.value)} />
                     </label>
-                    <div className="grid grid-cols-2 gap-x-4">
-                        <label className='label'>Area
-                            <input type="text" value={props.doctorData.area} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleDoctorChange("area", e.target.value)} />
-                        </label>
-                        <label className='label'>Governorate
-                            <input type="text" value={props.doctorData.governorate} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleDoctorChange("governorate", e.target.value)} />
+                    <div className="flex flex-col gap-y-4">
+                        <div className='flex flex-row gap-x-4'>
+                            <label className='label'>Area
+                                <input type="text" value={props.doctorData.area} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleDoctorChange("area", e.target.value)} />
+                            </label>
+                            <label className='label'>Governorate
+                                <input type="text" value={props.doctorData.governorate} placeholder="Type here..." className="text-input"
+                                onChange={(e) => handleDoctorChange("governorate", e.target.value)} />
+                            </label>
+                        </div>
+                        <label className="label"> Exact Location
+                            <div className=' w-full h-96'>
+                                <Maps isStaticMap={false} Location={"Change"}/>
+                            </div>
                         </label>
                     </div>
                 </div>
                 }
 
-                {(userType === "doctor" || userType === "teacher") &&
+                {(userType === "doctor" || userType === "teacher" || userType === "organization") &&
                     <>
                         <hr className='border-t-2 my-4' />
-                        <h2 className="text-lg font-semibold mb-1">Qualifications</h2>
-                        <label className='label' htmlFor="pdf">CV
-                        {/* <button className="block" onClick={downloadCv}>CV</button> */}
+                        <h2 className="text-lg font-semibold mb-1">{userType === "organization" ? "Documents" : "Qualifications"}</h2>
+                        <label className='label' htmlFor="pdf">{userType === "organization" ? "Proof of Identity" : "CV"}
                         <input id="pdf" type="file" name="pdf" accept="application/pdf" className="block w-max cursor-pointer mt-1 mb-3" 
                         onChange={props.handleFileChange}/>
                         </label>

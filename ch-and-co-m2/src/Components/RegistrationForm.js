@@ -207,7 +207,7 @@ function RegistrationForm(props) {
                     </label>}
                 </div>
                 <hr className='border-t-2 my-4' />
-                <h2 className="text-lg font-semibold mb-2">{props.type === "donor" ? "Location" : "Organization details"}</h2>
+                <h2 className="text-lg font-semibold mb-2">{props.type === "donor" ? "Location" : "Organization Details"}</h2>
                 <div className="flex flex-col">
                     {props.type === "organization" && <label className='label'>Organization Name
                         <input type="text" value={formData.orgName} placeholder="Type here..." className="text-input"
@@ -236,6 +236,14 @@ function RegistrationForm(props) {
                             onChange={(e) => handleInputChange("area", e.target.value)} />
                         </label>
                     </div>
+                    <div className="flex flex-col">
+                    {props.type === "organization" && <>
+                        <label className='label'>Exact Location</label>
+                        <div className="bg-farahgreen-300 w-full h-96 self-center mx-4 mb-4 mt-2">
+                        <Maps isStaticMap={false} Location={"Set"} />
+                        </div>
+                    </>}
+                </div>
                 </div>
                 <button
                     type="submit"
@@ -258,12 +266,6 @@ function RegistrationForm(props) {
                     handleTeacherChange={handleTeacherChange} form={formData.accountType} handleFileChange={handleFileChange}
                     file={file} profile={false} setStep={props.setStep} />
 
-                <div className="flex flex-col">
-                    <p className='label'>Choose exact location on the map </p>
-                    <div className="bg-farahgreen-300 w-96 h-96 rounded-md self-center m-4">
-                       <Maps isStaticMap={false} />
-                    </div>
-                </div>
             </div>
 
             :
