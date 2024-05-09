@@ -237,10 +237,12 @@ function RegistrationForm(props) {
                         </label>
                     </div>
                     <div className="flex flex-col">
-                    <p className='label'>Choose exact location on the map </p>
-                    <div className="bg-farahgreen-300 w-full h-96 self-center m-4">
-                       <Maps isStaticMap={false} Location={"Set"} />
-                    </div>
+                    {props.type === "organization" && <>
+                        <label className='label'>Exact Location</label>
+                        <div className="bg-farahgreen-300 w-full h-96 self-center mx-4 mb-4 mt-2">
+                        <Maps isStaticMap={false} Location={"Set"} />
+                        </div>
+                    </>}
                 </div>
                 </div>
                 <button
