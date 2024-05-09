@@ -18,7 +18,7 @@ function NavbarComponent( { page, setPage, isLoggedin, setIsLoggedin } ) {
   }
 
   return (
-    <div className="flex justify-center items-center w-full h-16 bg-white fixed top-0">
+    <div className="flex justify-center items-center w-full h-16 bg-white fixed top-0 z-10">
       {/* flexbox to split the navbar into 3 sections */}
       <div className="flex max-w-7xl w-full items-center justify-between">
         {/* logo div */}
