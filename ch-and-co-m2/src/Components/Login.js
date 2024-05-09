@@ -59,6 +59,7 @@ function Login(props) {
                 props.setIsLoggedin(true);
                 setUserType("organization");
                 setError(false);
+                props.setPage("organizations")
             }
             else {
                 props.setIsLoggedin(false);

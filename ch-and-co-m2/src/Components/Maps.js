@@ -9,7 +9,6 @@ export default function Maps(props){
 
   const [currlocation, setCurrLocation] = React.useState([0,0]);
   const [finalLocation, setFinalLocation] = React.useState([0,0]);
-  var tempLocation = [0,0];
   const AnyReactComponent = () => <div><Pin/></div>;
   const defaultProps = {
     center: {
@@ -37,8 +36,8 @@ export default function Maps(props){
     setCurrLocation(bounds);
   }
   const onClick = () => {
-    tempLocation = currlocation;
-    setFinalLocation(tempLocation);
+    
+    setFinalLocation(currlocation);
   }
 
   return (
