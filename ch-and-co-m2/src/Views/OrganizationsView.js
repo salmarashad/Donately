@@ -109,8 +109,10 @@ const OrganizationsView = () => {
 
   return (
     <div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
-      <div className="col-span-1 ">
-        <Filter data={organizations} setCurrentCardSet={handleFilterChange} />
+      <div className="col-span-1 justify-self-start">
+        <div className="flex flex-col items-center justify-center gap-4 sticky top-24">
+          <Filter data={organizations} setCurrentCardSet={handleFilterChange} />
+        </div>
       </div>
       <div className="col-span-2 mx-4">
         <div className="grid grid-cols-3 place-items-center gap-y-6 auto-rows-fr">

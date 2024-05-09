@@ -127,30 +127,39 @@ function DetailsView(props) {
 					</div>
 
 					<div className="flex flex-col align-middle items-center gap-2">
-						{props.page === "donations" ? (
+						{props.page === "donations" ?
 							<button
 								className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold"
 								onClick={handleDonate}
 							>
 								Donate {">"}
 							</button>
-						) : (
+						: props.page === "volunteering" ?
 							<div className="flex gap-8">
 								<button
 									className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
 									onClick={handleDonate}
+								>
+									Fulfill 
+								</button>
+							</div>
+						:
+							<div className="flex gap-8">
+								<button
+									className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+									// onClick={handleDonate}
 								>
 									Edit 
 								</button>
 
 								<button
 									className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
-									onClick={handleDonate}
+									// onClick={handleDonate}
 								>
 									Delete
 								</button>
 							</div>
-						)}
+						}
 					</div>
 				</div>
 			</div>
