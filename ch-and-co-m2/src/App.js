@@ -6,6 +6,7 @@ import Registration from "./Components/Registration";
 import Profile from "./Components/Profile.js";
 import Login from "./Components/Login";
 import OrganizationsView from "./Views/OrganizationsView";
+import OrganizationDelivery from "./Views/OrganizationDelivery";
 import DetailsView from "./Components/DetailsView.js";
 import DonationForm from "./Components/DonationForm.js";
 import VolunteeringForm from "./Components/VolunteeringForm.js";
@@ -45,6 +46,7 @@ function App() {
               {page === "organizationPosts" && (
                 <PostsView page={page} setPage={setPage} />
               )}
+              {page === "OrganizationDelivery" && <OrganizationDelivery setPage={setPage}/>}
               {page === "postForm" && <PostForm />}
               {page === "organizations" && <OrganizationsView />}
               {page === "verification" && <VerificationView />}

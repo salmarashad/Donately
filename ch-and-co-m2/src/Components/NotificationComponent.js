@@ -16,7 +16,7 @@ function NotificationComponent(props) {
                 {/* little triangle above the notif container */}
                 <div className="absolute top-10 h-8 w-8 -right-0.5 bg-white shadow-lg rotate-45" />
                 {/* actual notif container */}
-                <div className="absolute top-12 h-80 w-72 -right-32 shadow-lg bg-white rounded-md p-4 space-y-2">
+                <div className="absolute top-12 h-80 w-72 z-20 -right-32 shadow-lg bg-white rounded-md p-4 space-y-2">
                     <h1 className="text-center">Notifications</h1>
                     <hr className="border-t-2" />
                     {/*notifications*/}

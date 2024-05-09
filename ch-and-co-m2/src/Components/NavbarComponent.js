@@ -55,6 +55,12 @@ function NavbarComponent( { page, setPage, isLoggedin, setIsLoggedin } ) {
             >
               <h1>Dashboard</h1>
             </button>
+            <button
+              className={page === "OrganizationDelivery" ? "nav-item-selected" : "nav-item"}
+              onClick={() => setPage("OrganizationDelivery")}
+            >
+              <h1>Dropoffs</h1>
+            </button>
           </div>
         :
           <div className="flex font-medium text-center gap-24">

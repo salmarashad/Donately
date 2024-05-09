@@ -12,7 +12,6 @@ function DetailsView(props) {
 	const calculateStrokeDashoffset = (percentage) => {
 	  return `calc(251.2 - (251.2 * ${percentage}) / 100)`;
 	};
-  
 
 	useEffect(() => {
 		if (data.isFulfilled === "true") {
@@ -47,6 +46,38 @@ function DetailsView(props) {
 						aasda	
 					</div>
 
+				:props.page === "OrganizationDelivery"?
+					<div className="flex">
+						{/*Close Button*/}
+						<button className="absolute top-0 right-0 m-6">
+								<CloseSVG
+									className="h-5 w-5 cursor-pointer text-farahgray-600"
+									onClick={() => setIsDetailedView(false)}
+								/>
+						</button>
+						<div className="flex flex-col justify-center p-5 w-11/12  rounded-md gap-3">
+							<label className="label font-bold">Dropoff details</label>
+							<hr className=" border-t-2 w-full border-farahgray-600 pb-2" />
+							<div className="flex flex-row justify-center gap-10">
+								<div>
+									<label className="label">
+										Date:
+										<input type="date" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+									</label>
+								</div>
+								<div>
+									<label className="label ">
+										Time:
+										<input type="time" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+									</label>
+								</div>
+							</div>
+							<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
+								onClick={() => setIsDetailedView(false)}>
+									Submit
+							</button>
+						</div>
+					</div>
 				:
 					<div>
 						{/*Top segment*/}
