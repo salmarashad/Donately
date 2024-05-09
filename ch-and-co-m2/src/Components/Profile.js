@@ -36,6 +36,11 @@ function Profile(props) {
         specialty: "dermatology",
         numCases: 5
     });
+    const [orgData, setOrgData] = useState({
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo",
+    })
 
     const [file, setFile] = useState(undefined);
 
@@ -113,12 +118,19 @@ function Profile(props) {
                             <h3 className="text-center">You specialise in <span className="font-semibold italic">{doctorData.specialty}</span>.
                             You can take <span className="font-semibold italic">{doctorData.numCases}</span> pro-bono visits per week.</h3>
                         </div>}
-                        <div>
-                            <h3 className="text-center -mb-2">{ userType=== "doctor"? "Clinic location:" : "Teaching post location:"} {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
-                        </div>
-                        <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
-                            <Maps isStaticMap={true} Location={userType=== "doctor"? "Clinic" : "Teaching"}/>
-                        </div>
+                        {(userType === "doctor" || userType === "teacher"|| userType === "organization") && <div>
+                            <h3 className="text-center -mb-2">
+                                <span className="font-semibold">
+                                {userType === "doctor"? "Clinic Location: ": userType === "teacher"? "Teaching Post Location: ": "Organization Location: "}
+                                </span>
+                                {userType === "doctor"? doctorData.address: userType === "teacher"? teacherData.address : orgData.address}, 
+                                {userType === "doctor"? doctorData.area: userType === "teacher"? teacherData.area : orgData.area}, 
+                                {userType === "doctor"? doctorData.governorate: userType === "teacher"? teacherData.governorate : orgData.governorate}
+                                </h3>
+                        </div>}
+                        { (userType === "doctor" || userType === "teacher" || userType === "organization") && <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
+                            <Maps isStaticMap={true} Location={userType === "doctor"? "Clinic" :userType === "teacher"? "Teaching Post": userType === "organization"? "Organization":"My"}/>
+                        </div>}
                     </div>
                 </div>
             </div>
