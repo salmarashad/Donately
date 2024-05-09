@@ -79,6 +79,12 @@ function EditProfile(props) {
             [fieldName]: value
         }));
     };
+    const handleOrgChange = (fieldName, value) => {
+        props.setOrgData(prevOrgData => ({
+            ...prevOrgData,
+            [fieldName]: value
+        }));
+    };
 
     const [loading, setLoading] = useState(false);
 
@@ -139,7 +145,14 @@ function EditProfile(props) {
                         </label>
                     </div>
 
+                    {userType === "organization" && 
+                        <div className=' w-full h-96 my-4'>
+                            <Maps isStaticMap={false} Location={"Change"}/>
+                        </div>}
+
                 </div>
+
+
 
                 {userType === "teacher" &&
                 <div>

@@ -62,6 +62,7 @@ function Profile(props) {
                     <EditProfile formData={formData} setFormData={setFormData}
                         teacherData={teacherData} setTeacherData={setTeacherData}
                         doctorData={doctorData} setDoctorData={setDoctorData}
+                        orgData={orgData} setOrgData={setOrgData}
                         file={file} setFile={setFile} setEdit={setEdit} />
                 </div>
             :

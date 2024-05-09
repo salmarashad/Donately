@@ -11,7 +11,7 @@ function DetailsView(props) {
 		setIsDetailedView(false);
 		if(props.isLoggedin === true) {
 			if(props.page === "donations") {
-        	props.setPage("donationForm");
+        		props.setPage("donationForm");
 			}
 			else {
 				props.setPage("volunteeringForm");
@@ -127,7 +127,7 @@ function DetailsView(props) {
 					</div>
 
 					<div className="flex flex-col align-middle items-center gap-2">
-						{props.page === "donations" ?
+						{props.page === "donations" ? 
 							<button
 								className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold"
 								onClick={handleDonate}
