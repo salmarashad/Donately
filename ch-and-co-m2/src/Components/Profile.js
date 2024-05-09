@@ -36,6 +36,11 @@ function Profile(props) {
         specialty: "dermatology",
         numCases: 5
     });
+    const [orgData, setOrgData] = useState({
+        address: "Building 12, Street 35",
+        area: "5th Settlement",
+        governorate: "Cairo",
+    })
 
     const [file, setFile] = useState(undefined);
 
@@ -126,9 +131,14 @@ function Profile(props) {
                                 <h3 className="text-center -mb-2">Clinic location: {doctorData.address}, {doctorData.area}, {doctorData.governorate}</h3>
                             </div>
                         }
+                        {userType === "organization" &&
+                            <div>
+                                <h3 className="text-center -mb-2">Organization location:</h3>
+                            </div>
+                        }
                         {(userType === "doctor" || userType === "organization") &&
-                            <div className='w-60 h-40 bg-farahgreen-400 rounded-md flex justify-center items-center'>
-                                <Maps isStaticMap={true} Location={userType=== "doctor"? "Clinic" : "Teaching"}/>
+                            <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
+                                <Maps isStaticMap={true} Location={userType === "doctor"? "Clinic" : "Organization"}/>
                             </div>
                         }
                     </div>
