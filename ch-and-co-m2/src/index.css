@@ -29,4 +29,8 @@ code {
   .error {
     @apply text-sm mb-3 text-red-600 italic;
   }
+
+  .success {
+    @apply text-sm mb-3 text-green-600 italic;
+  }
 }
