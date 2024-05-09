@@ -5,24 +5,36 @@
   margin: 0;
 }
 
-.nav-item {
+.nav-item, .nav-item-selected {
   position: relative;
 }
 
 .nav-item:after {    
   background: none repeat scroll 0 0 transparent;
-  bottom: -5px;
+  bottom: -20px;
   content: "";
   display: block;
-  height: 2px;
+  height: 2.5px;
   left: 50%;
   position: absolute;
-  background: #333333;
+  background: #3d3d3d;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
 
 .nav-item:hover:after { 
+  width: 100%;
+  left: 0;
+}
+
+.nav-item-selected:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: -20px;
+  content: "";
+  display: block;
+  height: 2.5px;
+  position: absolute;
+  background: #3d3d3d;
   width: 100%;
   left: 0;
 }

@@ -207,7 +207,7 @@ function RegistrationForm(props) {
                     </label>}
                 </div>
                 <hr className='border-t-2 my-4' />
-                <h2 className="text-lg font-semibold mb-2">{props.type === "donor" ? "Location" : "Organization details"}</h2>
+                <h2 className="text-lg font-semibold mb-2">{props.type === "donor" ? "Location" : "Organization Details"}</h2>
                 <div className="flex flex-col">
                     {props.type === "organization" && <label className='label'>Organization Name
                         <input type="text" value={formData.orgName} placeholder="Type here..." className="text-input"

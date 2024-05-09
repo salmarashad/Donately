@@ -4,7 +4,7 @@ import {ReactComponent as LogoSVG} from '../SVGs/tiger-filled.svg';
 import { useContext } from 'react';
 import { UserTypeContext } from "../App";
 
-function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {   
+function NavbarComponent( {page, setPage, isLoggedin, setIsLoggedin} ) {   
 	const { userType, setUserType } = useContext(UserTypeContext);
 	const users = ["", "donor", "teacher", "doctor"];
 
@@ -29,19 +29,19 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 				{ userType==="admin" ?
 					<div className="flex font-medium text-center gap-24">
 						<button
-							className='cursor-pointer nav-item'
+							className={page === "organizations" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("organizations")}
 						>
 							<h1>Organisations</h1>
 						</button>
 						<button
-							className='cursor-pointer nav-item'
+							className={page === "organizations" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("organizations")}
 						>
 							<h1>Donors</h1>
 						</button>
 						<button
-							className='cursor-pointer nav-item'
+							className={page === "organizations" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("organizations")}
 						>
 							<h1>Verification</h1>
@@ -52,7 +52,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 				userType==="organization" ?
 				<div className="flex font-medium text-center gap-24">
 					<button
-						className='cursor-pointer nav-item'
+						className={page === "organizations" ? "nav-item-selected" : "nav-item"}
 						onClick={() => setPage("organizations")}
 					>
 						<h1>Dashboard</h1>
@@ -62,20 +62,20 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 				:
 					<div className="flex font-medium text-center gap-24">
 						<button
-							className="cursor-pointer nav-item"
+							className={page === "donations" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("donations")}
 						>
 							<h1>Donations</h1>
 						</button>
 						<button
-							className="cursor-pointer nav-item"
+							className={page === "volunteering" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("volunteering")}
 						>
 							<h1>Volunteering</h1>
 						</button>
 
 						<button
-							className="cursor-pointer nav-item"
+							className={page === "organizations" ? "nav-item-selected" : "nav-item"}
 							onClick={() => setPage("organizations")}
 						>
 							<h1>Organizations</h1>
@@ -87,14 +87,12 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 						{isLoggedin && userType!=="admin"&& <NotificationComponent isLoggedin={isLoggedin} />}
 						{isLoggedin && <ProfileSVG className="h-7 w-7 cursor-pointer" onClick={goToProfile}/>}
 						{isLoggedin ? 
-							<button 
-							className="cursor-pointer nav-item"
+							<button
 							onClick={() => {setIsLoggedin(false); setPage("donations"); setUserType("");}}>
 								<h1>Log Out</h1>
 							</button>
 						: 
-							<button 
-							className="cursor-pointer nav-item"
+							<button
 							onClick={() => setPage("login")}>
 								<h1>Log in</h1>
 							</button>

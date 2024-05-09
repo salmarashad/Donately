@@ -27,7 +27,7 @@ function TeachDocForm(props) {
 
     return(
         <>
-            {props.confirm != true ?
+            {props.confirm !== true ?
             <div>
                 {props.form === "teacher" &&
                 <div>
