@@ -9,6 +9,7 @@ function CardRenderer({type, currentCardSet})  {
                 description={card.description}
                 tags={card.tags}
                 imgURL={card.imgURL}
+                isFulfilled={card.tags.isFulfilled}
                 key={index}
                 type={type}
             />

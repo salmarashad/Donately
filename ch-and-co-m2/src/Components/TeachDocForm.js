@@ -42,22 +42,6 @@ function TeachDocForm(props) {
                         <Counter val={props.teacherData.numCases} setter={props.handleTeacherChange} valName="numCases" />
                     </label>
                     
-                    <hr className='border-t-2 my-4' />
-                    <h2 className="text-lg font-semibold mb-1">Teaching Post Location</h2>
-                    <label className='label'>Address
-                        <input type="text" value={props.teacherData.address} placeholder="Type here..." className="text-input"
-                        onChange={(e) => props.handleTeacherChange("address", e.target.value)} />
-                    </label>
-                    <div className="grid grid-cols-2 gap-x-4">
-                        <label className='label'>Area
-                            <input type="text" value={props.teacherData.area} placeholder="Type here..." className="text-input"
-                            onChange={(e) => props.handleTeacherChange("area", e.target.value)} />
-                        </label>
-                        <label className='label'>Governorate
-                            <input type="text" value={props.teacherData.governorate} placeholder="Type here..." className="text-input"
-                            onChange={(e) => props.handleTeacherChange("governorate", e.target.value)} />
-                        </label>
-                    </div>
                 </div>
                 }
                 {props.form === "doctor" &&
