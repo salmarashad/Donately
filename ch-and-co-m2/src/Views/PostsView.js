@@ -1868,10 +1868,10 @@ function PostsView(props) {
 							style={{ maxHeight: "calc(100vh - 11.1rem)" }}
 						>
 							<button
-								className="mb-2 px-3 py-2 w-64 rounded-md border-white bg-farahorange-400 cursor-pointer"
+								className="mb-2 px-3 py-2 w-64 rounded-md border-2 font-semibold border-farahorange-300 bg-farahorange-200 hover:bg-farahorange-100 cursor-pointer"
 								onClick={() => props.setPage("postForm")}
 							>
-								<h3 className="text-lg font-semibold text-white text-center on">
+								<h3 className="text-lg font-semibold  text-farahorange-600  text-center on">
 									New Post
 								</h3>
 							</button>
