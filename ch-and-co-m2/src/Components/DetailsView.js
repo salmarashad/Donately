@@ -1,10 +1,22 @@
 import React, { useContext } from "react";
 import { DetailedContext, DataContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
+import { useState, useEffect } from "react";
 
 function DetailsView(props) {
 	const { setIsDetailedView } = useContext(DetailedContext);
 	const { data } = useContext(DataContext);
+
+	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
+
+	const calculateStrokeDashoffset = (percentage) => {
+	  return `calc(251.2 - (251.2 * ${percentage}) / 100)`;
+	};
+  
+
+	useEffect(() => {
+	  setPercentage(Math.floor(Math.random() * 101)); 
+	}, []);
 	
 	function handleDonate(e) {
 		e.preventDefault();
@@ -106,7 +118,7 @@ function DetailsView(props) {
 										fill="transparent"
 										transform="rotate(-90, 50, 50)"
 										strokeDasharray="251.2"
-										strokeDashoffset="calc(251.2 - (251.2 * 70) / 100)"
+										strokeDashoffset={calculateStrokeDashoffset(percentage)}
 									></circle>
 									{/* 2*pi*40 = 251.2, change this value if change radius
 										Change 70 to the percentage of progress
@@ -119,7 +131,7 @@ function DetailsView(props) {
 										textAnchor="middle"
 										alignmentBaseline="middle"
 									>
-										70%
+										{percentage + "%"}
 									</text>
 								</svg>
 							</div>
