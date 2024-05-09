@@ -15,7 +15,12 @@ function DetailsView(props) {
   
 
 	useEffect(() => {
-	  setPercentage(Math.floor(Math.random() * 101)); 
+		if (data.isFulfilled === "true") {
+			setPercentage(100);
+		}
+		else {
+			setPercentage(Math.floor(Math.random() * 101)); 	
+		}
 	}, []);
 	
 	function handleDonate(e) {
@@ -85,7 +90,9 @@ function DetailsView(props) {
 							{Object.entries(data.tags).map(
 								([tag, value], index) =>
 									tag !== "" &&
-									value !== "" && (
+									value !== "" && 
+									tag !== "isFulfilled" &&
+									(
 										<div key={index}>
 											<h2 className="text-m font-semibold">{tag}</h2>
 											<h2 className="text-sm font-semibold text-farahgray-400">

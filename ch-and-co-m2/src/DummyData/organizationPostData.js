@@ -9,6 +9,7 @@ const organizationPostData =
             age: "Kids",
             gender: "Unisex",
             season: "",
+            isFulfilled: "false"
         },
         imgURL: "https://example.com/kids_clothing_drive.jpg",
     },
@@ -21,6 +22,7 @@ const organizationPostData =
             age: "Teens",
             gender: "Unisex",
             season: "Winter",
+            isFulfilled: "true"
         },
         imgURL: "https://example.com/teens_clothing_drive.jpg",
     },
@@ -33,6 +35,7 @@ const organizationPostData =
             age: "Adults",
             gender: "Unisex",
             season: "Spring",
+            isFulfilled: "false"
         },
         imgURL: "https://example.com/adults_clothing_giveaway.jpg",
     },
@@ -45,9 +48,9 @@ const organizationPostData =
             age: "Adults",
             gender: "Unisex",
             season: "Fall",
+            isFulfilled: "true"
         },
         imgURL: "https://example.com/fall_clothing_drive.jpg",
-        isFulfilled: "false",
     },
     {
         title: "Warm Coats for Winter: Adults",
@@ -58,6 +61,7 @@ const organizationPostData =
             age: "Adults",
             gender: "Unisex",
             season: "Winter",
+            isFulfilled: "true"
         },
         imgURL: "https://example.com/winter_coats_adults.jpg",
     },
@@ -70,6 +74,7 @@ const organizationPostData =
             age: "Teens",
             gender: "Unisex",
             season: "Fall",
+            isFulfilled: "false"
         },
         imgURL: "https://example.com/teen_hoodies.jpg",
     },

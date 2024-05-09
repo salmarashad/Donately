@@ -21,12 +21,13 @@ function renderTags(tags, viewportWidth) {
 
 	return renderedTags.map((tag, index) => (
 		<>
+			{tag !== "isFulfilled" && 
 			<span
 				className="inline-block text-sm bg-farahgreen-300 text-farahgreen-700 px-3 py-1 rounded-xl font-bold whitespace-nowrap"
 				key={index}
 			>
 				{tag}
-			</span>
+			</span>}
 			{index === renderedTags.length - 1 &&
 				renderedTags.length < tags.length && (
 					<span className="inline-block text-sm border-2 border-farahgreen-600 text-farahgreen-700 px-3 py-1 rounded-xl font-bold">
