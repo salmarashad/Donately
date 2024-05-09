@@ -170,9 +170,6 @@ function EditProfile(props) {
                                 onChange={(e) => handleTeacherChange("governorate", e.target.value)} />
                             </label>
                         </div>
-                        <div className=' w-full h-96'>
-                            <Maps isStaticMap={false} Location={"Change"}/>
-                        </div>
                     </div>
                     
                 </div>
@@ -207,9 +204,11 @@ function EditProfile(props) {
                                 onChange={(e) => handleDoctorChange("governorate", e.target.value)} />
                             </label>
                         </div>
-                        <div className=' w-full h-96'>
-                            <Maps isStaticMap={false} Location={"Change"}/>
-                        </div>
+                        <label className="label"> Exact Location
+                            <div className=' w-full h-96'>
+                                <Maps isStaticMap={false} Location={"Change"}/>
+                            </div>
+                        </label>
                     </div>
                 </div>
                 }

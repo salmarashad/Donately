@@ -58,12 +58,6 @@ function TeachDocForm(props) {
                             onChange={(e) => props.handleTeacherChange("governorate", e.target.value)} />
                         </label>
                     </div>
-                    <label className="label"> Exact maps location
-                        <div className= "w-full h-96 rounded-md m-2 pr-4">
-                                <Maps isStaticMap={false} Location={"Set"}/>
-                        </div>
-                    </label>
-
                 </div>
                 }
                 {props.form === "doctor" &&
@@ -94,7 +88,7 @@ function TeachDocForm(props) {
                             onChange={(e) => props.handleDoctorChange("governorate", e.target.value)} />
                         </label>
                     </div>
-                    <label className="label"> Exact maps location
+                    <label className="label"> Exact Location
                         <div className= "w-full h-96 rounded-md m-2 pr-4">
                                 <Maps isStaticMap={false} Location={"Set"}/>
                         </div>
