@@ -1861,7 +1861,23 @@ function PostsView(props) {
 						<CardRenderer type={type} currentCardSet={currentCardSet} />
 					</div>
 				</div>
-				<div className="col-span-1"></div>
+				<div className="col-span-1 justify-self-end">
+					{props.page === "organizationPosts" && (
+						<div
+							className="sticky top-24 -mb-8 rounded-md filter-scrollbar overflow-y-auto"
+							style={{ maxHeight: "calc(100vh - 11.1rem)" }}
+						>
+							<button
+								className="mb-2 px-3 py-2 w-64 rounded-md border-white bg-farahorange-400 cursor-pointer"
+								onClick={() => props.setPage("postForm")}
+							>
+								<h3 className="text-lg font-semibold text-white text-center on">
+									New Post
+								</h3>
+							</button>
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

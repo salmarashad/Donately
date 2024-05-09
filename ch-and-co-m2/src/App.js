@@ -11,6 +11,7 @@ import DonationForm from './Components/DonationForm.js';
 import VolunteeringForm from './Components/VolunteeringForm.js';
 import TeachDocPage from './Components/TeachDocPage.js';
 import Maps from './Components/Maps.js';
+import PostForm from './Views/PostForm.js';
 
 const DetailedContext = createContext();
 const UserTypeContext = createContext();
@@ -39,7 +40,8 @@ function App() {
 							<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
 								{page === "donations" && <PostsView page={page} />}
 								{page === "volunteering" && <PostsView page={page} />}
-								{page === "organizationPosts" && <PostsView page={page} />}
+								{page === "organizationPosts" && <PostsView page={page} setPage={setPage} />}
+								{page === "postForm" && <PostForm />}
 								{page === "organizations" && <OrganizationsView />}
 								{page === "registration" && <Registration setPage={setPage} />}
 								{page === "profile" && <Profile setPage={setPage} />}

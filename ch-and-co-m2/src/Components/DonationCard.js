@@ -107,7 +107,7 @@ function DonationCard(props) {
 								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap"
 								onClick={() => handleClick()}
 							>
-								View Details {">"}
+								{props.type === "donor" ? "View Details >" : "Edit Post >"}
 							</button>
 						</div>
 					</div>

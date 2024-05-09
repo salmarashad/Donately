@@ -53,7 +53,7 @@ function NavbarComponent( {setPage, isLoggedin, setIsLoggedin} ) {
 				<div className="flex font-medium text-center gap-24">
 					<button
 						className='cursor-pointer nav-item'
-						onClick={() => setPage("organizations")}
+						onClick={() => setPage("organizationPosts")}
 					>
 						<h1>Dashboard</h1>
 					</button>
