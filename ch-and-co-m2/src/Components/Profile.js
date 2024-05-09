@@ -100,7 +100,8 @@ function Profile(props) {
                         <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
                             <h3>You are registered as {userType === "teacher" ? "a teacher - " :
                                                        userType === "doctor" ? "a doctor - " : 
-                                                       userType === "organization" ? "an organization - " : "a donor"}
+                                                       userType === "organization" ? "an organization - " : 
+                                                       userType==="donor" ? "a donor": "an admin"}
                                 {(userType === "doctor" || userType === "teacher" || userType === "organization") &&
                                 <button className="underline cursor-pointer mx-auto italic" onClick={downloadCv}>
                                     {(userType === "doctor" || userType === "teacher") ? "view your CV" : "view your proof of identity"}
