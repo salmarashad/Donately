@@ -1,7 +1,7 @@
-import React, {useContext} from "react";
-import { DetailedContext } from "../App";
+import React, { useContext, useState, useEffect } from "react";
+import { DetailedContext, DataContext } from "../App";
 
-const OrganizationCard = ({ organization }) => {
+function OrganizationCard (props){
   const renderTags = (tags) => {
     const TAG_WIDTH = 90;
     const maxCharacters = Math.round(window.innerWidth / TAG_WIDTH);
@@ -29,8 +29,34 @@ const OrganizationCard = ({ organization }) => {
     ));
   };
 
-  const { title, subtitle, imgURL, tags } = organization;
+  const { title, subtitle, imgURL, tags } = props.organization;
   const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
+	const {data, setData} = useContext(DataContext);
+	
+  useEffect(() => {
+		const handleResize = () => {
+			setViewportWidth(window.innerWidth);
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	const handleClick = () => {
+		
+		setData({ title:props.organization.title,
+              subtitle:props.organization.subtitle,
+              description:props.organization.description,
+              imgURL: props.organization.imgURL,
+              tags:props.organization.tags,
+              email:props.organization.email,
+              number:props.organization.number}); 
+		setIsDetailedView(true); 
+	}
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   return (
     <div className="organization-card bg-white shadow-md rounded-md overflow-hidden flex flex-col justify-between h-full p-5">
@@ -49,7 +75,7 @@ const OrganizationCard = ({ organization }) => {
         {/* <div className="flex justify-center my-2">{renderTags(tags)}</div> */}
         <button 
         className="text-sm italic border border-farahgreen-300 text-farahgreen-300 px-3 py-1 mt-4 rounded-xl self-center hover:border-farahgreen-500 hover:text-farahgreen-500 hover:bg-farahgreen-100"
-        onClick={() => setIsDetailedView(true)}>
+        onClick={() => handleClick()}>
           View Details {">"}
         </button>
       </div>

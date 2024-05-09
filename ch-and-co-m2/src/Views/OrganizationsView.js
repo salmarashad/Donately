@@ -15,6 +15,8 @@ const OrganizationsView = () => {
         type: "Hospital",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
+      email: "DAFHospital@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Cleopatra Hospital",
@@ -27,6 +29,8 @@ const OrganizationsView = () => {
         type: "Hospital",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
+      email: "CleoptraHospital@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Elite International School",
@@ -39,6 +43,8 @@ const OrganizationsView = () => {
         type: "School",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
+      email: "EliteSchool@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Saudi German Hospital",
@@ -51,6 +57,8 @@ const OrganizationsView = () => {
         type: "Hospital",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
+      email: "SauGerHospital@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Resala",
@@ -63,6 +71,8 @@ const OrganizationsView = () => {
         type: "Non-profit",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
+      email: "Resla@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Awlady Orphanage",
@@ -75,6 +85,8 @@ const OrganizationsView = () => {
         type: "Orphanage",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/AwladyOrphanage.png`,
+      email: "AwladyOrphanage@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Church of Archangel Michael",
@@ -87,6 +99,8 @@ const OrganizationsView = () => {
         type: "Church",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/MichaelChurch.png`,
+      email: "Archangelmike@gmail.com",
+      number: "+201064801240"
     },
     {
       title: "Al-Azhar Mosque",
@@ -99,6 +113,8 @@ const OrganizationsView = () => {
         type: "Mosque",
       },
       imgURL: `${process.env.PUBLIC_URL}/organizationImages/AlAzhar.jpeg`,
+      email: "AlAzharMosque@gmail.com",
+      number: "+201064801240"
     },
   ]);
   const [filteredOrganizations, setFilteredOrganizations] = useState([]);
