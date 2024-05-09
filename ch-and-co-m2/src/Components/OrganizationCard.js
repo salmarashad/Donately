@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import { DetailedContext } from "../App";
 
 const OrganizationCard = ({ organization }) => {
   const renderTags = (tags) => {
@@ -29,6 +30,7 @@ const OrganizationCard = ({ organization }) => {
   };
 
   const { title, subtitle, imgURL, tags } = organization;
+  const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 
   return (
     <div className="organization-card bg-white shadow-md rounded-md overflow-hidden flex flex-col justify-between h-full p-5">
@@ -45,7 +47,9 @@ const OrganizationCard = ({ organization }) => {
           <p className="text-sm text-gray-500">{subtitle}</p>
         </div>
         {/* <div className="flex justify-center my-2">{renderTags(tags)}</div> */}
-        <button className="text-sm italic border border-farahgreen-300 text-farahgreen-300 px-3 py-1 mt-4 rounded-xl self-center">
+        <button 
+        className="text-sm italic border border-farahgreen-300 text-farahgreen-300 px-3 py-1 mt-4 rounded-xl self-center hover:border-farahgreen-500 hover:text-farahgreen-500 hover:bg-farahgreen-100"
+        onClick={() => setIsDetailedView(true)}>
           View Details {">"}
         </button>
       </div>
