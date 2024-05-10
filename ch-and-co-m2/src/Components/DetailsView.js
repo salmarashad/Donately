@@ -9,6 +9,7 @@ function DetailsView(props) {
 	const { data } = useContext(DataContext);
 
 	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
+	const [isThanked, setIsThanked] = useState(false);
 
 	const calculateStrokeDashoffset = (percentage) => {
 	  return `calc(251.2 - (251.2 * ${percentage}) / 100)`;
@@ -40,6 +41,12 @@ function DetailsView(props) {
 			props.setPage("login");
 		}
     }
+
+	function handleEdit(e) {
+		e.preventDefault();
+		setIsDetailedView(false);
+		props.setPage("postForm");
+	}
 
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
@@ -139,7 +146,7 @@ function DetailsView(props) {
 										</label>
 									</div>
 									{/*Google map for Org*/}
-									<div className="h-96 w-96 mb-4">
+									<div className="w-96 mb-4 overflow-hidden rounded-md">
 										<Maps isStaticMap={true} Location={"Organization"} />
 									</div>
 								</div>
@@ -147,7 +154,8 @@ function DetailsView(props) {
 								<div className="grid grid-cols-3 w-full">
 									{/*Tags column 1*/}
 
-									<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-row">
+									{!data.tags.isFulfilled && 
+										<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-row">
 										{Object.entries(data.tags).map(
 											([tag, value], index) =>
 												tag !== "" &&
@@ -162,11 +170,11 @@ function DetailsView(props) {
 													</div>
 												)
 										)}
-									</div>
+									</div>}
 									
 									{/*Google map for Org*/}
 									{props.page==="organizations" && 
-									<div className="h-80 w-80">
+									<div className="w-80 rounded-md overflow-hidden">
 										<Maps isStaticMap={true} Location={"Organization"} />
 									</div>
 									}
@@ -212,7 +220,56 @@ function DetailsView(props) {
 										</div>
 									</div>}
 								</div>}
-
+								{props.page === "organizationPosts" && data.tags.isFulfilled === "true" &&
+									<div style={{ textAlign: 'center', margin: '20px' }}>
+										<h1 style={{ marginBottom: '20px' }}>
+											This post has been fulfilled and reached its goal!
+										</h1>
+										{data.tags.type === "Teacher" && 
+											<div>
+												<p style={{ marginBottom: '10px' }}>
+													For further inquiries, please contact:
+												</p>
+												<p style={{ marginBottom: '10px', fontWeight: 'bold' }}>
+													Soha Amer<br />
+													Email: soha.amer@example.com<br />
+													Phone: +201023482882
+												</p>
+												<button style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '20px' }}
+												onClick={() => setIsThanked(true)}
+												>
+													Send a Thank You Note
+												</button>
+												{isThanked &&
+												<h1>
+													Your thank you note has been sent!
+												</h1>}
+											</div>
+										}
+										{data.tags.type === "Doctor" &&
+											<div>
+												<p style={{ marginBottom: '10px' }}>
+													For further inquiries, please contact:
+												</p>
+												<p style={{ marginBottom: '10px', fontWeight: 'bold' }}>
+													Maged Hosny<br />
+													Email: maged.hosny@example.com<br />
+													Phone: +201012359955
+												</p>
+												<button style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '20px' }}
+												onClick={() => setIsThanked(true)}
+												>
+													Send a Thank You Note
+												</button>
+												{isThanked &&
+												<h1>
+													Your thank you note has been sent!
+												</h1>}
+											</div>
+											
+										}
+									</div>
+								}
 							<div className="flex flex-col align-middle items-center gap-2">
 								{props.page === "donations" ? 
 									<button
@@ -236,16 +293,9 @@ function DetailsView(props) {
 									<div className="flex gap-8">
 										<button
 											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-											// onClick={handleDonate}
+											onClick={handleEdit}
 										>
 											Edit 
-										</button>
-
-										<button
-											className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
-											// onClick={handleDonate}
-										>
-											Delete
 										</button>
 									</div>
 								}

@@ -139,7 +139,7 @@ function VerificationPage() {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-64">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-56">
       {organizations.map((org) => (
         <VerificationOrganizationCard
           key={org.id}

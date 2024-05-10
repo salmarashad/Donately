@@ -239,8 +239,8 @@ function RegistrationForm(props) {
                     <div className="flex flex-col">
                     {props.type === "organization" && <>
                         <label className='label'>Exact Location</label>
-                        <div className="bg-farahgreen-300 w-full h-96 self-center mx-4 mb-4 mt-2">
-                        <Maps isStaticMap={false} Location={"Set"} />
+                        <div className="bg-farahgreen-300 w-full rounded-md overflow-hidden self-center mx-4 mb-4 mt-2">
+                            <Maps isStaticMap={false} Location={"Set"} />
                         </div>
                     </>}
                 </div>

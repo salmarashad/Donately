@@ -53,7 +53,7 @@ function DonationForm(props){
             {data.tags.type === "Blood donations"  && confirm === "" ?
                 <div className='flex flex-col justify-center items-center gap-4 h-screen'>
                     <div className="w-[500px]">
-                        <h1 className="text-xl mb-2 text-center w-full font-semibold">
+                        <h1 className="text-xl -mb-1 text-center w-full font-semibold">
                             Patient & Hospital Details
                         </h1>
                     </div>
@@ -86,7 +86,7 @@ function DonationForm(props){
                         <hr className="border-t-2" />
                         <div className="flex flex-col gap-2 items-center">
                             <p>we need to add an address to the data</p>
-                            <div className="bg-farahgreen-300 w-96 h-96 rounded-md">
+                            <div className="bg-farahgreen-300 w-96 rounded-md overflow-hidden">
                                 <Maps isStaticMap={true} Location={"Hospital"}/>
                             </div>
                         </div>
