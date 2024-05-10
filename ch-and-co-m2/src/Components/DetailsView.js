@@ -40,6 +40,12 @@ function DetailsView(props) {
 		}
     }
 
+	function handleEdit(e) {
+		e.preventDefault();
+		setIsDetailedView(false);
+		props.setPage("postForm");
+	}
+
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
 			<div className="flex flex-col bg-farahgray-100 w-[600px] h-max rounded-md p-6 relative">
@@ -279,7 +285,7 @@ function DetailsView(props) {
 									<div className="flex gap-8">
 										<button
 											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-											// onClick={handleDonate}
+											onClick={handleEdit}
 										>
 											Edit 
 										</button>

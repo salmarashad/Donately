@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ReactComponent as SpinnerSVG } from "../SVGs/spinner.svg";
+import { DataContext } from "../App";
 
 function PostForm(props) {
+	const { data } = useContext(DataContext);
+	const dataTags = data && data.tags ? data.tags : {};
+
+	console.log("data\n" , data)
+	console.log("dataTags\n" , dataTags)
+
 	const [formData, setFormData] = useState({
-		title: "",
-		description: "",
-		progress: "",
-		type: "",
+		title: data.title || "",
+		description: data.description || "",
+		progress: (Math.floor(Math.random() * 101)),
+		type: dataTags.type || "",
 	});
 
 	const [validity, setValidity] = useState({
@@ -19,9 +26,9 @@ function PostForm(props) {
 	});
 
 	const [clothesDetails, setClothesDetails] = useState({
-		age: "",
-		gender: "",
-		season: "",
+		age: dataTags.type === "Clothes" ? dataTags.age : "",
+		gender: dataTags.type === "Clothes" ? dataTags.gender : "",
+		season: dataTags.type === "Clothes" ? dataTags.season : "",
 	});
 
 	function handleClothesChange(fieldName, value) {
@@ -32,9 +39,9 @@ function PostForm(props) {
 	}
 
 	const [toysDetails, setToysDetails] = useState({
-		age: "",
-		gender: "",
-		category: "",
+		age: dataTags.type === "Toys" ? dataTags.age : "",
+		gender: dataTags.type === "Toys" ? dataTags.gender : "",
+		category: dataTags.type === "Toys" ? dataTags.category : "",
 	});
 
 	function handleToysChange(fieldName, value) {
@@ -45,7 +52,7 @@ function PostForm(props) {
 	}
 
 	const [foodDetails, setFoodDetails] = useState({
-		type: "",
+		type: dataTags.type === "Food" ? dataTags.category : "",
 	});
 
 	function handleFoodChange(fieldName, value) {
@@ -56,9 +63,10 @@ function PostForm(props) {
 	}
 
 	const [medicalSuppliesDetails, setMedicalSuppliesDetails] = useState({
-		type: "",
-		equpiment: "",
-		use: "",
+		type: dataTags.type === "Medical Supplies" ? dataTags.medicaldevice : "",
+		equpiment:
+			dataTags.type === "Medical Supplies" ? dataTags.medicalequipment : "",
+		use: dataTags.type === "Medical Supplies" ? dataTags.medicaluse : "",
 	});
 
 	function handleMedicalSuppliesChange(fieldName, value) {
@@ -69,9 +77,10 @@ function PostForm(props) {
 	}
 
 	const [bloodDetails, setBloodDetails] = useState({
-		hospital: "",
-		governorate: "",
-		area: "",
+		hospital: dataTags.type === "Blood Donations" ? dataTags.Hospital : "",
+		governorate:
+			dataTags.type === "Blood Donations" ? dataTags.Governorate : "",
+		area: dataTags.type === "Blood Donations" ? dataTags.Area : "",
 	});
 
 	function handleBloodChange(fieldName, value) {
@@ -82,7 +91,7 @@ function PostForm(props) {
 	}
 
 	const [schoolSuppliesDetails, setSchoolSuppliesDetails] = useState({
-		type: "",
+		type: dataTags.type === "School Supplies" ? dataTags.category : "",
 	});
 
 	function handleSchoolSuppliesChange(fieldName, value) {
@@ -100,6 +109,7 @@ function PostForm(props) {
 	};
 
 	function checkNotEmpty(fieldName, value) {
+		if(fieldName === "detailsNotEmpty") {return} // Delete this line if you want to check for empty details
 		if (value === "") {
 			setValidity((prevValidity) => ({
 				...prevValidity,
@@ -257,12 +267,12 @@ function PostForm(props) {
 									onBlur={() => checkNotEmpty("type", formData.type)}
 								>
 									<option value="">Select...</option>
-									<option value="clothes">Clothes</option>
-									<option value="toys">Toys</option>
-									<option value="food">Food</option>
-									<option value="medicalSupplies">Medical Supplies</option>
-									<option value="blood">Blood</option>
-									<option value="schoolSupplies">School Supplies</option>
+									<option value="Clothes">Clothes</option>
+									<option value="Toys">Toys</option>
+									<option value="Food">Food</option>
+									<option value="Medical Supplies">Medical Supplies</option>
+									<option value="Blood Donation">Blood Donation</option>
+									<option value="School Supplies">School Supplies</option>
 								</select>
 							</label>
 							<label className="label col-span-1">
@@ -295,7 +305,7 @@ function PostForm(props) {
 							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
 
 							{/* Clothes Details */}
-							{formData.type === "clothes" && (
+							{formData.type === "Clothes" && (
 								<div className="flex gap-3">
 									<label className="label">
 										Age
@@ -310,9 +320,9 @@ function PostForm(props) {
 											}
 										>
 											<option value="">Select...</option>
-											<option value="kids">Kids</option>
-											<option value="teens">Teens</option>
-											<option value="adults">Adults</option>
+											<option value="Kids">Kids</option>
+											<option value="Teens">Teens</option>
+											<option value="Adults">Adults</option>
 										</select>
 									</label>
 
@@ -329,9 +339,9 @@ function PostForm(props) {
 											}
 										>
 											<option value="">Select...</option>
-											<option value="male">Male</option>
-											<option value="female">Female</option>
-											<option value="unisex">Unisex</option>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+											<option value="Unisex">Unisex</option>
 										</select>
 									</label>
 
@@ -348,16 +358,18 @@ function PostForm(props) {
 											}
 										>
 											<option value="">Select...</option>
-											<option value="winter">Winter</option>
-											<option value="summer">Summer</option>
-											<option value="all">All</option>
+											<option value="Winter">Winter</option>
+											<option value="Summer">Summer</option>
+											<option value="Spring">Spring</option>
+											<option value="Fall">Fall</option>
+											<option value="All">All</option>
 										</select>
 									</label>
 								</div>
 							)}
 
 							{/* Toys Details */}
-							{formData.type === "toys" && (
+							{formData.type === "Toys" && (
 								<div>
 									<div className="flex flex-col gap-3">
 										<div className="grid grid-cols-2 gap-3 w-full">
@@ -387,9 +399,9 @@ function PostForm(props) {
 													}
 												>
 													<option value="">Select...</option>
-													<option value="male">Male</option>
-													<option value="female">Female</option>
-													<option value="unisex">Unisex</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+													<option value="Unisex">Unisex</option>
 												</select>
 											</label>
 										</div>
@@ -420,7 +432,7 @@ function PostForm(props) {
 							)}
 
 							{/* Food Details */}
-							{formData.type === "food" && (
+							{formData.type === "Food" && (
 								<div>
 									<label className="label">
 										Type
@@ -446,7 +458,7 @@ function PostForm(props) {
 							)}
 
 							{/* Medical Supplies Details */}
-							{formData.type === "medicalSupplies" && (
+							{formData.type === "Medical Supplies" && (
 								<div>
 									<div className="grid grid-cols-2 gap-3 w-full">
 										<label className="label">
@@ -501,7 +513,7 @@ function PostForm(props) {
 							)}
 
 							{/* Blood Details */}
-							{formData.type === "blood" && (
+							{formData.type === "Blood Donation" && (
 								<div>
 									<div className="grid grid-cols-3 gap-3 w-full">
 										<label className="label">
@@ -560,14 +572,15 @@ function PostForm(props) {
 							)}
 
 							{/* School Supplies Details */}
-							{formData.type === "schoolSupplies" && (
+							{formData.type === "School Supplies" && (
 								<div>
 									<label className="label">
 										Type
 										<input
+											list="school-supplies-types"
 											type="text"
 											value={schoolSuppliesDetails.type}
-											placeholder="Type here..."
+											placeholder="Select or type..."
 											className="text-input"
 											onChange={(e) =>
 												handleSchoolSuppliesChange("type", e.target.value)
@@ -579,6 +592,10 @@ function PostForm(props) {
 												)
 											}
 										/>
+										<datalist id="school-supplies-types">
+											<option value="Books" />
+											<option value="Stationary" />
+										</datalist>
 									</label>
 								</div>
 							)}
@@ -594,35 +611,43 @@ function PostForm(props) {
 					<hr className="border-t-2 my-4" />
 					<div className="flex flex-col">
 						<div className="flex justify-center items-center gap-4">
-						<button
-							type="button"
-							className=" py-1 px-3 rounded-md border-2 font-medium hover:bg-farahgreen-100 border-farahgreen-600 text-farahgreen-600 w-[82px] h-[32px]"
-							onClick={() => props.setPage("organizationPosts")}
-						>
-							Back
-						</button>
+							<button
+								type="button"
+								className=" py-1 px-3 rounded-md border-2 font-medium hover:bg-farahgreen-100 border-farahgreen-600 text-farahgreen-600 w-[82px] h-[32px]"
+								onClick={() => props.setPage("organizationPosts")}
+							>
+								Back
+							</button>
 
-						<button
-							type="submit"
-							className="submit-btn self-center w-[82px] h-[32px]"
-							disabled={isFormValid(
-								validity,
-								formData,
-								clothesDetails,
-								toysDetails,
-								foodDetails,
-								medicalSuppliesDetails,
-								bloodDetails,
-								schoolSuppliesDetails
-							)}
-							onClick={handleSubmit}
-						>
-							{loading ? <SpinnerSVG className="w-full" /> : "Submit"}
-						</button>
+							<button
+								type="submit"
+								className="submit-btn self-center w-[82px] h-[32px]"
+								disabled={isFormValid(
+									validity,
+									formData,
+									clothesDetails,
+									toysDetails,
+									foodDetails,
+									medicalSuppliesDetails,
+									bloodDetails,
+									schoolSuppliesDetails
+								)}
+								onClick={handleSubmit}
+							>
+								{loading ? (
+									<SpinnerSVG className="w-full" />
+								) : Object.keys(dataTags).length === 0 ? (
+									"Submit"
+								) : (
+									"Update"
+								)}
+							</button>
 						</div>
 						{success && (
 							<p className="success items-center text-center mt-2 -mb-4">
-								Post submitted successfully!
+								{Object.keys(dataTags).length === 0
+									? "Post submitted successfully!"
+									: "Post updated successfully!"}
 							</p>
 						)}
 					</div>
@@ -632,4 +657,3 @@ function PostForm(props) {
 	);
 }
 export default PostForm;
-

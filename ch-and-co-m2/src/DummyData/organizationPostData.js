@@ -8,7 +8,7 @@ const organizationPostData =
             type: "Clothes",
             age: "Kids",
             gender: "Unisex",
-            season: "",
+            season: "All",
             isFulfilled: "false"
         },
         imgURL: "https://example.com/kids_clothing_drive.jpg",
