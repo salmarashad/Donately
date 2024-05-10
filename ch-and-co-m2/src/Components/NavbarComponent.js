@@ -1,12 +1,21 @@
 import NotificationComponent from "./NotificationComponent";
 import { ReactComponent as ProfileSVG } from "../SVGs/profile.svg";
 import { ReactComponent as LogoSVG } from "../SVGs/tiger-filled.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserTypeContext } from "../App";
 
 function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
   const { userType, setUserType } = useContext(UserTypeContext);
-  const users = ["", "donor", "teacher", "doctor"];
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleMenuClick = (selectedPage) => {
+    setPage(selectedPage);
+    setShowDropdown(false); // Hide the dropdown after selecting an option
+  };
 
   function goToProfile() {
     if (isLoggedin) {
@@ -43,14 +52,40 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
             >
               <h1>Donors</h1>
             </button>
-            <button
-              className={
-                page === "verification" ? "nav-item-selected" : "nav-item"
-              }
-              onClick={() => setPage("verification")}
-            >
-              <h1>Requests</h1>
-            </button>
+            <div className="relative">
+              <button
+                className={
+                  page === "verification" || page === "docRequest"
+                    ? "nav-item-selected"
+                    : "nav-item"
+                }
+                onClick={toggleDropdown}
+              >
+                <h1>Requests</h1>
+              </button>
+              {showDropdown && (
+                <div className="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleMenuClick("verification")}
+                  >
+                    Organization Requests
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleMenuClick("docRequest")}
+                  >
+                    Doctor Requests
+                  </button>
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={() => handleMenuClick("teacherRequests")}
+                  >
+                    Teacher Requests
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         ) : userType === "organization" ? (
           <div className="flex font-medium text-center gap-24">
@@ -133,4 +168,5 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
     </div>
   );
 }
+
 export default NavbarComponent;
