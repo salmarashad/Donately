@@ -232,13 +232,6 @@ function DetailsView(props) {
 										>
 											Edit 
 										</button>
-
-										<button
-											className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
-											// onClick={handleDonate}
-										>
-											Delete
-										</button>
 									</div>
 								}
 							</div>

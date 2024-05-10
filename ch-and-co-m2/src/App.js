@@ -46,7 +46,7 @@ function App() {
 							{page === "organizationPosts" && (
 								<PostsView page={page} setPage={setPage} />
 							)}
-              {page === "OrganizationDelivery" && <OrganizationDelivery setPage={setPage}/>}
+              				{page === "OrganizationDelivery" && <OrganizationDelivery setPage={setPage}/>}
 							{page === "postForm" && (
 								<PostForm setPage={setPage} />
 							)}

@@ -38,7 +38,7 @@ function renderTags(tags, viewportWidth) {
 	));
 }
 
-function DonationCard(props) {
+function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
 	const {data, setData} = useContext(DataContext);
 	const [imageUrl, setImageUrl] = useState('');
@@ -72,6 +72,9 @@ function DonationCard(props) {
 		
 		setData({ ...props, imgURL: imageUrl }); 
 		setIsDetailedView(true); 
+	}
+	const handleDelete = () => {
+		setCurrentCardSet(currentCardSet.filter((card) => card.title !== props.title));
 	}
 	const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
@@ -110,6 +113,13 @@ function DonationCard(props) {
 							>
 								{props.type === "donor" ? "View Details >" : "Edit Post >"}
 							</button>
+							{props.type !== "donor" && props.tags.isFulfilled === "true" && 
+							<button
+								className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
+								onClick={() => handleDelete()}
+							>
+								Delete
+							</button>}
 						</div>
 					</div>
 				</div>
