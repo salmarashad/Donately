@@ -4,15 +4,14 @@ import { ReactComponent as LogoSVG } from "../SVGs/tiger-filled.svg";
 import { useContext } from "react";
 import { UserTypeContext } from "../App";
 
-function NavbarComponent( { page, setPage, isLoggedin, setIsLoggedin } ) {   
-	const { userType, setUserType } = useContext(UserTypeContext);
-	const users = ["", "donor", "teacher", "doctor"];
+function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
+  const { userType, setUserType } = useContext(UserTypeContext);
+  const users = ["", "donor", "teacher", "doctor"];
 
   function goToProfile() {
     if (isLoggedin) {
       setPage("profile");
-    }
-	else {
+    } else {
       setPage("login");
     }
   }
@@ -26,65 +25,83 @@ function NavbarComponent( { page, setPage, isLoggedin, setIsLoggedin } ) {
           <LogoSVG className="w-24" />
         </div>
         {/* Donations, Volunteering, Organisations, also a flexbox */}
-        {userType === "admin" ?
+        {userType === "admin" ? (
           <div className="flex font-medium text-center gap-24">
             <button
-              className={page === "organizations" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "organizations" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("organizations")}
             >
               <h1>Organisations</h1>
             </button>
             <button
-              className={page === "organizations" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "organizations" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("organizations")}
             >
               <h1>Donors</h1>
             </button>
             <button
-              className={page === "verification" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "verification" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("verification")}
             >
-              <h1>Verification</h1>
+              <h1>Requests</h1>
             </button>
           </div>
- 		: userType === "organization" ?
+        ) : userType === "organization" ? (
           <div className="flex font-medium text-center gap-24">
             <button
-              className={page === "organizationPosts" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "organizationPosts" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("organizationPosts")}
             >
               <h1>Dashboard</h1>
             </button>
             <button
-              className={page === "OrganizationDelivery" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "OrganizationDelivery"
+                  ? "nav-item-selected"
+                  : "nav-item"
+              }
               onClick={() => setPage("OrganizationDelivery")}
             >
               <h1>Dropoffs</h1>
             </button>
           </div>
-        :
+        ) : (
           <div className="flex font-medium text-center gap-24">
             <button
-              className={page === "donations" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "donations" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("donations")}
             >
               <h1>Donations</h1>
             </button>
             <button
-              className={page === "volunteering" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "volunteering" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("volunteering")}
             >
               <h1>Volunteering</h1>
             </button>
 
             <button
-              className={page === "organizations" ? "nav-item-selected" : "nav-item"}
+              className={
+                page === "organizations" ? "nav-item-selected" : "nav-item"
+              }
               onClick={() => setPage("organizations")}
             >
               <h1>Organizations</h1>
             </button>
           </div>
-		}
+        )}
         {/* Notifications, Profile, Logout, also a flexbox */}
         <div className="flex font-medium items-center justify-end gap-4 w-[150px]">
           {isLoggedin && userType !== "admin" && (
@@ -107,9 +124,7 @@ function NavbarComponent( { page, setPage, isLoggedin, setIsLoggedin } ) {
               <h1>Log Out</h1>
             </button>
           ) : (
-            <button
-              onClick={() => setPage("login")}
-            >
+            <button onClick={() => setPage("login")}>
               <h1>Log in</h1>
             </button>
           )}
