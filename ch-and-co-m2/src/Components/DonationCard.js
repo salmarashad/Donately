@@ -113,7 +113,7 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 							>
 								{props.type === "donor" ? "View Details >" : "Edit Post >"}
 							</button>
-							{props.type !== "donor" && props.tags.isFulfilled === "true" && 
+							{props.type !== "donor" && 
 							<button
 								className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
 								onClick={() => handleDelete()}
