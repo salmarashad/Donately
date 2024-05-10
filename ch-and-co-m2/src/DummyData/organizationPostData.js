@@ -53,14 +53,10 @@ const organizationPostData =
         imgURL: "https://example.com/fall_clothing_drive.jpg",
     },
     {
-        title: "Warm Coats for Winter: Adults",
-        description:
-            "Community Outreach Center urgently needs donations of warm winter coats for adults in our community. As temperatures drop, many individuals are left vulnerable to the cold without adequate outerwear. Your contributions of coats, jackets, and scarves will provide essential warmth and protection to those in need, helping them stay safe and healthy throughout the winter season.",
+        title: "Urgent Teacher Needed for Local School",
+        description: "Our local school is in urgent need of a qualified teacher to fill a vacant position in the English department. The ideal candidate should have a Bachelor's degree in English or a related field, as well as a teaching certification. Previous teaching experience is preferred but not required. The selected candidate will be responsible for teaching English classes to students in grades 9-12, developing lesson plans, and assessing student progress.",
         tags: {
-            type: "Clothes",
-            age: "Adults",
-            gender: "Unisex",
-            season: "Winter",
+            type: "Teacher",
             isFulfilled: "true"
         },
         imgURL: "https://example.com/winter_coats_adults.jpg",
