@@ -73,7 +73,7 @@ function TeachDocForm(props) {
                         </label>
                     </div>
                     <label className="label"> Exact Location
-                        <div className= "w-full h-96 rounded-md m-2 pr-4">
+                        <div className= "w-full rounded-md overflow-hidden m-2 pr-4">
                                 <Maps isStaticMap={false} Location={"Set"}/>
                         </div>
                     </label>

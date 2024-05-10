@@ -4,7 +4,7 @@ import { ReactComponent as LogoSVG } from "../SVGs/tiger-filled.svg";
 import { useContext, useState } from "react";
 import { UserTypeContext } from "../App";
 
-function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
+function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEdit }) {
   const { userType, setUserType } = useContext(UserTypeContext);
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -20,6 +20,9 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin }) {
   function goToProfile() {
     if (isLoggedin) {
       setPage("profile");
+      if(edit === true){
+        setEdit(false);
+      }
     } else {
       setPage("login");
     }

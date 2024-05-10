@@ -11,7 +11,6 @@ import Maps from './Maps';
 
 function Profile(props) {
     const { userType } = useContext(UserTypeContext);
-    const [edit, setEdit] = useState(false);
 
     const [formData, setFormData] = useState({
         email: userType + "@gmail.com",
@@ -57,13 +56,13 @@ function Profile(props) {
 
     return (
         <div>
-            {(edit === true && (userType !== "admin")) ?
+            {props.edit === true ?
                 <div className='w-full flex justify-center'>
                     <EditProfile formData={formData} setFormData={setFormData}
                         teacherData={teacherData} setTeacherData={setTeacherData}
                         doctorData={doctorData} setDoctorData={setDoctorData}
                         orgData={orgData} setOrgData={setOrgData}
-                        file={file} setFile={setFile} setEdit={setEdit} />
+                        file={file} setFile={setFile} setEdit={props.setEdit} />
                 </div>
             :
             <div className="w-full h-screen flex justify-center items-center -mb-8 -mt-24">
@@ -77,7 +76,7 @@ function Profile(props) {
                                     :
                                     <h1 className="font-bold text-2xl">Farah Ahmad <span className="text-farahgray font-normal text-lg">(F)</span></h1>
                                 }
-                                <button onClick={() => setEdit(true)}>
+                                <button onClick={() => props.setEdit(true)}>
                                     <EditSVG className="h-6 w-6" />
                                 </button>
                             </div>
@@ -85,14 +84,15 @@ function Profile(props) {
                                 <MailSVG className="h-5 w-5" />
                                 <p>{formData.email}</p>
                             </div>
+                            
                             <div className="flex gap-2">
                                 <PhoneSVG className="h-5 w-5" />
                                 <p>{formData.contact}</p>
                             </div>
-                            <div className="flex gap-2">
+                            {userType !== "admin" && <div className="flex gap-2">
                                 <LocationSVG className="h-6 w-6" />
                                 <p>{formData.address}, {formData.area}, {formData.governorate}</p>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                     <hr className="border-t-2 w-full mx-auto" />
@@ -135,11 +135,11 @@ function Profile(props) {
                         }
                         {userType === "organization" &&
                             <div>
-                                <h3 className="text-center -mb-2">Organization location:</h3>
+                                <h3 className="text-center -mb-2">Organization location: {orgData.address}, {orgData.area}, {orgData.governorate}</h3>
                             </div>
                         }
                         {(userType === "doctor" || userType === "organization") &&
-                            <div className='w-96 h-96 bg-farahgreen-400 rounded-md flex justify-center items-center'>
+                            <div className='w-96 overflow-hidden bg-farahgreen-400 rounded-md flex justify-center items-center'>
                                 <Maps isStaticMap={true} Location={userType === "doctor"? "Clinic" : "Organization"}/>
                             </div>
                         }

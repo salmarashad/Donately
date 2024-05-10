@@ -41,7 +41,7 @@ export default function Maps(props){
   }
 
   return (
-    <div style={{ height: '100%', width: '100%', position:"relative" }}>
+    <div className="h-[200px] w-full relative">
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyD59YY6PcR25dpkpXmyJ-0y_cCkUJYWamI" }}
         defaultCenter={defaultProps.center}
@@ -70,7 +70,7 @@ export default function Maps(props){
         }
       </GoogleMapReact>
       {props.isStaticMap === false?
-       <div className="absolute top-44 left-44 ml-14 mt-10">
+       <div className="absolute top-16 left-40 ml-14 mt-10">
         <Pointer/>
         <p
         onClick={onClick}
@@ -80,7 +80,7 @@ export default function Maps(props){
         </p>
       </div>
       :
-      <div className="absolute top-44 left-44">
+      <div className="absolute top-16 left-40">
         <Pin/>
         <p
         className=" bg-slate-700 bg-opacity-50 px-2 rounded-md text-white"

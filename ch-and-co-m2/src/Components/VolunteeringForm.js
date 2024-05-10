@@ -1,10 +1,6 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../App";
-import Counter from "./Counter";
-import { ReactComponent as ProfileSVG } from "../SVGs/profile.svg";
+import React, { useState } from "react";
 import { ReactComponent as SpinnerSVG } from "../SVGs/spinner.svg";
 import { ReactComponent as HeartSVG } from "../SVGs/tigerh-filled.svg";
-import Maps from "./Maps";
 
 function VolunteeringForm(props) {
 	const [loading, setLoading] = useState(false);

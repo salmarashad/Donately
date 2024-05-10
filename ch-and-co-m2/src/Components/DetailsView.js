@@ -138,7 +138,7 @@ function DetailsView(props) {
 										</label>
 									</div>
 									{/*Google map for Org*/}
-									<div className="h-96 w-96 mb-4">
+									<div className="w-96 mb-4 overflow-hidden rounded-md">
 										<Maps isStaticMap={true} Location={"Organization"} />
 									</div>
 								</div>
@@ -166,7 +166,7 @@ function DetailsView(props) {
 									
 									{/*Google map for Org*/}
 									{props.page==="organizations" && 
-									<div className="h-80 w-80">
+									<div className="w-80 rounded-md overflow-hidden">
 										<Maps isStaticMap={true} Location={"Organization"} />
 									</div>
 									}

@@ -27,6 +27,7 @@ function App() {
   const [isDetailedView, setIsDetailedView] = useState(false);
   const [userType, setUserType] = useState("");
   const [data, setData] = useState({});
+  const [edit, setEdit] = useState(false);
 
   return (
     <DataContext.Provider value={{ data, setData }}>
@@ -39,6 +40,8 @@ function App() {
                 setPage={setPage}
                 isLoggedin={isLoggedin}
                 setIsLoggedin={setIsLoggedin}
+                edit={edit}
+                setEdit={setEdit}
               />
             )}
             {/* rest of the body */}
@@ -62,7 +65,7 @@ function App() {
               )}
 
               {page === "registration" && <Registration setPage={setPage} />}
-              {page === "profile" && <Profile setPage={setPage} />}
+              {page === "profile" && <Profile setPage={setPage} edit={edit} setEdit={setEdit} />}
               {page === "teachdocform" && <TeachDocPage setPage={setPage} />}
               {page === "login" && (
                 <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />
