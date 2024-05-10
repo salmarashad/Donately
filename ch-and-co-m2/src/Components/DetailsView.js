@@ -14,6 +14,8 @@ function DetailsView(props) {
 	  return `calc(251.2 - (251.2 * ${percentage}) / 100)`;
 	};
 
+	const [submition, setSubmition] = useState(false);
+
 	useEffect(() => {
 		if (data.isFulfilled === "true") {
 			setPercentage(100);
@@ -55,24 +57,30 @@ function DetailsView(props) {
 						<div className="flex flex-col justify-center p-5 w-11/12  rounded-md gap-3">
 							<label className="label font-bold">Dropoff details</label>
 							<hr className=" border-t-2 w-full border-farahgray-600 pb-2" />
-							<div className="flex flex-row justify-center gap-10">
-								<div>
-									<label className="label">
-										Date:
-										<input type="date" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
-									</label>
+							{submition === false?
+								<>
+								<div className="flex flex-row justify-center gap-10">
+									<div>
+										<label className="label">
+											Date:
+											<input type="date" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+										</label>
+									</div>
+									<div>
+										<label className="label ">
+											Time:
+											<input type="time" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+										</label>
+									</div>
 								</div>
-								<div>
-									<label className="label ">
-										Time:
-										<input type="time" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
-									</label>
-								</div>
-							</div>
-							<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
-								onClick={() => setIsDetailedView(false)}>
-									Submit
-							</button>
+								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
+									onClick={() => setSubmition(true)}>
+										Submit
+								</button>
+								</>
+							:
+								<div>Dropoff time successfully Chosen!</div>
+							}
 						</div>
 					</div>
 				:
