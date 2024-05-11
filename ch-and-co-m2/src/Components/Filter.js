@@ -19,7 +19,7 @@ function Filter({data, setCurrentCardSet }) {
                 const updatedFilters = { ...prevFilters };
                 delete updatedFilters[category];
                 return updatedFilters;
-            });
+            }); 
             setCheckedCategories(checkedCategories.filter((item) => item !== category));
         }
     };
@@ -35,16 +35,16 @@ function Filter({data, setCurrentCardSet }) {
     function parseData(data) {
         const categoriesObj = {};
         data.forEach(item => {
-            const { type, ...tags } = item.tags;
-            if (!categoriesObj[type]) {
-                categoriesObj[type] = {};
+            const { Type, ...tags } = item.tags;
+            if (!categoriesObj[Type]) {
+                categoriesObj[Type] = {};
             }
             Object.keys(tags).forEach(tag => {
-                if (!categoriesObj[type][tag]) {
-                    categoriesObj[type][tag] = [];
+                if (!categoriesObj[Type][tag]) {
+                    categoriesObj[Type][tag] = [];
                 }
-                if (!categoriesObj[type][tag].includes(tags[tag]) && tags[tag] !== "") {
-                    categoriesObj[type][tag].push(tags[tag]);
+                if (!categoriesObj[Type][tag].includes(tags[tag]) && tags[tag] !== "") {
+                    categoriesObj[Type][tag].push(tags[tag]);
                 }
             });
         });
@@ -56,7 +56,6 @@ function Filter({data, setCurrentCardSet }) {
     }
 
     const handleFilterChange = (selectedOptions, category, param) => {
-        console.log(selectedOptions, category, param);
         const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
         setAppliedFilters(prevFilters => ({
             ...prevFilters,
@@ -73,8 +72,8 @@ function Filter({data, setCurrentCardSet }) {
             filteredData = data;
         } else {
             filteredData = data.filter(item => {
-                return checkedCategories.includes(item.tags.type) &&
-                    Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
+                return checkedCategories.includes(item.tags.Type) &&
+                    Object.entries(appliedFilters[item.tags.Type] || {}).every(([param, values]) => {
                         return values.length === 0 || values.includes(item.tags[param]);
                     });
             });
@@ -91,11 +90,20 @@ function Filter({data, setCurrentCardSet }) {
 
         setCurrentCardSet(filteredData);
     }
-    
 
     function renderCategories(categories, checkedCategories) {
         return (
             <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
+                    {categories.some(category => category.parameters.isFulfilled) && <div className="bg-white py-2 px-4 rounded-md">
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                id="isFulfilledCheckbox"      
+                                className="mr-2 accent-farahgray-700"
+                            />
+                            <label htmlFor="isFulfilledCheckbox" className="font-medium">Is Fulfilled</label>
+                        </div>
+                    </div>}
                 {categories.map((category, index) => (
                     <div className="bg-white py-2 px-4 rounded-md" key={index}>
                         <div className="flex items-center">
@@ -112,13 +120,16 @@ function Filter({data, setCurrentCardSet }) {
                             <div className="flex flex-col gap-4 mt-4 pb-4">
                                 {Object.entries(category.parameters).map(([param, values]) => (
                                     <div key={param}>
-                                        <label className="block font-medium" htmlFor={param}>{param}</label>
-
-                                        <Dropdown
-                                            options={values.map((value) => ({ value, "label": value }))}
-                                            onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
-                                            multi={true}
-                                        />
+                                        {param !== "isFulfilled" && (
+                                            <>
+                                                <label className="block font-medium" htmlFor={param.replace(/_/g, ' ')}>{param.replace(/_/g, ' ')}</label>
+                                                <Dropdown
+                                                    options={values.map((value) => ({ value, "label": value }))}
+                                                    onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
+                                                    multi={true}
+                                                />
+                                            </>
+                                        )}
                                     </div>
                                 ))}
                             </div>
