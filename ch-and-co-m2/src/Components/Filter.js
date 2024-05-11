@@ -117,6 +117,7 @@ function Filter({data, setCurrentCardSet }) {
                                         <Dropdown
                                             options={values.map((value) => ({ value, "label": value }))}
                                             onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
+                                            multi={true}
                                         />
                                     </div>
                                 ))}

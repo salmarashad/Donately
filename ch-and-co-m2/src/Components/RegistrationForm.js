@@ -2,9 +2,157 @@ import { useState } from "react";
 import {ReactComponent as SpinnerSVG} from '../SVGs/spinner.svg';
 import {ReactComponent as HeartSVG} from '../SVGs/tigerh-filled.svg';
 import TeachDocForm from "./TeachDocForm";
+import Dropdown from "./Dropdown";
 import Maps from "./Maps";
 
 function RegistrationForm(props) {
+    const governorates = [
+        { value: "Alexandria", label: "Alexandria" },
+        { value: "Aswan", label: "Aswan" },
+        { value: "Asyut", label: "Asyut" },
+        { value: "Beheira", label: "Beheira" },
+        { value: "Beni Suef", label: "Beni Suef" },
+        { value: "Cairo", label: "Cairo" },
+        { value: "Dakahlia", label: "Dakahlia" },
+        { value: "Damietta", label: "Damietta" },
+        { value: "Faiyum", label: "Faiyum" },
+        { value: "Gharbia", label: "Gharbia" },
+        { value: "Giza", label: "Giza" },
+        { value: "Ismailia", label: "Ismailia" },
+        { value: "Kafr El Sheikh", label: "Kafr El Sheikh" },
+        { value: "Luxor", label: "Luxor" },
+        { value: "Matrouh", label: "Matrouh" },
+        { value: "Minya", label: "Minya" },
+        { value: "Monufia", label: "Monufia" },
+        { value: "New Valley", label: "New Valley" },
+        { value: "North Sinai", label: "North Sinai" },
+        { value: "Port Said", label: "Port Said" },
+        { value: "Qalyubia", label: "Qalyubia" },
+        { value: "Qena", label: "Qena" },
+        { value: "Red Sea", label: "Red Sea" },
+        { value: "Sharqia", label: "Sharqia" },
+        { value: "Sohag", label: "Sohag" },
+        { value: "South Sinai", label: "South Sinai" },
+        { value: "Suez", label: "Suez" },
+      ];
+      const areas = [
+        { value: "Alexandria_City", label: "Alexandria City" },
+        { value: "Borg_El_Arab", label: "Borg El Arab" },
+        { value: "Miami", label: "Miami" },
+      
+        { value: "Aswan_City", label: "Aswan City" },
+        { value: "Kom_Ombo", label: "Kom Ombo" },
+        { value: "Edfu", label: "Edfu" },
+      
+        { value: "Asyut_City", label: "Asyut City" },
+        { value: "Dairut", label: "Dairut" },
+        { value: "Abnub", label: "Abnub" },
+      
+        { value: "Damanhur", label: "Damanhur" },
+        { value: "Kafr_El_Dawar", label: "Kafr El Dawar" },
+        { value: "Rashid", label: "Rashid" },
+      
+        { value: "Beni_Suef_City", label: "Beni Suef City" },
+        { value: "Al_Wasta", label: "Al Wasta" },
+        { value: "Beba", label: "Beba" },
+      
+        { value: "Cairo_City", label: "Cairo City" },
+        { value: "Heliopolis", label: "Heliopolis" },
+        { value: "Nasr_City", label: "Nasr City" },
+      
+        { value: "Mansoura", label: "Mansoura" },
+        { value: "Mit_Ghamr", label: "Mit Ghamr" },
+        { value: "Talkha", label: "Talkha" },
+      
+        { value: "Damietta_City", label: "Damietta City" },
+        { value: "Kafr_Saqr", label: "Kafr Saqr" },
+        { value: "Ras_El_Barr", label: "Ras El Barr" },
+      
+        { value: "Faiyum_City", label: "Faiyum City" },
+        { value: "Al_Fayyum", label: "Al Fayyum" },
+        { value: "Tamiya", label: "Tamiya" },
+      
+        { value: "Tanta", label: "Tanta" },
+        { value: "Kafr_El_Zayat", label: "Kafr El Zayat" },
+        { value: "Mallawi", label: "Mallawi" },
+      
+        { value: "Giza_City", label: "Giza City" },
+        { value: "6th_of_October_City", label: "6th of October City" },
+        { value: "Sheikh_Zayed_City", label: "Sheikh Zayed City" },
+      
+        { value: "Ismailia_City", label: "Ismailia City" },
+        { value: "Fayed", label: "Fayed" },
+        { value: "Qantara", label: "Qantara" },
+      
+        { value: "Kafr_El_Sheikh_City", label: "Kafr El Sheikh City" },
+        { value: "Ras_El_Bar", label: "Ras El Bar" },
+        { value: "Desouk", label: "Desouk" },
+      
+        { value: "Luxor_City", label: "Luxor City" },
+        { value: "Al_Uqsur", label: "Al Uqsur" },
+        { value: "Armant", label: "Armant" },
+      
+        { value: "Marsa_Matrouh", label: "Marsa Matrouh" },
+        { value: "Siwa", label: "Siwa" },
+        { value: "Dabaa", label: "Dabaa" },
+      
+        { value: "Minya_City", label: "Minya City" },
+        { value: "Maghagha", label: "Maghagha" },
+        { value: "Abu_Qirqas", label: "Abu Qirqas" },
+      
+        { value: "Shebin_El_Kom", label: "Shebin El Kom" },
+        { value: "Menouf", label: "Menouf" },
+        { value: "Ashmun", label: "Ashmun" },
+      
+        { value: "Kharga", label: "Kharga" },
+        { value: "Dakhla", label: "Dakhla" },
+        { value: "Farafra", label: "Farafra" },
+      
+        { value: "Arish", label: "Arish" },
+        { value: "Bir_Al_Abd", label: "Bir Al Abd" },
+        { value: "Rafah", label: "Rafah" },
+      
+        { value: "Port_Said_City", label: "Port Said City" },
+        { value: "Port_Fouad", label: "Port Fouad" },
+        { value: "Al_Arish", label: "Al Arish" },
+      
+        { value: "Banha", label: "Banha" },
+        { value: "Shubra_El_Kheima", label: "Shubra El Kheima" },
+        { value: "Qaha", label: "Qaha" },
+      
+        { value: "Qena_City", label: "Qena City" },
+        { value: "Dendera", label: "Dendera" },
+        { value: "Nag_Hammadi", label: "Nag Hammadi" },
+      
+        { value: "Hurghada", label: "Hurghada" },
+        { value: "El_Gouna", label: "El Gouna" },
+        { value: "Safaga", label: "Safaga" },
+      
+        { value: "Zagazig", label: "Zagazig" },
+        { value: "10th_of_Ramadan_City", label: "10th of Ramadan City" },
+        { value: "Mansoura", label: "Mansoura" },
+      
+        { value: "Sohag_City", label: "Sohag City" },
+        { value: "Akhmim", label: "Akhmim" },
+        { value: "Gerga", label: "Gerga" },
+      
+        { value: "Sharm_El_Sheikh", label: "Sharm El Sheikh" },
+        { value: "Dahab", label: "Dahab" },
+        { value: "Nuweiba", label: "Nuweiba" },
+      
+        { value: "Suez_City", label: "Suez City" },
+        { value: "Ismailia", label: "Ismailia" },
+        { value: "Ain_Sokhna", label: "Ain Sokhna" },
+      ];
+      const orgTypes = [
+        { value: "Church", label: "Church" },
+        { value: "Hospital", label: "Hospital" },
+        { value: "Mosque", label: "Mosque" },
+        { value: "Non-profit", label: "Non-profit" },
+        { value: "Orphanage", label: "Orphanage" },
+        { value: "School", label: "School" },
+      ];
+
     const [formData, setFormData] = useState({
         fName: "",
         lName: "",
@@ -214,10 +362,10 @@ function RegistrationForm(props) {
                         onChange={(e) => handleInputChange("orgName", e.target.value)} />
                     </label>}
                     
-                    {props.type === "organization" && <label className='label'>
-                        Organization Type
-                        <input type="text" value={formData.orgType} placeholder="Type here..." className="text-input"
-                        onChange={(e) => handleInputChange("orgType", e.target.value)} />
+                    {props.type === "organization" && <label className='label'>Organization Type
+                        {/* {<input type="text" value={formData.orgType} placeholder="Type here..." className="text-input"
+                        onChange={(e) => handleInputChange("orgType", e.target.value)} />} */}
+                        <Dropdown multi={false} options={orgTypes} onChange={(val) => handleInputChange("orgType", val)} />
                     </label>}
 
                     <label className='label'>{props.type === "donor" ? "Address" : "Organization Address"}
@@ -227,13 +375,15 @@ function RegistrationForm(props) {
 
                     <div className="grid grid-cols-2 gap-x-4">
                         <label className='label'>Governorate
-                            <input type="text" value={formData.governorate} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleInputChange("governorate", e.target.value)} />
+                            {/* <input type="text" value={formData.governorate} placeholder="Type here..." className="text-input"
+                            onChange={(e) => handleInputChange("governorate", e.target.value)} /> */}
+                            <Dropdown multi={false} options={governorates} onChange={(val) => handleInputChange("governorate", val)} />
                         </label>
 
                         <label className='label'>Area
-                            <input type="text" value={formData.area} placeholder="Type here..." className="text-input"
-                            onChange={(e) => handleInputChange("area", e.target.value)} />
+                            {/* <input type="text" value={formData.area} placeholder="Type here..." className="text-input"
+                            onChange={(e) => handleInputChange("area", e.target.value)} /> */}
+                            <Dropdown multi={false} options={areas} onChange={(val) => handleInputChange("area", val)} />
                         </label>
                     </div>
                     <div className="flex flex-col">
@@ -243,12 +393,19 @@ function RegistrationForm(props) {
                             <Maps isStaticMap={false} Location={"Set"} />
                         </div>
                     </>}
+                    {props.type === "organization" && <>
+                    <label className='label' htmlFor="pdf">Proof of identity
+                        <input id="pdf" type="file" name="pdf" accept="application/pdf" className="block w-max cursor-pointer mt-1 mb-3" 
+                        onChange={handleFileChange}/>
+                    </label>
+                    </>}
                 </div>
                 </div>
                 <button
                     type="submit"
                     className='submit-btn self-center w-[82px] h-[32px]'
-                    disabled={(props.type === "organization" && Object.keys(formData).filter(key => !excludedOrg.includes(key)).map(key => formData[key]).includes(""))
+                    disabled={(props.type === "organization" && (Object.keys(formData).filter(key => !excludedOrg.includes(key)).map(key => formData[key]).includes("")
+                                || file === undefined))
                                 || (props.type === "donor" && Object.keys(formData).filter(key => !excludedDonor.includes(key)).map(key => formData[key]).includes(""))
                                 || (Object.values(validity).includes(false))}
                     onClick={handleSubmit}>
@@ -274,10 +431,15 @@ function RegistrationForm(props) {
                 <HeartSVG className="w-60" />
                 {(formData.accountType === "teacher" || formData.accountType === "doctor") &&
                     <p className="font-medium">You may use the website as a regular donor until your request is verified. We'll get back to you in 1-2 weeks.</p>}
+                {(props.type === "organization") &&
+                    <p className="font-medium">You may log in and use the website as an organization once your details have been verified. We'll get back to you in 1-2 weeks.</p>}
                 <p className="font-medium">Thank you for signing up to donate<span className="font-sans">لي</span></p>
+                {props.type === "donor" &&
+                    <p className="underline cursor-pointer -mt-4 italic ml-1" onClick={() => props.setPage("login")}>
+                    Log in & continue browsing</p>}
+                {props.type === "organization" &&
                 <p className="underline cursor-pointer -mt-4 italic ml-1" onClick={() => props.setPage("login")}>
-                    Log in & continue browsing
-                </p>
+                Continue browsing</p>}
             </div>
             }
         </div>
