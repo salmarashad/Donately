@@ -49,7 +49,7 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEd
             </button>
             <button
               className={
-                page === "organizations" ? "nav-item-selected" : "nav-item"
+                page === "donors" ? "nav-item-selected" : "nav-item"
               }
               onClick={() => setPage("donors")}
             >
