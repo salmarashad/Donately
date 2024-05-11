@@ -513,7 +513,7 @@ const donationsData =
         "description": "The Community Fashion Exchange is hosting a fall fashion drive for individuals of all genders. We are seeking donations of fall clothing items such as jackets, jeans, and scarves to help community members transition into the cooler autumn weather with style and comfort. Your contributions will help individuals stay fashionable and warm.",
         "tags": {
           "type": "Clothes",
-          "age": "11-15",
+          "age": "Teens",
           "gender": "Unisex",
           "season": "Fall"
         },
@@ -539,7 +539,7 @@ const donationsData =
         "description": "Local Charity Coalition is launching a winter coat drive to provide warmth to individuals of all ages and genders. With the onset of winter, many people in our community struggle to stay warm without adequate outerwear. We are seeking donations of winter coats, hats, and gloves to ensure that everyone can face the cold weather with dignity and comfort.",
         "tags": {
           "type": "Clothes",
-          "age": "11-15",
+          "age": "Teens",
           "gender": "Unisex",
           "season": "Winter"
         },

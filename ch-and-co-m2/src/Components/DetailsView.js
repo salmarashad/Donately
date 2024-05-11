@@ -133,6 +133,11 @@ function DetailsView(props) {
 						<div className="flex flex-col">
 							<hr className="h-px bg-farahgray-400 border-0 my-8" />
 
+							{/*Google map for doctor in volunteering*/}
+							{(props.page === "volunteering" && data.tags.type==="Doctor") &&
+									 <div className="w-full rounded-md overflow-hidden p-4 pt-0 ">
+										<Maps isStaticMap={true} Location={"Hospital"} />
+									</div>}
 								
 							{/*Information segment*/}
 							{props.page ==="organizations"?
@@ -220,6 +225,7 @@ function DetailsView(props) {
 										</div>
 									</div>}
 								</div>}
+
 								{props.page === "organizationPosts" && data.tags.isFulfilled === "true" &&
 									<div style={{ textAlign: 'center', margin: '20px' }}>
 										<h1 style={{ marginBottom: '20px' }}>
