@@ -26,19 +26,19 @@ function NotificationComponent(props) {
                             <div className = " grid grid-cols-1 bg-white shadow-md rounded-lg overflow-hidden h-full pl-5 pb-6 pt-4">
                                 <div className = " grid grid-cols-3 space-x-5">
                                     <div className="col-span-2">Driver Arrived!</div>
-                                    <div className="text-xs col-span-1 justify-end ">8:08 pm</div>
+                                    <div className="text-xs col-span-1 justify-end ">8:08pm</div>
                                 </div>
                                 <hr className=" border-t-2 w-56" />
-                                <div className="text-xs pt-2">Please meet the driver at the delivery location to pickup the package.</div>
+                                <div className="text-xs pt-2">Please meet the driver at the delivery location to give him your package.</div>
                             </div>
                             {/*order is shipped*/}
                             <div className = " grid grid-cols-1 bg-white shadow-md rounded-lg overflow-hidden h-full pl-5 pb-4 pt-4">
                                 <div className = " grid grid-cols-3 space-x-5">
-                                    <div className="col-span-2">Delivery On Its Way!</div>
-                                    <div className="text-xs col-span-1 justify-end ">10:00 am</div>
+                                    <div className="col-span-2">Driver on His Way!</div>
+                                    <div className="text-xs col-span-1 justify-end ">6:49pm</div>
                                 </div>
                                 <hr className=" border-t-2 w-56" />
-                                <div className="text-xs pt-2">The order is on its way to you right now. ETA: 8:00 pm</div>
+                                <div className="text-xs pt-2">The delivery driver is on his way to you right now. ETA: 8:02pm</div>
                             </div>
                             
                         </div>

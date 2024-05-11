@@ -77,7 +77,7 @@ function VolunteeringForm(props) {
 						</h2>
 						<HeartSVG className="w-60" />
 						<p className="font-medium">
-							We'll let you know when your volunteering request has been processed
+							We'll let you know when your volunteering request has been processed.
 						</p>
 						<p className="font-medium">
 							Thank you for using donate<span className="font-sans">لي</span>

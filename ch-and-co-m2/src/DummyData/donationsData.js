@@ -11,7 +11,8 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/kids_clothing_drive.jpg",
-      "required_amount": 80
+      "required_amount": 80,
+      "material": "Cotton"
     },
     {
       "title": "Winter Clothing Drive for Homeless Teens",
@@ -24,7 +25,8 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/teens_clothing_drive.jpg",
-      "required_amount": 90
+      "required_amount": 90,
+      "material": "Wool"
     },
     {
       "title": "Spring Clothing Giveaway for Low-Income Adults",
@@ -37,7 +39,8 @@ const donationsData =
         "season": "Spring"
       },
       "imgURL": "https://example.com/adults_clothing_giveaway.jpg",
-      "required_amount": 70
+      "required_amount": 70,
+      "material": "Polyester"
     },
     {
       "title": "Fall Clothing Drive for Displaced Families",
@@ -50,7 +53,8 @@ const donationsData =
         "season": "Fall"
       },
       "imgURL": "https://example.com/fall_clothing_drive.jpg",
-      "required_amount": 85
+      "required_amount": 85,
+      "material": "Denim"
     },
     {
       "title": "Warm Coats for Winter: Adults",
@@ -63,7 +67,8 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/winter_coats_adults.jpg",
-      "required_amount": 75
+      "required_amount": 75,
+      "material": "Nylon"
     },
     {
       "title": "Teen Hoodies and Sweatshirts",
@@ -76,7 +81,8 @@ const donationsData =
         "season": "Fall"
       },
       "imgURL": "https://example.com/teen_hoodies.jpg",
-      "required_amount": 60
+      "required_amount": 60,
+      "material": "Fleece"
     },
     {
       "title": "Kids Summer Clothing Collection",
@@ -89,7 +95,8 @@ const donationsData =
         "season": "Summer"
       },
       "imgURL": "https://example.com/kids_summer_clothing.jpg",
-      "required_amount": 85
+      "required_amount": 85,
+      "material": "Cotton"
     },
     {
       "title": "Fall Fashion for Women in Need",
@@ -102,7 +109,8 @@ const donationsData =
         "season": "Fall"
       },
       "imgURL": "https://example.com/fall_fashion_women.jpg",
-      "required_amount": 80
+      "required_amount": 80,
+      "material": "Wool"
     },
     {
       "title": "Children's Winter Wear Drive",
@@ -115,7 +123,8 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/children_winter_wear.jpg",
-      "required_amount": 95
+      "required_amount": 95,
+      "material": "Polyester"
     },
     {
       "title": "Teens Winter Apparel Drive",
@@ -128,7 +137,8 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/teens_winter_apparel.jpg",
-      "required_amount": 90
+      "required_amount": 90,
+      "material": "Denim"
     },
     {
       "title": "Summer Clothing Collection for Kids",
@@ -141,7 +151,8 @@ const donationsData =
         "season": "Summer"
       },
       "imgURL": "https://example.com/kids_summer_collection.jpg",
-      "required_amount": 75
+      "required_amount": 75,
+      "material": "Cotton"
     },
     {
       "title": "Unisex Fall Fashion Drive",
@@ -154,7 +165,8 @@ const donationsData =
         "season": "Fall"
       },
       "imgURL": "https://example.com/unisex_fall_fashion.jpg",
-      "required_amount": 70
+      "required_amount": 70,
+      "material": "Wool"
     },
     {
       "title": "Adults Spring Clothing Giveaway",
@@ -167,7 +179,8 @@ const donationsData =
         "season": "Spring"
       },
       "imgURL": "https://example.com/adults_spring_giveaway.jpg",
-      "required_amount": 65
+      "required_amount": 65,
+      "material": "Polyester"
     },
     {
       "title": "Winter Coats for Everyone",
@@ -180,8 +193,9 @@ const donationsData =
         "season": "Winter"
       },
       "imgURL": "https://example.com/winter_coat_drive.jpg",
-      "required_amount": 100
-    },
+      "required_amount": 100,
+      "material": "Nylon"
+    },    
     {
       "title": "Outdoor Toys for Kids (1-5)",
       "subtitle": "Sunshine Playground Initiative",
@@ -375,7 +389,8 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/kids_clothing_drive.jpg",
-        "required_amount": 90
+        "required_amount": 90,
+        "material": "Cotton"
       },
       {
         "title": "Winter Clothing Drive for Homeless Teens",
@@ -388,7 +403,8 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/teens_clothing_drive.jpg",
-        "required_amount": 95
+        "required_amount": 95,
+        "material": "Polyester"
       },
       {
         "title": "Spring Clothing Giveaway for Low-Income Adults",
@@ -401,7 +417,8 @@ const donationsData =
           "season": "Spring"
         },
         "imgURL": "https://example.com/adults_clothing_giveaway.jpg",
-        "required_amount": 80
+        "required_amount": 80,
+        "material": "Wool"
       },
       {
         "title": "Fall Clothing Drive for Displaced Families",
@@ -414,7 +431,8 @@ const donationsData =
           "season": "Fall"
         },
         "imgURL": "https://example.com/fall_clothing_drive.jpg",
-        "required_amount": 85
+        "required_amount": 85,
+        "material": "Denim"
       },
       {
         "title": "Warm Coats for Winter: Adults",
@@ -427,7 +445,8 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/winter_coats_adults.jpg",
-        "required_amount": 90
+        "required_amount": 90,
+        "material": "Nylon"
       },
       {
         "title": "Teen Hoodies and Sweatshirts",
@@ -440,7 +459,8 @@ const donationsData =
           "season": "Fall"
         },
         "imgURL": "https://example.com/teen_hoodies.jpg",
-        "required_amount": 75
+        "required_amount": 75,
+        "material": "Cotton"
       },
       {
         "title": "Kids Summer Clothing Collection",
@@ -453,7 +473,8 @@ const donationsData =
           "season": "Summer"
         },
         "imgURL": "https://example.com/kids_summer_clothing.jpg",
-        "required_amount": 70
+        "required_amount": 70,
+        "material": "Cotton"
       },
       {
         "title": "Fall Fashion for Women in Need",
@@ -466,7 +487,8 @@ const donationsData =
           "season": "Fall"
         },
         "imgURL": "https://example.com/fall_fashion_women.jpg",
-        "required_amount": 80
+        "required_amount": 80,
+        "material": "Wool"
       },
       {
         "title": "Children's Winter Wear Drive",
@@ -479,7 +501,8 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/children_winter_wear.jpg",
-        "required_amount": 95
+        "required_amount": 95,
+        "material": "Polyester"
       },
       {
         "title": "Teens Winter Apparel Drive",
@@ -492,7 +515,8 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/teens_winter_apparel.jpg",
-        "required_amount": 90
+        "required_amount": 90,
+        "material": "Denim"
       },
       {
         "title": "Summer Clothing Collection for Kids",
@@ -505,7 +529,8 @@ const donationsData =
           "season": "Summer"
         },
         "imgURL": "https://example.com/kids_summer_collection.jpg",
-        "required_amount": 75
+        "required_amount": 75,
+        "material": "Cotton"
       },
       {
         "title": "Unisex Fall Fashion Drive",
@@ -518,7 +543,8 @@ const donationsData =
           "season": "Fall"
         },
         "imgURL": "https://example.com/unisex_fall_fashion.jpg",
-        "required_amount": 80
+        "required_amount": 80,
+        "material": "Cotton"
       },
       {
         "title": "Adults Spring Clothing Giveaway",
@@ -531,7 +557,8 @@ const donationsData =
           "season": "Spring"
         },
         "imgURL": "https://example.com/adults_spring_giveaway.jpg",
-        "required_amount": 85
+        "required_amount": 85,
+        "material": "Wool"
       },
       {
         "title": "Winter Coats for Everyone",
@@ -544,8 +571,9 @@ const donationsData =
           "season": "Winter"
         },
         "imgURL": "https://example.com/winter_coat_drive.jpg",
-        "required_amount": 90
-      },
+        "required_amount": 90,
+        "material": "Nylon"
+      },      
         {
           "title": "Fresh Fruits and Vegetables for Families in Need",
           "subtitle": "Community Food Bank",
