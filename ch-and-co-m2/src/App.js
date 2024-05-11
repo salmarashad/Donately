@@ -16,6 +16,7 @@ import PostForm from "./Views/PostForm.js";
 import VerificationView from "./Views/VerificationView";
 import DoctorRequestsView from "./Views/DoctorRequestsView";
 import TeacherRequestsView from "./Views/TeacherRequestsView";
+import DonorsView from "./Views/DonorsView.js";
 
 const DetailedContext = createContext();
 const UserTypeContext = createContext();
@@ -52,6 +53,7 @@ function App() {
 							{page === "OrganizationDelivery" 	&& <OrganizationDelivery setPage={setPage} />}
 							{page === "postForm" 				&& <PostForm setPage={setPage} />}
 							{page === "organizations" 			&& <OrganizationsView userType={userType}/>}
+							{page === "donors" 					&& <DonorsView/>}
 							{page === "verification" 			&& <VerificationView />}
 							{page === "docRequest" 				&& <DoctorRequestsView setPage={setPage} />}
 							{page === "teacherRequests" 		&& <TeacherRequestsView setPage={setPage} />}

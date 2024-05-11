@@ -51,7 +51,7 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEd
               className={
                 page === "organizations" ? "nav-item-selected" : "nav-item"
               }
-              onClick={() => setPage("organizations")}
+              onClick={() => setPage("donors")}
             >
               <h1>Donors</h1>
             </button>

@@ -6,7 +6,7 @@ import Filter from "../Components/Filter.js";
 const OrganizationsView = (props) => {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
 
-  return (
+	return (
 		<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
 			<div className="col-span-1 justify-self-start">
 				<div className="flex flex-col items-center justify-center gap-4 sticky top-24">
