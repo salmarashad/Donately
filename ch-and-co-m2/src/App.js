@@ -51,7 +51,7 @@ function App() {
 							{page === "organizationPosts" 		&& <PostsView page={page} setPage={setPage} />}
 							{page === "OrganizationDelivery" 	&& <OrganizationDelivery setPage={setPage} />}
 							{page === "postForm" 				&& <PostForm setPage={setPage} />}
-							{page === "organizations" 			&& <OrganizationsView />}
+							{page === "organizations" 			&& <OrganizationsView userType={userType}/>}
 							{page === "verification" 			&& <VerificationView />}
 							{page === "docRequest" 				&& <DoctorRequestsView setPage={setPage} />}
 							{page === "teacherRequests" 		&& <TeacherRequestsView setPage={setPage} />}

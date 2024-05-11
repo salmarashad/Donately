@@ -7,13 +7,13 @@ import organizationPostData from "../DummyData/organizationPostData";
 import { DataContext } from "../App";
 
 function PostsView(props) {
-	const { data, setData } = useContext(DataContext);
+	const { setData } = useContext(DataContext);
 	const [currentCardSet, setCurrentCardSet] = useState([]);
 
 	const type = props.page === "organizationPosts" ? "organization" : "donor";
 
 	function handleClick() {
-		setData(Object.fromEntries(Object.keys(props).map((key) => [key, ""])));
+		setData(Object.fromEntries(Object.keys(props).map((key) => [key, ""]))); // Clear data
 		props.setPage("postForm");
 	}
 

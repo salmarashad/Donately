@@ -42,9 +42,8 @@ function renderTags(tags, viewportWidth) {
 }
 
 function DonationCard({ currentCardSet, setCurrentCardSet, ...props }) {
-	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
-	const [deleteConfirmation, setDeleteConfirmation] = useState(false);
-	const { data, setData } = useContext(DataContext);
+	const { setIsDetailedView } = useContext(DetailedContext);
+	const { setData } = useContext(DataContext);
 	const [imageUrl, setImageUrl] = useState("");
 
 	useEffect(() => {
