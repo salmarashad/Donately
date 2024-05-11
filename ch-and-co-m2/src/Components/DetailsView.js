@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DetailedContext, DataContext } from "../App";
+import { DetailedContext, DataContext, UserTypeContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 import { useState, useEffect } from "react";
 import Maps from "./Maps";
@@ -7,6 +7,7 @@ import Maps from "./Maps";
 function DetailsView(props) {
 	const { setIsDetailedView } = useContext(DetailedContext);
 	const { data } = useContext(DataContext);
+	const { userType } = useContext(UserTypeContext);
 
 	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
 	const [isThanked, setIsThanked] = useState(false);
@@ -49,6 +50,11 @@ function DetailsView(props) {
 		props.setPage("postForm");
 	}
 
+	function handleDropoff(){
+		setSubmition(true);
+		props.setIsSet(true)
+	}
+
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
 			<div className="flex flex-col bg-farahgray-100 w-[600px] h-max rounded-md p-6 relative">
@@ -82,7 +88,7 @@ function DetailsView(props) {
 									</div>
 								</div>
 								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
-									onClick={() => setSubmition(true)}>
+									onClick={() => handleDropoff}>
 										Submit
 								</button>
 								</>
@@ -298,12 +304,21 @@ function DetailsView(props) {
 									</button>
 								: props.page === "volunteering" ?
 									<div className="flex gap-8">
-										<button
-											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-											onClick={handleDonate}
-										>
-											Fulfill 
-										</button>
+										{(userType === "donor") || (data.tags.type === "Teacher" && userType === "doctor" ) || (data.tags.type === "Doctor" && userType === "teacher" )  ?	
+											<div className=" text-center m-2 mb-4">
+												<p>Sorry, you must be a 
+													<span className=" font-semibold italic"> {data.tags.type} </span>
+													to be eligible
+												</p>
+											</div>
+										:
+											<button
+												className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+												onClick={handleDonate}
+											>
+												Fulfill 
+											</button>
+										}	
 									</div>
 								: props.page === "organizations"?
 									<div></div>

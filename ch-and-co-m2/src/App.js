@@ -29,6 +29,7 @@ function App() {
 	const [userType, setUserType] = useState("");
 	const [data, setData] = useState({});
 	const [edit, setEdit] = useState(false);
+	const [isSet, setIsSet] = useState(false);
 
 	return (
 		<DataContext.Provider value={{ data, setData }}>
@@ -50,7 +51,7 @@ function App() {
 							{page === "donations" 				&& <PostsView page={page} />}
 							{page === "volunteering" 			&& <PostsView page={page} />}
 							{page === "organizationPosts" 		&& <PostsView page={page} setPage={setPage} />}
-							{page === "OrganizationDelivery" 	&& <OrganizationDelivery setPage={setPage} />}
+							{page === "OrganizationDelivery" 	&& <OrganizationDelivery setPage={setPage} isSet={isSet}/>}
 							{page === "postForm" 				&& <PostForm setPage={setPage} />}
 							{page === "organizations" 			&& <OrganizationsView userType={userType}/>}
 							{page === "donors" 					&& <DonorsView/>}
@@ -69,6 +70,7 @@ function App() {
 								page={page}
 								setPage={setPage}
 								isLoggedin={isLoggedin}
+								setIsSet={setIsSet}
 							/>
 						)}
 					</div>
