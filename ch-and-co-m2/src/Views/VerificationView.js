@@ -139,14 +139,22 @@ function VerificationPage() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[1000px] mx-auto auto-rows-fr">
-      {organizations.map((org) => (
-        <VerificationOrganizationCard
-          key={org.id}
-          organization={org}
-          onAccept={handleAccept}
-          onReject={handleReject}
-        />
-      ))}
+      {organizations.length === 0 ? (
+        <div className="col-span-3 flex justify-center items-center mt-56">
+          <p className="text-center text-gray-600">
+            No more requests to process :D
+          </p>
+        </div>
+      ) : (
+        organizations.map((org) => (
+          <VerificationOrganizationCard
+            key={org.id}
+            organization={org}
+            onAccept={handleAccept}
+            onReject={handleReject}
+          />
+        ))
+      )}
     </div>
   );
 }
