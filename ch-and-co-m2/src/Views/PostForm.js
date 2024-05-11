@@ -647,7 +647,7 @@ function PostForm(props) {
 						{success && (
 							<p className="success items-center text-center mt-2 -mb-4">
 								{Object.keys(dataTags).length === 0
-									? "Post submitted successfully!"
+									? "Post created successfully!"
 									: "Post updated successfully!"}
 							</p>
 						)}

@@ -87,7 +87,7 @@ function DonationForm(props) {
 						</div>
 						<hr className="border-t-2" />
 						<div className="flex flex-col gap-2 items-center">
-							<p>we need to add an address to the data</p>
+							<p>{data.hospital_address}</p>
 							<div className="bg-farahgreen-300 w-96 rounded-md overflow-hidden">
 								<Maps isStaticMap={true} Location={"Hospital"} />
 							</div>
@@ -223,12 +223,12 @@ function DonationForm(props) {
 						<HeartSVG className="w-60" />
 						{confirm === "normal" && (
 							<p className="font-medium">
-								We'll let you know when your delivery driver is on the way
+								We'll let you know when your delivery driver is on the way.
 							</p>
 						)}
 						{confirm === "blood" && (
 							<p className="font-medium">
-								We'll notify the hospital that you'll be on your way
+								We'll notify the hospital that you'll be on your way.
 							</p>
 						)}
 						<p className="font-medium">

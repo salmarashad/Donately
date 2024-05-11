@@ -214,7 +214,7 @@ function TeachDocForm(props) {
                             <Dropdown multi={false} options={areas} onChange={(val) => props.handleDoctorChange("area", val)} />
                         </label>
                     </div>
-                    <label className="label"> Exact Location
+                    <label className="label">Exact Location
                         <div className= "w-full rounded-md overflow-hidden m-2 pr-4">
                                 <Maps isStaticMap={false} Location={"Set"}/>
                         </div>

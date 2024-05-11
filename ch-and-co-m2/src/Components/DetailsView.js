@@ -18,6 +18,7 @@ function DetailsView(props) {
 	const [submition, setSubmition] = useState(false);
 
 	useEffect(() => {
+		console.log(data);
 		if (data.isFulfilled === "true") {
 			setPercentage(100);
 		}
@@ -168,13 +169,22 @@ function DetailsView(props) {
 										tag !== "isFulfilled" &&
 										(
 													<div key={index}>
-														<h2 className="text-m font-semibold">{tag}</h2>
+														<h2 className="text-m font-semibold">{tag.charAt(0).toUpperCase() + tag.slice(1)}</h2>
 														<h2 className="text-sm font-semibold text-farahgray-400">
 															{value}
 														</h2>
 													</div>
 												)
 										)}
+										
+										{data.tags.type === "Clothes" &&
+											<div>
+												<h2 className="text-m font-semibold">Material</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.material}
+												</h2>
+											</div>
+										}
 									</div>}
 									
 									{/*Google map for Org*/}
@@ -186,7 +196,7 @@ function DetailsView(props) {
 									
 									{/*Progress bar*/}
 									{props.page === "donations" && <div className="flex flex-col items-center gap-2">
-										<h2 className="text-m font-semibold">Progress</h2>
+										<h2 className="text-m font-semibold">Required amount: {data.required_amount}</h2>
 										<div className="relative w-40 h-40">
 											<svg className="w-full h-full" viewBox="0 0 100 100">
 												<circle
