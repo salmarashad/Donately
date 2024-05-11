@@ -69,14 +69,22 @@ function TeacherRequestsView() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[1000px] mx-auto auto-rows-fr">
-      {teachers.map((teacher) => (
-        <TeacherRequestCard
-          key={teacher.id}
-          teacher={teacher}
-          onAccept={handleAccept}
-          onReject={handleReject}
-        />
-      ))}
+      {teachers.length === 0 ? (
+        <div className="col-span-3 flex justify-center items-center mt-56">
+          <p className="text-center text-gray-600">
+            No more requests to process :D
+          </p>
+        </div>
+      ) : (
+        teachers.map((teacher) => (
+          <TeacherRequestCard
+            key={teacher.id}
+            teacher={teacher}
+            onAccept={handleAccept}
+            onReject={handleReject}
+          />
+        ))
+      )}
     </div>
   );
 }
