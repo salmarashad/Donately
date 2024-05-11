@@ -611,13 +611,14 @@ function PostForm(props) {
 					<hr className="border-t-2 my-4" />
 					<div className="flex flex-col">
 						<div className="flex justify-center items-center gap-4">
+							{/* The world did not deserve you dear 
 							<button
 								type="button"
 								className=" py-1 px-3 rounded-md border-2 font-medium hover:bg-farahgreen-100 border-farahgreen-600 text-farahgreen-600 w-[82px] h-[32px]"
 								onClick={() => props.setPage("organizationPosts")}
 							>
 								Back
-							</button>
+							</button> */}
 
 							<button
 								type="submit"
