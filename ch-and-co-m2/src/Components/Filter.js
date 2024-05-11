@@ -19,7 +19,7 @@ function Filter({data, setCurrentCardSet }) {
                 const updatedFilters = { ...prevFilters };
                 delete updatedFilters[category];
                 return updatedFilters;
-            });
+            }); 
             setCheckedCategories(checkedCategories.filter((item) => item !== category));
         }
     };
@@ -35,16 +35,16 @@ function Filter({data, setCurrentCardSet }) {
     function parseData(data) {
         const categoriesObj = {};
         data.forEach(item => {
-            const { type, ...tags } = item.tags;
-            if (!categoriesObj[type]) {
-                categoriesObj[type] = {};
+            const { Type, ...tags } = item.tags;
+            if (!categoriesObj[Type]) {
+                categoriesObj[Type] = {};
             }
             Object.keys(tags).forEach(tag => {
-                if (!categoriesObj[type][tag]) {
-                    categoriesObj[type][tag] = [];
+                if (!categoriesObj[Type][tag]) {
+                    categoriesObj[Type][tag] = [];
                 }
-                if (!categoriesObj[type][tag].includes(tags[tag]) && tags[tag] !== "") {
-                    categoriesObj[type][tag].push(tags[tag]);
+                if (!categoriesObj[Type][tag].includes(tags[tag]) && tags[tag] !== "") {
+                    categoriesObj[Type][tag].push(tags[tag]);
                 }
             });
         });
@@ -56,7 +56,6 @@ function Filter({data, setCurrentCardSet }) {
     }
 
     const handleFilterChange = (selectedOptions, category, param) => {
-        console.log(selectedOptions, category, param);
         const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
         setAppliedFilters(prevFilters => ({
             ...prevFilters,
@@ -73,8 +72,8 @@ function Filter({data, setCurrentCardSet }) {
             filteredData = data;
         } else {
             filteredData = data.filter(item => {
-                return checkedCategories.includes(item.tags.type) &&
-                    Object.entries(appliedFilters[item.tags.type] || {}).every(([param, values]) => {
+                return checkedCategories.includes(item.tags.Type) &&
+                    Object.entries(appliedFilters[item.tags.Type] || {}).every(([param, values]) => {
                         return values.length === 0 || values.includes(item.tags[param]);
                     });
             });
