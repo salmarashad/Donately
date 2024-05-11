@@ -26,7 +26,7 @@ function DonorCard({ currentCardSet, setCurrentCardSet, ...props }) {
 
 					<div className="flex gap-2">
 						<JobSVG className="h-5 w-5" />
-						<p>{props.tags.type}</p>
+						<p>{props.tags.Type}</p>
 					</div>
 
 					<div className="flex gap-2">
