@@ -90,11 +90,20 @@ function Filter({data, setCurrentCardSet }) {
 
         setCurrentCardSet(filteredData);
     }
-    
 
     function renderCategories(categories, checkedCategories) {
         return (
             <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
+                    {categories.some(category => category.parameters.isFulfilled) && <div className="bg-white py-2 px-4 rounded-md">
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                id="isFulfilledCheckbox"      
+                                className="mr-2 accent-farahgray-700"
+                            />
+                            <label htmlFor="isFulfilledCheckbox" className="font-medium">Is Fulfilled</label>
+                        </div>
+                    </div>}
                 {categories.map((category, index) => (
                     <div className="bg-white py-2 px-4 rounded-md" key={index}>
                         <div className="flex items-center">
@@ -111,13 +120,16 @@ function Filter({data, setCurrentCardSet }) {
                             <div className="flex flex-col gap-4 mt-4 pb-4">
                                 {Object.entries(category.parameters).map(([param, values]) => (
                                     <div key={param}>
-                                        <label className="block font-medium" htmlFor={param.replace(/_/g, ' ')}>{param.replace(/_/g, ' ')}</label>
-
-                                        <Dropdown
-                                            options={values.map((value) => ({ value, "label": value }))}
-                                            onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
-                                            multi={true}
-                                        />
+                                        {param !== "isFulfilled" && (
+                                            <>
+                                                <label className="block font-medium" htmlFor={param.replace(/_/g, ' ')}>{param.replace(/_/g, ' ')}</label>
+                                                <Dropdown
+                                                    options={values.map((value) => ({ value, "label": value }))}
+                                                    onChange={(selectedOption) => handleFilterChange(selectedOption, category.category, param)}
+                                                    multi={true}
+                                                />
+                                            </>
+                                        )}
                                     </div>
                                 ))}
                             </div>
