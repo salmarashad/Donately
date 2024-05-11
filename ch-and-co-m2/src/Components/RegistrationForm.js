@@ -249,8 +249,8 @@ function RegistrationForm(props) {
                     type="submit"
                     className='submit-btn self-center w-[82px] h-[32px]'
                     disabled={(props.type === "organization" && Object.keys(formData).filter(key => !excludedOrg.includes(key)).map(key => formData[key]).includes(""))
-                                || props.type === "donor" && Object.keys(formData).filter(key => !excludedDonor.includes(key)).map(key => formData[key]).includes("")
-                                || Object.values(validity).includes(false)}
+                                || (props.type === "donor" && Object.keys(formData).filter(key => !excludedDonor.includes(key)).map(key => formData[key]).includes(""))
+                                || (Object.values(validity).includes(false))}
                     onClick={handleSubmit}>
                     {loading ? <SpinnerSVG className="w-full"/> : "Sign up"}
                 </button>

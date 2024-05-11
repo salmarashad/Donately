@@ -58,7 +58,7 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEd
             <div className="relative">
               <button
                 className={
-                  page === "verification" || page === "docRequest"
+                  page === "verification" || page === "docRequest" || page === "teacherRequests"
                     ? "nav-item-selected"
                     : "nav-item"
                 }
@@ -72,19 +72,19 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEd
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                     onClick={() => handleMenuClick("verification")}
                   >
-                    Organization Requests
+                    Organizations
                   </button>
                   <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                     onClick={() => handleMenuClick("docRequest")}
                   >
-                    Doctor Requests
+                    Doctors
                   </button>
                   <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
                     onClick={() => handleMenuClick("teacherRequests")}
                   >
-                    Teacher Requests
+                    Teachers
                   </button>
                 </div>
               )}
