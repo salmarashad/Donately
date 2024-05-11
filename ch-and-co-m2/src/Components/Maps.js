@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import GoogleMapReact from 'google-map-react';
 import {ReactComponent as Pin} from '../SVGs/pin.svg';
 import {ReactComponent as Pointer} from '../SVGs/pointer.svg';
-import { App } from "../App";
-
 
 export default function Maps(props){
 

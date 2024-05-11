@@ -1,7 +1,7 @@
-import React, { useState,useContext } from 'react';
-import { DetailedContext, DataContext } from "../App";
+import React, { useContext } from 'react';
+import { DetailedContext } from "../App";
 function OrganizationDelivery() { 
-    const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
+    const { setIsDetailedView } = useContext(DetailedContext);
     return(
         <div className="flex flex-col items-center justify-center gap-4 sticky top-24">
             <div className=" min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">

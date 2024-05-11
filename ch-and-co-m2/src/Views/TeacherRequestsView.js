@@ -8,32 +8,51 @@ function TeacherRequestsView() {
       name: "Ms. Sarah Johnson",
       gender: "Female",
       address: "123 Teacher Street",
-      governorate: "Local",
-      area: "Community",
+      governorate: "Cairo",
+      area: "Nasr City",
       email: "sarah@example.com",
-      contactNumber: "123-456-7890",
+      contactNumber: "+20 100 222 3333",
     },
     {
       id: 2,
       name: "Mr. David Smith",
       gender: "Male",
       address: "456 Teacher Avenue",
-      governorate: "State",
-      area: "City",
+      governorate: "Alexandria",
+      area: "Smouha",
       email: "david@example.com",
-      contactNumber: "987-654-3210",
+      contactNumber: "+20 100 444 5555",
     },
     {
       id: 3,
       name: "Ms. Emily Brown",
       gender: "Female",
       address: "789 Education Boulevard",
-      governorate: "National",
-      area: "Rural",
+      governorate: "Giza",
+      area: "Dokki",
       email: "emily@example.com",
-      contactNumber: "567-890-1234",
+      contactNumber: "+20 100 666 7777",
     },
-    // Add more teachers here
+    {
+      id: 4,
+      name: "Mr. Ahmed Hassan",
+      gender: "Male",
+      address: "101 Teacher Lane",
+      governorate: "Luxor",
+      area: "Luxor City",
+      email: "ahmed@example.com",
+      contactNumber: "+20 100 888 9999",
+    },
+    {
+      id: 5,
+      name: "Ms. Fatima Ali",
+      gender: "Female",
+      address: "246 Teacher Road",
+      governorate: "Aswan",
+      area: "Aswan City",
+      email: "fatima@example.com",
+      contactNumber: "+20 100 123 4567",
+    },
   ]);
 
   const handleAccept = (teacherId) => {
@@ -49,7 +68,7 @@ function TeacherRequestsView() {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 px-56">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[1000px] mx-auto auto-rows-fr">
       {teachers.map((teacher) => (
         <TeacherRequestCard
           key={teacher.id}
