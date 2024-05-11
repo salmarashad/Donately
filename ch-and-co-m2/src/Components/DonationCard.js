@@ -1,8 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DetailedContext, DataContext } from "../App";
+import { ReactComponent as DeleteSVG } from "../SVGs/delete.svg";
 
 function renderTags(tags, viewportWidth) {
-	const TAG_WIDTH = 90;
+	const TAG_WIDTH = 100;
+	// viewportWidth = 1920;
 	let maxCharacters = Math.round(viewportWidth / TAG_WIDTH);
 	tags = Object.values(tags);
 	tags = tags.filter((tag) => tag !== "");
@@ -40,6 +42,7 @@ function renderTags(tags, viewportWidth) {
 
 function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 	const { isDetailedView, setIsDetailedView } = useContext(DetailedContext);
+	const [deleteConfirmation, setDeleteConfirmation] = useState(false);
 	const {data, setData} = useContext(DataContext);
 	const [imageUrl, setImageUrl] = useState('');
 
@@ -69,17 +72,29 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 	}, []);
 
 	const handleClick = () => {
-		
 		setData({ ...props, imgURL: imageUrl }); 
 		setIsDetailedView(true); 
 	}
+
 	const handleDelete = () => {
-		setCurrentCardSet(currentCardSet.filter((card) => card.title !== props.title));
+		if (deleteConfirmation) {
+			setCurrentCardSet(
+				currentCardSet.filter((card) => card.title !== props.title)
+			);
+			setDeleteConfirmation(false);
+		}
+		else {
+			setDeleteConfirmation(true);
+			setTimeout(() => {
+				setDeleteConfirmation(false);
+			}, 3000);
+		}
 	}
+
 	const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
     return (
-			<div className="w-full min-w-72 bg-white shadow-md rounded-md overflow-hidden p-6">
+			<div className="group/card w-full min-w-72 bg-white shadow-md rounded-md overflow-hidden p-6 relative">
 				<div className="flex gap-5">
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
@@ -93,7 +108,22 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 					{/*Text*/}
 					<div className="w-2/3">
 						<div>
-							<h2 className="text-xl font-semibold">{props.title}</h2>
+							<div className="flex justify-between items-center">
+								<h2 className="text-xl font-semibold">{props.title}</h2>
+								{/* Delete SVG Button */}
+								{props.type !== "donor" && (
+									<button
+										className={
+											deleteConfirmation
+												? "-mt-6 -mr-3 bg-red-400 transform scale-110 rounded-lg p-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200"
+												: "-mt-6 -mr-3 hover:bg-farahgray-100 rounded-lg p-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200"
+										}
+										onClick={() => handleDelete()}
+									>
+										<DeleteSVG />
+									</button>
+								)}
+							</div>
 							<h2 className="text-l font-semibold text-farahgray-500 mb-2">
 								{props.subtitle}
 							</h2>
@@ -108,18 +138,11 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 
 							{/*Button*/}
 							<button
-								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap"
+								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap hover:bg-farahgreen-100"
 								onClick={() => handleClick()}
 							>
-								{props.type === "donor" ? "View Details >" : "Edit Post >"}
+								{props.type === "donor" ? "View Details >" : "Edit Details >"}
 							</button>
-							{props.type !== "donor" && 
-							<button
-								className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
-								onClick={() => handleDelete()}
-							>
-								Delete
-							</button>}
 						</div>
 					</div>
 				</div>
