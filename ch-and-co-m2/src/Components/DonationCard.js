@@ -3,8 +3,6 @@ import { DetailedContext, DataContext } from "../App";
 
 function renderTags(tags, viewportWidth) {
 	const TAG_WIDTH = 90;
-	// TODO: Make this responsive if you feel like it
-	viewportWidth = 1920;
 	let maxCharacters = Math.round(viewportWidth / TAG_WIDTH);
 	tags = Object.values(tags);
 	tags = tags.filter((tag) => tag !== "");
@@ -58,17 +56,17 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 		fetchImage();
 	}, []);
 
-	// useEffect(() => {
-	// 	const handleResize = () => {
-	// 		setViewportWidth(window.innerWidth);
-	// 	};
+	useEffect(() => {
+		const handleResize = () => {
+			setViewportWidth(window.innerWidth);
+		};
 
-	// 	window.addEventListener("resize", handleResize);
+		window.addEventListener("resize", handleResize);
 
-	// 	return () => {
-	// 		window.removeEventListener("resize", handleResize);
-	// 	};
-	// }, []);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
 
 	const handleClick = () => {
 		
@@ -81,13 +79,7 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 	const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
     return (
-			<div
-				className={
-					props.isFulfilled === "true"
-						? "w-full min-w-72 bg-farahgreen-200 shadow-md rounded-md overflow-hidden p-6"
-						: "w-full min-w-72 bg-white shadow-md rounded-md overflow-hidden p-6"
-				}
-			>
+			<div className="w-full min-w-72 bg-white shadow-md rounded-md overflow-hidden p-6">
 				<div className="flex gap-5">
 					{/*Image*/}
 					<div className="flex items-start justify-center w-40">
@@ -121,14 +113,13 @@ function DonationCard({currentCardSet, setCurrentCardSet, ...props}) {
 							>
 								{props.type === "donor" ? "View Details >" : "Edit Post >"}
 							</button>
-							{props.type !== "donor" && (
-								<button
-									className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
-									onClick={() => handleDelete()}
-								>
-									Delete
-								</button>
-							)}
+							{props.type !== "donor" && 
+							<button
+								className="text-sm italic border-2 border-red-600 text-red-600 px-4 py-1 rounded-xl font-semibold"
+								onClick={() => handleDelete()}
+							>
+								Delete
+							</button>}
 						</div>
 					</div>
 				</div>
