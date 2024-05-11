@@ -111,7 +111,7 @@ function Filter({data, setCurrentCardSet }) {
                             <div className="flex flex-col gap-4 mt-4 pb-4">
                                 {Object.entries(category.parameters).map(([param, values]) => (
                                     <div key={param}>
-                                        <label className="block font-medium" htmlFor={param}>{param}</label>
+                                        <label className="block font-medium" htmlFor={param.replace(/_/g, ' ')}>{param.replace(/_/g, ' ')}</label>
 
                                         <Dropdown
                                             options={values.map((value) => ({ value, "label": value }))}
