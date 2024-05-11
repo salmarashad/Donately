@@ -16,6 +16,11 @@ function DonorsView(props) {
 				</div>
 				<div className="col-span-2">
 					<div className="flex flex-col items-center justify-center gap-4">
+						{currentCardSet.length === 0 && (
+							<p className="mt-56 text-center italic text-lg text-farahgray-700">
+								No donors :{"("}
+							</p>
+						)}
 						<DonorCardRenderer
 							currentCardSet={currentCardSet}
 							setCurrentCardSet={setCurrentCardSet}

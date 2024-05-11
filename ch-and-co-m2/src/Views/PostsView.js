@@ -40,7 +40,16 @@ function PostsView(props) {
 				</div>
 				<div className="col-span-2">
 					<div className="flex flex-col items-center justify-center gap-4">
-						<CardRenderer type={type} currentCardSet={currentCardSet} setCurrentCardSet={setCurrentCardSet}/>
+						{currentCardSet.length === 0 && (
+							<p className="mt-56 text-center italic text-lg text-farahgray-700">
+								No donations found matching the selected criteria.
+							</p>
+						)}
+						<CardRenderer
+							type={type}
+							currentCardSet={currentCardSet}
+							setCurrentCardSet={setCurrentCardSet}
+						/>
 					</div>
 				</div>
 				<div className="col-span-1 justify-self-end">
