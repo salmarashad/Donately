@@ -46,36 +46,21 @@ function App() {
 						)}
 						{/* rest of the body */}
 						<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
-							{page === "donations" && <PostsView page={page} />}
-							{page === "volunteering" && <PostsView page={page} />}
-							{page === "organizationPosts" && (
-								<PostsView page={page} setPage={setPage} />
-							)}
-							{page === "OrganizationDelivery" && (
-								<OrganizationDelivery setPage={setPage} />
-							)}
-							{page === "postForm" && <PostForm setPage={setPage} />}
-							{page === "organizations" && <OrganizationsView />}
-							{page === "verification" && <VerificationView />}
-							{page === "docRequest" && (
-								<DoctorRequestsView setPage={setPage} />
-							)}
-							{page === "teacherRequests" && (
-								<TeacherRequestsView setPage={setPage} />
-							)}
-
-							{page === "registration" && <Registration setPage={setPage} />}
-							{page === "profile" && (
-								<Profile setPage={setPage} edit={edit} setEdit={setEdit} />
-							)}
-							{page === "teachdocform" && <TeachDocPage setPage={setPage} />}
-							{page === "login" && (
-								<Login setIsLoggedin={setIsLoggedin} setPage={setPage} />
-							)}
-							{page === "donationForm" && <DonationForm setPage={setPage} />}
-							{page === "volunteeringForm" && (
-								<VolunteeringForm setPage={setPage} />
-							)}
+							{page === "donations" 				&& <PostsView page={page} />}
+							{page === "volunteering" 			&& <PostsView page={page} />}
+							{page === "organizationPosts" 		&& <PostsView page={page} setPage={setPage} />}
+							{page === "OrganizationDelivery" 	&& <OrganizationDelivery setPage={setPage} />}
+							{page === "postForm" 				&& <PostForm setPage={setPage} />}
+							{page === "organizations" 			&& <OrganizationsView />}
+							{page === "verification" 			&& <VerificationView />}
+							{page === "docRequest" 				&& <DoctorRequestsView setPage={setPage} />}
+							{page === "teacherRequests" 		&& <TeacherRequestsView setPage={setPage} />}
+							{page === "registration" 			&& <Registration setPage={setPage} />}
+							{page === "profile" 				&& <Profile setPage={setPage} edit={edit} setEdit={setEdit} />}
+							{page === "teachdocform" 			&& <TeachDocPage setPage={setPage} />}
+							{page === "login" 					&& <Login setIsLoggedin={setIsLoggedin} setPage={setPage} />}
+							{page === "donationForm" 			&& <DonationForm setPage={setPage} />}
+							{page === "volunteeringForm" 		&& <VolunteeringForm setPage={setPage} />}
 						</div>
 						{isDetailedView && (
 							<DetailsView
