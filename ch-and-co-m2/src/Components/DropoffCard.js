@@ -12,7 +12,7 @@ function DropoffCard(props){
             {(isSet==="true")?
                 <div className=" grid min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">
                     <div>{title}</div>
-                    <hr className=" border-t-2 w-56" />
+                    <hr className=" border-t-2 w-56 border-farahorange-500 my-1" />
                     <div className="text-xs pt-2">Quantity: {quantity}</div>
                     <div className="text-xs pt-2">Drop-off time: {dropoffdate} at {dropofftime} pm</div>
                 </div>
@@ -20,10 +20,9 @@ function DropoffCard(props){
                 
                 <div className=" min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">
                     <div>{title}</div>
-                    <hr className=" border-t-2 w-56" />
+                    <hr className=" border-t-2 w-56 border-farahorange-500 my-1" />
                     <div className="text-xs pt-2">Quantity: {quantity}</div>
-                    <button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 px-3 py-1 mt-4 rounded-xl
-                                        hover:border-farahgreen-700  hover:text-farahgreen-700 hover:bg-farahgray-50"
+                    <button className="button2"
                         onClick={() => setIsDetailedView(true)}>
                         Choose dropoff time {">"}
                     </button>
