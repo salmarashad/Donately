@@ -100,7 +100,7 @@ function DetailsView(props) {
 										</label>
 									</div>
 								</div>
-								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
+								<button className="submit-btn self-center"
 									disabled={
 										Object.values(details).includes("") || details.count === 0
 									}
@@ -163,7 +163,7 @@ function DetailsView(props) {
 
 								
 							{/*Information segment*/}
-							{props.page ==="organizations"?
+							{props.page ==="organizations" ?
 								<div className="flex flex-col items-center">
 									<div className="flex flex-row gap-x-16 mb-4">
 										<label className=""> <span className=" font-semibold">Email: </span>
@@ -182,7 +182,7 @@ function DetailsView(props) {
 								<div className="grid grid-cols-3 w-full">
 									{/*Tags column 1*/}
 
-									{!data.tags.isFulfilled && 
+									{/* {!data.tags.isFulfilled &&  */}
 										<div className="grid h-max grid-cols-2 gap-4 gap-y-4 col-span-2 grid-flow-row">
 										{Object.entries(data.tags).map(
 											([tag, value], index) =>
@@ -278,7 +278,8 @@ function DetailsView(props) {
 											</h2>
 										</div>
 										}
-									</div>}
+									</div>
+									{/* } */}
 
 									{props.page === "volunteering" && <div className="flex flex-col gap-4">
 											{data.num_students &&
@@ -321,7 +322,7 @@ function DetailsView(props) {
 									}
 									
 									{/*Progress bar*/}
-									{props.page === "donations" && <div className="flex flex-col items-center gap-2">
+									{props.page === "donations" || props.page === "organizationPosts" && <div className="flex flex-col items-center gap-2">
 										<h2 className="text-m font-semibold text-center leading-tight">Required amount<br/><span className="font-normal">{data.required_amount}</span></h2>
 										<div className="relative w-40 h-40">
 											<svg className="w-full h-full" viewBox="0 0 100 100">
@@ -432,7 +433,7 @@ function DetailsView(props) {
 								:
 									<div className="flex gap-8">
 										<button
-											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold mt-4"
 											onClick={handleEdit}
 										>
 											Edit 
