@@ -329,7 +329,7 @@ function DetailsView(props) {
 									}
 									
 									{/*Progress bar*/}
-									{props.page === "donations" || props.page === "organizationPosts" && <div className="flex flex-col items-center gap-2">
+									{(props.page === "donations" || (props.page === "organizationPosts" && data.tags.Category !== "Teacher")) && <div className="flex flex-col items-center gap-2">
 										<h2 className="text-m font-semibold text-center leading-tight">Required amount<br/><span className="font-normal">{data.required_amount}</span></h2>
 										<div className="relative w-40 h-40">
 											<svg className="w-full h-full" viewBox="0 0 100 100">
@@ -370,10 +370,10 @@ function DetailsView(props) {
 								</div>}
 								{props.page === "organizationPosts" && data.tags.isFulfilled === "true" &&
 									<div style={{ textAlign: 'center', margin: '20px' }}>
-										<h1 style={{ marginBottom: '20px' }}>
+										<h1>
 											This post has been fulfilled and reached its goal!
 										</h1>
-										{data.tags.type === "Teacher" && 
+										{data.tags.Category === "Teacher" && 
 											<div>
 												<p style={{ marginBottom: '10px' }}>
 													For further inquiries, please contact:
@@ -383,13 +383,13 @@ function DetailsView(props) {
 													Email: soha.amer@example.com<br />
 													Phone: +201023482882
 												</p>
-												<button style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '20px' }}
+												<button className="submit-btn"
 												onClick={() => setIsThanked(true)}
 												>
 													Send a Thank You Note
 												</button>
 												{isThanked &&
-												<h1>
+												<h1 className="text-sm mt-2">
 													Your thank you note has been sent!
 												</h1>}
 											</div>
@@ -444,7 +444,7 @@ function DetailsView(props) {
 											</button>
 										}
 									</div>
-								: props.page === "organizations"?
+								: props.page === "organizations" || (props.page === "organizationPosts" && data.tags.isFulfilled === "true") ?
 									<div></div>
 								:
 									<div className="flex gap-8">

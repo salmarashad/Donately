@@ -2,7 +2,6 @@ const organizationPostData =
 [
     {
         "title": "Warm Winter Coats for Kids",
-        "subtitle": "Resala",
         "description": "Resala is seeking warm winter coats for kids in need. With the cold weather approaching, many children in our community lack proper outerwear to stay warm. Your donations will help ensure every child can stay cozy this winter.",
         "tags": {
         "Category": "Clothes",
@@ -19,7 +18,6 @@ const organizationPostData =
     },
     {
         "title": "Professional Attire for Adult Women",
-        "subtitle": "Resala",
         "description": "Resala is dedicated to empowering women by providing them with professional attire for job interviews and employment opportunities. Your donations of gently used or new clothing items will help boost confidence and pave the way to success for women in need.",
         "tags": {
         "Category": "Clothes",
@@ -36,7 +34,6 @@ const organizationPostData =
     },
     {
         "title": "Spring Dresses for Teens",
-        "subtitle": "Resala",
         "description": "Resala is collecting spring dresses for teenagers to promote confidence and self-expression. Your donations will help teens feel special for proms, graduations, and other important events.",
         "tags": {
         "Category": "Clothes",
@@ -53,7 +50,6 @@ const organizationPostData =
     },
     {
         "title": "Summer T-shirts for Men",
-        "subtitle": "Resala",
         "description": "Resala is in need of summer t-shirts for men experiencing homelessness. As the temperature rises, so does the need for lightweight clothing. Your donations will provide comfort and relief during the hot summer months.",
         "tags": {
         "Category": "Clothes",
@@ -83,7 +79,6 @@ const organizationPostData =
     },
     {
         "title": "Baby Onesies for Fall",
-        "subtitle": "Resala",
         "description": "Resala is requesting baby onesies for the upcoming fall season. As new parents struggle to provide essentials for their newborns, your donations will bring warmth and comfort to little ones in need.",
         "tags": {
         "Category": "Clothes",
@@ -100,7 +95,6 @@ const organizationPostData =
     },
     {
         "title": "Winter Scarves for Adults",
-        "subtitle": "Resala",
         "description": "Resala is seeking donations of winter scarves for adults experiencing homelessness. Scarves are essential for staying warm during the cold winter months. Your contributions will provide warmth and comfort to those in need.",
         "tags": {
         "Category": "Clothes",

@@ -121,7 +121,8 @@ function DonationCard({ currentCardSet, setCurrentCardSet, ...props }) {
 						{/*Button*/}
 						{props.tags.isFulfilled === "true" ? (
 							<div
-								className="button2 hover:bg-transparent"
+								className="button2 mt-0 cursor-pointer"
+								onClick={() => handleClick()}
 							>
 								Fulfilled!
 							</div>
