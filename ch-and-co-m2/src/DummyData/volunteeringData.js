@@ -719,26 +719,6 @@ const volunteeringData = [
         "hospital_address": "123 Cedar Road, Maadi, Cairo"
     },
     {
-        "title": "Emergency Medicine Physician Required",
-        "description": "Seeking an emergency medicine physician to provide urgent medical care in emergency departments. Must have expertise in trauma management and resuscitation.",
-        "tags": {
-            "Category": "Doctor",
-            "Specialty": "Emergency Medicine",
-            "Organization": "Cairo Emergency Hospital",
-            "Area": "Nasr City",
-            "Governorate": "Cairo"
-        },
-        "patient_details": {
-            "name": "Andrew Smith",
-            "age": 40,
-            "gender": "Male",
-            "weight": 80,
-            "address": "789 Pine Avenue, Nasr City, Cairo",
-            "case_description": "Motor vehicle accident with multiple injuries"
-        },
-        "hospital_address": "101 Oak Street, Nasr City, Cairo"
-    },
-    {
         "title": "Endocrinologist Needed",
         "description": "Urgently hiring an endocrinologist to diagnose and treat hormonal disorders and metabolic diseases. Must have expertise in endocrine testing and hormone therapy.",
         "tags": {
