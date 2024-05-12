@@ -50,10 +50,6 @@ function DetailsView(props) {
 		props.setPage("postForm");
 	}
 
-	function handleDropoff(){
-		setSubmition(true);
-		props.setIsSet(true)
-	}
 
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
@@ -88,7 +84,7 @@ function DetailsView(props) {
 									</div>
 								</div>
 								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
-									onClick={() => handleDropoff}>
+									onClick={() => {setSubmition(true); props.setIsSet(true)}}>
 										Submit
 								</button>
 								</>
@@ -304,10 +300,10 @@ function DetailsView(props) {
 									</button>
 								: props.page === "volunteering" ?
 									<div className="flex gap-8">
-										{(userType === "donor") || (data.tags.type === "Teacher" && userType === "doctor" ) || (data.tags.type === "Doctor" && userType === "teacher" )  ?	
+										{(userType === "donor") || (data.tags.Type === "Teacher" && userType === "doctor" ) || (data.tags.Type === "Doctor" && userType === "teacher" )  ?	
 											<div className=" text-center m-2 mb-4">
 												<p>Sorry, you must be a 
-													<span className=" font-semibold italic"> {data.tags.type} </span>
+													<span className=" font-semibold italic"> {data.tags.Type} </span>
 													to be eligible
 												</p>
 											</div>
