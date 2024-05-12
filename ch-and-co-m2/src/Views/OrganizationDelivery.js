@@ -11,7 +11,7 @@ function OrganizationDelivery(props) {
             key: "1",
             title: "Board games by Jana",
             quantity: "5",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "20/05/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -19,7 +19,7 @@ function OrganizationDelivery(props) {
             key: "2",
             title: "Clothes by Farah",
             quantity: "20",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "23/05/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -43,7 +43,7 @@ function OrganizationDelivery(props) {
             key: "5",
             title: "Fruits and Vegetables by Omar",
             quantity: "25",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "11/06/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -51,7 +51,7 @@ function OrganizationDelivery(props) {
             key: "6",
             title: "Blood Pressure Machine by Jana",
             quantity: "5",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "03/06/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -59,7 +59,7 @@ function OrganizationDelivery(props) {
             key: "7",
             title: "Stuffed animals by Ziad",
             quantity: "10",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "17/07/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -91,7 +91,7 @@ function OrganizationDelivery(props) {
             key: "11",
             title: "Pain Killers by Salma",
             quantity: "10",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "10/05/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -99,7 +99,7 @@ function OrganizationDelivery(props) {
             key: "12",
             title: "Cough Medicine by Jana",
             quantity: "10",
-            dropoffdate: "00/00/0000",
+            dropoffdate: "01/11/2024",
             dropofftime: "00:00",
             isSet: "true"
         },
@@ -107,7 +107,7 @@ function OrganizationDelivery(props) {
     ]);
     
     return(
-        <div className='grid grid-cols-2'>
+        <div className='grid grid-cols-2 gap-2 max-w-[800px] mx-auto auto-rows-fr'>
             {dropoffData.map((dropoff)=> (
                 <DropoffCard 
                 key={dropoff.key}

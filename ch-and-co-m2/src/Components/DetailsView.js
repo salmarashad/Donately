@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DetailedContext, DataContext, UserTypeContext } from "../App";
+import { DetailedContext, DataContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 import { useState, useEffect } from "react";
 import Maps from "./Maps";
@@ -7,7 +7,16 @@ import Maps from "./Maps";
 function DetailsView(props) {
 	const { setIsDetailedView } = useContext(DetailedContext);
 	const { data } = useContext(DataContext);
-	const { userType } = useContext(UserTypeContext);
+	const [details, setDetails] = useState({
+		date: "",
+		time: "",
+	});
+	const handleDetailsChange = (fieldName, value) => {
+		setDetails((prevDetails) => ({
+			...prevDetails,
+			[fieldName]: value,
+		}));
+	};
 
 	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
 	const [isThanked, setIsThanked] = useState(false);
@@ -49,11 +58,6 @@ function DetailsView(props) {
 		props.setPage("postForm");
 	}
 
-	function handleDropoff(){
-		setSubmition(true);
-		props.setIsSet(true)
-	}
-
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
 			<div className="flex flex-col bg-white w-[600px] h-max rounded-md p-6 relative">
@@ -76,18 +80,31 @@ function DetailsView(props) {
 									<div>
 										<label className="label">
 											Date:
-											<input type="date" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+											<input type="date" 
+											value={details.date} 
+											onChange={(e) =>
+												handleDetailsChange("date", e.target.value)
+											}
+											className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
 										</label>
 									</div>
 									<div>
 										<label className="label ">
 											Time:
-											<input type="time" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+											<input type="time" 
+											value={details.time} 
+											onChange={(e) =>
+												handleDetailsChange("time", e.target.value)
+											}
+											className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
 										</label>
 									</div>
 								</div>
 								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
-									onClick={() => handleDropoff}>
+									disabled={
+										Object.values(details).includes("") || details.count === 0
+									}
+									onClick={() => setSubmition(true)}>
 										Submit
 								</button>
 								</>
@@ -139,13 +156,6 @@ function DetailsView(props) {
 						<div className="flex flex-col">
 							<hr className="border-t-2 w-full my-8" />
 
-							{/*Google map for doctor in volunteering*/}
-							{(props.page === "volunteering") &&
-									 <div className="w-full rounded-md overflow-hidden p-4 pt-0 ">
-										<Maps 
-										isStaticMap={true} 
-										Location={data.tags.type==="Doctor"? "Hospital": "Teaching Post"} />
-									</div>}
 								
 							{/*Information segment*/}
 							{props.page ==="organizations"?
@@ -304,7 +314,6 @@ function DetailsView(props) {
 										</div>
 									</div>}
 								</div>}
-
 								{props.page === "organizationPosts" && data.tags.isFulfilled === "true" &&
 									<div style={{ textAlign: 'center', margin: '20px' }}>
 										<h1 style={{ marginBottom: '20px' }}>
@@ -365,21 +374,12 @@ function DetailsView(props) {
 									</button>
 								: props.page === "volunteering" ?
 									<div className="flex gap-8">
-										{(userType === "donor") || (data.tags.type === "Teacher" && userType === "doctor" ) || (data.tags.type === "Doctor" && userType === "teacher" )  ?	
-											<div className=" text-center m-2 mb-4">
-												<p>Sorry, you must be a 
-													<span className=" font-semibold italic"> {data.tags.type} </span>
-													to be eligible
-												</p>
-											</div>
-										:
-											<button
-												className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
-												onClick={handleDonate}
-											>
-												Fulfill 
-											</button>
-										}	
+										<button
+											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+											onClick={handleDonate}
+										>
+											Fulfill 
+										</button>
 									</div>
 								: props.page === "organizations"?
 									<div></div>

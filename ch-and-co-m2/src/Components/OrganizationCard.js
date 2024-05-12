@@ -29,9 +29,9 @@ function OrganizationCard({ currentCardSet, setCurrentCardSet, ...props }) {
 		<div className="group/card organization-card bg-white shadow-md rounded-md overflow-hidden flex flex-col justify-between h-full p-5 relative">
 			<div className="flex flex-col items-center w-36 h-full justify-between">
 				<div className="flex flex-col items-center gap-0.5">
-					<div className="bg-farahgray-100 rounded-lg absolute top-0 right-0 mt-2 mr-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
+					{props.userType === 'admin' && <div className="bg-farahgray-100 rounded-lg absolute top-0 right-0 mt-2 mr-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-200">
 						<DeleteButton function={handleDelete} group={"card"} />
-					</div>
+					</div>}
 					{props.imgURL && (
 						<img
 							src={props.imgURL}

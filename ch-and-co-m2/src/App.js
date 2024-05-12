@@ -4,7 +4,7 @@ import PostsView from "./Views/PostsView.js";
 import NavbarComponent from "./Components/NavbarComponent";
 import Registration from "./Views/Registration.js";
 import Profile from "./Views/Profile.js";
-import Login from "./Components/Login";
+import Login from "./Views/Login.js";
 import OrganizationsView from "./Views/OrganizationsView";
 import OrganizationDelivery from "./Views/OrganizationDelivery";
 import DetailsView from "./Components/DetailsView.js";
