@@ -6,6 +6,7 @@ function Filter({data, setCurrentCardSet }) {
     const [checkedCategories, setCheckedCategories] = useState([]);
     const [appliedFilters, setAppliedFilters] = useState({});
     const [searchQuery, setSearchQuery] = useState("");
+    const [isFulfilled, setIsFulfilled] = useState(false);
 
     const handleCategoryCheckboxChange = (category, isChecked) => {
         if (isChecked) {
@@ -67,16 +68,19 @@ function Filter({data, setCurrentCardSet }) {
     };
 
     function applyFilters() {
-        let filteredData;
-        if (checkedCategories.length === 0) {
-            filteredData = data;
-        } else {
-            filteredData = data.filter(item => {
+        let filteredData = data;
+
+        if (checkedCategories.length > 0) {
+            filteredData = filteredData.filter(item => {
                 return checkedCategories.includes(item.tags.Category) &&
                     Object.entries(appliedFilters[item.tags.Category] || {}).every(([param, values]) => {
                         return values.length === 0 || values.includes(item.tags[param]);
                     });
             });
+        }
+
+        if (isFulfilled) {
+            filteredData = filteredData.filter(item => item.tags.isFulfilled === "true");
         }
 
         if (searchQuery.trim() !== "") {
@@ -87,21 +91,31 @@ function Filter({data, setCurrentCardSet }) {
             );
         }
     
-
         setCurrentCardSet(filteredData);
     }
 
     const handleIsFulfilledChange = (value, param) => {
-        for (const category of categoriesArray) {
-            setAppliedFilters(prevFilters => ({
-                ...prevFilters,
-                [category.category]: {
-                    ...prevFilters[category.category],
+        const updatedFilters = {};
+        if (value === "true") {
+            categoriesArray.forEach(category => {
+                updatedFilters[category.category] = {
+                    ...appliedFilters[category.category],
                     [param]: value
-                }
-            }));
+                };
+            });
+            setIsFulfilled(true)
         }
-    }
+        else {
+            categoriesArray.forEach(category => {
+                updatedFilters[category.category] = {
+                    ...appliedFilters[category.category],
+                    [param]: ""
+                };
+            });
+            setIsFulfilled(false)
+        }
+        setAppliedFilters(updatedFilters);
+    };
     function renderCategories(categories, checkedCategories) {
         return (
             <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
@@ -111,7 +125,8 @@ function Filter({data, setCurrentCardSet }) {
                                 type="checkbox"
                                 id="isFulfilledCheckbox"      
                                 className="mr-2 accent-farahgray-700"
-                                onClick={(e) => handleIsFulfilledChange(e.target.checked ? "true":"false", "isFulfilled")}
+                                value={isFulfilled}
+                                onClick={(e) => handleIsFulfilledChange(e.target.checked ? "true" : "false", "isFulfilled")}
                             />
                             <label htmlFor="isFulfilledCheckbox" className="font-medium">Is Fulfilled</label>
                         </div>
