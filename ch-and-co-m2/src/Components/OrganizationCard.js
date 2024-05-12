@@ -15,6 +15,7 @@ function OrganizationCard({ currentCardSet, setCurrentCardSet, ...props }) {
 			tags: props.tags,
 			email: props.email,
 			number: props.number,
+			address: props.address,
 		});
 		setIsDetailedView(true);
 	};

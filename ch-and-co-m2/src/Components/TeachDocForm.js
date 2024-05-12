@@ -174,7 +174,7 @@ function TeachDocForm(props) {
                 <div>
                     {props.profile === true && <h2 className="text-xl text-center font-semibold mb-2">Teacher Verification Form</h2>}
                     <h2 className="text-lg font-semibold mb-1">Job Information</h2>
-                    <label className='label'>Subject
+                    <label className='label'>Subjects
                         <input type="text" value={props.teacherData.subject} placeholder="Type here..." className="text-input"
                             onChange={(e) => props.handleTeacherChange("subject", e.target.value)} />
                     </label>
@@ -196,7 +196,7 @@ function TeachDocForm(props) {
                         <Counter val={props.doctorData.numCases} setter={props.handleDoctorChange} valName="numCases" />
                     </label>
 
-                    <hr className='border-t-2 my-4' />
+                    <hr className='border-t-2 my-4 border-farahorange-200' />
                     <h2 className="text-lg font-semibold mb-1">Clinic Location</h2>
                     <label className='label'>Address
                         <input type="text" value={props.doctorData.address} placeholder="Type here..." className="text-input"
@@ -221,7 +221,7 @@ function TeachDocForm(props) {
                     </label>
                 </div>
                 }
-                <hr className='border-t-2 my-4' />
+                <hr className='border-t-2 my-4 border-farahorange-200' />
                 <h2 className="text-lg font-semibold mb-1">Qualifications</h2>
                 <label className='label' htmlFor="pdf">CV
                     <input id="pdf" type="file" name="pdf" accept="application/pdf" className="block w-max cursor-pointer mt-1 mb-3" 

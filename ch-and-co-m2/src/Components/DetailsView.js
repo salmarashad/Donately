@@ -29,6 +29,7 @@ function DetailsView(props) {
 	const [submition, setSubmition] = useState(false);
 
 	useEffect(() => {
+		console.log(data)
 		if (data.isFulfilled === "true") {
 			setPercentage(100);
 		}
@@ -178,6 +179,11 @@ function DetailsView(props) {
 										</label>
 										<label className=""><span className=" font-semibold">Phone Number: </span>
 											<p>{data.number}</p>
+										</label>
+									</div>
+									<div className="flex flex-row gap-x-16 mb-4">
+										<label className="text-center"><span className=" font-semibold">Address: </span>
+												<p>{data.address}</p>
 										</label>
 									</div>
 									{/*Google map for Org*/}

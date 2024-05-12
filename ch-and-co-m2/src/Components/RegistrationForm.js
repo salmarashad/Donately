@@ -311,7 +311,7 @@ function RegistrationForm(props) {
                         </div>
                     </label>
                 </div>
-                <hr className='border-t-2 my-4' />
+                <hr className='border-t-2 my-4 border-farahorange-300' />
                 <h2 className="text-lg font-semibold mb-2">Account Details</h2>
                 <div className="flex flex-col">
                     <label className='label'>Email
@@ -354,7 +354,7 @@ function RegistrationForm(props) {
                         </div>
                     </label>}
                 </div>
-                <hr className='border-t-2 my-4' />
+                <hr className='border-t-2 my-4 border-farahorange-300' />
                 <h2 className="text-lg font-semibold mb-2">{props.type === "donor" ? "Location" : "Organization Details"}</h2>
                 <div className="flex flex-col">
                     {props.type === "organization" && <label className='label'>Organization Name
@@ -416,7 +416,7 @@ function RegistrationForm(props) {
             : props.step === 1 && (formData.accountType === "teacher" || formData.accountType === "doctor") ?
 
             <div>
-                <div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700 mb-4">
+                <div className="bg-farahorange-400 rounded-md text-center py-2 w-full text-white mb-4">
                     <h3 className="font-semibold italic">Please fill the below form to get verified as a {formData.accountType}.</h3>
                 </div>
                 <TeachDocForm doctorData={doctorData} handleDoctorChange={handleDoctorChange} teacherData={teacherData}
