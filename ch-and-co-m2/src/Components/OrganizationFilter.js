@@ -13,6 +13,11 @@ const Filter2 = ({ data, setCurrentCardSet }) => {
     area: true,
     governorate: true,
   });
+  const [checkedSections, setCheckedSections] = useState({
+    type: false,
+    area: false,
+    governorate: false,
+  });
 
   const handleSelectChange = (filterType, value) => {
     const newFilters = { ...filters, [filterType]: value };
@@ -64,6 +69,14 @@ const Filter2 = ({ data, setCurrentCardSet }) => {
     });
   };
 
+  const handleCheckboxChange = (section) => {
+    setCheckedSections({
+      ...checkedSections,
+      [section]: !checkedSections[section],
+    });
+    toggleSection(section);
+  };
+
   return (
     <div className="flex flex-col gap-2">
       <input
@@ -75,7 +88,16 @@ const Filter2 = ({ data, setCurrentCardSet }) => {
       />
       <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
         <div className="bg-white py-2 px-4 rounded-md">
-          <p className="dropdown-title" onClick={() => toggleSection("governorate")}>Governorate</p>
+          <div className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              id="governorate-checkbox"
+              checked={checkedSections["governorate"]}
+              onChange={() => handleCheckboxChange("governorate")}
+              className="mr-2 accent-farahgray-700"
+            />
+            <label htmlFor="governorate-checkbox" className="font-medium">Governorate</label>
+          </div>
           {!collapsedSections["governorate"] && (
             <Dropdown
               options={Array.from(new Set(data.map((org) => org.tags.Governorate))).map(gov => ({ value: gov, label: gov }))}
@@ -85,7 +107,16 @@ const Filter2 = ({ data, setCurrentCardSet }) => {
           )}
         </div>
         <div className="bg-white py-2 px-4 rounded-md">
-          <p className="dropdown-title" onClick={() => toggleSection("area")}>Area</p>
+          <div className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              id="area-checkbox"
+              checked={checkedSections["area"]}
+              onChange={() => handleCheckboxChange("area")}
+              className="mr-2 accent-farahgray-700"
+            />
+            <label htmlFor="area-checkbox" className="font-medium">Area</label>
+          </div>
           {!collapsedSections["area"] && (
             <Dropdown
               options={Array.from(new Set(data.map((org) => org.tags.Area))).map(area => ({ value: area, label: area }))}
@@ -95,7 +126,16 @@ const Filter2 = ({ data, setCurrentCardSet }) => {
           )}
         </div>
         <div className="bg-white py-2 px-4 rounded-md">
-          <p className="dropdown-title" onClick={() => toggleSection("type")}>Type</p>
+          <div className="flex items-center mb-2">
+            <input
+              type="checkbox"
+              id="type-checkbox"
+              checked={checkedSections["type"]}
+              onChange={() => handleCheckboxChange("type")}
+              className="mr-2 accent-farahgray-700"
+            />
+            <label htmlFor="type-checkbox" className="font-medium">Type</label>
+          </div>
           {!collapsedSections["type"] && (
             <Dropdown
               options={Array.from(new Set(data.map((org) => org.tags.Type))).map(type => ({ value: type, label: type }))}
