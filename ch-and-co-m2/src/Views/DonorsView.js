@@ -1,17 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Filter from "../Components/Filter";
 import donorsData from "../DummyData/donorsData.js";
 import DonorCardRenderer from "../Components/DonorCardRenderer.js";
 
 function DonorsView(props) {
 	const [currentCardSet, setCurrentCardSet] = useState([]);
+	const [searchQuery, setSearchQuery] = useState("");
+	
+	useEffect(() => {
+        const filteredData = donorsData.filter(donor =>
+            donor.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setCurrentCardSet(filteredData);
+    }, [searchQuery]);
+
 
 	return (
 		<div>
 			<div className="grid grid-cols-4 max-w-7xl w-full mx-auto">
 				<div className="col-span-1 justify-self-start">
-					<div className="hidden flex-col items-center justify-center gap-4 sticky top-24">
-						<Filter data={donorsData} setCurrentCardSet={setCurrentCardSet} />
+					<div className="flex-col items-center justify-center gap-4 sticky top-24">
+					<input
+						type="text"
+						placeholder="Search..."
+						value={searchQuery}
+						onChange={(e) => setSearchQuery(e.target.value)}
+						className="mb-2 px-3 py-2 w-64 rounded-md border border-gray-400 focus:outline-none focus:ring-1 focus:ring-farahgreen-400"
+					/>
 					</div>
 				</div>
 				<div className="col-span-2">
