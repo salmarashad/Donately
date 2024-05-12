@@ -14,6 +14,7 @@ function PostForm(props) {
 		title: data.title || "",
 		description: data.description || "",
 		amount: data.required_amount ? data.required_amount.match(/\d+/) : "",
+		isVolunteering: "false",
 		Category: dataTags.Category || "",
 	});
 
@@ -115,6 +116,42 @@ function PostForm(props) {
 		}));
 	}
 
+	const [teacherDetails, setTeacherDetails] = useState({
+		Subject: "",
+		Grade: "",
+		Area: "",
+		Governorate: "",
+		num_students: "",
+		address: ""
+	});
+
+	function handleTeacherChange(fieldName, value) {
+		setTeacherDetails((prevTeacherDetails) => ({
+			...prevTeacherDetails,
+			[fieldName]: value,
+		}));
+	}
+
+	const [doctorDetails, setDoctorDetails] = useState({
+		Specialty: "",
+		Organization : "",
+		Area: "",
+		Governorate: "",
+		patient_name: "",
+		patient_age: "",
+		pateint_gender: "",
+		patient_weight: "",
+		patient_address: "",
+		case_description: ""
+	});
+
+	function handleDoctorChange(fieldName, value) {
+		setDoctorDetails((prevDoctorDetails) => ({
+			...prevDoctorDetails,
+			[fieldName]: value,
+		}));
+	}
+
 	const handleInputChange = (fieldName, value) => {
 		setFormData((prevFormData) => ({
 			...prevFormData,
@@ -178,7 +215,7 @@ function PostForm(props) {
 		return new Promise((res) => setTimeout(res, delay));
 	}
 
-	function isFormValid(
+	function isFormInvalid(
 		validity,
 		formData,
 		clothesDetails,
@@ -190,7 +227,7 @@ function PostForm(props) {
 	) {
 		return (
 			Object.values(validity).includes(false) ||
-			Object.values(formData).includes("") ||
+			(Object.values(formData).includes("") )||
 			(formData.type === "clothes" &&
 				Object.values(clothesDetails).includes("")) ||
 			(formData.type === "toys" && Object.values(toysDetails).includes("")) ||
@@ -262,60 +299,89 @@ function PostForm(props) {
 							</p>
 						)}
 
-						<label className="label" htmlFor="image">
-							Post Image
-							<input
-								id="image"
-								type="file"
-								name="image"
-								accept="image/*"
-								className="block w-max cursor-pointer mt-1 mb-3"
-								onChange={props.handleFileChange}
-							/>
-						</label>
-
-						<div className="grid grid-cols-3 gap-4">
-							<label className="label col-span-2">
-								Category
-								<select
-									className="text-input"
-									value={formData.Category}
-									onChange={(e) =>
-										handleInputChange("Category", e.target.value)
-									}
-									onBlur={() => checkNotEmpty("Category", formData.Category)}
-								>
-									<option value="">Select...</option>
-									<option value="Clothes">Clothes</option>
-									<option value="Toys">Toys</option>
-									<option value="Food">Food</option>
-									<option value="Medical Supplies">Medical Supplies</option>
-									<option value="Blood Donation">Blood Donation</option>
-									<option value="School Supplies">School Supplies</option>
-								</select>
-							</label>
-							<label className="label col-span-1">
-								Required Amount
+						<div className="grid grid-cols-2 gap-4">
+							<label className="label htmlFor=image">
+								Post Image
 								<input
-									type="number"
-									min="1"
-									value={formData.amount}
-									placeholder={formData.category === "Food" ? "XX KG" : "XX"}
-									className="text-input"
-									onChange={(e) => handleInputChange("amount", e.target.value)}
-									onBlur={() => checkAmount(formData.amount)}
+									id="image"
+									type="file"
+									name="image"
+									accept="image/*"
+									className="block w-max cursor-pointer mt-1 mb-3"
+									onChange={props.handleFileChange}
 								/>
 							</label>
-							{!validity.amount && (
-								<p className="error text-right -mt-2 col-span-3">
-									Please enter a valid amount
-								</p>
-							)}
+							<label className="label">
+								Post Type
+								<select
+									className="text-input"
+									value={formData.isVolunteering}
+									onChange={(e) =>
+										{handleInputChange("isVolunteering", e.target.value)
+										handleInputChange("Category", "volunteering")
+										handleInputChange("amount", "1");
+									}
+									}
+								>
+									<option value="false">Donation</option>
+									<option value="doctor">Volunteering - Doctor</option>
+									<option value="teacher">Volunteering - Teacher</option>
+								</select>
+							</label>
 						</div>
+						{formData.isVolunteering === "false" ? (
+							<div className="grid grid-cols-3 gap-4">
+								<label className="label col-span-2">
+									Category
+									<select
+										className="text-input"
+										value={formData.Category}
+										onChange={(e) =>
+											handleInputChange("Category", e.target.value)
+										}
+										onBlur={() => checkNotEmpty("Category", formData.Category)}
+									>
+										<option value="">Select...</option>
+										<option value="Clothes">Clothes</option>
+										<option value="Toys">Toys</option>
+										<option value="Food">Food</option>
+										<option value="Medical Supplies">Medical Supplies</option>
+										<option value="Blood Donation">Blood Donation</option>
+										<option value="School Supplies">School Supplies</option>
+									</select>
+								</label>
+								<label className="label col-span-1">
+									Required Amount
+									<input
+										type="number"
+										min="1"
+										value={formData.amount}
+										placeholder={formData.category === "Food" ? "XX KG" : "XX"}
+										className="text-input"
+										onChange={(e) =>
+											handleInputChange("amount", e.target.value)
+										}
+										onBlur={() => checkAmount(formData.amount)}
+									/>
+								</label>
+								{!validity.amount && (
+									<p className="error text-right -mt-2 col-span-3">
+										Please enter a valid amount
+									</p>
+								)}
+							</div>
+						) : (
+							<div>
+								<div>
+									<h3 className="label ">Location</h3>
+									<Maps isStaticMap={false} Location={"Post"} />
+								</div>
+							</div>
+						)}
 					</div>
 
-					{/* Details Section*/}
-					{formData.Category !== "" && (
+					{/* Donation Details Section*/}
+					{formData.Category !== "" && formData.isVolunteering === "false" && (
 						<div>
 							<hr className="border-t-2 my-4" />
 							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
@@ -857,7 +923,10 @@ function PostForm(props) {
 													placeholder="Type here..."
 													className="text-input"
 													onChange={(e) =>
-														handleSchoolSuppliesChange("Edition", e.target.value)
+														handleSchoolSuppliesChange(
+															"Edition",
+															e.target.value
+														)
 													}
 													onBlur={() =>
 														checkNotEmpty(
@@ -876,7 +945,10 @@ function PostForm(props) {
 													placeholder="Type here..."
 													className="text-input"
 													onChange={(e) =>
-														handleSchoolSuppliesChange("Language", e.target.value)
+														handleSchoolSuppliesChange(
+															"Language",
+															e.target.value
+														)
 													}
 													onBlur={() =>
 														checkNotEmpty(
@@ -884,7 +956,7 @@ function PostForm(props) {
 															schoolSuppliesDetails.Language
 														)
 													}
-												/>	
+												/>
 											</label>
 										</div>
 									)}
@@ -892,6 +964,305 @@ function PostForm(props) {
 							)}
 						</div>
 					)}
+
+					{/* Volunteering Details Section*/}
+					{formData.isVolunteering === "teacher" && (
+						<div>
+							<hr className="border-t-2 my-4" />
+							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
+
+							<div className="grid grid-cols-2 gap-3 w-full">
+								<label className="label">
+									Governorate
+									<input
+										type="text"
+										value={teacherDetails.Governorate}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleTeacherChange("Governorate", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												teacherDetails.Governorate
+											)
+										}
+									/>
+								</label>
+								<label className="label">
+									Area
+									<input
+										type="text"
+										value={teacherDetails.Area}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleTeacherChange("Area", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty("detailsNotEmpty", teacherDetails.Area)
+										}
+									/>
+								</label>
+							</div>
+							<div className="grid grid-cols-3 gap-3 w-full">
+								<label className="label">
+									Subject
+									<input
+										type="text"
+										value={teacherDetails.Subject}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleTeacherChange("Subject", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty("detailsNotEmpty", teacherDetails.Subject)
+										}
+									/>
+								</label>
+								<label className="label">
+									Grade
+									<input
+										type="text"
+										value={teacherDetails.Grade}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleTeacherChange("Grade", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty("detailsNotEmpty", teacherDetails.Grade)
+										}
+									/>
+								</label>
+								<label className="label">
+									# of Students
+									<input
+										type="number"
+										value={teacherDetails.num_students}
+										placeholder="XX"
+										className="text-input"
+										onChange={(e) =>
+											handleTeacherChange("num_students", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												teacherDetails.num_students
+											)
+										}
+									/>
+								</label>
+							</div>
+						</div>
+					)}
+
+					{formData.isVolunteering === "doctor" && (
+						<div>
+							<hr className="border-t-2 my-4" />
+							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
+
+							<div className="grid grid-cols-2 gap-3 w-full">
+								<label className="label">
+									Governorate
+									<input
+										type="text"
+										value={doctorDetails.Governorate}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("Governorate", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.Governorate
+											)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Area
+									<input
+										type="text"
+										value={doctorDetails.Area}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) => handleDoctorChange("Area", e.target.value)}
+										onBlur={() =>
+											checkNotEmpty("detailsNotEmpty", doctorDetails.Area)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Specialty
+									<input
+										type="text"
+										value={doctorDetails.Specialty}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("Specialty", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty("detailsNotEmpty", doctorDetails.Specialty)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Organization
+									<input
+										type="text"
+										value={doctorDetails.Organization}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("Organization", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.Organization
+											)
+										}
+									/>
+								</label>
+							</div>
+
+							<hr className="border-t-2 my-4" />
+							<h2 className="text-md font-semibold mb-2">Patient Details</h2>
+
+							<div className="grid grid-cols-2 gap-3 w-full">
+								<label className="label">
+									Name
+									<input
+										type="text"
+										value={doctorDetails.patient_name}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("patient_name", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.patient_name
+											)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Age
+									<input
+										type="number"
+										min="0"
+										max="120"
+										value={doctorDetails.patient_age}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("patient_age", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.patient_age
+											)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Gender
+									<select
+										className="text-input"
+										value={doctorDetails.patient_gender}
+										onChange={(e) =>
+											handleDoctorChange("gender", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.gender
+											)
+										}
+									>
+									<option value="">Select...</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+									</select>
+								</label>
+
+								<label className="label">
+									Weight
+									<input
+										type="number"
+										min="0"
+										value={doctorDetails.patient_weight}
+										placeholder="XX KG"
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("patient_weight", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.patient_weight
+											)
+										}
+									/>	
+								</label>
+							</div>
+
+							<div className="flex flex-col">
+								<label className="label">
+									Address
+									<input
+										type="text"
+										value={doctorDetails.patient_address}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("patient_address", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.patient_address
+											)
+										}
+									/>
+								</label>
+
+								<label className="label">
+									Case Description
+									<textarea
+										type="text"
+										rows="5"
+										value={doctorDetails.case_description}
+										placeholder="Type here..."
+										className="text-input"
+										onChange={(e) =>
+											handleDoctorChange("case_description", e.target.value)
+										}
+										onBlur={() =>
+											checkNotEmpty(
+												"detailsNotEmpty",
+												doctorDetails.case_description
+											)
+										}
+									/>	
+								</label>
+							</div>
+						</div>
+					)}
+
 					{validity.detailsNotEmpty === false && (
 						<p className="error text-left -mt-2 col-span-3">
 							Please fill in all details
@@ -914,7 +1285,7 @@ function PostForm(props) {
 							<button
 								type="submit"
 								className="submit-btn self-center w-[82px] h-[32px]"
-								disabled={isFormValid(
+								disabled={isFormInvalid(
 									validity,
 									formData,
 									clothesDetails,
