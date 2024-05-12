@@ -3,10 +3,10 @@ function HomeView({setPage}) {
         <div className="min-h-screen flex flex-col items-center justify-center  text-white -mt-8 -mb-8">
           {/* Hero Section */}
           <section className="w-full h-screen flex items-center justify-center">
-            <div className="absolute inset-0 bg-cover bg-center z-[1]" style={{backgroundImage: 'url("https://images.inc.com/uploaded_files/image/1920x1080/getty_494415321_109575.jpg")'}}>
+            <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: 'url("https://images.inc.com/uploaded_files/image/1920x1080/getty_494415321_109575.jpg")'}}>
               <div className="absolute inset-0 bg-black opacity-50"></div>
             </div>
-            <div className="relative z-10 text-center">
+            <div className="relative text-center">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">Empower Change: Donate Beyond Money</h1>
               <p className="text-lg md:text-xl">Transforming lives and communities through non-monetary contributions</p>
               <button className="bg-farahorange-500 hover:bg-farahorange-600 text-white font-bold py-3 px-8 mt-8 rounded-full transition duration-300" onClick={() => setPage("donations")}>Get Involved</button>
@@ -18,7 +18,7 @@ function HomeView({setPage}) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Donation Categories */}
               <div className="bg-farahgreen-500 p-8 rounded-lg shadow-lg">
-                <h2 className="text-2xl font-bold mb-4">Doante Your Time & Skills</h2>
+                <h2 className="text-2xl font-bold mb-4">Donate Your Time & Skills</h2>
                 <p>Volunteer in either medical or teaching fields</p>
                 <button className="bg-farahgreen-700 hover:bg-farahgreen-600 text-white font-bold py-2 px-4 mt-4 rounded-full transition duration-300"
                 onClick={() => setPage("volunteering")}

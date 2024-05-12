@@ -21,6 +21,13 @@ function NotificationComponent(props) {
       content:
         "The delivery driver is on his way to you right now. ETA: 8:02pm",
     },
+    {
+      id: 3,
+      title: "A Donation was Made!",
+      time: "10:00am",
+      content:
+        "A donation was made for the donation post: Children Clothing",
+    }
   ]);
   const { userType, setUserType } = useContext(UserTypeContext);
 

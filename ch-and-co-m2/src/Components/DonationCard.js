@@ -121,13 +121,13 @@ function DonationCard({ currentCardSet, setCurrentCardSet, ...props }) {
 						{/*Button*/}
 						{props.tags.isFulfilled === "true" ? (
 							<div
-								className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap"
+								className="button2 hover:bg-transparent"
 							>
 								Fulfilled!
 							</div>
 						) : (
 							<button
-								className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold whitespace-nowrap hover:bg-farahgreen-100"
+								className=" button"
 								onClick={() => handleClick()}
 							>
 								{props.type === "donor" ? "View Details >" : "Edit Details >"}
