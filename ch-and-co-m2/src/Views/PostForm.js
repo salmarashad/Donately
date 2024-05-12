@@ -1,34 +1,37 @@
 import { useState, useContext } from "react";
 import { ReactComponent as SpinnerSVG } from "../SVGs/spinner.svg";
 import { DataContext } from "../App";
+import Maps from "../Components/Maps";
 
 function PostForm(props) {
 	const { data } = useContext(DataContext);
 	const dataTags = data && data.tags ? data.tags : {};
 
-	console.log("data\n" , data)
-	console.log("dataTags\n" , dataTags)
+	console.log("data\n", data);
+	console.log("dataTags\n", dataTags);
 
 	const [formData, setFormData] = useState({
 		title: data.title || "",
 		description: data.description || "",
-		progress: (Math.floor(Math.random() * 101)),
-		type: dataTags.type || "",
+		amount: data.required_amount ? data.required_amount.match(/\d+/) : "",
+		Category: dataTags.Category || "",
 	});
 
 	const [validity, setValidity] = useState({
 		title: true,
 		description: true,
-		progress: true,
+		amount: true,
 		type: true,
 		detailsNotEmpty: true,
 		toysAge: true,
 	});
 
 	const [clothesDetails, setClothesDetails] = useState({
-		age: dataTags.type === "Clothes" ? dataTags.age : "",
-		gender: dataTags.type === "Clothes" ? dataTags.gender : "",
-		season: dataTags.type === "Clothes" ? dataTags.season : "",
+		Age: dataTags.Category === "Clothes" ? dataTags.Age : "",
+		Gender: dataTags.Category === "Clothes" ? dataTags.Gender : "",
+		Season: dataTags.Category === "Clothes" ? dataTags.Season : "",
+		type: dataTags.Category === "Clothes" ? data.type : "",
+		material: dataTags.Category === "Clothes" ? data.material : "",
 	});
 
 	function handleClothesChange(fieldName, value) {
@@ -39,9 +42,10 @@ function PostForm(props) {
 	}
 
 	const [toysDetails, setToysDetails] = useState({
-		age: dataTags.type === "Toys" ? dataTags.age : "",
-		gender: dataTags.type === "Toys" ? dataTags.gender : "",
-		category: dataTags.type === "Toys" ? dataTags.category : "",
+		Age: dataTags.Category === "Toys" ? dataTags.Age : "",
+		Gender: dataTags.Category === "Toys" ? dataTags.Gender : "",
+		Subcategory: dataTags.Category === "Toys" ? dataTags.Subcategory : "",
+		type: dataTags.Category === "Toys" ? data.type : "",
 	});
 
 	function handleToysChange(fieldName, value) {
@@ -52,7 +56,7 @@ function PostForm(props) {
 	}
 
 	const [foodDetails, setFoodDetails] = useState({
-		type: dataTags.type === "Food" ? dataTags.category : "",
+		Subcategory: dataTags.Category === "Food" ? dataTags.category : "",
 	});
 
 	function handleFoodChange(fieldName, value) {
@@ -63,10 +67,12 @@ function PostForm(props) {
 	}
 
 	const [medicalSuppliesDetails, setMedicalSuppliesDetails] = useState({
-		type: dataTags.type === "Medical Supplies" ? dataTags.medicaldevice : "",
-		equpiment:
-			dataTags.type === "Medical Supplies" ? dataTags.medicalequipment : "",
-		use: dataTags.type === "Medical Supplies" ? dataTags.medicaluse : "",
+		Medical_Device:
+			dataTags.Category === "Medical Supplies" ? dataTags.Medical_Device : "",
+		Medical_Equipment:
+			dataTags.Category === "Medical Supplies" ? dataTags.Medical_Equipment : "",
+		Medication: dataTags.Category === "Medical Supplies" ? dataTags.Medication : "",
+		use: dataTags.Category === "Medical Supplies" ? data.use : "",
 	});
 
 	function handleMedicalSuppliesChange(fieldName, value) {
@@ -77,10 +83,12 @@ function PostForm(props) {
 	}
 
 	const [bloodDetails, setBloodDetails] = useState({
-		hospital: dataTags.type === "Blood Donations" ? dataTags.Hospital : "",
-		governorate:
-			dataTags.type === "Blood Donations" ? dataTags.Governorate : "",
-		area: dataTags.type === "Blood Donations" ? dataTags.Area : "",
+		Hospital: dataTags.Category === "Blood Donations" ? dataTags.Hospital : "",
+		Governorate:
+			dataTags.Category === "Blood Donations" ? dataTags.Governorate : "",
+		Area: dataTags.Category === "Blood Donations" ? dataTags.Area : "",
+		patient_name: dataTags.Category === "Blood Donations" ? data.patient_name : "",
+		blood_type: dataTags.Category === "Blood Donations" ? data.blood_type : "",
 	});
 
 	function handleBloodChange(fieldName, value) {
@@ -91,7 +99,13 @@ function PostForm(props) {
 	}
 
 	const [schoolSuppliesDetails, setSchoolSuppliesDetails] = useState({
-		type: dataTags.type === "School Supplies" ? dataTags.category : "",
+		Subcategory:
+			dataTags.Category === "School Supplies" ? dataTags.Subcategory : "",
+		type: dataTags.Category === "School Supplies" ? data.type : "",
+		Title: dataTags.Subategory === "Books" ? data.Title : "",
+		Author: dataTags.Subategory === "Books" ? data.Author : "",
+		Edition: dataTags.Subategory === "Books" ? data.Edition : "",
+		Language: dataTags.Subategory === "Books" ? data.Language : "",
 	});
 
 	function handleSchoolSuppliesChange(fieldName, value) {
@@ -109,7 +123,9 @@ function PostForm(props) {
 	};
 
 	function checkNotEmpty(fieldName, value) {
-		if(fieldName === "detailsNotEmpty") {return} // Delete this line if you want to check for empty details
+		if (fieldName === "detailsNotEmpty") {
+			return;
+		} // Delete this line if you want to check for empty details
 		if (value === "") {
 			setValidity((prevValidity) => ({
 				...prevValidity,
@@ -123,16 +139,17 @@ function PostForm(props) {
 		}
 	}
 
-	function checkProgress(value) {
-		if (value < 0 || value > 100) {
+	function checkAmount(value) {
+		if (value < 1) {
 			setValidity((prevValidity) => ({
 				...prevValidity,
-				progress: false,
+				amount: false,
 			}));
-		} else {
+		}
+		else {
 			setValidity((prevValidity) => ({
 				...prevValidity,
-				progress: true,
+				amount: true,
 			}));
 		}
 	}
@@ -259,12 +276,14 @@ function PostForm(props) {
 
 						<div className="grid grid-cols-3 gap-4">
 							<label className="label col-span-2">
-								Type
+								Category
 								<select
 									className="text-input"
-									value={formData.type}
-									onChange={(e) => handleInputChange("type", e.target.value)}
-									onBlur={() => checkNotEmpty("type", formData.type)}
+									value={formData.Category}
+									onChange={(e) =>
+										handleInputChange("Category", e.target.value)
+									}
+									onBlur={() => checkNotEmpty("Category", formData.Category)}
 								>
 									<option value="">Select...</option>
 									<option value="Clothes">Clothes</option>
@@ -276,100 +295,157 @@ function PostForm(props) {
 								</select>
 							</label>
 							<label className="label col-span-1">
-								Progress
+								Required Amount
 								<input
 									type="number"
-									min="0"
-									max="100"
-									value={formData.progress}
-									placeholder="XX%"
+									min="1"
+									value={formData.amount}
+									placeholder={formData.category === "Food" ? "XX KG" : "XX"}
 									className="text-input"
-									onChange={(e) =>
-										handleInputChange("progress", e.target.value)
-									}
-									onBlur={() => checkProgress(formData.progress)}
+									onChange={(e) => handleInputChange("amount", e.target.value)}
+									onBlur={() => checkAmount(formData.amount)}
 								/>
 							</label>
-							{!validity.progress && (
+							{!validity.amount && (
 								<p className="error text-right -mt-2 col-span-3">
-									Please enter a valid percentage
+									Please enter a valid amount
 								</p>
 							)}
 						</div>
 					</div>
 
 					{/* Details Section*/}
-					{formData.type !== "" && (
+					{formData.Category !== "" && (
 						<div>
 							<hr className="border-t-2 my-4" />
 							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
 
 							{/* Clothes Details */}
-							{formData.type === "Clothes" && (
-								<div className="flex gap-3">
-									<label className="label">
-										Age
-										<select
-											className="text-input"
-											value={clothesDetails.age}
-											onChange={(e) =>
-												handleClothesChange("age", e.target.value)
-											}
-											onBlur={() =>
-												checkNotEmpty("detailsNotEmpty", clothesDetails.age)
-											}
-										>
-											<option value="">Select...</option>
-											<option value="Kids">Kids</option>
-											<option value="Teens">Teens</option>
-											<option value="Adults">Adults</option>
-										</select>
-									</label>
+							{formData.Category === "Clothes" && (
+								<div>
+									<div className="grid grid-cols-2 gap-2">
+										<label className="label">
+											Age
+											<select
+												className="text-input"
+												value={clothesDetails.Age}
+												onChange={(e) =>
+													handleClothesChange("Age", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty("detailsNotEmpty", clothesDetails.Age)
+												}
+											>
+												<option value="">Select...</option>
+												<option value="Kids">Kids</option>
+												<option value="Teens">Teens</option>
+												<option value="Adults">Adults</option>
+											</select>
+										</label>
 
-									<label className="label">
-										Gender
-										<select
-											className="text-input"
-											value={clothesDetails.gender}
-											onChange={(e) =>
-												handleClothesChange("gender", e.target.value)
-											}
-											onBlur={() =>
-												checkNotEmpty("detailsNotEmpty", clothesDetails.gender)
-											}
-										>
-											<option value="">Select...</option>
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
-											<option value="Unisex">Unisex</option>
-										</select>
-									</label>
+										<label className="label">
+											Gender
+											<select
+												className="text-input"
+												value={clothesDetails.Gender}
+												onChange={(e) =>
+													handleClothesChange("Gender", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														clothesDetails.Gender
+													)
+												}
+											>
+												<option value="">Select...</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+												<option value="Unisex">Unisex</option>
+											</select>
+										</label>
+									</div>
+									<div className="grid grid-cols-3 gap-2">
+										<label className="label">
+											Season
+											<select
+												className="text-input"
+												value={clothesDetails.Season}
+												onChange={(e) =>
+													handleClothesChange("Season", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														clothesDetails.Season
+													)
+												}
+											>
+												<option value="">Select...</option>
+												<option value="Winter">Winter</option>
+												<option value="Summer">Summer</option>
+												<option value="Spring">Spring</option>
+												<option value="Fall">Fall</option>
+												<option value="Year-round">Year-round</option>
+											</select>
+										</label>
 
-									<label className="label">
-										Season
-										<select
-											className="text-input"
-											value={clothesDetails.season}
-											onChange={(e) =>
-												handleClothesChange("season", e.target.value)
-											}
-											onBlur={() =>
-												checkNotEmpty("detailsNotEmpty", clothesDetails.season)
-											}
-										>
-											<option value="">Select...</option>
-											<option value="Winter">Winter</option>
-											<option value="Summer">Summer</option>
-											<option value="Spring">Spring</option>
-											<option value="Fall">Fall</option>
-											<option value="All">All</option>
-										</select>
-									</label>
+										<label className="label">
+											Material
+											<input
+												list="clothes-materials"
+												type="text"
+												value={clothesDetails.material}
+												placeholder="Select or type..."
+												className="text-input"
+												onChange={(e) =>
+													handleClothesChange("material", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														clothesDetails.material
+													)
+												}
+											/>
+											<datalist id="clothes-materials">
+												<option value="Cotton" />
+												<option value="Polyester" />
+												<option value="Wool" />
+												<option value="Silk" />
+												<option value="Leather" />
+											</datalist>
+										</label>
+
+										<label className="label">
+											Type
+											<input
+												list="clothes-types"
+												type="text"
+												value={clothesDetails.type}
+												placeholder="Select or type..."
+												className="text-input"
+												onChange={(e) =>
+													handleClothesChange("type", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty("detailsNotEmpty", clothesDetails.type)
+												}
+											/>
+											<datalist id="clothes-types">
+												<option value="Shirt" />
+												<option value="Pants" />
+												<option value="Dress" />
+												<option value="Jacket" />
+												<option value="Shoes" />
+											</datalist>
+										</label>
+									</div>
 								</div>
 							)}
 
 							{/* Toys Details */}
-							{formData.type === "Toys" && (
+							{formData.Category === "Toys" && (
 								<div>
 									<div className="flex flex-col gap-3">
 										<div className="grid grid-cols-2 gap-3 w-full">
@@ -377,25 +453,25 @@ function PostForm(props) {
 												Age range
 												<input
 													type="text"
-													value={toysDetails.age}
+													value={toysDetails.Age}
 													placeholder="Type here..."
 													className="text-input"
 													onChange={(e) =>
-														handleToysChange("age", e.target.value)
+														handleToysChange("Age", e.target.value)
 													}
-													onBlur={() => checkToysAge(toysDetails.age)}
+													onBlur={() => checkToysAge(toysDetails.Age)}
 												/>
 											</label>
 											<label className="label">
 												Gender
 												<select
 													className="text-input"
-													value={toysDetails.gender}
+													value={toysDetails.Gender}
 													onChange={(e) =>
 														handleToysChange("gender", e.target.value)
 													}
 													onBlur={() =>
-														checkNotEmpty("detailsNotEmpty", toysDetails.gender)
+														checkNotEmpty("detailsNotEmpty", toysDetails.Gender)
 													}
 												>
 													<option value="">Select...</option>
@@ -404,23 +480,42 @@ function PostForm(props) {
 													<option value="Unisex">Unisex</option>
 												</select>
 											</label>
-										</div>
 
-										<label className="label">
-											Category
-											<input
-												type="text"
-												value={toysDetails.category}
-												placeholder="Type here..."
-												className="text-input"
-												onChange={(e) =>
-													handleToysChange("category", e.target.value)
-												}
-												onBlur={() =>
-													checkNotEmpty("detailsNotEmpty", toysDetails.category)
-												}
-											/>
-										</label>
+											<label className="label">
+												Subcategory
+												<input
+													type="text"
+													value={toysDetails.Subcategory}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleToysChange("Subcategory", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty(
+															"detailsNotEmpty",
+															toysDetails.Category
+														)
+													}
+												/>
+											</label>
+
+											<label className="label">
+												Type
+												<input
+													type="text"
+													value={toysDetails.type}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleToysChange("type", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty("detailsNotEmpty", toysDetails.type)
+													}
+												/>
+											</label>
+										</div>
 
 										{validity.toysAge === false && (
 											<p className="error text-left -mt-2 col-span-3">
@@ -432,19 +527,24 @@ function PostForm(props) {
 							)}
 
 							{/* Food Details */}
-							{formData.type === "Food" && (
+							{formData.Category === "Food" && (
 								<div>
 									<label className="label">
-										Type
+										Subcategory
 										<input
 											list="food-types"
 											type="text"
-											value={foodDetails.type}
+											value={foodDetails.Subcategory}
 											placeholder="Select or type..."
 											className="text-input"
-											onChange={(e) => handleFoodChange("type", e.target.value)}
+											onChange={(e) =>
+												handleFoodChange("Subcategory", e.target.value)
+											}
 											onBlur={() =>
-												checkNotEmpty("detailsNotEmpty", foodDetails.type)
+												checkNotEmpty(
+													"detailsNotEmpty",
+													foodDetails.Subcategory
+												)
 											}
 										/>
 										<datalist id="food-types">
@@ -458,43 +558,76 @@ function PostForm(props) {
 							)}
 
 							{/* Medical Supplies Details */}
-							{formData.type === "Medical Supplies" && (
+							{formData.Category === "Medical Supplies" && (
 								<div>
 									<div className="grid grid-cols-2 gap-3 w-full">
 										<label className="label">
-											Type
+											Device Type
 											<input
 												type="text"
-												value={medicalSuppliesDetails.type}
-												placeholder="Type here..."
-												className="text-input"
-												onChange={(e) =>
-													handleMedicalSuppliesChange("type", e.target.value)
-												}
-												onBlur={() =>
-													checkNotEmpty(
-														"detailsNotEmpty",
-														medicalSuppliesDetails.type
-													)
-												}
-											/>
-										</label>
-										<label className="label">
-											Equipment
-											<input
-												type="text"
-												value={medicalSuppliesDetails.equipment}
+												value={medicalSuppliesDetails.Medical_Device}
 												placeholder="Type here..."
 												className="text-input"
 												onChange={(e) =>
 													handleMedicalSuppliesChange(
-														"equipment",
+														"Medical_Device",
 														e.target.value
+													)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														medicalSuppliesDetails.Medical_Device
 													)
 												}
 											/>
 										</label>
-										<label className="label col-span-2">
+
+										<label className="label">
+											Equipment Type
+											<input
+												type="text"
+												value={medicalSuppliesDetails.Medical_Equipment}
+												placeholder="Type here..."
+												className="text-input"
+												onChange={(e) =>
+													handleMedicalSuppliesChange(
+														"Medical_Equipment",
+														e.target.value
+													)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														medicalSuppliesDetails.Medical_Equipment
+													)
+												}
+											/>
+										</label>
+
+										<label className="label">
+											Medication
+											<input
+												type="text"
+												value={medicalSuppliesDetails.Medication}
+												placeholder="Type here..."
+												className="text-input"
+												onChange={(e) =>
+													handleMedicalSuppliesChange(
+														"Medication",
+														e.target.value
+													)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														medicalSuppliesDetails.Medication
+													)
+												}
+											/>
+										</label>
+
+										<label className="label">
 											Medical Use
 											<input
 												type="text"
@@ -502,8 +635,12 @@ function PostForm(props) {
 												placeholder="Type here..."
 												className="text-input"
 												onChange={(e) =>
-													setMedicalSuppliesDetails(
-														handleMedicalSuppliesChange("use", e.target.value)
+													handleMedicalSuppliesChange("use", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														medicalSuppliesDetails.use
 													)
 												}
 											/>
@@ -513,23 +650,23 @@ function PostForm(props) {
 							)}
 
 							{/* Blood Details */}
-							{formData.type === "Blood Donation" && (
+							{formData.Category === "Blood Donation" && (
 								<div>
 									<div className="grid grid-cols-3 gap-3 w-full">
 										<label className="label">
 											Hospital
 											<input
 												type="text"
-												value={bloodDetails.hospital}
+												value={bloodDetails.Hospital}
 												placeholder="Type here..."
 												className="text-input"
 												onChange={(e) =>
-													handleBloodChange("hospital", e.target.value)
+													handleBloodChange("Hospital", e.target.value)
 												}
 												onBlur={() =>
 													checkNotEmpty(
 														"detailsNotEmpty",
-														bloodDetails.hospital
+														bloodDetails.Hospital
 													)
 												}
 											/>
@@ -538,16 +675,16 @@ function PostForm(props) {
 											Governorate
 											<input
 												type="text"
-												value={bloodDetails.governorate}
+												value={bloodDetails.Governorate}
 												placeholder="Type here..."
 												className="text-input"
 												onChange={(e) =>
-													handleBloodChange("governorate", e.target.value)
+													handleBloodChange("Governorate", e.target.value)
 												}
 												onBlur={() =>
 													checkNotEmpty(
 														"detailsNotEmpty",
-														bloodDetails.governorate
+														bloodDetails.Governorate
 													)
 												}
 											/>
@@ -556,47 +693,201 @@ function PostForm(props) {
 											Area
 											<input
 												type="text"
-												value={bloodDetails.area}
+												value={bloodDetails.Area}
 												placeholder="Type here..."
 												className="text-input"
 												onChange={(e) =>
-													handleBloodChange("area", e.target.value)
+													handleBloodChange("Area", e.target.value)
 												}
 												onBlur={() =>
-													checkNotEmpty("detailsNotEmpty", bloodDetails.area)
+													checkNotEmpty("detailsNotEmpty", bloodDetails.Area)
 												}
 											/>
+										</label>
+									</div>
+
+									<h3 className="label"> Hospital Address </h3>
+									<Maps isStaticMap={false} Location={"Hospital"} />
+
+									<div className="grid grid-cols-2 gap-3 w-full mt-2">
+										<label className="label">
+											Patient Name
+											<input
+												type="text"
+												value={bloodDetails.patient_name}
+												placeholder="Type here..."
+												className="text-input"
+												onChange={(e) =>
+													handleBloodChange("patient_name", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														bloodDetails.patient_name
+													)
+												}
+											/>
+										</label>
+										<label className="label">
+											Blood Type
+											<select
+												className="text-input"
+												value={bloodDetails.blood_type}
+												onChange={(e) =>
+													handleBloodChange("blood_type", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														bloodDetails.blood_type
+													)
+												}
+											>
+												<option value="">Select...</option>
+												<option value="A+">A+</option>
+												<option value="A-">A-</option>
+												<option value="B+">B+</option>
+												<option value="B-">B-</option>
+												<option value="AB+">AB+</option>
+												<option value="AB-">AB-</option>
+												<option value="O+">O+</option>
+												<option value="O-">O-</option>
+											</select>
 										</label>
 									</div>
 								</div>
 							)}
 
 							{/* School Supplies Details */}
-							{formData.type === "School Supplies" && (
+							{formData.Category === "School Supplies" && (
 								<div>
-									<label className="label">
-										Type
-										<input
-											list="school-supplies-types"
-											type="text"
-											value={schoolSuppliesDetails.type}
-											placeholder="Select or type..."
-											className="text-input"
-											onChange={(e) =>
-												handleSchoolSuppliesChange("type", e.target.value)
-											}
-											onBlur={() =>
-												checkNotEmpty(
-													"detailsNotEmpty",
-													schoolSuppliesDetails.type
-												)
-											}
-										/>
-										<datalist id="school-supplies-types">
-											<option value="Books" />
-											<option value="Stationary" />
-										</datalist>
-									</label>
+									<div className="grid grid-cols-2 gap-3 w-full">
+										<label className="label">
+											Subcategory
+											<input
+												list="school-supplies-types"
+												type="text"
+												value={schoolSuppliesDetails.Subcategory}
+												placeholder="Select or type..."
+												className="text-input"
+												onChange={(e) =>
+													handleSchoolSuppliesChange(
+														"Subcategory",
+														e.target.value
+													)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														schoolSuppliesDetails.Subcategory
+													)
+												}
+											/>
+											<datalist id="school-supplies-types">
+												<option value="Books" />
+												<option value="Stationary" />
+											</datalist>
+										</label>
+
+										<label className="label">
+											Type
+											<input
+												type="text"
+												value={schoolSuppliesDetails.type}
+												placeholder="Type here..."
+												className="text-input"
+												onChange={(e) =>
+													handleSchoolSuppliesChange("type", e.target.value)
+												}
+												onBlur={() =>
+													checkNotEmpty(
+														"detailsNotEmpty",
+														schoolSuppliesDetails.type
+													)
+												}
+											/>
+										</label>
+									</div>
+
+									{schoolSuppliesDetails.Subcategory === "Books" && (
+										<div className="grid grid-cols-2 gap-3 w-full">
+											<label className="label">
+												Title
+												<input
+													type="text"
+													value={schoolSuppliesDetails.Title}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleSchoolSuppliesChange("Title", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty(
+															"detailsNotEmpty",
+															schoolSuppliesDetails.Title
+														)
+													}
+												/>
+											</label>
+
+											<label className="label">
+												Author
+												<input
+													type="text"
+													value={schoolSuppliesDetails.Author}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleSchoolSuppliesChange("Author", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty(
+															"detailsNotEmpty",
+															schoolSuppliesDetails.Author
+														)
+													}
+												/>
+											</label>
+
+											<label className="label">
+												Edition
+												<input
+													type="text"
+													value={schoolSuppliesDetails.Edition}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleSchoolSuppliesChange("Edition", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty(
+															"detailsNotEmpty",
+															schoolSuppliesDetails.Edition
+														)
+													}
+												/>
+											</label>
+
+											<label className="label">
+												Language
+												<input
+													type="text"
+													value={schoolSuppliesDetails.Language}
+													placeholder="Type here..."
+													className="text-input"
+													onChange={(e) =>
+														handleSchoolSuppliesChange("Language", e.target.value)
+													}
+													onBlur={() =>
+														checkNotEmpty(
+															"detailsNotEmpty",
+															schoolSuppliesDetails.Language
+														)
+													}
+												/>	
+											</label>
+										</div>
+									)}
 								</div>
 							)}
 						</div>
