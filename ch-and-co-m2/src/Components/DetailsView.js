@@ -75,7 +75,7 @@ function DetailsView(props) {
 						</button>
 						<div className="flex flex-col justify-center p-5 w-11/12  rounded-md gap-3">
 							<label className="label font-bold">Dropoff details</label>
-							<hr className=" border-t-2 w-full pb-2" />
+							<hr className=" border-t-2 w-full pb-2 border-farahorange-400" />
 							{submition === false?
 								<>
 								<div className="flex flex-row justify-center gap-10">
