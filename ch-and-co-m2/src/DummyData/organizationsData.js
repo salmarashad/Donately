@@ -12,6 +12,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
 		email: "DAFHospital@gmail.com",
 		number: "+201064801240",
+		address: "26th July Corridor, Giza Governorate, 6th of October City, Egypt"
 	},
 	{
 		title: "Cleopatra Hospital",
@@ -26,6 +27,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
 		email: "CleoptraHospital@gmail.com",
 		number: "+201064801240",
+		address: "Cleopatra Square, Cairo Governorate, Nasr City, Egypt"
 	},
 	{
 		title: "Elite International School",
@@ -40,6 +42,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
 		email: "EliteSchool@gmail.com",
 		number: "+201064801240",
+		address: "90th St., Cairo Governorate, New Cairo, Egypt"
 	},
 	{
 		title: "Saudi German Hospital",
@@ -54,6 +57,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
 		email: "SauGerHospital@gmail.com",
 		number: "+201064801240",
+		address: "26th July Corridor, Giza Governorate, Mohandessin, Egypt"
 	},
 	{
 		title: "Resala",
@@ -68,6 +72,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
 		email: "Resla@gmail.com",
 		number: "+201064801240",
+		address: "Nile Corniche, Cairo Governorate, Maadi, Egypt"
 	},
 	{
 		title: "Awlady Orphanage",
@@ -82,6 +87,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/AwladyOrphanage.png`,
 		email: "AwladyOrphanage@gmail.com",
 		number: "+201064801240",
+		address: "26th July Corridor, Cairo Governorate, Zamalek, Egypt"
 	},
 	{
 		title: "Church of Archangel Michael",
@@ -96,6 +102,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/MichaelChurch.png`,
 		email: "Archangelmike@gmail.com",
 		number: "+201064801240",
+		address: "Khalifa Maamon St., Cairo Governorate, Heliopolis, Egypt"
 	},
 	{
 		title: "Al-Azhar Mosque",
@@ -110,6 +117,7 @@ const organizationsData = [
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/AlAzhar.jpeg`,
 		email: "AlAzharMosque@gmail.com",
 		number: "+201064801240",
+		address: "Al Azhar, Cairo Governorate, Heliopolis, Egypt"
 	},
 ];
 

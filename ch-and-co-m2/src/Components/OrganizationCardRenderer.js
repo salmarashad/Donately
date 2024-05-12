@@ -15,6 +15,7 @@ function OrganizationCardRenderer({userType, currentCardSet, setCurrentCardSet})
                 email={card.email}
                 number={card.number}
                 userType={userType}
+                address={card.address}
             />
         );
     });
