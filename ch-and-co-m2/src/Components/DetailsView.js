@@ -8,7 +8,10 @@ function DetailsView(props) {
 	const { setIsDetailedView } = useContext(DetailedContext);
 	const { data } = useContext(DataContext);
 	const { userType } = useContext(UserTypeContext);
-
+	const [details, setDetails] = useState({
+		date: "",
+		time: "",
+	});
 	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
 	const [isThanked, setIsThanked] = useState(false);
 
@@ -77,18 +80,30 @@ function DetailsView(props) {
 									<div>
 										<label className="label">
 											Date:
-											<input type="date" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+											<input 
+													type="date" 
+													
+													className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"
+											/>
 										</label>
 									</div>
 									<div>
 										<label className="label ">
 											Time:
-											<input type="time" className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"/>
+											<input 
+												type="time" 
+												
+												className="ml-3 bg-farahgray-100 border-2 border-solid border-farahgray-600 rounded-md px-2 cursor-pointer"
+											/>
 										</label>
 									</div>
 								</div>
-								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
-									onClick={() => handleDropoff}>
+								<button 
+									type="submit"
+									className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
+									
+									onClick={() => handleDropoff}
+								>
 										Submit
 								</button>
 								</>
