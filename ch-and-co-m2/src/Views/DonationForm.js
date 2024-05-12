@@ -50,7 +50,7 @@ function DonationForm(props) {
 
 	return (
 		<div className="-mt-24 -mb-8 h-screen flex justify-center items-center">
-			{data.tags.type === "Blood donations" && confirm === "" ? (
+			{data.tags.Category === "Blood Donations" && confirm === "" ? (
 				<div className="flex flex-col justify-center items-center gap-4 h-screen">
 					<div className="w-[500px]">
 						<h1 className="text-xl -mb-1 text-center w-full font-semibold">
@@ -64,11 +64,11 @@ function DonationForm(props) {
 								<div className="flex flex-col gap-3 shrink-0">
 									<div>
 										<h3 className="font-semibold">Patient name</h3>
-										<p>John Doe</p>
+										<p>{data.patient_name}</p>
 									</div>
 									<div>
 										<h3 className="font-semibold">Blood type</h3>
-										<p>AB+</p>
+										<p>{data.blood_type}</p>
 									</div>
 								</div>
 								<div className="flex flex-col gap-3">

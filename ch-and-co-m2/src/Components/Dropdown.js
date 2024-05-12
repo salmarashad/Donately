@@ -19,7 +19,7 @@ function Dropdown({options, onChange, multi}){
         option: (styles, state) => ({
             ...styles,
             fontSize: 12,
-            width: 200,
+            maxWidth: 200,
             backgroundColor: state.isFocused ? "#d9dede" : "white",
             ':active': {
                 backgroundColor: "#b0bcbc"
