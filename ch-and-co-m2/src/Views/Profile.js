@@ -11,7 +11,7 @@ import Maps from "../Components/Maps";
 
 function Profile(props) {
 	const { userType } = useContext(UserTypeContext);
-
+	
 	const [formData, setFormData] = useState({
 		email: userType + "@gmail.com",
 		password: userType,
