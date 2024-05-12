@@ -7,9 +7,6 @@ function PostForm(props) {
 	const { data } = useContext(DataContext);
 	const dataTags = data && data.tags ? data.tags : {};
 
-	console.log("data\n", data);
-	console.log("dataTags\n", dataTags);
-
 	const [formData, setFormData] = useState({
 		title: data.title || "",
 		description: data.description || "",
