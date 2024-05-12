@@ -5,7 +5,7 @@ import DeleteButton from "../Components/DeleteButton.js";
 function renderTags(tags, viewportWidth) {
 	const TAG_WIDTH = 100;
 	// viewportWidth = 1920;
-	let maxCharacters = Math.round(viewportWidth / TAG_WIDTH);
+	let maxCharacters = 46;
 	tags = Object.values(tags);
 	tags = tags.filter((tag) => tag !== "");
 
@@ -13,9 +13,9 @@ function renderTags(tags, viewportWidth) {
 	let totalCharacters = 0;
 
 	for (const tag of tags) {
-		if (totalCharacters + tag.length <= maxCharacters) {
+		if (totalCharacters + 10 + tag.length <= maxCharacters) {
 			renderedTags.push(tag);
-			totalCharacters += tag.length;
+			totalCharacters += tag.length + 10;
 		} else {
 			break;
 		}

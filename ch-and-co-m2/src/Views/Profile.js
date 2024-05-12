@@ -118,7 +118,7 @@ function Profile(props) {
 								)}
 							</div>
 						</div>
-						<hr className="border-t-2 w-full mx-auto" />
+						<hr className="border-t-2 w-full" />
 						<div className="flex flex-col gap-4 items-center">
 							<div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
 								<h3>

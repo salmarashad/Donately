@@ -17,7 +17,7 @@ const donorsData = [
 	},
 	{
 		name: "Sherif",
-		email: "drsherif@gmail,com",
+		email: "drsherif@gmail.com",
 		tags: {
 			Type: "Doctor",
 		},

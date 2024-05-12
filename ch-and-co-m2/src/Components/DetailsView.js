@@ -21,8 +21,8 @@ function DetailsView(props) {
 	const [percentage, setPercentage] = useState(Math.floor(Math.random() * 101)); 
 	const [isThanked, setIsThanked] = useState(false);
 
-	const calculateStrokeDashoffset = (percentage) => {
-	  return `calc(251.2 - (251.2 * ${percentage}) / 100)`;
+	const calculateStrokeDashoffset = () => {
+	  return `calc(251.2 - (251.2 * ${data.progress}) / 100)`;
 	};
 
 	const [submition, setSubmition] = useState(false);
@@ -60,7 +60,7 @@ function DetailsView(props) {
 
 	return (
 		<div className="h-screen w-screen fixed top-0 z-10 bg-farahgray-900 bg-opacity-50 grid items-center justify-center">
-			<div className="flex flex-col bg-farahgray-100 w-[600px] h-max rounded-md p-6 relative">
+			<div className="flex flex-col bg-white w-[600px] h-max rounded-md p-6 relative">
 					
 				{props.page === "OrganizationDelivery"?
 					<div className="flex">
@@ -73,7 +73,7 @@ function DetailsView(props) {
 						</button>
 						<div className="flex flex-col justify-center p-5 w-11/12  rounded-md gap-3">
 							<label className="label font-bold">Dropoff details</label>
-							<hr className=" border-t-2 w-full border-farahgray-600 pb-2" />
+							<hr className=" border-t-2 w-full pb-2" />
 							{submition === false?
 								<>
 								<div className="flex flex-row justify-center gap-10">
@@ -154,7 +154,7 @@ function DetailsView(props) {
 
 						{/*Bottom segment*/}
 						<div className="flex flex-col">
-							<hr className="h-px bg-farahgray-400 border-0 my-8" />
+							<hr className="border-t-2 w-full my-8" />
 
 								
 							{/*Information segment*/}
@@ -178,21 +178,93 @@ function DetailsView(props) {
 									{/*Tags column 1*/}
 
 									{!data.tags.isFulfilled && 
-										<div className="grid grid-rows-3 grid-cols-2 gap-2 col-span-2 grid-flow-row">
+										<div className="grid h-max grid-cols-2 gap-4 gap-y-4 col-span-2 grid-flow-row">
 										{Object.entries(data.tags).map(
 											([tag, value], index) =>
 												tag !== "" &&
 												value !== "" && 
 										tag !== "isFulfilled" &&
-										(
+										(<>
+													{(tag === "Medical_Device" || tag === "Medication" || tag === "Medical_Equipment") &&
 													<div key={index}>
-														<h2 className="text-m font-semibold">{tag}</h2>
+														<h2 className="text-m font-semibold">
+															Subcategory
+														</h2>
+														<h2 className="text-sm font-semibold text-farahgray-400">
+															{tag.replace(/_/g, ' ')}
+														</h2>
+													</div>}
+													<div key={index}>
+														<h2 className="text-m font-semibold">
+															{tag === "Medical_Device" || tag === "Medication" || tag === "Medical_Equipment" ? "Type" : tag}
+														</h2>
 														<h2 className="text-sm font-semibold text-farahgray-400">
 															{value}
 														</h2>
 													</div>
-												)
+												</>)
 										)}
+										
+										{data.material &&
+											<div>
+												<h2 className="text-m font-semibold">Material</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.material}
+												</h2>
+											</div>
+										}
+										{data.item_type &&
+											<div>
+												<h2 className="text-m font-semibold">Type</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.item_type}
+												</h2>
+											</div>
+										}
+										{data.book_details && <>
+											<div>
+												<h2 className="text-m font-semibold">Language</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.book_details.Language}
+												</h2>
+											</div>
+											<div>
+												<h2 className="text-m font-semibold">Title</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.book_details.Title} ({data.book_details.Edition})
+												</h2>
+											</div>
+											<div>
+												<h2 className="text-m font-semibold">Author</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.book_details.Author}
+												</h2>
+											</div>
+										</>}
+										{data.use &&
+										<div>
+											<h2 className="text-m font-semibold">Use</h2>
+											<h2 className="text-sm font-semibold text-farahgray-400">
+												{data.use}
+											</h2>
+										</div>
+										}
+										{data.patient_name &&
+										<div>
+											<h2 className="text-m font-semibold">Patient name</h2>
+											<h2 className="text-sm font-semibold text-farahgray-400">
+												{data.patient_name}
+											</h2>
+										</div>
+										}
+										{data.blood_type &&
+										<div>
+											<h2 className="text-m font-semibold">Blood type</h2>
+											<h2 className="text-sm font-semibold text-farahgray-400">
+												{data.blood_type}
+											</h2>
+										</div>
+										}
 									</div>}
 									
 									{/*Google map for Org*/}
@@ -204,16 +276,15 @@ function DetailsView(props) {
 									
 									{/*Progress bar*/}
 									{props.page === "donations" && <div className="flex flex-col items-center gap-2">
-										<h2 className="text-m font-semibold">Progress</h2>
+										<h2 className="text-m font-semibold text-center leading-tight">Required amount<br/><span className="font-normal">{data.required_amount}</span></h2>
 										<div className="relative w-40 h-40">
 											<svg className="w-full h-full" viewBox="0 0 100 100">
 												<circle
-													className="text-farahgreen-300 stroke-current"
+													className="text-farahgreen-300 stroke-current fill-farahgreen-50"
 													strokeWidth="10"
 													cx="50"
 													cy="50"
 													r="40"
-													fill="white"
 												></circle>
 												<circle
 													className="text-farahgreen-700  transition: stroke-dashoffset 0.35s  transform: rotate(-90deg) transform-origin: 50% 50% stroke-current"
@@ -224,7 +295,7 @@ function DetailsView(props) {
 													fill="transparent"
 													transform="rotate(-90, 50, 50)"
 													strokeDasharray="251.2"
-													strokeDashoffset={calculateStrokeDashoffset(percentage)}
+													strokeDashoffset={calculateStrokeDashoffset()}
 												></circle>
 												{/* 2*pi*40 = 251.2, change this value if change radius
 													Change 70 to the percentage of progress
@@ -237,7 +308,7 @@ function DetailsView(props) {
 													textAnchor="middle"
 													alignmentBaseline="middle"
 												>
-													{percentage + "%"}
+													{data.progress + "%"}
 												</text>
 											</svg>
 										</div>
@@ -296,7 +367,7 @@ function DetailsView(props) {
 							<div className="flex flex-col align-middle items-center gap-2">
 								{props.page === "donations" ? 
 									<button
-										className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold"
+										className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold mt-4"
 										onClick={handleDonate}
 									>
 										Donate {">"}

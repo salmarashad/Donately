@@ -35,16 +35,16 @@ function Filter({data, setCurrentCardSet }) {
     function parseData(data) {
         const categoriesObj = {};
         data.forEach(item => {
-            const { Type, ...tags } = item.tags;
-            if (!categoriesObj[Type]) {
-                categoriesObj[Type] = {};
+            const { Category, ...tags } = item.tags;
+            if (!categoriesObj[Category]) {
+                categoriesObj[Category] = {};
             }
             Object.keys(tags).forEach(tag => {
-                if (!categoriesObj[Type][tag]) {
-                    categoriesObj[Type][tag] = [];
+                if (!categoriesObj[Category][tag]) {
+                    categoriesObj[Category][tag] = [];
                 }
-                if (!categoriesObj[Type][tag].includes(tags[tag]) && tags[tag] !== "") {
-                    categoriesObj[Type][tag].push(tags[tag]);
+                if (!categoriesObj[Category][tag].includes(tags[tag]) && tags[tag] !== "") {
+                    categoriesObj[Category][tag].push(tags[tag]);
                 }
             });
         });
@@ -72,8 +72,8 @@ function Filter({data, setCurrentCardSet }) {
             filteredData = data;
         } else {
             filteredData = data.filter(item => {
-                return checkedCategories.includes(item.tags.Type) &&
-                    Object.entries(appliedFilters[item.tags.Type] || {}).every(([param, values]) => {
+                return checkedCategories.includes(item.tags.Category) &&
+                    Object.entries(appliedFilters[item.tags.Category] || {}).every(([param, values]) => {
                         return values.length === 0 || values.includes(item.tags[param]);
                     });
             });
@@ -91,6 +91,17 @@ function Filter({data, setCurrentCardSet }) {
         setCurrentCardSet(filteredData);
     }
 
+    const handleIsFulfilledChange = (value, param) => {
+        for (const category of categoriesArray) {
+            setAppliedFilters(prevFilters => ({
+                ...prevFilters,
+                [category.category]: {
+                    ...prevFilters[category.category],
+                    [param]: value
+                }
+            }));
+        }
+    }
     function renderCategories(categories, checkedCategories) {
         return (
             <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
@@ -100,6 +111,7 @@ function Filter({data, setCurrentCardSet }) {
                                 type="checkbox"
                                 id="isFulfilledCheckbox"      
                                 className="mr-2 accent-farahgray-700"
+                                onClick={(e) => handleIsFulfilledChange(e.target.checked ? "true":"false", "isFulfilled")}
                             />
                             <label htmlFor="isFulfilledCheckbox" className="font-medium">Is Fulfilled</label>
                         </div>

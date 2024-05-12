@@ -1,1314 +1,1460 @@
-const donationsData = 
-  [
+const donationsData = [
+    // Clothing ----------------------------------------------------------------------------------------------------------------------------
     {
-      "title": "Kids Clothing Drive for Needy Families",
-      "subtitle": "Local Charity Foundation",
-      "description": "Local Charity Foundation is organizing a clothing drive for needy families with children Aged 5-10. Many families in our community struggle to afford basic necessities, including clothing for their children. We urgently need donations of gently used or new clothing items such as shirts, pants, and shoes to help alleviate the burden on these families. Your generosity will bring warmth and comfort to those in need.",
-      "tags": {
-        "Type": "Clothes",
+        "title": "Warm Winter Coats for Kids",
+        "subtitle": "Sunshine Shelter",
+        "description": "Sunshine Shelter is seeking warm winter coats for kids in need. With the cold weather approaching, many children in our community lack proper outerwear to stay warm. Your donations will help ensure every child can stay cozy this winter.",
+        "tags": {
+        "Category": "Clothes",
         "Age": "Kids",
         "Gender": "Unisex",
         "Season": "Winter"
-      },
-      "imgURL": "https://example.com/kids_clothing_drive.jpg",
-      "required_amount": 80,
-      "Material": "Cotton"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "30 coats",
+        "material": "Polyester",
+        "type": "Jackets",
+        "progress": 65
     },
     {
-      "title": "Winter Clothing Drive for Homeless Teens",
-      "subtitle": "Street Outreach Program",
-      "description": "The Street Outreach Program is hosting a winter clothing drive to support homeless teenAgers in our city. As temperatures plummet, homeless teens are particularly vulnerable to the harsh winter conditions. We are seeking donations of warm winter clothing items such as coats, hats, and gloves to provide essential warmth and protection to these vulnerable youth. Your contributions will make a tangible difference in the lives of homeless teens struggling to survive on the streets.",
-      "tags": {
-        "Type": "Clothes",
+        "title": "Professional Attire for Adult Women",
+        "subtitle": "CareerAdvantage",
+        "description": "CareerAdvantage is dedicated to empowering women by providing them with professional attire for job interviews and employment opportunities. Your donations of gently used or new clothing items will help boost confidence and pave the way to success for women in need.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Adults",
+        "Gender": "Women",
+        "Season": "Year-round"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "20 outfits",
+        "material": "Cotton",
+        "type": "Suits",
+        "progress": 40
+    },
+    {
+        "title": "Spring Dresses for Teens",
+        "subtitle": "YouthStyle Foundation",
+        "description": "YouthStyle Foundation is collecting spring dresses for teenagers to promote confidence and self-expression. Your donations will help teens feel special for proms, graduations, and other important events.",
+        "tags": {
+        "Category": "Clothes",
         "Age": "Teens",
+        "Gender": "Women",
+        "Season": "Spring"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "15 dresses",
+        "material": "Silk",
+        "type": "Dresses",
+        "progress": 20
+    },
+    {
+        "title": "Summer T-shirts for Men",
+        "subtitle": "Community Outreach Center",
+        "description": "Community Outreach Center is in need of summer t-shirts for men experiencing homelessness. As the temperature rises, so does the need for lightweight clothing. Your donations will provide comfort and relief during the hot summer months.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Adults",
+        "Gender": "Men",
+        "Season": "Summer"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "50 t-shirts",
+        "material": "Organic cotton",
+        "type": "Shirts",
+        "progress": 75
+    },
+    {
+        "title": "Baby Onesies for Fall",
+        "subtitle": "Tiny Angels Nursery",
+        "description": "Tiny Angels Nursery is requesting baby onesies for the upcoming fall season. As new parents struggle to provide essentials for their newborns, your donations will bring warmth and comfort to little ones in need.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Babies",
+        "Gender": "Unisex",
+        "Season": "Fall"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "40 onesies",
+        "material": "Fleece",
+        "type": "Onesies",
+        "progress": 10
+    },
+    {
+        "title": "Winter Scarves for Adults",
+        "subtitle": "Hope Haven Shelter",
+        "description": "Hope Haven Shelter is seeking donations of winter scarves for adults experiencing homelessness. Scarves are essential for staying warm during the cold winter months. Your contributions will provide warmth and comfort to those in need.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Adults",
         "Gender": "Unisex",
         "Season": "Winter"
-      },
-      "imgURL": "https://example.com/teens_clothing_drive.jpg",
-      "required_amount": 90,
-      "Material": "Wool"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "25 scarves",
+        "material": "Wool",
+        "type": "Scarves",
+        "progress": 55
     },
     {
-      "title": "Spring Clothing Giveaway for Low-Income Adults",
-      "subtitle": "Community Support Network",
-      "description": "Community Support Network is hosting a spring clothing giveaway for low-income adults in our community. Many adults facing financial hardship lack adequate clothing for the changing Seasons. We are collecting donations of spring attire such as dresses, shirts, and jackets to provide to individuals and families in need. Your contributions will help restore dignity and self-confidence to those struggling to make ends meet.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Adults",
+        "title": "Kids' Hoodies for Spring",
+        "subtitle": "Sunflower Youth Center",
+        "description": "Sunflower Youth Center is collecting kids' hoodies for the spring season. With the weather warming up, children need lightweight outerwear to stay comfortable during outdoor activities. Your donations will make a difference in their lives.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Kids",
         "Gender": "Unisex",
         "Season": "Spring"
-      },
-      "imgURL": "https://example.com/adults_clothing_giveaway.jpg",
-      "required_amount": 70,
-      "Material": "Polyester"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "35 hoodies",
+        "material": "Fleece",
+        "type": "Hoodies",
+        "progress": 80
     },
     {
-      "title": "Fall Clothing Drive for Displaced Families",
-      "subtitle": "Refugee Assistance Program",
-      "description": "The Refugee Assistance Program is launching a fall clothing drive to support displaced families in our community. Many refugee families arrive in our city with little more than the clothes on their backs, facing significant challenges in rebuilding their lives. We urgently need donations of fall clothing items such as sweaters, jeans, and boots to provide essential warmth and comfort to these families as they navigate the resettlement process. Your donations will offer hope and stability to those striving to build a new future in a foreign land.",
-      "tags": {
-        "Type": "Clothes",
+        "title": "Adult Jeans for Summer",
+        "subtitle": "Community Closet Initiative",
+        "description": "Community Closet Initiative is in need of adult jeans for the summer season. Jeans are versatile and durable, making them an essential wardrobe staple for individuals experiencing financial hardship. Your donations will provide much-needed clothing to those in need.",
+        "tags": {
+        "Category": "Clothes",
         "Age": "Adults",
         "Gender": "Unisex",
-        "Season": "Fall"
-      },
-      "imgURL": "https://example.com/fall_clothing_drive.jpg",
-      "required_amount": 85,
-      "Material": "Denim"
+        "Season": "Summer"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "30 pairs of jeans",
+        "material": "Denim",
+        "type": "Jeans",
+        "progress": 45
     },
     {
-      "title": "Warm Coats for Winter: Adults",
-      "subtitle": "Community Outreach Center",
-      "description": "Community Outreach Center urgently needs donations of warm winter coats for adults in our community. As temperatures drop, many individuals are left vulnerable to the cold without adequate outerwear. Your contributions of coats, jackets, and scarves will provide essential warmth and protection to those in need, helping them stay safe and healthy throughout the winter Season.",
-      "tags": {
-        "Type": "Clothes",
+        "title": "Women's Coats for Fall",
+        "subtitle": "Empowerment Alliance",
+        "description": "Empowerment Alliance is seeking donations of women's coats for the fall season. As the temperature drops, many women in our community lack proper outerwear to stay warm. Your contributions will provide warmth and comfort to those in need.",
+        "tags": {
+        "Category": "Clothes",
         "Age": "Adults",
+        "Gender": "Women",
+        "Season": "Fall"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "20 coats",
+        "material": "Leather",
+        "type": "Coats",
+        "progress": 30
+    },
+    {
+        "title": "Kids' Winter Boots",
+        "subtitle": "Brighter Futures Foundation",
+        "description": "Brighter Futures Foundation is collecting kids' winter boots to keep little feet warm and dry during the cold season. Many children in our community lack proper footwear for winter weather. Your donations will help protect them from the elements.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Kids",
         "Gender": "Unisex",
         "Season": "Winter"
-      },
-      "imgURL": "https://example.com/winter_coats_adults.jpg",
-      "required_amount": 75,
-      "Material": "Nylon"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "25 pairs of boots",
+        "material": "Rubber",
+        "type": "Boots",
+        "progress": 60
     },
     {
-      "title": "Teen Hoodies and Sweatshirts",
-      "subtitle": "Youth Support Services",
-      "description": "Youth Support Services is seeking donations of hoodies and sweatshirts for teenAgers in need. Many teens lack warm clothing options to stay comfortable during cooler weather. Your donations will provide essential warmth and comfort to teens facing financial hardship or homelessness, helping them navigate the challenges of adolescence with dignity and confidence.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Teens",
+        "title": "Summer Dresses for Women",
+        "subtitle": "Sunshine Dresses Foundation",
+        "description": "Sunshine Dresses Foundation is seeking donations of summer dresses for women in need. With the hot weather approaching, many women lack suitable clothing to stay cool and comfortable. Your donations will provide relief and confidence to those in need.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Adults",
+        "Gender": "Women",
+        "Season": "Summer"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "30 dresses",
+        "material": "Cotton",
+        "type": "Dresses",
+        "progress": 25
+    },
+    {
+        "title": "Unisex Fall Sweaters",
+        "subtitle": "Warmth Initiative",
+        "description": "Warmth Initiative is collecting unisex fall sweaters to help individuals stay cozy during the cooler months. Sweaters are essential for layering and providing warmth as the temperature drops. Your donations will bring comfort to those in need.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Adults",
         "Gender": "Unisex",
         "Season": "Fall"
-      },
-      "imgURL": "https://example.com/teen_hoodies.jpg",
-      "required_amount": 60,
-      "Material": "Fleece"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "40 sweaters",
+        "material": "Wool blend",
+        "type": "Sweaters",
+        "progress": 70
     },
     {
-      "title": "Kids Summer Clothing Collection",
-      "subtitle": "Children's Relief Fund",
-      "description": "Children's Relief Fund is collecting summer clothing donations for kids of all Ages. As temperatures rise, many families struggle to provide lightweight and breathable clothing for their children. Your donations of summer dresses, shorts, and sandals will help kids stay cool and comfortable during the hot summer months, allowing them to enjoy outdoor activities without discomfort or risk of overheating.",
-      "tags": {
-        "Type": "Clothes",
+        "title": "Teen Jeans for Spring",
+        "subtitle": "YouthStyle Foundation",
+        "description": "YouthStyle Foundation is collecting teen jeans for the spring season. Jeans are a staple item in any wardrobe, providing comfort and style for teenagers. Your donations will help teens express themselves through fashion.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Teens",
+        "Gender": "Unisex",
+        "Season": "Spring"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "25 pairs of jeans",
+        "material": "Denim",
+        "type": "Jeans",
+        "progress": 15
+    },
+    {
+        "title": "Winter Hats for Babies",
+        "subtitle": "Tiny Angels Nursery",
+        "description": "Tiny Angels Nursery is requesting winter hats for babies to keep them warm and cozy during the cold season. Many families struggle to provide essentials for their newborns. Your donations will make a difference in their lives.",
+        "tags": {
+        "Category": "Clothes",
+        "Age": "Babies",
+        "Gender": "Unisex",
+        "Season": "Winter"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "30 hats",
+        "material": "Fleece",
+        "type": "Hats",
+        "progress": 5
+    },
+    {
+        "title": "Summer Shorts for Kids",
+        "subtitle": "Sunflower Youth Center",
+        "description": "Sunflower Youth Center is collecting summer shorts for kids to keep them cool and comfortable during outdoor activities. With the hot weather approaching, many children lack suitable clothing. Your donations will provide relief and joy to kids in need.",
+        "tags": {
+        "Category": "Clothes",
         "Age": "Kids",
         "Gender": "Unisex",
         "Season": "Summer"
-      },
-      "imgURL": "https://example.com/kids_summer_clothing.jpg",
-      "required_amount": 85,
-      "Material": "Cotton"
+        },
+        "imgURL": "https://example.com/clothing.jpg",
+        "required_amount": "40 pairs of shorts",
+        "material": "Cotton",
+        "type": "Shorts",
+        "progress": 90
+    },
+
+    // School Supplies ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Stationery for Elementary School",
+        "subtitle": "Bright Minds Foundation",
+        "description": "Bright Minds Foundation is dedicated to providing elementary school students with essential stationery items. Your donations of pencils, erasers, notebooks, rulers, calculators, and more will support their academic success and encourage creativity in the classroom. With your help, we can ensure that every child has the tools they need to thrive.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "30 sets",
+        "type": "Assorted stationery",
+        "progress": 20
     },
     {
-      "title": "Fall Fashion for Women in Need",
-      "subtitle": "Women's Empowerment Initiative",
-      "description": "Women's Empowerment Initiative is hosting a fall fashion drive for women in need of stylish and practical clothing options. Many women facing financial hardship lack access to quality clothing that meets their needs. Your donations of fall fashion items such as sweaters, jeans, and boots will empower women to feel confident and self-assured as they navigate life's challenges.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Adults",
-        "Gender": "Female",
-        "Season": "Fall"
-      },
-      "imgURL": "https://example.com/fall_fashion_women.jpg",
-      "required_amount": 80,
-      "Material": "Wool"
+        "title": "To Kill a Mockingbird",
+        "subtitle": "Bookworms Read Initiative",
+        "description": "Join the Bookworms Read Initiative in providing copies of Harper Lee's classic novel, 'To Kill a Mockingbird', to schools and libraries across the nation. This powerful story explores themes of racial injustice, moral growth, and societal prejudice in the American South during the 1930s, enriching readers' understanding of history and humanity.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "15 copies",
+        "type": "Novel",
+        "progress": 50,
+        "book_details": {
+        "Title": "To Kill a Mockingbird",
+        "Author": "Harper Lee",
+        "Edition": "50th Anniversary Edition",
+        "Language": "English"
+        }
     },
     {
-      "title": "Children's Winter Wear Drive",
-      "subtitle": "Winter Warmth Project",
-      "description": "Winter Warmth Project is dedicated to keeping children warm during the coldest months of the year. We are seeking donations of winter clothing items such as coats, hats, and gloves for children of all Ages. Your contributions will ensure that no child in our community goes without essential winter wear, allowing them to stay safe and healthy as they play and learn.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Kids",
-        "Gender": "Unisex",
-        "Season": "Winter"
-      },
-      "imgURL": "https://example.com/children_winter_wear.jpg",
-      "required_amount": 95,
-      "Material": "Polyester"
+        "title": "Stationery for Middle School",
+        "subtitle": "Creative Minds Foundation",
+        "description": "The Creative Minds Foundation is on a mission to collect stationery supplies for middle school students in underserved communities. Your generous donations of pens, pencils, rulers, calculators, and other essential supplies will empower students to excel academically and explore their creativity in the classroom. Let's ensure that no child is left behind due to a lack of resources.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "25 sets",
+        "type": "Assorted stationery",
+        "progress": 35
     },
     {
-      "title": "Teens Winter Apparel Drive",
-      "subtitle": "Youth Outreach Program",
-      "description": "The Youth Outreach Program is organizing a winter apparel drive specifically for teenAgers. We are seeking donations of warm winter clothing items such as coats, sweaters, and boots to help teens stay warm and comfortable during the cold winter months. Your contributions will make a meaningful difference in the lives of teenAgers facing homelessness or financial hardship, providing them with essential warmth and protection.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Teens",
-        "Gender": "Unisex",
-        "Season": "Winter"
-      },
-      "imgURL": "https://example.com/teens_winter_apparel.jpg",
-      "required_amount": 90,
-      "Material": "Denim"
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "subtitle": "Magical Reading Foundation",
+        "description": "Embark on a magical journey with the Magical Reading Foundation by providing copies of J.K. Rowling's enchanting novel, 'Harry Potter and the Sorcerer's Stone', to schools and libraries nationwide. This captivating tale follows young Harry Potter as he discovers his extraordinary destiny at Hogwarts School of Witchcraft and Wizardry, unraveling mysteries, forging friendships, and confronting dark forces along the way.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "20 copies",
+        "type": "Fantasy",
+        "progress": 65,
+        "book_details": {
+        "Title": "Harry Potter and the Sorcerer's Stone",
+        "Author": "J.K. Rowling",
+        "Edition": "1st Edition",
+        "Language": "English"
+        }
     },
     {
-      "title": "Summer Clothing Collection for Kids",
-      "subtitle": "Children's Aid Society",
-      "description": "The Children's Aid Society is collecting summer clothing donations for kids in our community. With the arrival of summer, many children lack appropriate clothing for the warmer weather. We are seeking donations of summer outfits, including shorts, t-shirts, and sandals, to keep kids cool and comfortable during the hot summer months.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Kids",
-        "Gender": "Unisex",
-        "Season": "Summer"
-      },
-      "imgURL": "https://example.com/kids_summer_collection.jpg",
-      "required_amount": 75,
-      "Material": "Cotton"
+        "title": "Stationery Drive for Underprivileged Students",
+        "subtitle": "Education for All Foundation",
+        "description": "The Education for All Foundation is conducting a stationery drive to support underprivileged students in their educational journey. Your generous donations of notebooks, pens, pencils, erasers, and other essential supplies will ensure that every child has the tools they need to succeed in school, regardless of their economic background. Let's empower students to reach for the stars!",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "50 sets",
+        "type": "Assorted stationery",
+        "progress": 40
     },
     {
-      "title": "Unisex Fall Fashion Drive",
-      "subtitle": "Community Fashion Exchange",
-      "description": "The Community Fashion Exchange is hosting a fall fashion drive for individuals of all Genders. We are seeking donations of fall clothing items such as jackets, jeans, and scarves to help community members transition into the cooler autumn weather with style and comfort. Your contributions will help individuals stay fashionable and warm.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Adults",
-        "Gender": "Unisex",
-        "Season": "Fall"
-      },
-      "imgURL": "https://example.com/unisex_fall_fashion.jpg",
-      "required_amount": 70,
-      "Material": "Wool"
+        "title": "Introduction to Chemistry",
+        "subtitle": "Science Enrichment Society",
+        "description": "Expand young minds and ignite curiosity with the Science Enrichment Society by providing copies of 'Introduction to Chemistry' by Nivaldo J. Tro to schools and libraries. This comprehensive textbook offers a foundational understanding of chemical principles, from atomic structure to chemical reactions, fostering a passion for science and discovery among students.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "10 textbooks",
+        "type": "Textbook",
+        "progress": 25,
+        "book_details": {
+        "Title": "Introduction to Chemistry",
+        "Author": "Nivaldo J. Tro",
+        "Edition": "5th Edition",
+        "Language": "English"
+        }
     },
     {
-      "title": "Adults Spring Clothing Giveaway",
-      "subtitle": "Community Support Network",
-      "description": "Community Support Network is hosting a spring clothing giveaway for adults in need of Seasonal attire. As spring approaches, many adults lack the clothing they need for the changing weather. We are seeking donations of spring outfits, including dresses, shirts, and lightweight jackets, to help adults feel comfortable and confident as they embrace the new Season.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "Adults",
-        "Gender": "Unisex",
-        "Season": "Spring"
-      },
-      "imgURL": "https://example.com/adults_spring_giveaway.jpg",
-      "required_amount": 65,
-      "Material": "Polyester"
+        "title": "Art Supplies for High School Art Class",
+        "subtitle": "Artistic Creations Foundation",
+        "description": "The Artistic Creations Foundation is collecting art supplies for high school art classes. Your generous donations of paints, brushes, canvases, and other materials will inspire creativity and self-expression among students, fostering a lifelong appreciation for the arts. Let's paint a brighter future together!",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "15 sets",
+        "type": "Assorted art supplies",
+        "progress": 60
     },
     {
-      "title": "Winter Coats for Everyone",
-      "subtitle": "Local Charity Coalition",
-      "description": "Local Charity Coalition is launching a winter coat drive to provide warmth to individuals of all Ages and Genders. With the onset of winter, many people in our community struggle to stay warm without adequate outerwear. We are seeking donations of winter coats, hats, and gloves to ensure that everyone can face the cold weather with dignity and comfort.",
-      "tags": {
-        "Type": "Clothes",
-        "Age": "All",
-        "Gender": "Unisex",
-        "Season": "Winter"
-      },
-      "imgURL": "https://example.com/winter_coat_drive.jpg",
-      "required_amount": 100,
-      "Material": "Nylon"
+        "title": "The Catcher in the Rye",
+        "subtitle": "Literature Lovers Foundation",
+        "description": "Join the Literature Lovers Foundation in sharing the timeless classic, 'The Catcher in the Rye' by J.D. Salinger, with schools and libraries nationwide. This iconic novel follows the journey of Holden Caulfield, a disenchanted teenager navigating the complexities of adolescence and societal expectations, resonating with readers of all ages and generations.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "20 copies",
+        "type": "Novel",
+        "progress": 45,
+        "book_details": {
+        "Title": "The Catcher in the Rye",
+        "Author": "J.D. Salinger",
+        "Edition": "Reprint Edition",
+        "Language": "English"
+        }
+    },
+    {
+        "title": "Math Workbooks for Middle School",
+        "subtitle": "Maplewood Middle School",
+        "description": "Empower students at Maplewood Middle School with 'Math Workbooks for Middle School' from the Scholastic Success with Math series. These engaging workbooks cover essential math topics, providing clear explanations, step-by-step examples, and plenty of practice exercises to reinforce learning. Support middle school students in building strong math skills and confidence with your generous donations!",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "30 workbooks",
+        "type": "Workbook",
+        "progress": 75,
+        "book_details": {
+        "Title": "Math Workbooks for Middle School",
+        "Author": "Scholastic Success with Math",
+        "Edition": "1st Edition",
+        "Language": "English"
+        }
+    },
+    {
+        "title": "Graphing Calculators for High School Math Class",
+        "subtitle": "Mathematics Enrichment Society",
+        "description": "The Mathematics Enrichment Society is collecting graphing calculators for high school math classes. Your donations will provide students with the tools they need to succeed in advanced mathematics and pursue their academic and career aspirations in STEM fields. Join us in empowering the mathematicians of tomorrow!",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "20 calculators",
+        "type": "Graphing calculator",
+        "progress": 30
+    },
+    {
+        "title": "The Great Gatsby",
+        "subtitle": "Literature Lovers Foundation",
+        "description": "Immerse students in the dazzling world of the Roaring Twenties with the Literature Lovers Foundation by providing copies of F. Scott Fitzgerald's masterpiece, 'The Great Gatsby', to schools and libraries. This iconic novel explores themes of love, wealth, and the American Dream, captivating readers with its vivid characters and evocative prose.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "25 copies",
+        "type": "Novel",
+        "progress": 60,
+        "book_details": {
+        "Title": "The Great Gatsby",
+        "Author": "F. Scott Fitzgerald",
+        "Edition": "Vintage Classics Edition",
+        "Language": "English"
+        }
+    },
+    {
+        "title": "Elementary Music Theory",
+        "subtitle": "Oakridge High School",
+        "description": "Immerse students at Oakridge High School in the fascinating world of music theory with 'Elementary Music Theory' by Mark Sarnecki. This textbook offers a comprehensive exploration of musical elements, including rhythm, melody, harmony, and form, providing students with the knowledge and skills to analyze and appreciate various musical compositions. From fundamental concepts to advanced techniques, this textbook empowers young musicians to deepen their understanding and passion for music.",
+        "tags": {
+            "Category": "School Supplies",
+            "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "15 textbooks",
+        "type": "Textbook",
+        "progress": 40,
+        "book_details": {
+            "Title": "Elementary Music Theory",
+            "Author": "Mark Sarnecki",
+            "Edition": "2nd Edition",
+            "Language": "English"
+        }
     },    
     {
-      "title": "Outdoor Toys for Kids (1-5)",
-      "subtitle": "Sunshine Playground Initiative",
-      "description": "The Sunshine Playground Initiative is seeking donations of outdoor toys for children Aged 1-5. Outdoor play is essential for children's physical and cognitive development. We need donations of toys such as sandboxes, tricycles, and water tables to create a fun and stimulating outdoor play area for young children in our community.",
-      "tags": {
-        "Type": "Toys",
+        "title": "Backpacks for Underprivileged Students",
+        "subtitle": "Backpacks for Success Initiative",
+        "description": "The Backpacks for Success Initiative provides filled backpacks to underprivileged students. Your donations will not only lighten the burden for students but also empower them to focus on their education and pursue their dreams with confidence and dignity. Join us in making a difference in the lives of students in need!",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Stationery"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "40 backpacks",
+        "type": "Assorted backpacks",
+        "progress": 80
+    },
+    {
+        "title": "Introduction to Psychology",
+        "subtitle": "Mind Matters Foundation",
+        "description": "Unlock the mysteries of the mind with the Mind Matters Foundation by providing copies of 'Introduction to Psychology' by Charles Stangor to schools and libraries. This insightful textbook delves into the fascinating world of human behavior and cognition, offering students a foundational understanding of psychological principles and theories to navigate the complexities of the human psyche.",
+        "tags": {
+        "Category": "School Supplies",
+        "Subcategory": "Books"
+        },
+        "imgURL": "https://example.com/school-supplies.jpg",
+        "required_amount": "10 textbooks",
+        "type": "Textbook",
+        "progress": 55,
+        "book_details": {
+        "Title": "Introduction to Psychology",
+        "Author": "Charles Stangor",
+        "Edition": "7th Edition",
+        "Language": "English"
+        }
+    },
+
+    // Toys ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Fun Board Games for Ages 5-11",
+        "subtitle": "Playtime Paradise Foundation",
+        "description": "Fuel the laughter and learning with our collection of captivating board games tailored for ages 5 to 11! From strategic challenges to adventurous quests, these games promise endless fun while nurturing essential cognitive skills. Help us reach our goal of 20 games and bring joy to young minds eager for playful exploration!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Board games",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "20 games",
+        "progress": 30,
+        "type": "Ticket to Ride"
+    },
+    {
+        "title": "Soft Stuffed Toys for Toddlers",
+        "subtitle": "Tender Hugs Charity",
+        "description": "Wrap toddlers in the warmth of affection with our collection of soft stuffed toys! Designed for ages 1 to 5, these cuddly companions offer comfort, companionship, and endless moments of tender hugs. Contribute towards our goal of 30 toys and bring smiles to little faces, one cozy embrace at a time!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Stuffed toys",
         "Age": "1-5",
-        "Gender": "Unisex",
-        "Category": "Outdoor"
-      },
-      "imgURL": "https://example.com/outdoor_toys.jpg",
-      "required_amount": 60
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "30 toys",
+        "progress": 50,
+        "type": "Fisher-Price Plush Animals"
     },
     {
-      "title": "Board Games for Teens (12-18)",
-      "subtitle": "Teen Recreation Center",
-      "description": "The Teen Recreation Center is organizing a board game drive for teenAgers Aged 12-18. Board games provide an opportunity for teens to socialize, develop strategic thinking skills, and have fun. We are seeking donations of popular board games such as Monopoly, Scrabble, and Settlers of Catan to provide entertainment and enrichment for teens in our community.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "12-18",
-        "Gender": "Unisex",
-        "Category": "Board Games"
-      },
-      "imgURL": "https://example.com/board_games_teens.jpg",
-      "required_amount": 70
+        "title": "Diverse Dolls for Inclusive Playtime",
+        "subtitle": "Diversity Play Initiative",
+        "description": "Embrace the beauty of diversity with our collection of inclusive dolls, tailored for ages 6 to 11! Representing various cultures, abilities, and backgrounds, these dolls inspire empathy, understanding, and joyful play. Contribute towards our goal of 25 dolls and nurture inclusive playtime where every child feels seen, valued, and celebrated!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Dolls",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "25 dolls",
+        "progress": 40,
+        "type": "Barbie Fashionista dolls"
     },
     {
-      "title": "Stuffed Toys for Toddlers (1-5)",
-      "subtitle": "Tiny Tots Nursery",
-      "description": "Tiny Tots Nursery is in need of stuffed toy donations for toddlers Aged 1-5. Stuffed toys provide comfort, companionship, and opportunities for imaginative play for young children. We are seeking donations of soft, cuddly stuffed animals such as teddy bears, rabbits, and puppies to bring joy and comfort to the little ones in our care.",
-      "tags": {
-        "Type": "Toys",
+        "title": "Outdoor Sports Equipment for Teens",
+        "subtitle": "Active Youth Foundation",
+        "description": "Elevate outdoor recreation for teens with our premium sports equipment! Tailored for ages 12 to 18, these sets offer excitement and physical activity, from exhilarating team sports to solo challenges. Contribute towards our goal of 15 sets and empower teens to stay active, healthy, and engaged in outdoor adventures!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Sports",
+        "Age": "13-18",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "15 sets",
+        "progress": 60,
+        "type": "Basketball hoop set"
+    },
+    {
+        "title": "Toy Cars for Kids",
+        "subtitle": "Speedy Wheels Charity",
+        "description": "Ignite the thrill of the race with our collection of toy cars, perfect for kids aged 6 to 11! From sleek sports cars to rugged off-roaders, these miniature marvels promise endless adventures on imaginary roads. Join us in providing 20 cars and fuel the joy of speed and imagination in young hearts!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Cars",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "20 cars",
+        "progress": 70,
+        "type": "Hot wheels"
+    },
+    {
+        "title": "Outdoor Adventure Toys for Teens",
+        "subtitle": "Adventure Seekers Foundation",
+        "description": "Elevate outdoor escapades for teens with our thrilling adventure toys! Tailored for ages 12 to 18, these sets offer excitement and exploration, from adrenaline-pumping challenges to nature-inspired activities. Contribute towards our goal of 40 sets and empower teens to embark on unforgettable adventures, fostering courage, and camaraderie along the way!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Outdoor",
+        "Age": "13-18",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "40 sets",
+        "progress": 80,
+        "type": "Portable slackline kit"
+    },
+    {
+        "title": "Educational Board Games for Family Fun",
+        "subtitle": "Family Bonding Foundation",
+        "description": "Strengthen family ties and minds with our collection of educational board games, designed for ages 12 to 18! From strategic challenges to brain-teasing puzzles, these games offer enriching entertainment and foster meaningful connections. Contribute towards our goal of 25 games and create unforgettable moments of family bonding and fun!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Board games",
+        "Age": "13-18",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "25 games",
+        "progress": 45,
+        "type": "Scrabble"
+    },
+    {
+        "title": "Outdoor Exploration Kits for Young Adventurers",
+        "subtitle": "Nature Explorers Foundation",
+        "description": "Embark on thrilling journeys of discovery with our outdoor exploration kits, tailored for young adventurers aged 6 to 12! Packed with tools and resources, these kits ignite curiosity and foster a deep connection with nature. Help us provide 30 kits and empower the next generation of nature enthusiasts to explore, learn, and protect our planet!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Outdoor",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "30 kits",
+        "progress": 50,
+        "type": "Nature discovery kit"
+    },
+    {
+        "title": "Gardening Kits for Budding Gardeners",
+        "subtitle": "Green Thumb Foundation",
+        "description": "Nurture the green thumb in every child with our engaging gardening kits, tailored for budding gardeners aged 6 to 12! From planting seeds to watching them bloom, these kits inspire hands-on learning and a deep appreciation for nature. Contribute towards our goal of 30 kits and cultivate a love for gardening in young hearts!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Outdoor",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "30 kits",
+        "progress": 65,
+        "type": "Gardening kit"
+    },
+    {
+        "title": "Adventure Play Tents for Imaginative Explorers",
+        "subtitle": "Exploration Zone Foundation",
+        "description": "Unleash the spirit of adventure with our exciting play tents, perfect for imaginative explorers aged 6 to 12! Transform any outdoor space into a realm of endless possibilities, where young minds can embark on thrilling journeys and create unforgettable memories. Join us in providing 20 tents and nurturing the spirit of exploration in every child!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Outdoor",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "20 tents",
+        "progress": 75,
+        "type": "Pop-up play tent"
+    },
+    {
+        "title": "Snuggly Teddy Bears for Comfort and Joy",
+        "subtitle": "Bear Hugs Charity",
+        "description": "Wrap little ones in the warmth of affection and joy with our snuggly teddy bears! Designed for ages 1 to 5, these fuzzy companions offer endless comfort and companionship, soothing tender hearts with every embrace. Help us reach our goal of 30 bears and spread love through the magic of cuddly companions!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Stuffed toys",
         "Age": "1-5",
-        "Gender": "Unisex",
-        "Category": "Stuffed Toys"
-      },
-      "imgURL": "https://example.com/stuffed_toys_toddlers.jpg",
-      "required_amount": 50
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "30 bears",
+        "progress": 50,
+        "type": "Teddy bears"
     },
     {
-      "title": "Dolls for Children (5-11)",
-      "subtitle": "Doll Haven Foundation",
-      "description": "The Doll Haven Foundation is collecting donations of dolls for children Aged 5-11. Dolls play an important role in nurturing children's empathy, creativity, and social skills. We are seeking donations of diverse dolls representing various cultures, Genders, and abilities to promote inclusivity and acceptance among children.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "5-11",
-        "Gender": "Unisex",
-        "Category": "Dolls"
-      },
-      "imgURL": "https://example.com/dolls_children.jpg",
-      "required_amount": 55
-    },
-    {
-      "title": "Sports Cars for Teens (12-18)",
-      "subtitle": "Speedy Teens Club",
-      "description": "Speedy Teens Club is hosting a donation drive for sports cars for teenAgers Aged 12-18. Remote-controlled sports cars provide teens with hours of entertainment and opportunities to develop hand-eye coordination and motor skills. We are seeking donations of high-quality remote-controlled sports cars to spark excitement and enthusiasm among teens in our community.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "12-18",
-        "Gender": "Unisex",
-        "Category": "Sports Cars"
-      },
-      "imgURL": "https://example.com/sports_cars_teens.jpg",
-      "required_amount": 65
-    },
-    {
-      "title": "Educational Board Games for Kids (5-11)",
-      "subtitle": "Learning is Fun Foundation",
-      "description": "The Learning is Fun Foundation is collecting donations of educational board games for children Aged 5-11. Board games that combine fun and learning are a valuable resource for children's cognitive development. We are seeking donations of educational board games such as Math Bingo, Scrabble Junior, and Sight Word Swat to make learning enjoyable and engaging for kids in our community.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "5-11",
-        "Gender": "Unisex",
-        "Category": "Board Games"
-      },
-      "imgURL": "https://example.com/educational_board_games.jpg",
-      "required_amount": 80
-    },
-    {
-      "title": "Remote-Controlled Drones for Teens (12-18)",
-      "subtitle": "Drone Enthusiasts Club",
-      "description": "The Drone Enthusiasts Club is seeking donations of remote-controlled drones for teenAgers Aged 12-18. Drones offer teens the opportunity to explore technology, develop aerial photography skills, and engAge in thrilling outdoor activities. We are seeking donations of beginner-friendly drones to inspire creativity and innovation among teens in our community.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "12-18",
-        "Gender": "Unisex",
-        "Category": "Outdoor"
-      },
-      "imgURL": "https://example.com/remote_controlled_drones_teens.jpg",
-      "required_amount": 75
-    },
-    {
-      "title": "Classic Stuffed Toys for Kids (1-5)",
-      "subtitle": "Nostalgic Toy Collection",
-      "description": "The Nostalgic Toy Collection is collecting donations of classic stuffed toys for children Aged 1-5. Classic stuffed toys evoke feelings of nostalgia and provide timeless comfort and joy to young children. We are seeking donations of beloved classics such as teddy bears, Raggedy Ann dolls, and plush animals to create cherished memories for kids in our community.",
-      "tags": {
-        "Type": "Toys",
+        "title": "Adorable Plush Animals for Endless Cuddles",
+        "subtitle": "Plush Pals Foundation",
+        "description": "Embrace the warmth of compassion and comfort with our delightful collection of plush animals, designed for ages 1 to 5! Each cuddly friend offers endless snuggles and companionship, fostering a sense of security and joy in young hearts. Contribute towards our goal of 25 animals and spread love through the power of soft embraces!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Stuffed toys",
         "Age": "1-5",
-        "Gender": "Unisex",
-        "Category": "Stuffed Toys"
-      },
-      "imgURL": "https://example.com/classic_stuffed_toys.jpg",
-      "required_amount": 70
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "25 animals",
+        "progress": 65,
+        "type": "Beanie Babies"
     },
     {
-      "title": "Action Figures for Collectors (18+)",
-      "subtitle": "Collector's Haven",
-      "description": "Collector's Haven is seeking donations of action figures for adult collectors Aged 18 and above. Action figures are not just toys; they are prized collectibles that evoke nostalgia and passion in collectors. We are seeking donations of high-quality action figures from popular franchises such as Marvel, DC Comics, and Star Wars to add to our collector's treasure trove.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "Adults",
-        "Gender": "Unisex",
-        "Category": "Action Figures"
-      },
-      "imgURL": "https://example.com/action_figures_collectors.jpg",
-      "required_amount": 85
+        "title": "Fashionable Barbie Dolls for Creative Play",
+        "subtitle": "Barbie Dreamworld Charity",
+        "description": "Barbie Dreamworld Charity is collecting fashionable Barbie dolls for creative play. Inspire imagination, storytelling, and self-expression in children with your donations, providing them with stylish dolls to role-play and explore diverse worlds. Let's empower children to dream big and be anything they aspire to be!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Dolls",
+        "Age": "6-12",
+        "Gender": "Girls"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "20 dolls",
+        "progress": 40,
+        "type": "Barbie"
     },
     {
-      "title": "Art Supplies for Creative Kids (5-11)",
-      "subtitle": "Artistic Expressions Program",
-      "description": "The Artistic Expressions Program is collecting donations of art supplies for creative kids Aged 5-11. Art offers children a means of self-expression, creativity, and emotional release. We are seeking donations of art supplies such as crayons, markers, and sketchbooks to nurture children's artistic talents and inspire their imagination.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "5-11",
-        "Gender": "Unisex",
-        "Category": "Art Supplies"
-      },
-      "imgURL": "https://example.com/art_supplies_kids.jpg",
-      "required_amount": 90
+        "title": "Soccer Balls for Thrilling Matches",
+        "subtitle": "Soccer Stars Foundation",
+        "description": "Join the Soccer Stars Foundation in providing soccer balls for thrilling matches. Promote teamwork, physical fitness, and sportsmanship in children with your donations, allowing them to enjoy the excitement of soccer games and friendly competition. Let's kick off the fun and score goals together!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Sports",
+        "Age": "6-12",
+        "Gender": "Unisex"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "25 soccer balls",
+        "progress": 75,
+        "type": "Soccer balls"
     },
     {
-      "title": "Puzzle Games for Brainy Teens (12-18)",
-      "subtitle": "Puzzle Masters Society",
-      "description": "The Puzzle Masters Society is hosting a donation drive for puzzle games for brainy teens Aged 12-18. Puzzle games challenge teens to think critically, solve problems, and sharpen their cognitive skills. We are seeking donations of challenging puzzle games such as Rubik's Cube, Sudoku, and jigsaw puzzles to stimulate teens' minds and encourAge intellectual growth.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "12-18",
-        "Gender": "Unisex",
-        "Category": "Puzzle Games"
-      },
-      "imgURL": "https://example.com/puzzle_games_teens.jpg",
-      "required_amount": 80
+        "title": "Speedy Remote-Controlled Cars for Exciting Races",
+        "subtitle": "Racing Champions Foundation",
+        "description": "Racing Champions Foundation is seeking speedy remote-controlled cars for exciting races. Fuel adrenaline, speed, and excitement in children with your donations, allowing them to experience the thrill of high-speed racing and epic competitions. Let's rev up the engines and race toward thrilling victories!",
+        "tags": {
+        "Category": "Toys",
+        "Subcategory": "Cars",
+        "Age": "6-12",
+        "Gender": "Boys"
+        },
+        "imgURL": "https://example.com/toys.jpg",
+        "required_amount": "20 cars",
+        "progress": 60,
+        "type": "Remote-controlled cars"
+    },
+
+    // Food ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Fresh Vegetables for Nutritious Meals",
+        "subtitle": "Healthy Harvest Charity",
+        "description": "Healthy Harvest Charity is collecting fresh vegetables for nutritious meals. Provide essential vitamins, minerals, and nutrients to families in need with your donations, promoting healthy eating habits and well-being. Let's cultivate a community of health and vitality through the goodness of nature!",
+        "tags": {
+        "Category": "Food",
+        "Subcategory": "Fruits and vegetables"
+        },
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "50 KG",
+        "progress": 30,
+        "type": "Leafy greens"
     },
     {
-      "title": "Musical Instruments for Budding Musicians (5-11)",
-      "subtitle": "Music for All Foundation",
-      "description": "The Music for All Foundation is collecting donations of musical instruments for budding musicians Aged 5-11. Music offers children a creative outlet for self-expression and fosters a lifelong appreciation for the arts. We are seeking donations of musical instruments such as keyboards, guitars, and ukuleles to provide children with the opportunity to explore their musical talents.",
-      "tags": {
-        "Type": "Toys",
-        "Age": "5-11",
-        "Gender": "Unisex",
-        "Category": "Musical Instruments"
-      },
-      "imgURL": "https://example.com/musical_instruments_kids.jpg",
-      "required_amount": 95
+        "title": "Nourishing Canned Foods for Pantry Stocking",
+        "subtitle": "Food Bank Relief",
+        "description": "Join the Food Bank Relief in providing nourishing canned foods for pantry stocking. Ensure food security and support families facing hunger with your donations, providing them with essential canned goods for nutritious meals. Let's stock pantries with love, compassion, and sustenance!",
+        "tags": {
+        "Category": "Food",
+        "Subcategory": "Canned foods"
+        },
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "100 units",
+        "progress": 40,
+        "type": "Beans"
     },
-      {
-        "title": "Tech Gadgets for Teen Techies (12-18)",
-        "subtitle": "Tech Savvy Teens Club",
-        "description": "Tech Savvy Teens Club is seeking donations of tech gadgets for teenAgers Aged 12-18. Technology plays a central role in teens' lives, offering opportunities for learning, creativity, and innovation. We are seeking donations of tech gadgets such as tablets, headphones, and smartwatches to empower teens to explore their interests and pursue their passions in the digital Age.",
+    {
+        "title": "Wholesome Fresh Meals for Hungry Individuals",
+        "subtitle": "Meal Assistance Initiative",
+        "description": "Meal Assistance Initiative is seeking wholesome fresh meals for hungry individuals. Provide nourishment, comfort, and support to those facing food insecurity with your donations, ensuring they have access to nutritious and satisfying meals. Let's fill empty stomachs with warmth, care, and hope!",
         "tags": {
-          "Type": "Toys",
-          "Age": "12-18",
-          "Gender": "Unisex",
-          "Category": "Tech Gadgets"
+        "Category": "Food",
+        "Subcategory": "Fresh meals"
         },
-        "imgURL": "https://example.com/tech_gadgets_teens.jpg",
-        "required_amount": 85
-      },
-      {
-        "title": "Building Blocks for Creative Kids (1-5)",
-        "subtitle": "Young Architects Club",
-        "description": "The Young Architects Club is collecting donations of building blocks for creative kids Aged 1-5. Building blocks offer children endless opportunities for imaginative play, problem-solving, and spatial reasoning. We are seeking donations of high-quality building blocks such as LEGO DUPLO and Mega Bloks to inspire young architects and engineers in our community.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "200 servings",
+        "progress": 50,
+        "type": "Rice"
+    },
+    {
+        "title": "Delicious Baked Goods for Sweet Moments",
+        "subtitle": "Bake for Love Foundation",
+        "description": "Bake for Love Foundation is collecting delicious baked goods for sweet moments. Spread joy, comfort, and happiness with your donations, providing freshly baked treats to brighten someone's day. Let's share the warmth and sweetness of homemade goodies!",
         "tags": {
-          "Type": "Toys",
-          "Age": "1-5",
-          "Gender": "Unisex",
-          "Category": "Building Blocks"
+        "Category": "Food",
+        "Subcategory": "Baked goods"
         },
-        "imgURL": "https://example.com/building_blocks_kids.jpg",
-        "required_amount": 70
-      },
-      {
-        "title": "Kids Clothing Drive for Needy Families",
-        "subtitle": "Local Charity Foundation",
-        "description": "Local Charity Foundation is organizing a clothing drive for needy families with children Aged 5-10. Many families in our community struggle to afford basic necessities, including clothing for their children. We urgently need donations of gently used or new clothing items such as shirts, pants, and shoes to help alleviate the burden on these families. Your generosity will bring warmth and comfort to those in need.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "50 units",
+        "progress": 60,
+        "type": "Croissants"
+    },
+    {
+        "title": "Fresh Fruits and Vegetables for Healthy Snacking",
+        "subtitle": "Nutrition Boost Charity",
+        "description": "Nutrition Boost Charity is seeking fresh fruits for healthy snacking. Provide children and families with nutritious options for snacking, promoting healthy eating habits and wellness. Let's fuel bodies and minds with the goodness of nature!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Kids",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Food",
+        "Subcategory": "Fruits and vegetables"
         },
-        "imgURL": "https://example.com/kids_clothing_drive.jpg",
-        "required_amount": 90,
-        "Material": "Cotton"
-      },
-      {
-        "title": "Winter Clothing Drive for Homeless Teens",
-        "subtitle": "Street Outreach Program",
-        "description": "The Street Outreach Program is hosting a winter clothing drive to support homeless teenAgers in our city. As temperatures plummet, homeless teens are particularly vulnerable to the harsh winter conditions. We are seeking donations of warm winter clothing items such as coats, hats, and gloves to provide essential warmth and protection to these vulnerable youth. Your contributions will make a tangible difference in the lives of homeless teens struggling to survive on the streets.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "40 KG",
+        "progress": 25,
+        "type": "Berries"
+    },
+    {
+        "title": "Assorted Canned Foods for Emergency Relief",
+        "subtitle": "Emergency Aid Foundation",
+        "description": "Emergency Aid Foundation is collecting assorted canned foods for emergency relief. Ensure preparedness and support disaster-affected communities with your donations, providing essential canned goods for immediate nourishment. Let's stand together and extend a helping hand in times of crisis!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Teens",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Food",
+        "Subcategory": "Canned foods"
         },
-        "imgURL": "https://example.com/teens_clothing_drive.jpg",
-        "required_amount": 95,
-        "Material": "Polyester"
-      },
-      {
-        "title": "Spring Clothing Giveaway for Low-Income Adults",
-        "subtitle": "Community Support Network",
-        "description": "Community Support Network is hosting a spring clothing giveaway for low-income adults in our community. Many adults facing financial hardship lack adequate clothing for the changing Seasons. We are collecting donations of spring attire such as dresses, shirts, and jackets to provide to individuals and families in need. Your contributions will help restore dignity and self-confidence to those struggling to make ends meet.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "150 units",
+        "progress": 35,
+        "type": "Beans"
+    },
+    {
+        "title": "Ready-to-Eat Fresh Meals for Homeless Shelters",
+        "subtitle": "Shelter Support Initiative",
+        "description": "Shelter Support Initiative is seeking ready-to-eat fresh meals for homeless shelters. Provide comfort, sustenance, and dignity to individuals experiencing homelessness with your donations, ensuring they have access to nutritious and convenient meals. Let's offer warmth, nourishment, and hope to those in need!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Adults",
-          "Gender": "Unisex",
-          "Season": "Spring"
+        "Category": "Food",
+        "Subcategory": "Fresh meals"
         },
-        "imgURL": "https://example.com/adults_clothing_giveaway.jpg",
-        "required_amount": 80,
-        "Material": "Wool"
-      },
-      {
-        "title": "Fall Clothing Drive for Displaced Families",
-        "subtitle": "Refugee Assistance Program",
-        "description": "The Refugee Assistance Program is launching a fall clothing drive to support displaced families in our community. Many refugee families arrive in our city with little more than the clothes on their backs, facing significant challenges in rebuilding their lives. We urgently need donations of fall clothing items such as sweaters, jeans, and boots to provide essential warmth and comfort to these families as they navigate the resettlement process. Your donations will offer hope and stability to those striving to build a new future in a foreign land.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "250 servings",
+        "progress": 45,
+        "type": "Salad"
+    },
+    {
+        "title": "Homemade Baked Goods for Community Events",
+        "subtitle": "Community Gathering Project",
+        "description": "Join the Community Gathering Project in providing homemade baked goods for community events. Foster connections, joy, and unity with your donations, sharing delicious treats to enhance the spirit of togetherness. Let's bake memories and create cherished moments together!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Adults",
-          "Gender": "Unisex",
-          "Season": "Fall"
+        "Category": "Food",
+        "Subcategory": "Baked goods"
         },
-        "imgURL": "https://example.com/fall_clothing_drive.jpg",
-        "required_amount": 85,
-        "Material": "Denim"
-      },
-      {
-        "title": "Warm Coats for Winter: Adults",
-        "subtitle": "Community Outreach Center",
-        "description": "Community Outreach Center urgently needs donations of warm winter coats for adults in our community. As temperatures drop, many individuals are left vulnerable to the cold without adequate outerwear. Your contributions of coats, jackets, and scarves will provide essential warmth and protection to those in need, helping them stay safe and healthy throughout the winter Season.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "75 units",
+        "progress": 55,
+        "type": "Bread"
+    },
+    {
+        "title": "Variety of Fresh Fruits for School Nutrition Programs",
+        "subtitle": "School Health Initiative",
+        "description": "School Health Initiative is seeking a variety of fresh fruits for school nutrition programs. Support children's health, learning, and development with your donations, providing them with nutritious fruits to fuel their day. Let's nourish young minds and bodies for a brighter future!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Adults",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Food",
+        "Subcategory": "Fruits and vegetables"
         },
-        "imgURL": "https://example.com/winter_coats_adults.jpg",
-        "required_amount": 90,
-        "Material": "Nylon"
-      },
-      {
-        "title": "Teen Hoodies and Sweatshirts",
-        "subtitle": "Youth Support Services",
-        "description": "Youth Support Services is seeking donations of hoodies and sweatshirts for teenAgers in need. Many teens lack warm clothing options to stay comfortable during cooler weather. Your donations will provide essential warmth and comfort to teens facing financial hardship or homelessness, helping them navigate the challenges of adolescence with dignity and confidence.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "60 KG",
+        "progress": 60,
+        "type": "Citrus fruits"
+    },
+    {
+        "title": "Essential Canned Foods for Food Banks",
+        "subtitle": "Food Bank Network",
+        "description": "Food Bank Network is collecting essential canned foods for food banks. Alleviate hunger, food insecurity, and poverty in communities with your donations, providing individuals and families with essential pantry staples. Let's fill empty plates and hearts with hope and nourishment!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Teens",
-          "Gender": "Unisex",
-          "Season": "Fall"
+        "Category": "Food",
+        "Subcategory": "Canned foods"
         },
-        "imgURL": "https://example.com/teen_hoodies.jpg",
-        "required_amount": 75,
-        "Material": "Cotton"
-      },
-      {
-        "title": "Kids Summer Clothing Collection",
-        "subtitle": "Children's Relief Fund",
-        "description": "Children's Relief Fund is collecting summer clothing donations for kids of all Ages. As temperatures rise, many families struggle to provide lightweight and breathable clothing for their children. Your donations of summer dresses, shorts, and sandals will help kids stay cool and comfortable during the hot summer months, allowing them to enjoy outdoor activities without discomfort or risk of overheating.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "200 units",
+        "progress": 70,
+        "type": "Beans"
+    },
+    {
+        "title": "Freshly Prepared Meals for Elderly Care Centers",
+        "subtitle": "Elderly Care Foundation",
+        "description": "Elderly Care Foundation is seeking freshly prepared meals for elderly care centers. Ensure seniors receive nutritious, delicious, and comforting meals with your donations, promoting their health, well-being, and happiness. Let's show gratitude and care for our elderly loved ones!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Kids",
-          "Gender": "Unisex",
-          "Season": "Summer"
+        "Category": "Food",
+        "Subcategory": "Fresh meals"
         },
-        "imgURL": "https://example.com/kids_summer_clothing.jpg",
-        "required_amount": 70,
-        "Material": "Cotton"
-      },
-      {
-        "title": "Fall Fashion for Women in Need",
-        "subtitle": "Women's Empowerment Initiative",
-        "description": "Women's Empowerment Initiative is hosting a fall fashion drive for women in need of stylish and practical clothing options. Many women facing financial hardship lack access to quality clothing that meets their needs. Your donations of fall fashion items such as sweaters, jeans, and boots will empower women to feel confident and self-assured as they navigate life's challenges.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "150 servings",
+        "progress": 80,
+        "type": "Grilled chicken salad"
+    },
+    {
+        "title": "Wholesome Baked Goods for Community Outreach",
+        "subtitle": "Community Care Project",
+        "description": "Join the Community Care Project in providing wholesome baked goods for community outreach. Share warmth, kindness, and nourishment with your donations, spreading joy and comfort to individuals and families in need. Let's bake a difference and touch hearts with every bite!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Adults",
-          "Gender": "Female",
-          "Season": "Fall"
+        "Category": "Food",
+        "Subcategory": "Baked goods"
         },
-        "imgURL": "https://example.com/fall_fashion_women.jpg",
-        "required_amount": 80,
-        "Material": "Wool"
-      },
-      {
-        "title": "Children's Winter Wear Drive",
-        "subtitle": "Winter Warmth Project",
-        "description": "Winter Warmth Project is dedicated to keeping children warm during the coldest months of the year. We are seeking donations of winter clothing items such as coats, hats, and gloves for children of all Ages. Your contributions will ensure that no child in our community goes without essential winter wear, allowing them to stay safe and healthy as they play and learn.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "100 units",
+        "progress": 90,
+        "type": "Cupcakes"
+    },
+    {
+        "title": "Seasonal Fresh Produce for Community Gardens",
+        "subtitle": "Community Green Initiative",
+        "description": "Community Green Initiative is seeking seasonal fresh produce for community gardens. Support urban agriculture, sustainability, and food security with your donations, providing communities with access to locally grown, nutritious fruits and vegetables. Let's cultivate thriving green spaces and healthy communities!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Kids",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Food",
+        "Subcategory": "Fruits and vegetables"
         },
-        "imgURL": "https://example.com/children_winter_wear.jpg",
-        "required_amount": 95,
-        "Material": "Polyester"
-      },
-      {
-        "title": "Teens Winter Apparel Drive",
-        "subtitle": "Youth Outreach Program",
-        "description": "The Youth Outreach Program is organizing a winter apparel drive specifically for teenAgers. We are seeking donations of warm winter clothing items such as coats, sweaters, and boots to help teens stay warm and comfortable during the cold winter months. Your contributions will make a meaningful difference in the lives of teenAgers facing homelessness or financial hardship, providing them with essential warmth and protection.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "70 KG",
+        "progress": 75,
+        "type": "Tomatoes"
+    },
+    {
+        "title": "Nutritious Canned Foods for Disaster Relief Efforts",
+        "subtitle": "Disaster Response Alliance",
+        "description": "Disaster Response Alliance is collecting nutritious canned foods for disaster relief efforts. Provide essential sustenance and support to communities affected by natural disasters with your donations, ensuring they have access to nutritious and shelf-stable foods. Let's provide hope and nourishment in times of crisis!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Teens",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Food",
+        "Subcategory": "Canned foods"
         },
-        "imgURL": "https://example.com/teens_winter_apparel.jpg",
-        "required_amount": 90,
-        "Material": "Denim"
-      },
-      {
-        "title": "Summer Clothing Collection for Kids",
-        "subtitle": "Children's Aid Society",
-        "description": "The Children's Aid Society is collecting summer clothing donations for kids in our community. With the arrival of summer, many children lack appropriate clothing for the warmer weather. We are seeking donations of summer outfits, including shorts, t-shirts, and sandals, to keep kids cool and comfortable during the hot summer months.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "120 units",
+        "progress": 80,
+        "type": "Beans"
+    },
+    {
+        "title": "Wholesome Fresh Meals for Community Soup Kitchens",
+        "subtitle": "Soup Kitchen Support",
+        "description": "Soup Kitchen Support is seeking wholesome fresh meals for community soup kitchens. Provide warmth, nourishment, and compassion to individuals experiencing homelessness and food insecurity with your donations, ensuring they have access to nutritious and comforting meals. Let's serve hope and dignity, one meal at a time!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Kids",
-          "Gender": "Unisex",
-          "Season": "Summer"
+        "Category": "Food",
+        "Subcategory": "Fresh meals"
         },
-        "imgURL": "https://example.com/kids_summer_collection.jpg",
-        "required_amount": 75,
-        "Material": "Cotton"
-      },
-      {
-        "title": "Unisex Fall Fashion Drive",
-        "subtitle": "Community Fashion Exchange",
-        "description": "The Community Fashion Exchange is hosting a fall fashion drive for individuals of all Genders. We are seeking donations of fall clothing items such as jackets, jeans, and scarves to help community members transition into the cooler autumn weather with style and comfort. Your contributions will help individuals stay fashionable and warm.",
+        "imgURL": "https://example.com/food.jpg",
+        "required_amount": "300 servings",
+        "progress": 85,
+        "type": "Soup"
+    },
+
+    // Medical Supplies ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Digital Blood Pressure Monitor",
+        "subtitle": "Healthcare Solutions Inc.",
+        "description": "Healthcare Solutions Inc. is seeking digital blood pressure monitors for patient care. These devices are essential for monitoring blood pressure levels accurately and efficiently. Let's ensure patients receive the vital medical attention they need!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Teens",
-          "Gender": "Unisex",
-          "Season": "Fall"
+        "Category": "Medical Supplies",
+        "Medical_Device": "Blood pressure monitor",
+        "Medical_Equipment": "",
+        "Medication": ""
         },
-        "imgURL": "https://example.com/unisex_fall_fashion.jpg",
-        "required_amount": 80,
-        "Material": "Cotton"
-      },
-      {
-        "title": "Adults Spring Clothing Giveaway",
-        "subtitle": "Community Support Network",
-        "description": "Community Support Network is hosting a spring clothing giveaway for adults in need of Seasonal attire. As spring approaches, many adults lack the clothing they need for the changing weather. We are seeking donations of spring outfits, including dresses, shirts, and lightweight jackets, to help adults feel comfortable and confident as they embrace the new Season.",
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "10 units",
+        "use": "Monitoring blood pressure levels",
+        "progress": 20
+    },
+    {
+        "title": "Sterile Gauze Pads",
+        "subtitle": "Emergency Relief Organization",
+        "description": "Emergency Relief Organization urgently needs sterile gauze pads for wound care and dressing. These medical supplies are crucial for preventing infections and promoting healing in patients with injuries. Let's provide comfort and support to those in need!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Adults",
-          "Gender": "Unisex",
-          "Season": "Spring"
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Gauze pads",
+        "Medication": ""
         },
-        "imgURL": "https://example.com/adults_spring_giveaway.jpg",
-        "required_amount": 85,
-        "Material": "Wool"
-      },
-      {
-        "title": "Winter Coats for Everyone",
-        "subtitle": "Local Charity Coalition",
-        "description": "Local Charity Coalition is launching a winter coat drive to provide warmth to individuals of all Ages and Genders. With the onset of winter, many people in our community struggle to stay warm without adequate outerwear. We are seeking donations of winter coats, hats, and gloves to ensure that everyone can face the cold weather with dignity and comfort.",
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "500 units",
+        "use": "Wound care and dressing",
+        "progress": 30
+    },
+    {
+        "title": "Ciprofloxacin Tablets",
+        "subtitle": "Health Clinic Initiative",
+        "description": "Health Clinic Initiative requires Ciprofloxacin tablets for treating bacterial infections in patients. These medications are essential for combating various bacterial illnesses and improving patient outcomes. Let's support the fight against infectious diseases!",
         "tags": {
-          "Type": "Clothes",
-          "Age": "Teens",
-          "Gender": "Unisex",
-          "Season": "Winter"
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Ciprofloxacin tablets"
         },
-        "imgURL": "https://example.com/winter_coat_drive.jpg",
-        "required_amount": 90,
-        "Material": "Nylon"
-      },      
-        {
-          "title": "Fresh Fruits and Vegetables for Families in Need",
-          "subtitle": "Community Food Bank",
-          "description": "Community Food Bank is collecting donations of fresh fruits and vegetables to distribute to families in need. Access to nutritious produce is essential for maintaining good health and well-being. We are seeking donations of a variety of fresh fruits and vegetables such as apples, bananas, carrots, and spinach to provide families with wholesome and nourishing food options.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fruits and vegetables"
-          },
-          "imgURL": "https://example.com/fresh_fruits_vegetables.jpg",
-          "required_amount": 65
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "200 tablets",
+        "use": "Treatment of bacterial infections",
+        "progress": 40
+    },
+    {
+        "title": "Oxygen Concentrator",
+        "subtitle": "Respiratory Care Foundation",
+        "description": "Respiratory Care Foundation is in need of oxygen concentrators to support patients with respiratory conditions. These medical devices deliver oxygen therapy to individuals with compromised respiratory function, helping them breathe more easily. Let's ensure access to life-saving respiratory support!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "Oxygen concentrator",
+        "Medical_Equipment": "",
+        "Medication": ""
         },
-        {
-          "title": "Canned Foods Drive for Homeless Shelters",
-          "subtitle": "Shelter Support Network",
-          "description": "Shelter Support Network is hosting a canned foods drive to support homeless shelters in our community. Canned foods offer convenience and long shelf life, making them ideal for emergency food assistance programs. We are seeking donations of canned goods such as beans, soups, and canned fruits to provide nourishing meals to individuals experiencing homelessness.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Canned foods"
-          },
-          "imgURL": "https://example.com/canned_foods_drive.jpg",
-          "required_amount": 45
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "5 units",
+        "use": "Oxygen therapy for respiratory patients",
+        "progress": 50
+    },
+    {
+        "title": "Disposable Syringes",
+        "subtitle": "Healthcare Outreach Program",
+        "description": "Healthcare Outreach Program is requesting disposable syringes for administering medications and vaccines to patients. These medical supplies are essential for ensuring accurate dosing and preventing the spread of infections. Let's support safe and effective healthcare delivery!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Disposable syringes",
+        "Medication": ""
         },
-        {
-          "title": "Fresh Meals Delivery for Elderly Residents",
-          "subtitle": "Senior Care Initiative",
-          "description": "The Senior Care Initiative is coordinating fresh meals delivery for elderly residents in our community. Many seniors face challenges with meal preparation and access to nutritious food. We are seeking donations of freshly prepared meals such as soups, salads, and main dishes to ensure that seniors receive wholesome and delicious meals delivered to their doorstep.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fresh meals"
-          },
-          "imgURL": "https://example.com/fresh_meals_delivery.jpg",
-          "required_amount": 80
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "1000 units",
+        "use": "Administering medications and vaccines",
+        "progress": 60
+    },
+    {
+        "title": "Ultrasound Machine",
+        "subtitle": "Maternity Health Clinic",
+        "description": "Maternity Health Clinic urgently requires two ultrasound machines for prenatal care and diagnostics. This medical device is essential for monitoring fetal development and detecting any potential complications during pregnancy. Let's ensure the health and well-being of expectant mothers and their babies!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "Ultrasound machine",
+        "Medical_Equipment": "",
+        "Medication": ""
         },
-        {
-          "title": "Baked Goods Charity Bake Sale",
-          "subtitle": "Bakers for Charity",
-          "description": "Bakers for Charity is organizing a charity bake sale to raise funds for those in need. Baked goods offer comfort and joy, making them a popular choice for fundraising events. We are seeking donations of baked goods such as cookies, cakes, and pastries to sell at the bake sale and raise money for charitable causes in our community.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Baked goods"
-          },
-          "imgURL": "https://example.com/baked_goods_bake_sale.jpg",
-          "required_amount": 20
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "2 units",
+        "use": "Prenatal care and diagnostics",
+        "progress": 50
+    },
+    {
+        "title": "Bandages and Dressings",
+        "subtitle": "Emergency Care Initiative",
+        "description": "Emergency Care Initiative is seeking bandages and dressings for wound care and first aid. These medical supplies are essential for treating injuries and providing immediate relief to patients in emergency situations. Let's provide comfort and support to those in urgent need!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Bandages, dressings",
+        "Medication": ""
         },
-        {
-          "title": "Farmers Market Donations for Low-Income Families",
-          "subtitle": "Fresh Start Initiative",
-          "description": "The Fresh Start Initiative is collecting donations from farmers markets to support low-income families in our community. Farmers markets offer fresh, locally sourced produce that is often inaccessible to families facing financial hardship. We are seeking donations of surplus fruits, vegetables, and artisanal products from farmers markets to provide nutritious food options to those in need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fruits and vegetables"
-          },
-          "imgURL": "https://example.com/farmers_market_donations.jpg",
-          "required_amount": 95
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "300 units",
+        "use": "Wound care and first aid",
+        "progress": 80
+    },
+    {
+        "title": "Acetaminophen Tablets",
+        "subtitle": "Community Health Center",
+        "description": "Community Health Center requires acetaminophen tablets for pain relief and fever reduction in patients. These medications are essential for alleviating various types of pain and reducing fever symptoms. Let's provide comfort and relief to individuals experiencing pain and discomfort!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Acetaminophen tablets"
         },
-        {
-          "title": "Canned Food Drive for Emergency Relief",
-          "subtitle": "Disaster Response Team",
-          "description": "The Disaster Response Team is organizing a canned food drive to provide emergency relief to communities affected by natural disasters. Canned foods are non-perishable and easy to transport, making them essential for disaster response efforts. We are seeking donations of canned goods such as canned meats, vegetables, and ready-to-eat meals to support disaster-affected communities in their time of need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Canned foods"
-          },
-          "imgURL": "https://example.com/canned_food_drive_disaster_relief.jpg",
-          "required_amount": 75
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "500 tablets",
+        "use": "Pain relief and fever reduction",
+        "progress": 85
+    },
+    {
+        "title": "Wheelchairs",
+        "subtitle": "Mobility Assistance Program",
+        "description": "Mobility Assistance Program is in need of wheelchairs to provide mobility support to individuals with disabilities. These medical devices enable freedom of movement and independence for individuals with limited mobility. Let's empower individuals to navigate the world with dignity and ease!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "Wheelchairs",
+        "Medical_Equipment": "",
+        "Medication": ""
         },
-        {
-          "title": "Fresh Meals for Families in Crisis",
-          "subtitle": "Crisis Relief Organization",
-          "description": "Crisis Relief Organization is providing fresh meals to families facing crisis situations such as homelessness, domestic violence, or medical emergencies. Freshly prepared meals offer comfort and sustenance during difficult times. We are seeking donations of nutritious meals such as salads, sandwiches, and pasta dishes to support families in crisis and help them regain stability.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fresh meals"
-          },
-          "imgURL": "https://example.com/fresh_meals_families_crisis.jpg",
-          "required_amount": 35
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "10 units",
+        "use": "Mobility support for individuals with disabilities",
+        "progress": 90
+    },
+    {
+        "title": "Insulin Syringes",
+        "subtitle": "Diabetes Care Foundation",
+        "description": "Diabetes Care Foundation urgently requires insulin syringes for insulin administration in diabetic patients. These medical supplies are vital for individuals with diabetes to manage their blood sugar levels effectively. Let's support diabetes care and improve the quality of life for those living with the condition!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Insulin syringes",
+        "Medication": ""
         },
-        {
-          "title": "Community Garden Produce Sharing Program",
-          "subtitle": "Green Thumb Community",
-          "description": "Green Thumb Community is launching a produce sharing program to distribute surplus garden produce to members of the community in need. Community gardens provide a bountiful harvest of fresh fruits and vegetables that can be shared with those facing food insecurity. We are seeking donations of homegrown fruits, vegetables, and herbs to promote food sustainability and community resilience.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fruits and vegetables"
-          },
-          "imgURL": "https://example.com/community_garden_produce_sharing.jpg",
-          "required_amount": 55
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "200 units",
+        "use": "Insulin administration",
+        "progress": 95
+    },
+    {
+        "title": "Sterile Gauze Pads",
+        "subtitle": "Emergency Relief Organization",
+        "description": "Emergency Relief Organization urgently needs sterile gauze pads for wound care and dressing. These medical supplies are crucial for preventing infections and promoting healing in patients with injuries. Let's provide comfort and support to those in need!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Gauze pads",
+        "Medication": ""
         },
-        {
-          "title": "Baked Goods Donation Drive for Local Food Pantries",
-          "subtitle": "Bake for Good Campaign",
-          "description": "The Bake for Good Campaign is hosting a baked goods donation drive to support local food pantries. Baked goods provide nourishment and comfort to individuals and families facing food insecurity. We are seeking donations of homemade or store-bought baked goods such as bread, muffins, and pies to stock food pantry shelves and provide sustenance to those in need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Baked goods"
-          },
-          "imgURL": "https://example.com/baked_goods_donation_drive.jpg",
-          "required_amount": 90
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "500 units",
+        "use": "Wound care and dressing",
+        "progress": 30
+    },
+    {
+        "title": "Acetaminophen Tablets",
+        "subtitle": "Community Health Center",
+        "description": "Community Health Center requires acetaminophen tablets for pain relief and fever reduction in patients. These medications are essential for alleviating various types of pain and reducing fever symptoms. Let's provide comfort and relief to individuals experiencing pain and discomfort!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Acetaminophen tablets"
         },
-        {
-          "title": "Fruits and Vegetables Distribution Event",
-          "subtitle": "Healthy Harvest Initiative",
-          "description": "The Healthy Harvest Initiative is hosting a fruits and vegetables distribution event to promote healthy eating habits in our community. Fruits and vegetables are rich in vitamins, minerals, and antioxidants that are essential for good health. We are seeking donations of a variety of fresh produce such as apples, oranges, tomatoes, and broccoli to distribute to community members in need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fruits and vegetables"
-          },
-          "imgURL": "https://example.com/fruits_vegetables_distribution.jpg",
-          "required_amount": 70
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "500 tablets",
+        "use": "Pain relief and fever reduction",
+        "progress": 40
+    },
+    {
+        "title": "Disposable Syringes",
+        "subtitle": "Healthcare Outreach Program",
+        "description": "Healthcare Outreach Program is requesting disposable syringes for administering medications and vaccines to patients. These medical supplies are essential for ensuring accurate dosing and preventing the spread of infections. Let's support safe and effective healthcare delivery!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Disposable syringes",
+        "Medication": ""
         },
-        {
-          "title": "Canned Food Collection Drive for Students in Need",
-          "subtitle": "Campus Food Bank",
-          "description": "Campus Food Bank is organizing a canned food collection drive to support students facing food insecurity. Many students struggle to afford nutritious meals while pursuing their education. We are seeking donations of canned goods such as beans, vegetables, and pasta sauce to stock our campus food bank and provide essential food assistance to students in need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Canned foods"
-          },
-          "imgURL": "https://example.com/canned_food_collection_drive_students.jpg",
-          "required_amount": 50
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "1000 units",
+        "use": "Administering medications and vaccines",
+        "progress": 50
+    },
+    {
+        "title": "Wheelchairs",
+        "subtitle": "Mobility Assistance Program",
+        "description": "Mobility Assistance Program is in need of wheelchairs to provide mobility support to individuals with disabilities. These medical devices enable freedom of movement and independence for individuals with limited mobility. Let's empower individuals to navigate the world with dignity and ease!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "Wheelchairs",
+        "Medical_Equipment": "",
+        "Medication": ""
         },
-        {
-          "title": "Homemade Meals for Homebound Seniors",
-          "subtitle": "Senior Meal Delivery Program",
-          "description": "The Senior Meal Delivery Program is seeking donations of homemade meals for homebound seniors in our community. Many seniors face challenges with meal preparation and cooking due to mobility issues or health concerns. We are seeking donations of homemade meals such as casseroles, soups, and stews to provide nourishment and companionship to homebound seniors.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fresh meals"
-          },
-          "imgURL": "https://example.com/homemade_meals_homebound_seniors.jpg",
-          "required_amount": 10
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "10 units",
+        "use": "Mobility support for individuals with disabilities",
+        "progress": 60
+    },
+    {
+        "title": "Insulin Syringes",
+        "subtitle": "Diabetes Care Foundation",
+        "description": "Diabetes Care Foundation urgently requires insulin syringes for insulin administration in diabetic patients. These medical supplies are vital for individuals with diabetes to manage their blood sugar levels effectively. Let's support diabetes care and improve the quality of life for those living with the condition!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "Insulin syringes",
+        "Medication": ""
         },
-        {
-          "title": "Baked Goods Fundraiser for Hunger Relief",
-          "subtitle": "Bake Sale for a Cause",
-          "description": "Bake Sale for a Cause is organizing a baked goods fundraiser to support hunger relief efforts in our community. Baked goods bring joy and comfort to individuals while raising funds for charitable causes. We are seeking donations of baked goods such as cookies, cupcakes, and brownies to sell at the bake sale and raise money for organizations combating hunger.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Baked goods"
-          },
-          "imgURL": "https://example.com/baked_goods_fundraiser_hunger_relief.jpg",
-          "required_amount": 30
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "200 units",
+        "use": "Insulin administration",
+        "progress": 70
+    },
+    {
+        "title": "Ibuprofen Tablets",
+        "subtitle": "Community Health Clinic",
+        "description": "Community Health Clinic urgently requires ibuprofen tablets for pain relief and inflammation reduction in patients. These medications are essential for alleviating various types of pain, including headaches, toothaches, and muscle aches. Let's provide comfort and relief to individuals in need!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Ibuprofen tablets"
         },
-        {
-          "title": "Fresh Produce Donation Drive for Low-Income Families",
-          "subtitle": "Produce for All Initiative",
-          "description": "The Produce for All Initiative is hosting a fresh produce donation drive to support low-income families in our community. Access to fresh fruits and vegetables is essential for maintaining good health and preventing chronic diseases. We are seeking donations of fresh produce such as berries, leafy greens, and root vegetables to provide nutritious food options to families in need.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Fruits and vegetables"
-          },
-          "imgURL": "https://example.com/fresh_produce_donation_drive.jpg",
-          "required_amount": 40
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "500 tablets",
+        "use": "Pain relief and inflammation reduction",
+        "progress": 30
+    },
+    {
+        "title": "Cough Syrup",
+        "subtitle": "Healthcare Outreach Program",
+        "description": "Healthcare Outreach Program is requesting cough syrup for alleviating cough symptoms in patients. This medication is essential for providing relief from dry, irritating coughs and promoting restful sleep. Let's support respiratory health and comfort for individuals experiencing cough symptoms!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Cough syrup"
         },
-        {
-          "title": "Emergency Meal Kits for Disaster Relief",
-          "subtitle": "Disaster Response Organization",
-          "description": "The Disaster Response Organization is assembling emergency meal kits for disaster relief efforts. During emergencies such as natural disasters or humanitarian crises, access to food becomes limited. We are seeking donations of non-perishable food items such as canned goods, rice, and pasta to create emergency meal kits that can sustain individuals and families during times of crisis.",
-          "tags": {
-            "Type": "Food",
-            "Category": "Canned foods"
-          },
-          "imgURL": "https://example.com/emergency_meal_kits_disaster_relief.jpg",
-          "required_amount": 85
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "50 bottles",
+        "use": "Alleviating cough symptoms",
+        "progress": 40
+    },
+    {
+        "title": "Antihistamine Tablets",
+        "subtitle": "Allergy Relief Foundation",
+        "description": "Allergy Relief Foundation urgently requires antihistamine tablets for treating allergy symptoms in patients. These medications are essential for relieving sneezing, itching, watery eyes, and other allergy symptoms. Let's provide relief and comfort to individuals affected by allergies!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Antihistamine tablets"
         },
-          {
-            "title": "Blood Oxygen Saturation Monitors for Home Use",
-            "subtitle": "Healthcare Outreach Program",
-            "description": "The Healthcare Outreach Program is seeking donations of blood oxygen saturation monitors for home use. Monitoring blood oxygen levels is crucial for individuals with respiratory conditions such as asthma or COPD. We are seeking donations of portable pulse oximeters to help individuals track their blood oxygen saturation levels and manAge their respiratory health at home.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "blood oxygen saturation monitor",
-              "Medical_Equipment": "",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/blood_oxygen_monitors.jpg",
-            "required_amount": 57
-          },
-          {
-            "title": "Blood Pressure Monitors for Community Health Clinics",
-            "subtitle": "Community Wellness Initiative",
-            "description": "The Community Wellness Initiative is collecting donations of blood pressure monitors for community health clinics. Monitoring blood pressure is essential for preventing heart disease, stroke, and other cardiovascular conditions. We are seeking donations of automatic blood pressure monitors to provide accurate and reliable blood pressure readings for individuals accessing healthcare services in our community.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "blood pressure measurment device",
-              "Medical_Equipment": "",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/blood_pressure_monitors.jpg",
-            "required_amount": 84
-          },
-          {
-            "title": "Glucometers for Diabetes ManAgement Program",
-            "subtitle": "Diabetes Support Network",
-            "description": "The Diabetes Support Network is seeking donations of glucometers for our diabetes manAgement program. Monitoring blood glucose levels is essential for individuals with diabetes to prevent complications and maintain optimal health. We are seeking donations of glucometers and test strips to provide individuals with the tools they need to monitor their blood sugar levels regularly.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "glucometer",
-              "Medical_Equipment": "",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/glucometers_diabetes_manAgement.jpg",
-            "required_amount": 33
-          },
-          {
-            "title": "MRI Machine Donation for Local Hospital",
-            "subtitle": "Hospital Equipment Upgrade Project",
-            "description": "The Hospital Equipment Upgrade Project is seeking donations of an MRI machine for a local hospital. MRI machines play a crucial role in diagnosing and treating various medical conditions, including cancer, neurological disorders, and musculoskeletal injuries. We are seeking donations to fund the purchase of an MRI machine to improve diagnostic capabilities and patient care at our hospital.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "MRI machine",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/mri_machine_donation.jpg",
-            "required_amount": 91
-          },
-          {
-            "title": "CT Scanner Donation for Rural Health Center",
-            "subtitle": "Rural Healthcare Initiative",
-            "description": "The Rural Healthcare Initiative is seeking donations of a CT scanner for a rural health center. CT scanners are essential diagnostic tools for detecting and monitoring a wide range of medical conditions, from injuries to tumors. We are seeking donations to acquire a CT scanner to improve access to advanced medical imaging services for residents in rural communities.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "CT scanner",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/ct_scanner_donation.jpg",
-            "required_amount": 72
-          },
-          {
-            "title": "EKG Machines for Cardiac Care Unit",
-            "subtitle": "Cardiovascular Health Foundation",
-            "description": "The Cardiovascular Health Foundation is seeking donations of EKG machines for a cardiac care unit. Electrocardiogram (EKG) machines are essential for diagnosing and monitoring heart conditions such as arrhythmias and heart attacks. We are seeking donations to equip the cardiac care unit with state-of-the-art EKG machines to improve patient outcomes and save lives.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "EKG machine",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/ekg_machines_cardiac_care.jpg",
-            "required_amount": 62
-          },
-          {
-            "title": "Cough Medicine Donation Drive for Flu Season",
-            "subtitle": "Flu Prevention Campaign",
-            "description": "The Flu Prevention Campaign is hosting a cough medicine donation drive to prepare for flu Season. Cough medicine provides relief from coughing and congestion associated with the flu and other respiratory illnesses. We are seeking donations of over-the-counter cough medicines such as cough syrup, lozenges, and cough suppressants to support individuals affected by Seasonal respiratory infections.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "cough medicine"
-            },
-            "imgURL": "https://example.com/cough_medicine_donation_drive.jpg",
-            "required_amount": 45
-          },
-          {
-            "title": "Pain Killers Supply for Palliative Care Program",
-            "subtitle": "Palliative Care Hospice",
-            "description": "The Palliative Care Hospice is seeking donations of pain killers for our palliative care program. Pain manAgement is a critical aspect of palliative care for patients with terminal illnesses or chronic pain conditions. We are seeking donations of pain killers such as opioids, NSAIDs, and acetaminophen to alleviate pain and improve the quality of life for patients in our care.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "pain killers"
-            },
-            "imgURL": "https://example.com/pain_killers_supply.jpg",
-            "required_amount": 88
-          },
-          {
-            "title": "First Aid Kits Distribution for Disaster Preparedness",
-            "subtitle": "Emergency Preparedness Campaign",
-            "description": "The Emergency Preparedness Campaign is distributing first aid kits for disaster preparedness. First aid kits contain essential medical supplies for treating minor injuries and illnesses during emergencies. We are seeking donations of first aid kits containing bandAges, antiseptics, and other medical supplies to equip individuals and families for emergency situations.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "First aid kits"
-            },
-            "imgURL": "https://example.com/first_aid_kits_distribution.jpg",
-            "required_amount": 12
-          },
-          {
-            "title": "Antibiotics Supply for Remote Clinics",
-            "subtitle": "Remote Healthcare Initiative",
-            "description": "The Remote Healthcare Initiative is seeking donations of antibiotics for remote clinics serving underserved communities. Antibiotics are essential for treating bacterial infections and preventing the spread of infectious diseases in remote areas with limited access to healthcare. We are seeking donations of antibiotics such as penicillin, amoxicillin, and azithromycin to save lives and improve health outcomes in remote regions.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "Antibiotics"
-            },
-            "imgURL": "https://example.com/antibiotics_supply.jpg",
-            "required_amount": 77
-          },
-          {
-            "title": "Insulin Donation Drive for Diabetes Patients",
-            "subtitle": "Diabetes Care Foundation",
-            "description": "The Diabetes Care Foundation is hosting an insulin donation drive to support diabetes patients in need. Insulin is a life-saving Medication for individuals with diabetes, but many struggle to afford the high cost of insulin therapy. We are seeking donations of insulin vials, pens, and syringes to ensure that all diabetes patients have access to the insulin they need to manAge their condition and stay healthy.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "Insulin"
-            },
-            "imgURL": "https://example.com/insulin_donation_drive.jpg",
-            "required_amount": 27
-          },
-          {
-            "title": "Medical Gloves Supply for Healthcare Workers",
-            "subtitle": "Healthcare Heroes Support",
-            "description": "Healthcare Heroes Support is seeking donations of medical gloves for healthcare workers on the frontlines. Medical gloves are essential for protecting healthcare workers from infectious diseases and preventing the spread of pathogens in healthcare settings. We are seeking donations of disposable gloves such as latex, nitrile, or vinyl gloves to ensure the safety and well-being of healthcare professionals.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "Medical Gloves",
-              "Medical_Equipment": "",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/medical_gloves_supply.jpg",
-            "required_amount": 95
-          },
-          {
-            "title": "Pediatric Medication Drive for Children's Hospital",
-            "subtitle": "Children's Health Initiative",
-            "description": "The Children's Health Initiative is hosting a pediatric Medication drive for a children's hospital. Pediatric Medications are specially formulated to meet the unique healthcare needs of infants, children, and adolescents. We are seeking donations of pediatric Medications such as liquid antibiotics, pain relievers, and allergy Medications to provide compassionate care for pediatric patients.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "Pediatric Medication"
-            },
-            "imgURL": "https://example.com/pediatric_Medication_drive.jpg",
-            "required_amount": 19
-          },
-          {
-            "title": "Medical Masks Donation for Community Health Centers",
-            "subtitle": "Community Health Outreach",
-            "description": "Community Health Outreach is seeking donations of medical masks for community health centers. Medical masks are essential personal protective equipment for preventing the transmission of respiratory infections, including COVID-19. We are seeking donations of surgical masks, N95 respirators, or cloth masks to protect healthcare workers and patients in community healthcare settings.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "Medical Mask",
-              "Medical_Equipment": "",
-              "Medication": ""
-            },
-            "imgURL": "https://example.com/medical_masks_donation.jpg",
-            "required_amount": 38
-          },
-          {
-            "title": "Wound Care Supplies Drive for Homeless Shelters",
-            "subtitle": "Homeless Healthcare Initiative",
-            "description": "The Homeless Healthcare Initiative is hosting a wound care supplies drive for homeless shelters. Wound care supplies such as bandAges, gauze, and antiseptic solutions are essential for preventing infections and promoting healing among individuals experiencing homelessness. We are seeking donations of wound care kits to provide essential healthcare services to homeless individuals in our community.",
-            "tags": {
-              "Type": "Medical Supplies",
-              "Medical_Device": "",
-              "Medical_Equipment": "",
-              "Medication": "Wound Care Supplies"
-            },
-            "imgURL": "https://example.com/wound_care_supplies_drive.jpg",
-            "required_amount": 53
-          },
-          {
-            "title": "Storybooks for Elementary School Libraries",
-            "subtitle": "Reading for All Initiative",
-            "description": "The Reading for All Initiative is seeking donations of storybooks for elementary school libraries. Storybooks foster a love of reading and imagination in young children, laying the foundation for academic success. We are seeking donations of diverse storybooks, including picture books, chapter books, and fairy tales, to enrich the reading experiences of students in elementary schools.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/storybooks_elementary_libraries.jpg",
-            "required_amount": 17
-          },
-          {
-            "title": "Textbooks for High School Students",
-            "subtitle": "Education Empowerment Program",
-            "description": "The Education Empowerment Program is collecting donations of textbooks for high school students. Textbooks are essential resources for students to gain knowledge and achieve academic excellence in various subjects. We are seeking donations of high school textbooks covering subjects such as mathematics, science, history, and literature to support students in their studies.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/textbooks_high_school_students.jpg",
-            "required_amount": 81
-          },
-          {
-            "title": "Educational Workbooks for Homeschooling Families",
-            "subtitle": "Homeschool Support Network",
-            "description": "The Homeschool Support Network is seeking donations of educational workbooks for homeschooling families. Workbooks provide structured learning activities and practice exercises for students to reinforce concepts and skills. We are seeking donations of educational workbooks covering various subjects and grade levels to support homeschooling families in their educational journey.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/educational_workbooks_homeschooling.jpg",
-            "required_amount": 68
-          },
-          {
-            "title": "Stationery Kits for Middle School Students",
-            "subtitle": "Student Success Initiative",
-            "description": "The Student Success Initiative is providing stationery kits for middle school students to support their academic endeavors. Stationery kits include essential supplies such as pens, pencils, notebooks, and erasers for students to use in their classes and homework assignments. We are seeking donations of stationery kits to ensure that all students have access to the tools they need for learning.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/stationery_kits_middle_school.jpg",
-            "required_amount": 44
-          },
-          {
-            "title": "Art Supplies for Creative Expression",
-            "subtitle": "Art Education Program",
-            "description": "The Art Education Program is seeking donations of art supplies to inspire creative expression in students. Art supplies such as paints, brushes, and sketchbooks enable students to explore their artistic talents and develop essential skills in visual arts. We are seeking donations of art supplies to provide enriching art experiences for students in schools and community centers.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/art_supplies_creative_expression.jpg",
-            "required_amount": 72
-          },
-          {
-            "title": "STEM Kits for Hands-On Learning",
-            "subtitle": "STEM Education Initiative",
-            "description": "The STEM Education Initiative is collecting donations of STEM kits for hands-on learning experiences. STEM kits contain Materials and equipment for conducting experiments and building projects in science, technology, engineering, and mathematics. We are seeking donations of STEM kits to engAge students in interactive and inquiry-based learning activities that foster curiosity and critical thinking skills.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/stem_kits_hands_on_learning.jpg",
-            "required_amount": 9
-          },
-          {
-            "title": "Educational Board Games for Classroom Use",
-            "subtitle": "Learning Through Play Program",
-            "description": "The Learning Through Play Program is seeking donations of educational board games for classroom use. Board games offer opportunities for cooperative learning, problem-solving, and social skill development in a fun and interactive way. We are seeking donations of educational board games covering various subjects and concepts to enhance learning experiences for students in classrooms.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/educational_board_games_classroom.jpg",
-            "required_amount": 61
-          },
-          {
-            "title": "Multicultural Literature for Diversity Education",
-            "subtitle": "Cultural Awareness Initiative",
-            "description": "The Cultural Awareness Initiative is seeking donations of multicultural literature for diversity education. Multicultural literature reflects the diverse experiences and perspectives of people from different cultures, ethnicities, and backgrounds. We are seeking donations of multicultural books, novels, and poetry collections to promote empathy, understanding, and cultural appreciation among students.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/multicultural_literature_diversity_education.jpg",
-            "required_amount": 41
-          },
-          {
-            "title": "Educational Flashcards for Vocabulary Building",
-            "subtitle": "LanguAge Learning Project",
-            "description": "The LanguAge Learning Project is collecting donations of educational flashcards for vocabulary building. Flashcards are effective tools for languAge learning and vocabulary retention, providing visual cues and context for word meanings. We are seeking donations of flashcards covering various languAges and proficiency levels to support languAge learners in expanding their vocabulary.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/educational_flashcards_vocabulary_building.jpg",
-            "required_amount": 56
-          },
-          {
-            "title": "Literacy Kits for Early Childhood Development",
-            "subtitle": "Early Literacy Initiative",
-            "description": "The Early Literacy Initiative is providing literacy kits for early childhood development. Literacy kits include books, activities, and resources designed to promote languAge development, early literacy skills, and a love of reading in young children. We are seeking donations of literacy kits to support parents, caregivers, and educators in fostering literacy-rich environments for young learners.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/literacy_kits_early_childhood.jpg",
-            "required_amount": 23
-          },
-          {
-            "title": "Calculator Donation Drive for Math Students",
-            "subtitle": "Mathematics Mastery Program",
-            "description": "The Mathematics Mastery Program is hosting a calculator donation drive for math students. Calculators are essential tools for solving mathematical problems and exploring mathematical concepts in classrooms. We are seeking donations of scientific calculators, graphing calculators, and basic calculators to ensure that all students have access to the calculators they need for math education.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/calculator_donation_drive_math_students.jpg",
-            "required_amount": 36
-          },
-          {
-            "title": "Writing Journals for Creative Writing Workshops",
-            "subtitle": "Creative Writing Program",
-            "description": "The Creative Writing Program is seeking donations of writing journals for creative writing workshops. Writing journals provide students with a dedicated space to explore their thoughts, ideas, and imagination through writing. We are seeking donations of writing journals to inspire creativity and self-expression in students participating in creative writing programs and workshops.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Stationery"
-            },
-            "imgURL": "https://example.com/writing_journals_creative_writing.jpg",
-            "required_amount": 14
-          },
-          {
-            "title": "Geography Maps for Social Studies Classrooms",
-            "subtitle": "Global Awareness Project",
-            "description": "The Global Awareness Project is seeking donations of geography maps for social studies classrooms. Geography maps are valuable resources for teaching students about the world's continents, countries, regions, and physical features. We are seeking donations of world maps, country maps, and thematic maps to enhance geographic literacy and global awareness among students.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/geography_maps_social_studies.jpg",
-            "required_amount": 97
-          },
-          {
-            "title": "Educational DVDs for Visual Learning",
-            "subtitle": "Visual Learning Initiative",
-            "description": "The Visual Learning Initiative is collecting donations of educational DVDs for visual learning experiences. Educational DVDs offer multimedia content and engaging visuals to supplement classroom instruction and reinforce academic concepts. We are seeking donations of educational DVDs covering various subjects and topics to support visual learners in their educational journey.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/educational_dvds_visual_learning.jpg",
-            "required_amount": 88
-          },
-          {
-            "title": "STEM Books for Science and Engineering Enthusiasts",
-            "subtitle": "STEM Education Foundation",
-            "description": "The STEM Education Foundation is seeking donations of STEM books for science and engineering enthusiasts. STEM books provide valuable resources for learning about science, technology, engineering, and mathematics concepts, principles, and applications. We are seeking donations of STEM books for readers of all Ages to inspire curiosity, innovation, and exploration in STEM fields.",
-            "tags": {
-              "Type": "School Supplies",
-              "Category": "Books"
-            },
-            "imgURL": "https://example.com/stem_books_science_engineering.jpg",
-            "required_amount": 29
-          },
-            {
-              "title": "Blood Donation Drive at Cleopatra Hospital",
-              "subtitle": "Cleopatra Hospital",
-              "description": "Cleopatra Hospital is hosting a blood donation drive to support patients in need of blood transfusions. Blood donations are critical for treating patients with various medical conditions, including trauma, surgeries, and chronic illnesses. We encourAge community members in Cairo to donate blood and save lives at Cleopatra Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Cleopatra Hospital",
-                "Governorate": "Cairo",
-                "Area": "Masr el Gedida"
-              },
-              "imgURL": "https://example.com/blood_donation_drive_cleopatra_hospital.jpg",
-              "required_amount": 86,
-              "hospital_address": "123 Cleopatra Street, Masr el Gedida, Cairo"
-            },
-            {
-              "title": "Emergency Blood Drive at As-Salam International Hospital",
-              "subtitle": "As-Salam International Hospital",
-              "description": "As-Salam International Hospital is organizing an emergency blood drive to address critical shortAges in blood supply. Blood donations are urgently needed to support patients undergoing surgeries, cancer treatments, and medical emergencies. We urge residents in Cairo to donate blood and help save lives at As-Salam International Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Cleopatra Hospital",
-                "Governorate": "Cairo",
-                "Area": "Maadi"
-              },
-              "imgURL": "https://example.com/emergency_blood_drive_as_salam_hospital.jpg",
-              "required_amount": 52,
-              "hospital_address": "456 Salah Salem Street, Maadi, Cairo"
-            },
-            {
-              "title": "Community Blood Donation Event at El-Gouna Hospital",
-              "subtitle": "El-Gouna Hospital",
-              "description": "El-Gouna Hospital is hosting a community blood donation event to replenish its blood bank supplies. Blood donations are essential for providing life-saving treatments to patients with blood disorders, anemia, and leukemia. We invite residents in Hurghada to participate in the blood donation event at El-Gouna Hospital and make a difference in the lives of patients.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "El-Gouna Hospital",
-                "Governorate": "Red Sea",
-                "Area": "Hurghada"
-              },
-              "imgURL": "https://example.com/community_blood_donation_el_gouna_hospital.jpg",
-              "required_amount": 15,
-              "hospital_address": "789 El-Gouna Avenue, Hurghada, Red Sea"
-            },
-            {
-              "title": "Blood Donation Campaign at Luxor International Hospital",
-              "subtitle": "Luxor International Hospital",
-              "description": "Luxor International Hospital is launching a blood donation campaign to support patients in need of blood transfusions. Blood donations play a vital role in saving lives and improving health outcomes for patients undergoing medical treatments and surgeries. We encourAge residents in Luxor to donate blood and contribute to the success of the blood donation campaign at Luxor International Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Luxor International Hospital",
-                "Governorate": "Luxor",
-                "Area": "Luxor City"
-              },
-              "imgURL": "https://example.com/blood_donation_campaign_luxor_hospital.jpg",
-              "required_amount": 71,
-              "hospital_address": "101 Nile Avenue, Luxor City, Luxor"
-            },
-            {
-              "title": "Mobile Blood Donation Unit in Alexandria",
-              "subtitle": "Mobile Blood Donation Unit",
-              "description": "The Mobile Blood Donation Unit is visiting various locations in Alexandria to collect blood donations from volunteer donors. Blood donations are urgently needed to support patients in hospitals across Alexandria and meet the demand for blood transfusions. We encourAge residents in Alexandria to locate the Mobile Blood Donation Unit and donate blood to save lives.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Mobile Blood Donation Unit",
-                "Governorate": "Alexandria",
-                "Area": "Bolkly"
-              },
-              "imgURL": "https://example.com/mobile_blood_donation_unit_alexandria.jpg",
-              "required_amount": 92,
-              "hospital_address": "456 Corniche Road, Bolkly, Alexandria"
-            },
-            {
-              "title": "Blood Donation Marathon at Ain Shams University Hospital",
-              "subtitle": "Ain Shams University Hospital",
-              "description": "Ain Shams University Hospital is organizing a blood donation marathon to address shortAges in blood supply and support patients in need of transfusions. Blood donations are essential for treating patients with thalassemia, hemophilia, and other blood disorders. We urge students, faculty, and staff at Ain Shams University to participate in the blood donation marathon and save lives.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Ain Shams University Hospital",
-                "Governorate": "Cairo",
-                "Area": "Al Zaytoun"
-              },
-              "imgURL": "https://example.com/blood_donation_marathon_ain_shams_hospital.jpg",
-              "required_amount": 38,
-              "hospital_address": "789 Abbasia Square, Al Zaytoun, Cairo"
-            },
-            {
-              "title": "Blood Drive for Children's Hospital in Giza",
-              "subtitle": "Children's Hospital",
-              "description": "Children's Hospital in Giza is hosting a blood drive to support pediatric patients in need of blood transfusions. Blood donations are crucial for treating children with leukemia, sickle cell disease, and other hematologic disorders. We encourAge residents in Giza to donate blood and make a difference in the lives of children at Children's Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Children's Hospital",
-                "Governorate": "Giza",
-                "Area": "Al Haram"
-              },
-              "imgURL": "https://example.com/blood_drive_children_hospital_giza.jpg",
-              "required_amount": 6,
-              "hospital_address": "123 ABC Street, Al Haram, Giza"
-            },
-            {
-              "title": "Blood Donation Rally at Dar Al Fouad Hospital",
-              "subtitle": "Dar Al Fouad Hospital",
-              "description": "Dar Al Fouad Hospital is organizing a blood donation rally to raise awareness about the importance of blood donation and encourAge community members to donate blood. Blood donations are vital for supporting patients undergoing surgeries, organ transplants, and cancer treatments. We invite residents in Cairo to join the blood donation rally at Dar Al Fouad Hospital and save lives.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Cleopatra Hospital",
-                "Governorate": "Cairo",
-                "Area": "6th of October City"
-              },
-              "imgURL": "https://example.com/blood_donation_rally_dar_al_fouad_hospital.jpg",
-              "required_amount": 79,
-              "hospital_address": "456 XYZ Street, 6th of October City, Cairo"
-            },
-            {
-              "title": "Community Blood Donation Campaign in Sharkia",
-              "subtitle": "Sharkia General Hospital",
-              "description": "Sharkia General Hospital is launching a community blood donation campaign to address shortAges in blood supply and meet the needs of patients in the region. Blood donations are critical for treating patients with anemia, bleeding disorders, and surgical complications. We encourAge residents in Sharkia to participate in the blood donation campaign and support their local hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Sharkia General Hospital",
-                "Governorate": "Sharkia",
-                "Area": "Zagazig"
-              },
-              "imgURL": "https://example.com/community_blood_donation_sharkia_hospital.jpg",
-              "required_amount": 31,
-              "hospital_address": "789 Nile Street, Zagazig, Sharkia"
-            },
-            {
-              "title": "Emergency Blood Donation Drive at Maadi Military Hospital",
-              "subtitle": "Maadi Military Hospital",
-              "description": "Maadi Military Hospital is conducting an emergency blood donation drive to address shortAges in blood supply and ensure the availability of blood for military personnel and their families. Blood donations are crucial for treating combat injuries, emergencies, and medical conditions among military personnel. We urge residents in Cairo to donate blood and support our military heroes at Maadi Military Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Maadi Military Hospital",
-                "Governorate": "Cairo",
-                "Area": "Maadi"
-              },
-              "imgURL": "https://example.com/emergency_blood_donation_maadi_military_hospital.jpg",
-              "required_amount": 44,
-              "hospital_address": "101 Salah Salem Street, Maadi, Cairo"
-            },
-            {
-              "title": "Blood Donation Event for Cancer Patients in Mansoura",
-              "subtitle": "Mansoura Oncology Center",
-              "description": "Mansoura Oncology Center is hosting a blood donation event to support cancer patients undergoing chemotherapy, radiation therapy, and bone marrow transplants. Blood donations are essential for managing side effects, complications, and treatment-related anemia in cancer patients. We encourAge residents in Mansoura to donate blood and provide hope and healing to cancer patients at Mansoura Oncology Center.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Mansoura Oncology Center",
-                "Governorate": "Dakahlia",
-                "Area": "Mansoura"
-              },
-              "imgURL": "https://example.com/blood_donation_event_mansoura_oncology_center.jpg",
-              "required_amount": 58,
-              "hospital_address": "123 Nile Street, Mansoura, Dakahlia"
-            },
-            {
-              "title": "Blood Donation Marathon at Tanta University Hospital",
-              "subtitle": "Tanta University Hospital",
-              "description": "Tanta University Hospital is organizing a blood donation marathon to address shortAges in blood supply and support patients in need of blood transfusions. Blood donations are crucial for treating patients with thalassemia, leukemia, and other hematologic disorders. We urge students, faculty, and staff at Tanta University to participate in the blood donation marathon and save lives.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Tanta University Hospital",
-                "Governorate": "Gharbia",
-                "Area": "Tanta"
-              },
-              "imgURL": "https://example.com/blood_donation_marathon_tanta_university_hospital.jpg",
-              "required_amount": 10,
-              "hospital_address": "456 University Street, Tanta, Gharbia"
-            },
-            {
-              "title": "Mobile Blood Donation Unit in Port Said",
-              "subtitle": "Mobile Blood Donation Unit",
-              "description": "The Mobile Blood Donation Unit is visiting various locations in Port Said to collect blood donations from volunteer donors. Blood donations are urgently needed to support patients in hospitals across Port Said and meet the demand for blood transfusions. We encourAge residents in Port Said to locate the Mobile Blood Donation Unit and donate blood to save lives.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Mobile Blood Donation Unit",
-                "Governorate": "Port Said",
-                "Area": "Port Fouad"
-              },
-              "imgURL": "https://example.com/mobile_blood_donation_unit_port_said.jpg",
-              "required_amount": 93,
-              "hospital_address": "101 Corniche Road, Port Fouad, Port Said"
-            },
-            {
-              "title": "Blood Drive for Hematology Patients at Banha Teaching Hospital",
-              "subtitle": "Banha Teaching Hospital",
-              "description": "Banha Teaching Hospital is hosting a blood drive to support hematology patients in need of blood transfusions. Blood donations are essential for managing complications, preventing crises, and improving quality of life for patients with blood disorders. We encourAge residents in Banha to donate blood and make a positive impact on the lives of hematology patients at Banha Teaching Hospital.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Banha Teaching Hospital",
-                "Governorate": "Qalyubia",
-                "Area": "Banha"
-              },
-              "imgURL": "https://example.com/blood_drive_hematology_patients_banha_hospital.jpg",
-              "required_amount": 24,
-              "hospital_address": "789 University Street, Banha, Qalyubia"
-            },
-            {
-              "title": "Emergency Blood Donation Rally at Beni Suef General Hospital",
-              "subtitle": "Beni Suef General Hospital",
-              "description": "Beni Suef General Hospital is organizing an emergency blood donation rally to address critical shortAges in blood supply and save lives. Blood donations are urgently needed to support patients with severe injuries, medical emergencies, and surgical procedures. We urge residents in Beni Suef to join the blood donation rally and contribute to the health and well-being of their community.",
-              "tags": {
-                "Type": "Blood donations",
-                "Hospital": "Beni Suef General Hospital",
-                "Governorate": "Beni Suef",
-                "Area": "Beni Suef"
-              },
-              "imgURL": "https://example.com/emergency_blood_donation_beni_suef_hospital.jpg",
-              "required_amount": 82,
-              "hospital_address": "123 Hospital Street, Beni Suef, Beni Suef"
-            }     
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "200 tablets",
+        "use": "Treating allergy symptoms",
+        "progress": 50
+    },
+    {
+        "title": "Antacid Tablets",
+        "subtitle": "Digestive Health Center",
+        "description": "Digestive Health Center requires antacid tablets for relieving heartburn and indigestion in patients. These medications are essential for neutralizing stomach acid and providing relief from discomfort caused by digestive issues. Let's support digestive health and well-being for individuals experiencing GI discomfort!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Antacid tablets"
+        },
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "100 tablets",
+        "use": "Relieving heartburn and indigestion",
+        "progress": 60
+    },
+    {
+        "title": "Aspirin Tablets",
+        "subtitle": "Cardiovascular Care Foundation",
+        "description": "Cardiovascular Care Foundation urgently requires aspirin tablets for preventing blood clots and reducing the risk of heart attacks and strokes in patients. These medications are essential for cardiovascular health and reducing the incidence of cardiovascular events. Let's support heart health and save lives!",
+        "tags": {
+        "Category": "Medical Supplies",
+        "Medical_Device": "",
+        "Medical_Equipment": "",
+        "Medication": "Aspirin tablets"
+        },
+        "imgURL": "https://example.com/medical-supplies.jpg",
+        "required_amount": "300 tablets",
+        "use": "Preventing blood clots and reducing cardiovascular risk",
+        "progress": 70
+    },
+
+    // Blood drives ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Urgent Blood Donation Needed",
+        "subtitle": "General Hospital",
+        "description": "General Hospital urgently requires blood donations to support patients in critical condition. Your donation can save lives and make a significant difference for individuals in need of blood transfusions. Let's come together to help those in our community!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "General Hospital",
+        "Governorate": "Cairo",
+        "Area": "Nasr City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "10 units",
+        "hospital_address": "123 Main Street, Nasr City, Cairo",
+        "patient_name": "Ahmed Ali",
+        "blood_type": "O+",
+        "progress": 80
+    },
+    {
+        "title": "Emergency Blood Drive",
+        "subtitle": "City Hospital",
+        "description": "City Hospital is hosting an emergency blood drive to address a shortage of blood supplies. Your generous donation can help replenish our blood bank and ensure that patients receive the life-saving transfusions they urgently need. Join us in making a difference!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "City Hospital",
+        "Governorate": "Alexandria",
+        "Area": "Al Azarita"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "15 units",
+        "hospital_address": "456 Elm Street, Al Azarita, Alexandria",
+        "patient_name": "Fatma Hassan",
+        "blood_type": "A+",
+        "progress": 20
+    },
+    {
+        "title": "Community Blood Donation Event",
+        "subtitle": "Central Blood Bank",
+        "description": "Central Blood Bank is organizing a community blood donation event to support patients in need of transfusions. Your blood donation can help save lives and provide hope to individuals facing medical emergencies. Join us in giving the gift of life!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Central Blood Bank",
+        "Governorate": "Giza",
+        "Area": "Dokki"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "20 units",
+        "hospital_address": "789 Oak Avenue, Dokki, Giza",
+        "patient_name": "Mariam Ahmed",
+        "blood_type": "B-",
+        "progress": 25
+    },
+    {
+        "title": "Blood Donors Needed",
+        "subtitle": "Regional Medical Center",
+        "description": "Regional Medical Center urgently needs blood donors to meet the demand for blood transfusions. Your donation can provide hope and healing to patients undergoing surgery, cancer treatment, and other medical procedures. Let's unite to save lives!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Regional Medical Center",
+        "Governorate": "Qalyubia",
+        "Area": "Banha"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "12 units",
+        "hospital_address": "101 Pine Avenue, Banha, Qalyubia",
+        "patient_name": "Hassan Mahmoud",
+        "blood_type": "AB-",
+        "progress": 90
+    },
+    {
+        "title": "Blood Drive for Pediatric Patients",
+        "subtitle": "Children's Hospital",
+        "description": "Children's Hospital is organizing a blood drive to support pediatric patients in need of transfusions. Your donation can provide hope and healing to children battling serious illnesses and medical conditions. Join us in making a difference in the lives of young patients!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Children's Hospital",
+        "Governorate": "Sharqia",
+        "Area": "Zagazig"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "8 units",
+        "hospital_address": "202 Maple Street, Zagazig, Sharqia",
+        "patient_name": "Sara Ahmed",
+        "blood_type": "A-",
+        "progress": 80
+    },
+    {
+        "title": "Emergency Blood Appeal",
+        "subtitle": "City Medical Center",
+        "description": "City Medical Center issues an urgent appeal for blood donations to save lives. Your generous contribution can make a significant difference in providing vital transfusions to patients in critical condition. Join us in this lifesaving effort!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "City Medical Center",
+        "Governorate": "Luxor",
+        "Area": "Luxor City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "15 units",
+        "hospital_address": "321 Cedar Street, Luxor City, Luxor",
+        "patient_name": "Amira Mohamed",
+        "blood_type": "B+",
+        "progress": 5
+    },
+    {
+        "title": "Community Blood Drive",
+        "subtitle": "Regional Blood Bank",
+        "description": "Regional Blood Bank hosts a community blood drive to address a critical shortage of blood supplies. Your donation can provide hope and healing to patients in need of transfusions. Join us in saving lives and making a positive impact!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Regional Blood Bank",
+        "Governorate": "Assiut",
+        "Area": "Assiut City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "20 units",
+        "hospital_address": "456 Maple Avenue, Assiut City, Assiut",
+        "patient_name": "Khaled Hassan",
+        "blood_type": "O-",
+        "progress": 85
+    },
+    {
+        "title": "Blood Donor Recruitment Drive",
+        "subtitle": "National Blood Center",
+        "description": "National Blood Center launches a recruitment drive to encourage blood donors to come forward and save lives. Your donation can ensure a steady supply of blood for patients undergoing medical treatment and surgery. Join us in this lifesaving mission!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "National Blood Center",
+        "Governorate": "Suez",
+        "Area": "Suez City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "30 units",
+        "hospital_address": "789 Elm Street, Suez City, Suez",
+        "patient_name": "Fatma Ali",
+        "blood_type": "A-",
+        "progress": 60
+    },
+    {
+        "title": "Blood Donation Campaign",
+        "subtitle": "Community Health Clinic",
+        "description": "Community Health Clinic launches a blood donation campaign to replenish its blood bank and support patients in need of transfusions. Your donation can make a lifesaving difference and provide hope to individuals battling illness and injury. Join us in giving the gift of life!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Community Health Clinic",
+        "Governorate": "Aswan",
+        "Area": "Aswan City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "25 units",
+        "hospital_address": "101 Oak Street, Aswan City, Aswan",
+        "patient_name": "Mohamed Ali",
+        "blood_type": "AB+",
+        "progress": 80
+    },
+    {
+        "title": "Blood Drive for Cancer Patients",
+        "subtitle": "Oncology Center",
+        "description": "Oncology Center organizes a blood drive to support cancer patients undergoing treatment. Your donation can provide vital transfusions and support to individuals fighting cancer. Join us in this compassionate effort to make a difference in the lives of cancer patients!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Oncology Center",
+        "Governorate": "Port Said",
+        "Area": "Port Said City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "10 units",
+        "hospital_address": "202 Cedar Avenue, Port Said City, Port Said",
+        "patient_name": "Nadia Mahmoud",
+        "blood_type": "O-",
+        "progress": 65
+    },
+    {
+        "title": "Urgent Blood Drive",
+        "subtitle": "Community Medical Center",
+        "description": "Community Medical Center is organizing an urgent blood drive to address a critical shortage of blood supplies. Your donation can save lives and provide hope to patients in need of transfusions. Join us in this lifesaving effort!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Community Medical Center",
+        "Governorate": "Beni Suef",
+        "Area": "Beni Suef City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "20 units",
+        "hospital_address": "123 Pine Street, Beni Suef City, Beni Suef",
+        "patient_name": "Fatma Hassan",
+        "blood_type": "A+",
+        "progress": 90
+    },
+    {
+        "title": "Blood Donation Rally",
+        "subtitle": "Regional Hospital",
+        "description": "Regional Hospital is hosting a blood donation rally to rally the community in support of patients in need of blood transfusions. Your donation can make a significant impact and save lives. Join us in this compassionate endeavor!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Regional Hospital",
+        "Governorate": "Red Sea",
+        "Area": "Hurghada"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "25 units",
+        "hospital_address": "456 Elm Street, Hurghada, Red Sea",
+        "patient_name": "Ahmed Mahmoud",
+        "blood_type": "B-",
+        "progress": 40
+    },
+    {
+        "title": "Emergency Blood Appeal",
+        "subtitle": "District Medical Center",
+        "description": "District Medical Center issues an emergency blood appeal to meet the urgent need for blood transfusions. Your generous donation can help save lives and provide hope to patients facing medical emergencies. Join us in this critical effort!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "District Medical Center",
+        "Governorate": "Faiyum",
+        "Area": "Faiyum City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "15 units",
+        "hospital_address": "789 Oak Avenue, Faiyum City, Faiyum",
+        "patient_name": "Nour Hassan",
+        "blood_type": "O-",
+        "progress": 20
+    },
+    {
+        "title": "Blood Donor Recruitment Campaign",
+        "subtitle": "National Blood Bank",
+        "description": "National Blood Bank launches a recruitment campaign to encourage blood donors to come forward and save lives. Your donation can ensure a steady supply of blood for patients in need of transfusions. Join us in this lifesaving mission!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "National Blood Bank",
+        "Governorate": "Matrouh",
+        "Area": "Marsa Matrouh"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "30 units",
+        "hospital_address": "101 Cedar Street, Marsa Matrouh, Matrouh",
+        "patient_name": "Youssef Ali",
+        "blood_type": "AB+",
+        "progress": 25
+    },
+    {
+        "title": "Community Blood Donation Event",
+        "subtitle": "Healthcare Center",
+        "description": "Healthcare Center is organizing a community blood donation event to support patients in need of blood transfusions. Your donation can make a lifesaving difference and provide hope to individuals facing medical emergencies. Join us in giving the gift of life!",
+        "tags": {
+        "Category": "Blood Donations",
+        "Hospital": "Healthcare Center",
+        "Governorate": "Minya",
+        "Area": "Minya City"
+        },
+        "imgURL": "https://example.com/blood-drive.jpg",
+        "required_amount": "35 units",
+        "hospital_address": "202 Pine Avenue, Minya City, Minya",
+        "patient_name": "Mariam Ahmed",
+        "blood_type": "A-",
+        "progress": 75
+    }      
 ];
 
 export default donationsData;

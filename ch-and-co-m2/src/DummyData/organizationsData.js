@@ -7,7 +7,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Giza",
 			Area: "6th of October",
-			Type: "Hospital",
+			Category: "Hospital",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/DarAlFouadHospital.png`,
 		email: "DAFHospital@gmail.com",
@@ -21,7 +21,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "Nasr City",
-			Type: "Hospital",
+			Category: "Hospital",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/CleopatraHospital.jpeg`,
 		email: "CleoptraHospital@gmail.com",
@@ -35,7 +35,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "New Cairo",
-			Type: "School",
+			Category: "School",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/EliteSchool.jpeg`,
 		email: "EliteSchool@gmail.com",
@@ -49,7 +49,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Giza",
 			Area: "Mohandessin",
-			Type: "Hospital",
+			Category: "Hospital",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/SaudiGermanHospital.jpeg`,
 		email: "SauGerHospital@gmail.com",
@@ -63,7 +63,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "Maadi",
-			Type: "Non-profit",
+			Category: "Non-profit",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/Resala.png`,
 		email: "Resla@gmail.com",
@@ -77,7 +77,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "Zamalek",
-			Type: "Orphanage",
+			Category: "Orphanage",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/AwladyOrphanage.png`,
 		email: "AwladyOrphanage@gmail.com",
@@ -91,7 +91,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "Heliopolis",
-			Type: "Church",
+			Category: "Church",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/MichaelChurch.png`,
 		email: "Archangelmike@gmail.com",
@@ -105,7 +105,7 @@ const organizationsData = [
 		tags: {
 			Governorate: "Cairo",
 			Area: "Islamic Cairo",
-			Type: "Mosque",
+			Category: "Mosque",
 		},
 		imgURL: `${process.env.PUBLIC_URL}/organizationImages/AlAzhar.jpeg`,
 		email: "AlAzharMosque@gmail.com",
