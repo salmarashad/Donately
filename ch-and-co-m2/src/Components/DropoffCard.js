@@ -10,7 +10,7 @@ function DropoffCard(props){
     return(
         <div className=' m-3'>
             {(isSet==="true")?
-                <div className=" grid min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">
+                <div className=" grid min-w-72 bg-white w-96 h-full shadow-md rounded-md overflow-hidden p-6">
                     <div>{title}</div>
                     <hr className=" border-t-2 w-56 border-farahorange-400 my-1" />
                     <div className="text-xs pt-2">Quantity: {quantity}</div>
@@ -18,7 +18,7 @@ function DropoffCard(props){
                 </div>
             :
                 
-                <div className=" min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">
+                <div className=" min-w-72 bg-white w-96 h-full shadow-md rounded-md overflow-hidden p-6">
                     <div>{title}</div>
                     <hr className=" border-t-2 w-56 border-farahorange-400 my-1" />
                     <div className="text-xs pt-2">Quantity: {quantity}</div>
