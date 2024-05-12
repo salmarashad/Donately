@@ -31,7 +31,7 @@ function PostForm(props) {
 		Age: dataTags.Category === "Clothes" ? dataTags.Age : "",
 		Gender: dataTags.Category === "Clothes" ? dataTags.Gender : "",
 		Season: dataTags.Category === "Clothes" ? dataTags.Season : "",
-		type: dataTags.Category === "Clothes" ? data.type : "",
+		type: dataTags.Category === "Clothes" ? data.item_type : "",
 		material: dataTags.Category === "Clothes" ? data.material : "",
 	});
 
@@ -1058,7 +1058,6 @@ function PostForm(props) {
 							</div>
 						</div>
 					)}
-
 					{formData.isVolunteering === "doctor" && (
 						<div>
 							<hr className="border-t-2 my-4" />
