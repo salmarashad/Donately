@@ -8,7 +8,7 @@ function DropoffCard(props){
 
 
     return(
-        <div>
+        <div className=' m-3'>
             {(isSet==="true")?
                 <div className=" grid min-w-72 bg-white w-96 shadow-md rounded-md overflow-hidden p-6">
                     <div>{title}</div>
@@ -22,7 +22,8 @@ function DropoffCard(props){
                     <div>{title}</div>
                     <hr className=" border-t-2 w-56" />
                     <div className="text-xs pt-2">Quantity: {quantity}</div>
-                    <button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 px-3 py-1 mt-4 rounded-xl self-center"
+                    <button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 px-3 py-1 mt-4 rounded-xl
+                                        hover:border-farahgreen-700  hover:text-farahgreen-700 hover:bg-farahgray-50"
                         onClick={() => setIsDetailedView(true)}>
                         Choose dropoff time {">"}
                     </button>
