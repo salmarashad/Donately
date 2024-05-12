@@ -97,20 +97,22 @@ function DonationCard({ currentCardSet, setCurrentCardSet, ...props }) {
 				</div>
 
 				{/*Text*/}
-				<div className="w-2/3">
+				<div className="w-2/3 flex flex-col justify-between">
 					<div>
-						<div className="flex justify-between items-start">
-							<h2 className="text-xl font-semibold">{props.title}</h2>
-							{/* Delete Button */}
-							{props.type !== "donor" && (
-								<DeleteButton function={handleDelete} group={"card"} />
-							)}
+						<div>
+							<div className="flex justify-between items-start">
+								<h2 className="text-xl font-semibold">{props.title}</h2>
+								{/* Delete Button */}
+								{props.type !== "donor" && (
+									<DeleteButton function={handleDelete} group={"card"} />
+								)}
+							</div>
+							<h2 className="text-l font-semibold text-farahgray-500 mb-2">
+								{props.subtitle}
+							</h2>
 						</div>
-						<h2 className="text-l font-semibold text-farahgray-500 mb-2">
-							{props.subtitle}
-						</h2>
+						<p className="text-sm text-farahgray-700">{props.description}</p>
 					</div>
-					<p className="text-sm text-farahgray-700">{props.description}</p>
 
 					<div className="flex flex-col md:flex-row justify-between items-center mt-4 h-auto">
 						{/*Tags*/}
