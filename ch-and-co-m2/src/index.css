@@ -36,6 +36,6 @@ code {
     @apply text-sm italic border-2 bg-farahorange-500 border-farahorange-600 text-white px-4 py-1 rounded-xl font-semibold whitespace-nowrap hover:bg-farahorange-600 hover:text-farahgray-50;
   }
   .button2 {
-    @apply text-sm italic border-2 border-farahorange-500 text-farahorange-500 px-4 py-1 rounded-xl font-semibold mt-4 hover:bg-farahgray-50 hover:border-farahorange-600 hover:text-farahorange-600;
+    @apply text-sm italic border-2 border-farahorange-500 text-farahorange-500 px-4 py-1 rounded-xl font-semibold mt-4 hover:bg-farahorange-50 hover:border-farahorange-600 hover:text-farahorange-600;
   }
 }
