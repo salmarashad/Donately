@@ -91,6 +91,17 @@ function Filter({data, setCurrentCardSet }) {
         setCurrentCardSet(filteredData);
     }
 
+    const handleIsFulfilledChange = (value, param) => {
+        for (const category of categoriesArray) {
+            setAppliedFilters(prevFilters => ({
+                ...prevFilters,
+                [category.category]: {
+                    ...prevFilters[category.category],
+                    [param]: value
+                }
+            }));
+        }
+    }
     function renderCategories(categories, checkedCategories) {
         return (
             <div className="bg-farahgreen-100 p-3 rounded-md flex flex-col gap-2 w-64 shadow-md mr-1">
@@ -100,6 +111,7 @@ function Filter({data, setCurrentCardSet }) {
                                 type="checkbox"
                                 id="isFulfilledCheckbox"      
                                 className="mr-2 accent-farahgray-700"
+                                onClick={(e) => handleIsFulfilledChange(e.target.checked ? "true":"false", "isFulfilled")}
                             />
                             <label htmlFor="isFulfilledCheckbox" className="font-medium">Is Fulfilled</label>
                         </div>
