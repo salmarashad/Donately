@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DetailedContext, DataContext } from "../App";
+import { DetailedContext, DataContext, UserTypeContext } from "../App";
 import { ReactComponent as CloseSVG } from "../SVGs/close.svg";
 import { useState, useEffect } from "react";
 import Maps from "./Maps";
@@ -7,6 +7,7 @@ import Maps from "./Maps";
 function DetailsView(props) {
 	const { setIsDetailedView } = useContext(DetailedContext);
 	const { data } = useContext(DataContext);
+	const { userType } = useContext(UserTypeContext);
 	const [details, setDetails] = useState({
 		date: "",
 		time: "",
@@ -100,7 +101,7 @@ function DetailsView(props) {
 										</label>
 									</div>
 								</div>
-								<button className="text-sm italic border border-farahgreen-600 text-farahgreen-600 ml-8 px-3 py-1 mt-4 rounded-xl self-center"
+								<button className="submit-btn self-center"
 									disabled={
 										Object.values(details).includes("") || details.count === 0
 									}
@@ -161,9 +162,15 @@ function DetailsView(props) {
 						<div className="flex flex-col">
 							<hr className="border-t-2 w-full my-8" />
 
-								
+							{/*Google map for doctor in volunteering*/}
+							{(props.page === "volunteering") &&
+									 <div className="w-full rounded-md overflow-hidden p-4 pt-0 ">
+										<Maps 
+										isStaticMap={true} 
+										Location={data.tags.type==="Doctor"? "Hospital": "Teaching Post"} />
+									</div>}
 							{/*Information segment*/}
-							{props.page ==="organizations"?
+							{props.page ==="organizations" ?
 								<div className="flex flex-col items-center">
 									<div className="flex flex-row gap-x-16 mb-4">
 										<label className=""> <span className=" font-semibold">Email: </span>
@@ -182,7 +189,7 @@ function DetailsView(props) {
 								<div className="grid grid-cols-3 w-full">
 									{/*Tags column 1*/}
 
-									{!data.tags.isFulfilled && 
+									{/* {!data.tags.isFulfilled &&  */}
 										<div className="grid h-max grid-cols-2 gap-4 gap-y-4 col-span-2 grid-flow-row">
 										{Object.entries(data.tags).map(
 											([tag, value], index) =>
@@ -278,7 +285,8 @@ function DetailsView(props) {
 											</h2>
 										</div>
 										}
-									</div>}
+									</div>
+									{/* } */}
 
 									{props.page === "volunteering" && <div className="flex flex-col gap-4">
 											{data.num_students &&
@@ -321,7 +329,7 @@ function DetailsView(props) {
 									}
 									
 									{/*Progress bar*/}
-									{props.page === "donations" && <div className="flex flex-col items-center gap-2">
+									{props.page === "donations" || props.page === "organizationPosts" && <div className="flex flex-col items-center gap-2">
 										<h2 className="text-m font-semibold text-center leading-tight">Required amount<br/><span className="font-normal">{data.required_amount}</span></h2>
 										<div className="relative w-40 h-40">
 											<svg className="w-full h-full" viewBox="0 0 100 100">
@@ -413,26 +421,35 @@ function DetailsView(props) {
 							<div className="flex flex-col align-middle items-center gap-2">
 								{props.page === "donations" ? 
 									<button
-										className="text-sm italic border-2 border-farahorange-600 text-farahorange-600 px-4 py-1 rounded-xl font-semibold mt-4"
+										className="button2"
 										onClick={handleDonate}
 									>
 										Donate {">"}
 									</button>
 								: props.page === "volunteering" ?
 									<div className="flex gap-8">
-										<button
-											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 mt-4 rounded-xl font-semibold"
-											onClick={handleDonate}
-										>
-											Fulfill 
-										</button>
+										{(userType === "donor") || (data.tags.Category === "Teacher" && userType === "doctor" ) || (data.tags.Category === "Doctor" && userType === "teacher" )  ?	
+											<div className=" text-center m-4">
+												<p>Sorry, you must be a 
+													<span className=" font-semibold italic"> {data.tags.Category} </span>
+													to be eligible
+												</p>
+											</div>
+										:
+											<button
+												className="button2"
+												onClick={handleDonate}
+											>
+												Fulfill 
+											</button>
+										}
 									</div>
 								: props.page === "organizations"?
 									<div></div>
 								:
 									<div className="flex gap-8">
 										<button
-											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+											className="button2"
 											onClick={handleEdit}
 										>
 											Edit 

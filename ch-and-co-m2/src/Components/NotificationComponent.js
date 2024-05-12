@@ -11,6 +11,7 @@ function NotificationComponent(props) {
       id: 1,
       title: "Driver Arrived!",
       time: "8:08pm",
+      type: "donor",
       content:
         "Please meet the driver at the delivery location to give him your package.",
     },
@@ -18,9 +19,18 @@ function NotificationComponent(props) {
       id: 2,
       title: "Driver on His Way!",
       time: "6:49pm",
+      type: "donor",
       content:
         "The delivery driver is on his way to you right now. ETA: 8:02pm",
     },
+    {
+      id: 3,
+      title: "A Donation was Made!",
+      time: "10:00am",
+      type: "organization",
+      content:
+        "A donation was made for the donation post: Children Clothing",
+    }
   ]);
   const { userType, setUserType } = useContext(UserTypeContext);
 
@@ -46,6 +56,7 @@ function NotificationComponent(props) {
           {userType === "donor" && (
             <div className="grid space-y-5">
               {notifications.map((notification) => (
+                notification.type === "donor" && 
                 <div
                   key={notification.id}
                   className="grid grid-cols-1 bg-white shadow-md rounded-lg overflow-hidden h-full pl-5 pb-6 pt-4 relative"
@@ -72,6 +83,7 @@ function NotificationComponent(props) {
           {userType === "organization" && (
             <div className="grid gap-y-5">
               {notifications.map((notification) => (
+                notification.type === "organization" &&
                 <div
                   key={notification.id}
                   className="grid grid-cols-1 bg-white shadow-md rounded-lg overflow-hidden h-full pl-5 pb-6 pt-4 relative"
