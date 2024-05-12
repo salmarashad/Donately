@@ -34,7 +34,7 @@ function NavbarComponent({ page, setPage, isLoggedin, setIsLoggedin, edit, setEd
       <div className="flex max-w-7xl w-full items-center justify-between">
         {/* logo div */}
         <div className="w-[150px]">
-          <LogoSVG className="w-24" />
+          <LogoSVG className="w-24 cursor-pointer" onClick={() => setPage("home")}/>
         </div>
         {/* Donations, Volunteering, Organisations, also a flexbox */}
         {userType === "admin" ? (

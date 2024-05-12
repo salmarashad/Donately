@@ -17,13 +17,14 @@ import VerificationView from "./Views/VerificationView";
 import DoctorRequestsView from "./Views/DoctorRequestsView";
 import TeacherRequestsView from "./Views/TeacherRequestsView";
 import DonorsView from "./Views/DonorsView.js";
+import HomeView from "./Views/HomeView";
 
 const DetailedContext = createContext();
 const UserTypeContext = createContext();
 const DataContext = createContext();
 
 function App() {
-	const [page, setPage] = useState("donations");
+	const [page, setPage] = useState("home");
 	const [isLoggedin, setIsLoggedin] = useState(false);
 	const [isDetailedView, setIsDetailedView] = useState(false);
 	const [userType, setUserType] = useState("");
@@ -48,6 +49,7 @@ function App() {
 						)}
 						{/* rest of the body */}
 						<div className="bg-farahgray-100 h-max pb-8 pt-24 min-h-full">
+							{page === "home" 					&& <HomeView setPage={setPage} />}
 							{page === "donations" 				&& <PostsView page={page} />}
 							{page === "volunteering" 			&& <PostsView page={page} />}
 							{page === "organizationPosts" 		&& <PostsView page={page} setPage={setPage} />}
