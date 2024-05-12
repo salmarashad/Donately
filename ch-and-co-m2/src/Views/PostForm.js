@@ -383,7 +383,7 @@ function PostForm(props) {
 					{/* Donation Details Section*/}
 					{formData.Category !== "" && formData.isVolunteering === "false" && (
 						<div>
-							<hr className="border-t-2 my-4" />
+							<hr className="border-t-2 my-4 border-farahorange-200" />
 							<h2 className="text-lg font-semibold mb-2">Post Details</h2>
 
 							{/* Clothes Details */}
@@ -1269,7 +1269,7 @@ function PostForm(props) {
 					)}
 
 					{/* Submit Section*/}
-					<hr className="border-t-2 my-4" />
+					<hr className="border-t-2 my-4 border-farahorange-200" />
 					<div className="flex flex-col">
 						<div className="flex justify-center items-center gap-4">
 							{/* The world did not deserve you dear 

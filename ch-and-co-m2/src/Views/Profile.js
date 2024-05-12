@@ -120,7 +120,7 @@ function Profile(props) {
 						</div>
 						<hr className="border-t-2 w-full" />
 						<div className="flex flex-col gap-4 items-center">
-							<div className="bg-farahgreen-200 rounded-md text-center py-2 w-full text-farahgreen-700">
+							<div className="bg-farahorange-400 rounded-md text-center py-2 w-full text-white">
 								<h3>
 									You are registered as{" "}
 									{userType === "teacher"
