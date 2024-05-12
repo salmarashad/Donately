@@ -140,6 +140,11 @@ function DetailsView(props) {
 									{props.page !== "organizations" &&
 									<p className="text-sm text-farahgray-700">25/04/2024, 6:30pm</p>}
 									<p className="text-sm">{data.description}</p>
+									{props.page === "volunteering" && data.patient_details && <>
+										<p className="text-sm">
+											<span className="font-semibold">Case description:</span> {data.patient_details.case_description}
+										</p>
+									</>}
 								</div>
 							</div>
 
@@ -265,6 +270,47 @@ function DetailsView(props) {
 											</h2>
 										</div>
 										}
+										{data.hospital_address &&
+										<div>
+											<h2 className="text-m font-semibold">Hospital address</h2>
+											<h2 className="text-sm font-semibold text-farahgray-400">
+												{data.hospital_address}
+											</h2>
+										</div>
+										}
+									</div>}
+
+									{props.page === "volunteering" && <div className="flex flex-col gap-4">
+											{data.num_students &&
+											<div>
+												<h2 className="text-m font-semibold">Number of students</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.num_students}
+												</h2>
+											</div>
+											}
+											{data.address &&
+											<div>
+												<h2 className="text-m font-semibold">School address</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.address}
+												</h2>
+											</div>
+											}
+											{data.patient_details && <>
+											<div>
+												<h2 className="text-m font-semibold">Patient</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.patient_details.name} ({data.patient_details.gender.charAt(0)})
+												</h2>
+											</div>
+											<div>
+												<h2 className="text-m font-semibold">Details</h2>
+												<h2 className="text-sm font-semibold text-farahgray-400">
+													{data.patient_details.age} y/o, {data.patient_details.weight}KG
+												</h2>
+											</div>
+										</>}
 									</div>}
 									
 									{/*Google map for Org*/}
@@ -375,7 +421,7 @@ function DetailsView(props) {
 								: props.page === "volunteering" ?
 									<div className="flex gap-8">
 										<button
-											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 rounded-xl font-semibold"
+											className="text-sm italic border-2 border-farahgreen-600 text-farahgreen-600 px-4 py-1 mt-4 rounded-xl font-semibold"
 											onClick={handleDonate}
 										>
 											Fulfill 

@@ -1,4 +1,5 @@
 const volunteeringData = [
+    // Teachers ----------------------------------------------------------------------------------------------------------------------------
     {
         "title": "Math Tutor Needed for High School Students",
         "description": "Looking for an experienced math tutor to assist high school students with algebra and calculus. Must be patient and have excellent communication skills.",
@@ -455,6 +456,530 @@ const volunteeringData = [
         "num_students": 6,
         "address": "7879 HIJ Street, Zamalek, Cairo"
     },
+
+    // Doctors ----------------------------------------------------------------------------------------------------------------------------
+    {
+        "title": "Medical Doctor - Cardiologist Needed",
+        "description": "We are looking for a skilled cardiologist to join our medical team. The ideal candidate should have expertise in diagnosing and treating heart conditions.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Cardiology",
+            "Organization": "Egyptian Heart Institute",
+            "Area": "Dokki",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "John Smith",
+            "age": 55,
+            "gender": "Male",
+            "weight": 75,
+            "address": "123 Main Street, Dokki, Cairo",
+            "case_description": "Experiencing chest pain and shortness of breath"
+        },
+        "hospital_address": "456 Nile Avenue, Dokki, Cairo"
+    },
+    {
+        "title": "Pediatrician Required",
+        "description": "Seeking a compassionate pediatrician to provide healthcare services to infants, children, and adolescents. Must be skilled in pediatric diagnosis, treatment, and care.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Pediatrics",
+            "Organization": "Nile Hospital",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Emily Johnson",
+            "age": 8,
+            "gender": "Female",
+            "weight": 25,
+            "address": "789 Elm Street, Maadi, Cairo",
+            "case_description": "Fever and cough for the past three days"
+        },
+        "hospital_address": "101 Nile Road, Maadi, Cairo"
+    },
+    {
+        "title": "General Surgeon Needed",
+        "description": "Urgently hiring a general surgeon to perform surgical procedures and provide pre- and post-operative care. Must have excellent surgical skills and clinical judgment.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "General Surgery",
+            "Organization": "Al Salam International Hospital",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "David Brown",
+            "age": 40,
+            "gender": "Male",
+            "weight": 85,
+            "address": "456 Oak Street, Nasr City, Cairo",
+            "case_description": "Appendicitis requiring emergency surgery"
+        },
+        "hospital_address": "789 Salam Street, Nasr City, Cairo"
+    },
+    {
+        "title": "Family Medicine Physician Wanted",
+        "description": "Looking for a family medicine physician to provide comprehensive primary care services to individuals and families. Must be skilled in preventive medicine and chronic disease management.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Family Medicine",
+            "Organization": "Cairo Family Clinic",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Sarah Miller",
+            "age": 35,
+            "gender": "Female",
+            "weight": 60,
+            "address": "101 Pine Street, Zamalek, Cairo",
+            "case_description": "Routine check-up and management of hypertension"
+        },
+        "hospital_address": "123 Elm Road, Zamalek, Cairo"
+    },
+    {
+        "title": "Obstetrician-Gynecologist Required",
+        "description": "Seeking an obstetrician-gynecologist to provide women's healthcare services including prenatal care, labor and delivery, and gynecological procedures.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Obstetrics and Gynecology",
+            "Organization": "Nasr City Women's Hospital",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Anna Wilson",
+            "age": 28,
+            "gender": "Female",
+            "weight": 65,
+            "address": "789 Maple Avenue, Nasr City, Cairo",
+            "case_description": "Prenatal visit for second trimester ultrasound"
+        },
+        "hospital_address": "456 Cedar Street, Nasr City, Cairo"
+    },
+    {
+        "title": "Orthopedic Surgeon Needed",
+        "description": "Urgently hiring an orthopedic surgeon to diagnose and treat musculoskeletal injuries and conditions. Must have expertise in surgical and non-surgical orthopedic interventions.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Orthopedic Surgery",
+            "Organization": "Cairo Orthopedic Center",
+            "Area": "Mohandessin",
+            "Governorate": "Giza"
+        },
+        "patient_details": {
+            "name": "Michael Clark",
+            "age": 45,
+            "gender": "Male",
+            "weight": 80,
+            "address": "101 Walnut Street, Mohandessin, Giza",
+            "case_description": "Fractured ankle requiring surgical repair"
+        },
+        "hospital_address": "789 Oak Lane, Mohandessin, Giza"
+    },
+    {
+        "title": "Ophthalmologist Wanted",
+        "description": "Looking for an ophthalmologist to diagnose and treat eye diseases and perform eye surgeries. Must have experience with comprehensive eye exams and specialized testing.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Ophthalmology",
+            "Organization": "Egyptian Eye Institute",
+            "Area": "Heliopolis",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Jennifer White",
+            "age": 50,
+            "gender": "Female",
+            "weight": 70,
+            "address": "123 Chestnut Avenue, Heliopolis, Cairo",
+            "case_description": "Cataract evaluation and surgery"
+        },
+        "hospital_address": "456 Pine Street, Heliopolis, Cairo"
+    },
+    {
+        "title": "Dermatologist Required",
+        "description": "Seeking a dermatologist to diagnose and treat skin, hair, and nail disorders. Must have expertise in dermatological procedures and cosmetic dermatology.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Dermatology",
+            "Organization": "Cairo Skin Clinic",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Mark Taylor",
+            "age": 30,
+            "gender": "Male",
+            "weight": 75,
+            "address": "789 Maple Avenue, Zamalek, Cairo",
+            "case_description": "Acne treatment and skincare consultation"
+        },
+        "hospital_address": "101 Cedar Lane, Zamalek, Cairo"
+    },
+    {
+        "title": "Neurologist Needed",
+        "description": "Urgently hiring a neurologist to diagnose and treat disorders of the nervous system. Must have expertise in neurological examination, imaging, and diagnostic tests.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Neurology",
+            "Organization": "Nile Neurological Center",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Daniel Green",
+            "age": 60,
+            "gender": "Male",
+            "weight": 70,
+            "address": "456 Oak Street, Maadi, Cairo",
+            "case_description": "Evaluation for suspected neuropathy"
+        },
+        "hospital_address": "789 Pine Road, Maadi, Cairo"
+    },
+    {
+        "title": "Psychiatrist Wanted",
+        "description": "Looking for a psychiatrist to diagnose and treat mental illnesses and emotional disorders. Must have expertise in psychotherapy and psychopharmacology.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Psychiatry",
+            "Organization": "Cairo Psychiatry Clinic",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Emma Davis",
+            "age": 25,
+            "gender": "Female",
+            "weight": 55,
+            "address": "101 Elm Avenue, Nasr City, Cairo",
+            "case_description": "Depression and anxiety management"
+        },
+        "hospital_address": "123 Cedar Street, Nasr City, Cairo"
+    },
+    {
+        "title": "Radiologist Required",
+        "description": "Seeking a radiologist to interpret medical images and perform diagnostic imaging procedures. Must have expertise in X-ray, CT, MRI, and ultrasound.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Radiology",
+            "Organization": "Egyptian Diagnostic Imaging Center",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "James Wilson",
+            "age": 45,
+            "gender": "Male",
+            "weight": 80,
+            "address": "789 Pine Street, Zamalek, Cairo",
+            "case_description": "CT scan for abdominal pain evaluation"
+        },
+        "hospital_address": "101 Cedar Lane, Zamalek, Cairo"
+    },
+    {
+        "title": "Anesthesiologist Needed",
+        "description": "Urgently hiring an anesthesiologist to administer anesthesia and monitor patients during surgery. Must have expertise in pain management and critical care.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Anesthesiology",
+            "Organization": "Cairo Anesthesia Group",
+            "Area": "Heliopolis",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Linda Brown",
+            "age": 35,
+            "gender": "Female",
+            "weight": 65,
+            "address": "456 Oak Street, Heliopolis, Cairo",
+            "case_description": "Scheduled for knee arthroscopy"
+        },
+        "hospital_address": "789 Pine Road, Heliopolis, Cairo"
+    },
+    {
+        "title": "Urologist Wanted",
+        "description": "Looking for a urologist to diagnose and treat disorders of the urinary tract and male reproductive system. Must have expertise in urological surgery and minimally invasive procedures.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Urology",
+            "Organization": "Nile Urology Clinic",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Steven Johnson",
+            "age": 50,
+            "gender": "Male",
+            "weight": 75,
+            "address": "101 Elm Street, Maadi, Cairo",
+            "case_description": "Evaluation for urinary tract infection"
+        },
+        "hospital_address": "123 Cedar Road, Maadi, Cairo"
+    },
+    {
+        "title": "Emergency Medicine Physician Required",
+        "description": "Seeking an emergency medicine physician to provide urgent medical care in emergency departments. Must have expertise in trauma management and resuscitation.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Emergency Medicine",
+            "Organization": "Cairo Emergency Hospital",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Andrew Smith",
+            "age": 40,
+            "gender": "Male",
+            "weight": 80,
+            "address": "789 Pine Avenue, Nasr City, Cairo",
+            "case_description": "Motor vehicle accident with multiple injuries"
+        },
+        "hospital_address": "101 Oak Street, Nasr City, Cairo"
+    },
+    {
+        "title": "Endocrinologist Needed",
+        "description": "Urgently hiring an endocrinologist to diagnose and treat hormonal disorders and metabolic diseases. Must have expertise in endocrine testing and hormone therapy.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Endocrinology",
+            "Organization": "Egyptian Endocrine Clinic",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Michelle Garcia",
+            "age": 55,
+            "gender": "Female",
+            "weight": 65,
+            "address": "456 Pine Road, Zamalek, Cairo",
+            "case_description": "Diabetes management and thyroid disorder evaluation"
+        },
+        "hospital_address": "789 Cedar Lane, Zamalek, Cairo"
+    },
+    {
+        "title": "Hematologist-Oncologist Wanted",
+        "description": "Looking for a hematologist-oncologist to diagnose and treat blood disorders and cancer. Must have expertise in chemotherapy, immunotherapy, and hematological testing.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Oncology",
+            "Organization": "Nile Cancer Center",
+            "Area": "Mohandessin",
+            "Governorate": "Giza"
+        },
+        "patient_details": {
+            "name": "Robert Martinez",
+            "age": 60,
+            "gender": "Male",
+            "weight": 70,
+            "address": "101 Oak Avenue, Mohandessin, Giza",
+            "case_description": "Chemotherapy session for lymphoma"
+        },
+        "hospital_address": "123 Cedar Road, Mohandessin, Giza"
+    },
+    {
+        "title": "Pulmonologist Required",
+        "description": "Seeking a pulmonologist to diagnose and treat respiratory diseases and disorders. Must have expertise in pulmonary function testing and respiratory therapy.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Pulmonology",
+            "Organization": "Cairo Pulmonary Clinic",
+            "Area": "Heliopolis",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Maria Rodriguez",
+            "age": 50,
+            "gender": "Female",
+            "weight": 60,
+            "address": "789 Pine Street, Heliopolis, Cairo",
+            "case_description": "Chronic obstructive pulmonary disease (COPD) exacerbation"
+        },
+        "hospital_address": "101 Elm Road, Heliopolis, Cairo"
+    },
+    {
+        "title": "Rheumatologist Needed",
+        "description": "Urgently hiring a rheumatologist to diagnose and treat autoimmune and musculoskeletal disorders. Must have expertise in rheumatologic examination and joint injections.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Rheumatology",
+            "Organization": "Egyptian Rheumatology Center",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Daniel Harris",
+            "age": 45,
+            "gender": "Male",
+            "weight": 70,
+            "address": "456 Cedar Avenue, Maadi, Cairo",
+            "case_description": "Evaluation for rheumatoid arthritis"
+        },
+        "hospital_address": "789 Oak Lane, Maadi, Cairo"
+    },
+    {
+        "title": "Infectious Disease Specialist Wanted",
+        "description": "Looking for an infectious disease specialist to diagnose and treat infectious diseases and manage infection control. Must have expertise in epidemiology and antimicrobial therapy.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Infectious Diseases",
+            "Organization": "Nile Infectious Disease Clinic",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Susan Thompson",
+            "age": 40,
+            "gender": "Female",
+            "weight": 60,
+            "address": "101 Cedar Street, Zamalek, Cairo",
+            "case_description": "Fever and recent travel history"
+        },
+        "hospital_address": "123 Pine Road, Zamalek, Cairo"
+    },
+    {
+        "title": "Geriatrician Required",
+        "description": "Seeking a geriatrician to provide healthcare services to elderly patients. Must have expertise in geriatric assessment, dementia care, and palliative medicine.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Geriatrics",
+            "Organization": "Cairo Geriatric Clinic",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Patricia Anderson",
+            "age": 70,
+            "gender": "Female",
+            "weight": 65,
+            "address": "789 Oak Street, Nasr City, Cairo",
+            "case_description": "Evaluation for memory loss and cognitive decline"
+        },
+        "hospital_address": "101 Elm Lane, Nasr City, Cairo"
+    },
+    {
+        "title": "Neonatologist Needed",
+        "description": "Urgently hiring a neonatologist to provide medical care to newborn infants, especially those who are premature or ill. Must have expertise in neonatal intensive care.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Neonatology",
+            "Organization": "Nile Neonatal Center",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Laura Brown",
+            "age": 1,
+            "gender": "Female",
+            "weight": 3,
+            "address": "456 Pine Avenue, Zamalek, Cairo",
+            "case_description": "Preterm infant requiring specialized care"
+        },
+        "hospital_address": "789 Cedar Road, Zamalek, Cairo"
+    },
+    {
+        "title": "Nephrologist Wanted",
+        "description": "Looking for a nephrologist to diagnose and treat kidney diseases and disorders. Must have expertise in dialysis, kidney transplantation, and renal biopsy.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Nephrology",
+            "Organization": "Egyptian Nephrology Center",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Kevin Wilson",
+            "age": 60,
+            "gender": "Male",
+            "weight": 75,
+            "address": "101 Oak Street, Maadi, Cairo",
+            "case_description": "Chronic kidney disease management"
+        },
+        "hospital_address": "123 Elm Lane, Maadi, Cairo"
+    },
+    {
+        "title": "Pathologist Required",
+        "description": "Seeking a pathologist to diagnose diseases by examining tissues, cells, and body fluids. Must have expertise in histopathology, cytopathology, and molecular pathology.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Pathology",
+            "Organization": "Cairo Pathology Laboratory",
+            "Area": "Nasr City",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Christopher Martin",
+            "age": 50,
+            "gender": "Male",
+            "weight": 80,
+            "address": "789 Cedar Street, Nasr City, Cairo",
+            "case_description": "Biopsy for suspected malignancy"
+        },
+        "hospital_address": "101 Pine Road, Nasr City, Cairo"
+    },
+    {
+        "title": "Plastic Surgeon Needed",
+        "description": "Urgently hiring a plastic surgeon to perform cosmetic and reconstructive surgeries. Must have expertise in aesthetic surgery, microsurgery, and tissue grafting.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Plastic Surgery",
+            "Organization": "Nile Plastic Surgery Clinic",
+            "Area": "Zamalek",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "Jessica Taylor",
+            "age": 35,
+            "gender": "Female",
+            "weight": 60,
+            "address": "456 Pine Avenue, Zamalek, Cairo",
+            "case_description": "Breast augmentation surgery"
+        },
+        "hospital_address": "789 Cedar Road, Zamalek, Cairo"
+    },
+    {
+        "title": "Radiation Oncologist Wanted",
+        "description": "Looking for a radiation oncologist to treat cancer patients with radiation therapy. Must have expertise in radiation treatment planning and delivery.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Oncology",
+            "Organization": "Egyptian Cancer Institute",
+            "Area": "Maadi",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "John Davis",
+            "age": 55,
+            "gender": "Male",
+            "weight": 70,
+            "address": "101 Elm Street, Maadi, Cairo",
+            "case_description": "Radiotherapy for prostate cancer"
+        },
+        "hospital_address": "123 Oak Lane, Maadi, Cairo"
+    },
+
+
+    {
+        "title": "Thoracic Surgeon Needed",
+        "description": "Urgently hiring a thoracic surgeon to perform surgeries on organs within the chest cavity, including the heart, lungs, and esophagus. Must have expertise in thoracic surgical procedures.",
+        "tags": {
+            "Category": "Doctor",
+            "Specialty": "Thoracic Surgery",
+            "Organization": "Nile Thoracic Surgery Center",
+            "Area": "Heliopolis",
+            "Governorate": "Cairo"
+        },
+        "patient_details": {
+            "name": "William Anderson",
+            "age": 60,
+            "gender": "Male",
+            "weight": 75,
+            "address": "789 Pine Street, Heliopolis, Cairo",
+            "case_description": "Lung cancer surgery"
+        },
+        "hospital_address": "101 Cedar Road, Heliopolis, Cairo"
+    }
 ];
 
 export default volunteeringData;

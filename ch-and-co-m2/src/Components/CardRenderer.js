@@ -23,6 +23,9 @@ function CardRenderer({type, currentCardSet, setCurrentCardSet})  {
                 use={card.use}
                 patient_name={card.patient_name}
                 blood_type={card.blood_type}
+                num_students={card.num_students}
+                address={card.address}
+                patient_details={card.patient_details}
             />
         );
     });
