@@ -1,23 +1,4 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -43,6 +24,21 @@ The application revolves around a donation feed offered to donors, which they sc
 * [![React][React.js]][React-url]
 * [![Tailwind][TailwindCSS]][Tailwind-url]
 
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/ZiadElGendy/Donately.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start server
+   ```sh
+   npm start
+   ```
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 ![image](https://github.com/ZiadElGendy/CH-and-CO/assets/108495973/c73d8b7b-6b4c-48e3-82a2-4cb814fc2101)
@@ -61,3 +57,5 @@ The application revolves around a donation feed offered to donors, which they sc
 [React-url]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [TailwindCSS]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
 [Tailwind-url]: https://tailwindcss.com/
+
+<!-- Credit to Othneil Drew for the template: https://github.com/othneildrew/Best-README-Template -->
