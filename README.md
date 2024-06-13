@@ -45,8 +45,28 @@ The application revolves around a donation feed offered to donors, which they sc
 ![image](https://github.com/ZiadElGendy/CH-and-CO/assets/108495973/3b7f6dac-531c-46a8-bd1c-b0090b01fe02)
 ![image](https://github.com/ZiadElGendy/CH-and-CO/assets/108495973/3aa7d5b3-e27e-43b8-a71b-ba7181fb4ca1)
 
+### Login Credentials
+ ```sh
+   Donor Account
+   Email: donor@gmail.com
+   Password: donor
 
+   Teacher Account 
+   Email: teacher@gmail.com
+   Password: teacher
 
+   Doctor Account 
+   Email: doctor@gmail.com
+   Password: doctor
+
+   Organization Representative Account
+   Email: organization@gmail.com
+   Password: organization
+
+   Admin Account
+   Email: admin@gmail.com
+   Password: admin
+   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
