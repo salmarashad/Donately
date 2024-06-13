@@ -41,7 +41,7 @@ export default function Maps(props){
   return (
     <div className="h-[200px] w-full relative">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyD59YY6PcR25dpkpXmyJ-0y_cCkUJYWamI" }}
+        bootstrapURLKeys={{ key: "GOOGLEMAPSKEY" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         onBoundsChange={onBoundsChange}
