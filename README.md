@@ -38,6 +38,10 @@ The application revolves around a donation feed offered to donors, which they sc
    ```sh
    npm start
    ```
+4. Add Google Maps API Key to src/Components/Maps.js Line 44
+   ```js
+   bootstrapURLKeys={{ key: "GOOGLEMAPSKEY" }}
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
