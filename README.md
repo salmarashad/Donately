@@ -73,6 +73,16 @@ The application revolves around a donation feed offered to donors, which they sc
    ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Contributors 
+- Farah Ahmed
+- Omar Yasser
+- Salma Rashad
+- Jana Elowainy
+- Yara Tantawy
+- Ziad Elgendy
+
+
+
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
